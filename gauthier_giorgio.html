@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/UI_effects.js"></script>
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
 </head>
 
@@ -22,7 +24,6 @@
     <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 1</a>
     <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 2</a>
     <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 4</a>
     <div class="w3-bar-item w3-button w3-mobile w3-hover-teal w3-dropdown-hover w3-right" style="padding: 0;">
         <div class="w3-padding">
             <img src="img/user.png" alt="" id="user_icon" class="w3-circle w3-white" />
@@ -39,13 +40,161 @@
     <div class="w3-clear"></div>
 </nav>
 
-<div class="w3-container">
-    <h1>Example</h1>
-    <p>This domain is established to be used for illustrative examples in documents. You may use this
-    domain in examples without prior coordination or asking for permission.</p>
-</div>
 
-<footer class="w3-container w3-black w3-small w3-padding">
+<section class="w3-sidebar w3-bar-block w3-animate-left" id="closed_sidebar">
+    <button class="w3-button w3-block w3-right-align w3-large" onclick="closeSidebar('closed_sidebar', 'overlay')">Close &times;</button>
+    <div class="w3-container w3-large">
+        <p><strong>Search filters</strong></p>
+        <div>Filter 1</div>
+        <div>Filter 2</div>
+        <div>Filter 3</div>
+        <div>Filter 4</div>
+        <div>Filter 5</div>
+        <p>
+            <button class="w3-button w3-ripple w3-block w3-round w3-pale-red w3-hover-red">Reset</button>
+            <button class="w3-button w3-ripple w3-block w3-round w3-pale-green w3-hover-green w3-margin-top">Set filters</button>
+        </p>
+    </div>
+</section>
+
+<div class="w3-overlay w3-animate-opacity" onclick="closeSidebar('closed_sidebar', 'overlay')" id="overlay"></div>
+
+<section id="page">
+    <h1 class="w3-container w3-xxlarge">
+        <div class="w3-center">
+            <span class="w3-button w3-mobile w3-left" onclick="openSidebar('closed_sidebar', 'overlay')">&#9776;</span>
+            Search results
+        </div>
+    </h1>
+    <div id="search_results" class="w3-animate-zoom">
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-hover-teal search_result">
+                    <img src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="w3-container w3-black w3-small w3-padding w3-bottom">
     This is the footer!
 </footer>
 </body>

@@ -1,3 +1,4 @@
+/* TEMPLATE ELEMENTS */
 #navigation {
     line-height: 38px !important;
 }
@@ -6,4 +7,40 @@
     width: 34px;
     height: 34px;
     margin-right: 8px;
+}
+
+#page {
+    margin-bottom: 72px;  /* should be the same as: footer height + 2*padding*/
+}
+
+footer {
+    padding: 16px;
+    height: 40px;
+}
+
+
+
+/* RECURRENT ELEMENTS */
+#closed_sidebar {
+    display: none;
+    z-index: 5;
+}
+
+#overlay {
+    cursor: pointer;
+}
+
+
+
+/* RESEARCHES */
+.search_result {
+    cursor: pointer;
+}
+
+.search_result img {
+    opacity: 0.6;
+}
+
+.search_result:hover img{
+    opacity: 1;
 }
