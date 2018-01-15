@@ -18,6 +18,16 @@ footer {
     height: 40px;
 }
 
+header {
+    text-align: center;
+}
+
+@media (min-width: 601px) {
+    header {
+        text-align: left;
+    }
+}
+
 
 
 /* RECURRENT ELEMENTS */
