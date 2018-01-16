@@ -7,11 +7,15 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- LIBRARIES-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
+    <script src="./js/src/vue.js"></script>
 
+    <!-- NOTE: update the rest to be compliant -->
     <script src="js/UI_effects.js"></script>
+    <script src="js/myTrack.js"></script>
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
 </head>
 
@@ -41,6 +45,7 @@
 </nav>
 
 
+<!-- NOTE: possible to remove -->
 <section class="w3-sidebar w3-bar-block w3-animate-left" id="closed_sidebar">
     <button class="w3-button w3-block w3-right-align w3-large" onclick="closeSidebar('closed_sidebar', 'overlay')">Close &times;</button>
     <div class="w3-container w3-large">
@@ -57,16 +62,93 @@
     </div>
 </section>
 
+<!-- MAIN CONTAINER -->
+<main id="main-page" class="w3-padding w3-cell-row">
+    <!-- LIST OF TRACKED PRODUCTS -->
+    <aside class="w3-quarter" style="width:15%">
+        This contains the list of products    
+        <div>
+            <!-- product -->
+            <div class="w3-card w3-container w3-hover-teal search_result">
+                <img src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
+                </div>
+            </div>
+            <!-- product -->
+            <div class="w3-card w3-container w3-hover-teal search_result">
+                <img src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
+                </div>
+            </div>
+            <!-- product -->
+            <div class="w3-card w3-container w3-hover-teal search_result">
+                <img src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
+    <div class="w3-padding w3-rest">
+        <!-- TRACKED PRODUCT DETAIL -->
+        <!-- NOTE: style id for debug purpose only -->
+        <div class="w3-cell" style="height: 300px">
+
+            <!-- DETAILS -->
+            <div class="w3-cell" style="height: 300px">
+                <h2>{{ product_focus_title }}</h2>
+                <p>{{ product_focus_info }}</p>
+            </div>
+
+
+            <!-- GRAPH -->
+            <div>
+                <img height="300px" width="600px" src="./img/sample_images/sample_image_graph.jpg">
+            </div>
+            
+
+            <!-- SIMILAR PRODUCTS -->
+            <div class="w3-cell-row">
+                <!-- products -->
+                <div class="w3-cell w3-card w3-hover-teal search_result">
+                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+                <div class="w3-cell w3-card w3-hover-teal search_result">
+                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+                <div class="w3-cell w3-card w3-hover-teal search_result">
+                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+                <div class="w3-cell w3-card w3-hover-teal search_result">
+                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                    <div class="w3-container">
+                        <p>Nice product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</main>
+
+
 <div class="w3-overlay w3-animate-opacity" onclick="closeSidebar('closed_sidebar', 'overlay')" id="overlay"></div>
 
-<section id="page">
-    <h1 class="w3-container">Example</h1>
-    <p class="w3-container">This domain is established to be used for illustrative examples in documents. You may use this
-        domain in examples without prior coordination or asking for permission.</p>
-</section>
 
-
-<footer class="w3-container w3-black w3-small w3-padding w3-bottom">
+<footer class="w3-container w3-black w3-small w3-padding">
     This is the footer!
 </footer>
 </body>

@@ -11,7 +11,7 @@ function openSidebar(sidebarId, overlayId) {
 }
 
 function showDropdown(dropdownContentId) {
-	let elem = document.getElementById(dropdownContentId)
+    const elem = document.getElementById(dropdownContentId)
 	if (elem.classList.contains("w3-show"))
         elem.classList.remove("w3-show");
     else 
