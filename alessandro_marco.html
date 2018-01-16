@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- VUE AND D3 (think considering the mini version)-->
-    <script src="./js/src/vue.js"></script>
-    <script src="js/src/d3.js"></script>
+    <script src="js/src/vue.js"></script>
+    <script src="js/src/plotly-latest.min.js"></script>
 
 
     <!-- NOTE: update the rest to be compliant -->
@@ -102,15 +101,16 @@
         <div class="w3-cell" style="height: 300px">
 
             <!-- DETAILS -->
-            <div class="w3-cell" style="height: 300px">
-                <h2>{{ product_focus_title }}</h2>
-                <p>{{ product_focus_info }}</p>
+            <div class="w3-cell-row" style="height: 300px">
+                <h2>{{ productFocusTitle }}</h2>
+                <p>{{ productFocusInfo }}</p>
             </div>
 
 
             <!-- GRAPH -->
-            <div>
-                <img height="300px" width="600px" src="./img/sample_images/sample_image_graph.jpg">
+            <div class="w3-cell-row" style="margin-bottom: 24px">
+                <h2>{{ graphTitle }}</h2>
+                <div id="graph" style="right: 0"></div>
             </div>
             
 
