@@ -19,11 +19,21 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- NOTE: update the rest to be compliant -->
-    <script src="js/scripts/myTrack.js"></script>
+    <!--
+        Probably do not need this here
+        <script src="js/scripts/myTrack.js"></script>
+    --->
     <script src="js/scripts/UI_effects.js"></script>
 
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
+
+    <!-- VUE: components in nesting orders, css first -->
+    <link rel="stylesheet" href="css/vue.css">
+    <script src="Vue/card.js"></script>
+    <script src="Vue/product-list.js"></script>
+    <script src="Vue/vue-main.js"></script>
+
 </head>
 
 <body>
@@ -79,130 +89,11 @@
             Search results
         </div>
     </h1>
-    <div id="search_results" class="w3-animate-zoom">
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter">
-                <div class="w3-card w3-hover-teal search_result">
-                    <img src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- The product list -->
+    <div id="product-list" class="w3-animate-zoom">
+        <product-list ref="ref_product_list">
+        </product-list>
     </div>
 </section>
 

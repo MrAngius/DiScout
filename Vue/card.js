@@ -3,11 +3,12 @@ Vue.component('card', {
     <div class="vue-card-main-container w3-row-padding w3-margin-top">
         <div class="vue-card-top-container">
             <div class="vue-card-image-box">
-                <img class='vue-card-product-image' :src="img_src">
+                <img v-if="img_src" class='vue-card-product-image' :src="img_src">
+                <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
             </div>
             <div class="vue-card-product-summary">
                 <div v-if="price">
-                    <span v-text="price">$</span>
+                    <span v-text="price + '$'"></span>
                 </div>
                 <div v-if="trend">
                     <span v-text="trend"></span>

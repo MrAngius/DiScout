@@ -1,10 +1,12 @@
 .vue-card-main-container{
     float:left;
-    width: 350px;
-    height: 300px;
+    max-width: 350px;
+    max-height: 300px;
 }
 .vue-card-top-container {
+    position: relative;
     height: 80%;
+    width: 100%;
 }
 
 .vue-card-image-box{

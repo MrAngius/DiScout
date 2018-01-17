@@ -22,22 +22,22 @@ Vue.component('product-list', {
                 {
                     title: 'Product 1',
                     price: 14,
-                    img_src: "https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg"
+                    img_src: "img/search_result.jpg"
                 },
                 {
                     title: 'Product 2',
                     price: 34,
-                    img_src: "https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg"
+                    img_src: "img/search_result.jpg"
                 },
                 {
                     title: 'Product 3',
                     price: 65,
-                    img_src: "https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg"
+                    img_src: "img/search_result.jpg"
                 },
                 {
                     title: 'Product 4',
                     price: 12,
-                    img_src: "https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg"
+                    img_src: "img/search_result.jpg"
                 }
             ]
         }
