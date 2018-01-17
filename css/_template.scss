@@ -1,0 +1,80 @@
+/* TEMPLATE elements, present in every page */
+
+$user_icon_size: 34px;  /* this is the profile pic of logged users */
+$footer_height: 40px;
+$footer_padding: 16px;
+
+#navigation {
+    @extend .w3-black;
+    @extend .w3-bar;
+    line-height: 38px !important;
+
+    a {
+        @extend .w3-bar-item;
+        @extend .w3-button;
+        @extend .w3-mobile;
+        @extend .w3-hover-teal;
+    }
+
+    #user-button {
+        @extend .w3-bar-item;
+        @extend .w3-button;
+        @extend .w3-mobile;
+        @extend .w3-hover-teal;
+        @extend .w3-dropdown-click;
+        @extend .w3-right;
+        padding: 0;
+
+        #userDropdown {
+            @extend .w3-dropdown-content;
+            @extend .w3-bar-block;
+            @extend .w3-card-4;
+            min-width: 100%;
+
+            a {
+                @extend .w3-bar-item;
+                @extend .w3-button;
+                @extend .w3-border-bottom;
+            }
+        }
+    }
+    
+}
+
+#user_icon {
+    @extend .w3-white;
+    @extend .w3-circle;
+    width: $user_icon_size;
+    height: $user_icon_size;
+    margin-right: 8px;
+}
+
+#page {
+    margin-bottom: $footer_height + 2*$footer_padding;
+}
+
+footer {
+    padding: $footer_padding;
+    height: $footer_height;
+}
+
+header {
+    text-align: center;
+}
+
+@media (min-width: 601px) {
+    header {
+        text-align: left;
+    }
+}
+
+
+
+#closed_sidebar {
+    display: none;
+    z-index: 5;
+}
+
+#overlay {
+    cursor: pointer;
+}

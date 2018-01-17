@@ -1,0 +1,13 @@
+/* Elements present in pages where the user does PRODUCTS RESEARCHES */
+
+.search_result {
+    cursor: pointer;
+}
+
+.search_result img {
+    opacity: 0.6;
+}
+
+.search_result:hover img{
+    opacity: 1;
+}
