@@ -42,4 +42,4 @@ Vue.component('product-list', {
             ]
         }
     }
-})
+});
