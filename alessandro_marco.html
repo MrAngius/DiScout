@@ -78,7 +78,9 @@
 </section>
 
 <!-- MAIN CONTAINER -->
-<main id="main-page" class="w3-padding w3-cell-row">
+<main class="w3-padding w3-cell-row">
+
+
     <!-- LIST OF TRACKED PRODUCTS -->
     <aside class="w3-quarter" style="width:15%">
         This contains the list of products    
@@ -86,35 +88,40 @@
             <product-list ref="ref_product_list"></product-list>
         </div>
     </aside>
+
+
+
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-    <div class="w3-padding w3-rest">
+    <div id="main-page" class="w3-padding w3-rest">
+
         <!-- TRACKED PRODUCT DETAIL -->
-        <!-- NOTE: style id for debug purpose only -->
-        <div class="w3-cell" style="height: 300px">
+        <!-- NOTE: style for debug purpose only -->
+        <div class="w3-cell" ondrop="drop(event)" ondragover="allowDrop(event)">
 
             <!-- DETAILS -->
             <div class="w3-row" style="height: 300px">
                 <h2>{{ productFocusTitle }}</h2>
                 <p>{{ productFocusInfo }}</p>
                 <div class="w3-quarter" >
-                    <img style="height: 200px; width: 200px" :src="productImageSrc">
+                    <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
                 </div>
                 <div class="w3-rest">
+                    <!-- product table details -->
                     <table class="w3-table w3-bordered ">
                         <tr>
-                            <td>Price: {{ productPrice }}€</td>
-                            <td>Lower Price: {{ productPriceLower }}€</td>
+                            <td>Price: {{ productFocusPrice }}€</td>
+                            <td>Lower Price: {{ productFocusPriceLower }}€</td>
                         </tr>
                         <tr>
-                            <td>Rating: {{ productRating }}</td>
-                            <td>Price Trend: {{ productPriceTrend }}%</td>
+                            <td>Rating: {{ productFocusRating }}</td>
+                            <td>Price Trend: {{ productFocusPriceTrend }}%</td>
                         </tr>
                         <tr>
-                            <td>Vendor: {{ productVendor }}</td>
-                            <td>Category: {{ productCategory }}</td>
+                            <td>Vendor: {{ productFocusVendor }}</td>
+                            <td>Category: {{ productFocusCategory }}</td>
                         </tr>
                         <tr>
-                            <td> <a :src = "productLink">Link</a></td>
+                            <td> <a :href = "productFocusLink">Link</a></td>
                         </tr>
                     </table>
                 </div>
@@ -124,38 +131,38 @@
 
             <!-- GRAPH -->
             <div class="" style="margin-bottom: 24px">
-                <h2>{{ graphTitle }}</h2>
+                <h2>Price Trend</h2>
                 <div id="graph" style="right: 0"></div>
             </div>
-            
 
-            <!-- SIMILAR PRODUCTS -->
-            <div class="">
-                <!-- products -->
-                <h2>Similar Products</h2>
-                <div class="w3-cell w3-card w3-hover-teal search_result">
-                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
+        </div>
+
+        <!-- SIMILAR PRODUCTS -->
+        <div>
+            <!-- products -->
+            <h2>Similar Products</h2>
+            <div class="w3-cell w3-card w3-hover-teal search_result">
+                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
                 </div>
-                <div class="w3-cell w3-card w3-hover-teal search_result">
-                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
+            </div>
+            <div class="w3-cell w3-card w3-hover-teal search_result">
+                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
                 </div>
-                <div class="w3-cell w3-card w3-hover-teal search_result">
-                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
+            </div>
+            <div class="w3-cell w3-card w3-hover-teal search_result">
+                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
                 </div>
-                <div class="w3-cell w3-card w3-hover-teal search_result">
-                    <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                    <div class="w3-container">
-                        <p>Nice product</p>
-                    </div>
+            </div>
+            <div class="w3-cell w3-card w3-hover-teal search_result">
+                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                <div class="w3-container">
+                    <p>Nice product</p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 Vue.component('card', {
     template: `
-    <div class="vue-card-main-container">
+    <div :id="'product' + id" draggable="true" ondragstart="drag(event)" class="vue-card-main-container">
         <div class="vue-card-top-container">
             <div class="vue-card-image-box">
                 <img v-if="img_src" class='vue-card-product-image' :src="img_src">
@@ -28,11 +28,31 @@ Vue.component('card', {
         return {}
     },
     props: {
+        id: {
+            type: Number,
+            required: false
+        },
         title: {
             type: String,
             required: true
         },
+        description: {
+            type: String,
+            required: false
+        },
+        product_category: {
+            type: String,
+            required: false
+        },
+        product_vendor: {
+            type: String,
+            required: false
+        },
         img_src: {
+            type: String,
+            required: false
+        },
+        product_link: {
             type: String,
             required: false
         },
@@ -43,6 +63,19 @@ Vue.component('card', {
         trend: {
             type: Number,
             required: false
-        }
+        },
+        rating: {
+            type: Number,
+            required: false
+        },
+        id_similar_p: {
+            type: Array,
+            required: false
+        },
+        lowest_price: {
+            type: Number,
+            required: false
+        },
+
     }
 });

@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
     let vue_one = new Vue({
         el: '#product-list',
-    })
+    });
 
 
     /* This is to test the possibility of changing dynamically the content of the list

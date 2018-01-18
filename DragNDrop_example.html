@@ -19,7 +19,9 @@
         }
 
         function drag(ev) {
-            // L'attributo dataTransfer è quello che contiene le informazioni in viaggio. In questo caso stiamo spostando del testo: nel dettaglio, l'ID dell'elemento che stiamo spostando (target dell'evento drag)
+            // L'attributo dataTransfer è quello che contiene le informazioni in viaggio.
+            // In questo caso stiamo spostando del testo: nel dettaglio, l
+            // 'ID dell'elemento che stiamo spostando (target dell'evento drag)
             ev.dataTransfer.setData("text", ev.target.id);
         }
 
