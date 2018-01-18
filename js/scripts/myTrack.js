@@ -20,7 +20,7 @@ window.addEventListener('load', function (ev) {
         }
     });
 
-    
+
     //######## GRAPH ##########
 
     const graph = document.getElementById("graph");
