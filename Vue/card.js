@@ -19,6 +19,7 @@ Vue.component('card', {
                     <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
                 </div>
                 <div class="vue-card-summary-box">
+                    <!-- Add here other product useful information... -->
                     <div v-if="price" v-text="price + '$'"></div>
                     <div v-if="trend" v-text="trend"></div>
                 </div>
