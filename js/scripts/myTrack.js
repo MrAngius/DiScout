@@ -1,4 +1,7 @@
 // use the addEvent listener to wait the load of the page before use JS
+
+let graph;
+
 window.addEventListener('load', function (ev) {
 
     // handle the page using vue
@@ -23,15 +26,17 @@ window.addEventListener('load', function (ev) {
 
     //######## GRAPH ##########
 
-    const graph = document.getElementById("graph");
+    graph = document.getElementById("graph");
 
     Plotly.d3.csv("./data/finance-charts-apple.csv", function(err, rows){
 
+
+        // used to split the row and get the desired values
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
         }
 
-        const trace1 = {
+        let trace1 = {
             type: "scatter",
             mode: "lines",
             x: unpack(rows, 'Date'),
@@ -47,8 +52,7 @@ window.addEventListener('load', function (ev) {
             line: {color: '#7F7F7F'}
         };
 
-
-        let data = [trace1,trace2];
+        let data = [trace1, trace2];
 
         let layout = {
             title: 'Basic Time Series',
@@ -68,13 +72,15 @@ window.addEventListener('load', function (ev) {
 });
 
 
+
+// NOTE: consider this as the basic reference of an object
 const fakeObject = {
     id: 1,
     title: "La piu bella Cosa",
     description: "Booooooooooooo",
     product_category: "Home, Plubelle",
     product_vendor: "Amazino",
-    img_src: "",
+    img_src: "./img/sample_images/laplusbelle.jpg",
     product_link: "",
     price: 10000,
     trend: 50,
@@ -82,6 +88,29 @@ const fakeObject = {
     id_similar_p: [5, 3, 2],
     lowest_price: 9999,
 };
+
+
+function updateGraph(fileID) {
+
+    Plotly.d3.csv("./data/finance-charts-apple.csv", function (err, rows) {
+
+        function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+        }
+
+        let trace_add= {
+            type: "scatter",
+            mode: "lines",
+            x: unpack(rows, 'Date'),
+            y: unpack(rows, 'AAPL.Close'),
+            line: {color: '#68ac56'}
+        };
+
+        Plotly.addTraces(graph, trace_add)
+
+    })
+}
+
 
 
 //######## DRAG AND DROP ########
@@ -98,10 +127,11 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     // retrieve the information
-    let data = ev.dataTransfer.getData("text");
+    let data = ev.dataTransfer.getData("id");
 
     // call a function for updating the values
     updateValues(data);
+    updateGraph(data);
 }
 
 function updateValues(data) {
@@ -118,4 +148,6 @@ function updateValues(data) {
     vueInstance1.$data.productFocusCategory = fakeObject.product_category;
     vueInstance1.$data.productFocusLink = fakeObject.product_link;
     vueInstance1.$data.productFocusImageSrc = fakeObject.img_src;
+
+    alert(data.toString())
 }
