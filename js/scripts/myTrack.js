@@ -17,24 +17,34 @@ window.addEventListener('load', function (ev) {
 
     const graph = document.getElementById("graph");
 
+    Plotly.d3.csv("./data/finance-charts-apple.csv", function(err, rows){
 
-    Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/wind_speed_laurel_nebraska.csv', function(rows){
-        var trace = {
-            type: 'scatter',                    // set the chart type
-            mode: 'lines',                      // connect points with lines
-            x: rows.map(function(row){          // set the x-data
-                return row['Time'];
-            }),
-            y: rows.map(function(row){          // set the x-data
-                return row['10 Min Sampled Avg'];
-            }),
-            line: {                             // set the width of the line.
-                width: 1
-            }
+        function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+        }
+
+        const trace1 = {
+            type: "scatter",
+            mode: "lines",
+            x: unpack(rows, 'Date'),
+            y: unpack(rows, 'AAPL.High'),
+            line: {color: '#17BECF'}
         };
 
-        var layout = {
-            yaxis: {title: "Wind Speed"},       // set the y axis title
+        const trace2 = {
+            type: "scatter",
+            mode: "lines",
+            x: unpack(rows, 'Date'),
+            y: unpack(rows, 'AAPL.Low'),
+            line: {color: '#7F7F7F'}
+        };
+
+
+        let data = [trace1,trace2];
+
+        let layout = {
+            title: 'Basic Time Series',
+            yaxis: {title: "Temperatures"},       // set the y axis title
             xaxis: {
                 showgrid: false,                  // remove the x-axis grid lines
                 tickformat: "%B, %Y"              // customize the date format to "month, day"
@@ -45,9 +55,8 @@ window.addEventListener('load', function (ev) {
             }
         };
 
-        Plotly.plot(graph, [trace], layout, {showLink: false});
-    });
-
+        Plotly.newPlot(graph, data, layout);
+    })
 
 });
 

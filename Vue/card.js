@@ -44,6 +44,5 @@ Vue.component('card', {
             type: Number,
             required: false
         }
-
     }
 });
