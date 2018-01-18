@@ -36,8 +36,6 @@ $product-image-max-height: 220px;
     }
 }
 
-
-
 // the product itself
 .vue-card-product {
     @extend .w3-round-large;
@@ -85,4 +83,36 @@ $product-image-max-height: 220px;
     @extend .w3-button;
     @extend .w3-ripple;
     @extend .w3-block;
+}
+
+
+/* FILTERS sidebar */
+#filtersSidebar {
+    @extend .w3-container;
+    @extend .w3-pale-green;
+    @extend .w3-card;
+    display: block;
+    left: -266px;
+    width: 294px;
+    padding-right: 44px;
+    position: absolute;
+    z-index: 901;
+
+    transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+
+    #filtersSidebarButton {
+        @extend .w3-button;
+        @extend .w3-large;
+        @extend .w3-hide-small;
+        @extend .w3-teal;
+        @extend .w3-card;
+        left: 266px;
+        position: absolute;
+    }
+
+    header {
+        @extend .w3-center;
+    }
 }

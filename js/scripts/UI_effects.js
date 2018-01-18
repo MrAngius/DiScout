@@ -1,15 +1,38 @@
 /* UI effects, to make elements appear and disappear */
 
-function closeSidebar(sidebarId, overlayId) {
-    document.getElementById(sidebarId).style.display = 'none';
-    document.getElementById(overlayId).style.display = 'none';
+/* SIDEBARS */
+function openCloseSidebar(sidebarId, overlayId) {
+    const sideBar = document.getElementById(sidebarId);
+    const overlay = document.getElementById(overlayId);
+    const isOpen = sideBar.getAttribute('data-open');
+    // Control if the sidebar is already open
+    if(isOpen=="true") {
+        // Close the sidebar
+        closeSidebar(sideBar, overlay);
+    }
+    else {
+        // open the sidebar
+        openSidebar(sideBar, overlay);
+    }
 }
 
-function openSidebar(sidebarId, overlayId) {
-    document.getElementById(sidebarId).style.display = 'block';
-    document.getElementById(overlayId).style.display = 'block';
+function closeSidebar(sidebarElem, overlayElem) {
+    // hide the sidebar
+    sidebarElem.style.left = "-266px";
+    sidebarElem.setAttribute('data-open', "false")
+    // hide the overlay
+    overlayElem.style.display = 'none';
 }
 
+function openSidebar(sidebarElem, overlayElem) {
+    //show the sidebar
+    sidebarElem.style.left = "0";
+    sidebarElem.setAttribute('data-open', "true")
+    //show the overlay
+    overlayElem.style.display = 'block';
+}
+
+/* DROPDOWNS */
 function showDropdown(dropdownContentId) {
     const elem = document.getElementById(dropdownContentId)
 	if (elem.classList.contains("w3-show"))
