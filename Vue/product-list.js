@@ -3,7 +3,7 @@ Vue.component('product-list', {
     <!-- TODO: verify the utility of the app id -->
     <div id="app" >
       <div v-for="card in cards">
-        <card :id="card.id" :title="card.title" :price="card.price" :img_src="card.img_src"></card>
+        <card :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
       </div>
     </div>
 
@@ -11,17 +11,17 @@ Vue.component('product-list', {
     name: 'App',
     // NOTE: this function is used to add additional data
     methods: {
-        addProduct: function (id, title, price, rating, trend, vendor, low_price, link, img_src) {
+        addProduct: function (id, name, price, rating, trend, vendor, low_price, link, img_source) {
             let p={
                 id: id,
-                title: title,
+                name: name,
                 price: price,
                 rating: rating,
                 trend: trend,
                 vendor: vendor,
                 low_price: low_price,
                 link: link,
-                img_src: img_src
+                img_sorce: img_source
             };
             this.cards.push(p)
         }
@@ -34,3 +34,11 @@ Vue.component('product-list', {
         }
     }
 });
+
+
+function loadDB(database){
+    //alert("Loading DB")
+    Plotly.d3.json(database, function(e,data){
+        vue_one.$refs.ref_product_list.cards = data.products
+    })
+}

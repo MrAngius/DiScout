@@ -1,11 +1,9 @@
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 
 /* CARDS template */
-$product-image-max-height: 220px;
+$product-card-height: 450px;
 
-#product-list {
-    @extend .w3-animate-zoom;
-}
+#product-list {}
 
 // card container
 .vue-card-container{
@@ -16,7 +14,6 @@ $product-image-max-height: 220px;
     img {
         // the product image is partially transparent by default
         @extend .w3-image;
-        height: $product-image-max-height;
 
         @media (min-width: 601px) {
             opacity: 0.75;
@@ -48,6 +45,10 @@ $product-image-max-height: 220px;
     @extend .w3-margin;
     overflow: hidden;
     cursor: pointer;
+
+    @media (min-width: 601px) {
+        height: $product-card-height;
+    }
 }
 
 .vue-card-product:hover img {
@@ -69,15 +70,17 @@ $product-image-max-height: 220px;
     .vue-card-image-box{
         // image container
         @extend .w3-cell;
+        @extend .w3-padding;
+        @extend .w3-center;
+        overflow: hidden;
         min-width: 75%;
         max-width: 75%;
     }
 
     .vue-card-summary-box{
-        @extend .w3-cell;
+        @extend .w3-cell-middle;
         @extend .w3-container;
-        min-width: 25%;
-        max-width: 25%;
+        @extend .w3-center;
     }
 }
 
@@ -89,9 +92,14 @@ $product-image-max-height: 220px;
     @extend .w3-block;
 }
 
+.vue-card-tracked {
+    @extend .vue-card-track;
+    @extend .w3-hover-red;
+}
+
 
 /* FILTERS sidebar */
-$closed-sidebar-width: 44px;
+$closed-sidebar-width: 48px;
 $left-shift: 266px;
 
 #filtersSidebar {

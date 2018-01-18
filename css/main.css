@@ -231,7 +231,7 @@ a {
 .w3-table th:first-child, .w3-table td:first-child, .w3-table-all th:first-child, .w3-table-all td:first-child {
   padding-left: 16px; }
 
-.w3-btn, .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .vue-card-track, #filtersSidebar #filtersSidebarButton {
+.w3-btn, .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .vue-card-track, .vue-card-tracked, #filtersSidebar #filtersSidebarButton {
   border: none;
   display: inline-block;
   outline: 0;
@@ -248,7 +248,7 @@ a {
 .w3-btn:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
-.w3-btn, .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .vue-card-track, #filtersSidebar #filtersSidebarButton {
+.w3-btn, .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .vue-card-track, .vue-card-tracked, #filtersSidebar #filtersSidebarButton {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -256,7 +256,7 @@ a {
   -ms-user-select: none;
   user-select: none; }
 
-.w3-disabled, .w3-btn:disabled, .w3-button:disabled, #navigation a:disabled, #navigation #user-button:disabled, #navigation #user-button #userDropdown a:disabled, .vue-card-track:disabled, #filtersSidebar #filtersSidebarButton:disabled {
+.w3-disabled, .w3-btn:disabled, .w3-button:disabled, #navigation a:disabled, #navigation #user-button:disabled, #navigation #user-button #userDropdown a:disabled, .vue-card-track:disabled, .vue-card-tracked:disabled, #filtersSidebar #filtersSidebarButton:disabled {
   cursor: not-allowed;
   opacity: 0.3; }
 
@@ -298,10 +298,10 @@ a {
 .w3-tooltip:hover .w3-text {
   display: inline-block; }
 
-.w3-ripple:active, .vue-card-track:active {
+.w3-ripple:active, .vue-card-track:active, .vue-card-tracked:active {
   opacity: 0.5; }
 
-.w3-ripple, .vue-card-track {
+.w3-ripple, .vue-card-track, .vue-card-tracked {
   transition: opacity 0s; }
 
 .w3-input {
@@ -329,7 +329,7 @@ a {
   background-color: #ccc;
   color: #000; }
 
-.w3-dropdown-hover:hover > .w3-button:first-child, #navigation .w3-dropdown-hover:hover > a:first-child, #navigation .w3-dropdown-hover:hover > #user-button:first-child, #navigation #user-button #userDropdown .w3-dropdown-hover:hover > a:first-child, .w3-dropdown-hover:hover > .vue-card-track:first-child, #filtersSidebar .w3-dropdown-hover:hover > #filtersSidebarButton:first-child, .w3-dropdown-click:hover > .w3-button:first-child, #navigation #user-button:hover > .w3-button:first-child, #navigation .w3-dropdown-click:hover > a:first-child, #navigation #user-button:hover > a:first-child, #navigation .w3-dropdown-click:hover > #user-button:first-child, #navigation #user-button:hover > #user-button:first-child, #navigation #user-button #userDropdown .w3-dropdown-click:hover > a:first-child, #navigation #user-button #userDropdown #user-button:hover > a:first-child, .w3-dropdown-click:hover > .vue-card-track:first-child, #navigation #user-button:hover > .vue-card-track:first-child, #filtersSidebar .w3-dropdown-click:hover > #filtersSidebarButton:first-child, #navigation #filtersSidebar #user-button:hover > #filtersSidebarButton:first-child, #filtersSidebar #navigation #user-button:hover > #filtersSidebarButton:first-child {
+.w3-dropdown-hover:hover > .w3-button:first-child, #navigation .w3-dropdown-hover:hover > a:first-child, #navigation .w3-dropdown-hover:hover > #user-button:first-child, #navigation #user-button #userDropdown .w3-dropdown-hover:hover > a:first-child, .w3-dropdown-hover:hover > .vue-card-track:first-child, .w3-dropdown-hover:hover > .vue-card-tracked:first-child, #filtersSidebar .w3-dropdown-hover:hover > #filtersSidebarButton:first-child, .w3-dropdown-click:hover > .w3-button:first-child, #navigation #user-button:hover > .w3-button:first-child, #navigation .w3-dropdown-click:hover > a:first-child, #navigation #user-button:hover > a:first-child, #navigation .w3-dropdown-click:hover > #user-button:first-child, #navigation #user-button:hover > #user-button:first-child, #navigation #user-button #userDropdown .w3-dropdown-click:hover > a:first-child, #navigation #user-button #userDropdown #user-button:hover > a:first-child, .w3-dropdown-click:hover > .vue-card-track:first-child, #navigation #user-button:hover > .vue-card-track:first-child, .w3-dropdown-click:hover > .vue-card-tracked:first-child, #navigation #user-button:hover > .vue-card-tracked:first-child, #filtersSidebar .w3-dropdown-click:hover > #filtersSidebarButton:first-child, #navigation #filtersSidebar #user-button:hover > #filtersSidebarButton:first-child, #filtersSidebar #navigation #user-button:hover > #filtersSidebarButton:first-child {
   background-color: #ccc;
   color: #000; }
 
@@ -364,7 +364,7 @@ a {
 .w3-bar-block .w3-dropdown-hover .w3-dropdown-content, #navigation #user-button #userDropdown .w3-dropdown-hover .w3-dropdown-content, .w3-bar-block .w3-dropdown-hover #navigation #user-button #userDropdown, #navigation #user-button .w3-bar-block .w3-dropdown-hover #userDropdown, #navigation #user-button #userDropdown .w3-dropdown-hover #userDropdown, .w3-bar-block .w3-dropdown-click .w3-dropdown-content, #navigation #user-button #userDropdown .w3-dropdown-click .w3-dropdown-content, .w3-bar-block #navigation #user-button .w3-dropdown-content, #navigation .w3-bar-block #user-button .w3-dropdown-content, #navigation #user-button #userDropdown #user-button .w3-dropdown-content, #navigation #user-button .w3-bar-block .w3-dropdown-click #userDropdown, #navigation #user-button #userDropdown .w3-dropdown-click #userDropdown, .w3-bar-block #navigation #user-button #userDropdown, #navigation .w3-bar-block #user-button #userDropdown, #navigation #user-button #userDropdown #user-button #userDropdown {
   min-width: 100%; }
 
-.w3-bar-block .w3-dropdown-hover .w3-button, #navigation #user-button #userDropdown .w3-dropdown-hover .w3-button, .w3-bar-block .w3-dropdown-hover #navigation a, #navigation .w3-bar-block .w3-dropdown-hover a, .w3-bar-block .w3-dropdown-hover #navigation #user-button, #navigation .w3-bar-block .w3-dropdown-hover #user-button, #navigation #user-button #userDropdown .w3-dropdown-hover #user-button, .w3-bar-block .w3-dropdown-hover #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover a, .w3-bar-block .w3-dropdown-hover .vue-card-track, #navigation #user-button #userDropdown .w3-dropdown-hover .vue-card-track, .w3-bar-block .w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block .w3-dropdown-hover #filtersSidebarButton, #navigation #user-button #userDropdown .w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown .w3-dropdown-hover #filtersSidebarButton, .w3-bar-block .w3-dropdown-click .w3-button, #navigation #user-button #userDropdown .w3-dropdown-click .w3-button, .w3-bar-block #navigation #user-button .w3-button, #navigation .w3-bar-block #user-button .w3-button, #navigation #user-button #userDropdown #user-button .w3-button, .w3-bar-block .w3-dropdown-click #navigation a, #navigation .w3-bar-block .w3-dropdown-click a, .w3-bar-block #navigation #user-button a, #navigation .w3-bar-block #user-button a, .w3-bar-block .w3-dropdown-click #navigation #user-button, #navigation .w3-bar-block .w3-dropdown-click #user-button, #navigation #user-button #userDropdown .w3-dropdown-click #user-button, .w3-bar-block #navigation #user-button #user-button, #navigation .w3-bar-block #user-button #user-button, #navigation #user-button #userDropdown #user-button #user-button, #navigation #user-button #userDropdown .w3-dropdown-click a, .w3-bar-block #navigation #user-button #userDropdown a, #navigation .w3-bar-block #user-button #userDropdown a, #navigation #user-button #userDropdown #user-button a, .w3-bar-block .w3-dropdown-click .vue-card-track, #navigation #user-button #userDropdown .w3-dropdown-click .vue-card-track, .w3-bar-block #navigation #user-button .vue-card-track, #navigation .w3-bar-block #user-button .vue-card-track, #navigation #user-button #userDropdown #user-button .vue-card-track, .w3-bar-block .w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block .w3-dropdown-click #filtersSidebarButton, #navigation #user-button #userDropdown .w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown .w3-dropdown-click #filtersSidebarButton, .w3-bar-block #navigation #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block #navigation #user-button #filtersSidebarButton, #navigation .w3-bar-block #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation .w3-bar-block #user-button #filtersSidebarButton, #navigation #user-button #userDropdown #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown #user-button #filtersSidebarButton {
+.w3-bar-block .w3-dropdown-hover .w3-button, #navigation #user-button #userDropdown .w3-dropdown-hover .w3-button, .w3-bar-block .w3-dropdown-hover #navigation a, #navigation .w3-bar-block .w3-dropdown-hover a, .w3-bar-block .w3-dropdown-hover #navigation #user-button, #navigation .w3-bar-block .w3-dropdown-hover #user-button, #navigation #user-button #userDropdown .w3-dropdown-hover #user-button, .w3-bar-block .w3-dropdown-hover #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover a, .w3-bar-block .w3-dropdown-hover .vue-card-track, #navigation #user-button #userDropdown .w3-dropdown-hover .vue-card-track, .w3-bar-block .w3-dropdown-hover .vue-card-tracked, #navigation #user-button #userDropdown .w3-dropdown-hover .vue-card-tracked, .w3-bar-block .w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block .w3-dropdown-hover #filtersSidebarButton, #navigation #user-button #userDropdown .w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown .w3-dropdown-hover #filtersSidebarButton, .w3-bar-block .w3-dropdown-click .w3-button, #navigation #user-button #userDropdown .w3-dropdown-click .w3-button, .w3-bar-block #navigation #user-button .w3-button, #navigation .w3-bar-block #user-button .w3-button, #navigation #user-button #userDropdown #user-button .w3-button, .w3-bar-block .w3-dropdown-click #navigation a, #navigation .w3-bar-block .w3-dropdown-click a, .w3-bar-block #navigation #user-button a, #navigation .w3-bar-block #user-button a, .w3-bar-block .w3-dropdown-click #navigation #user-button, #navigation .w3-bar-block .w3-dropdown-click #user-button, #navigation #user-button #userDropdown .w3-dropdown-click #user-button, .w3-bar-block #navigation #user-button #user-button, #navigation .w3-bar-block #user-button #user-button, #navigation #user-button #userDropdown #user-button #user-button, #navigation #user-button #userDropdown .w3-dropdown-click a, .w3-bar-block #navigation #user-button #userDropdown a, #navigation .w3-bar-block #user-button #userDropdown a, #navigation #user-button #userDropdown #user-button a, .w3-bar-block .w3-dropdown-click .vue-card-track, #navigation #user-button #userDropdown .w3-dropdown-click .vue-card-track, .w3-bar-block #navigation #user-button .vue-card-track, #navigation .w3-bar-block #user-button .vue-card-track, #navigation #user-button #userDropdown #user-button .vue-card-track, .w3-bar-block .w3-dropdown-click .vue-card-tracked, #navigation #user-button #userDropdown .w3-dropdown-click .vue-card-tracked, .w3-bar-block #navigation #user-button .vue-card-tracked, #navigation .w3-bar-block #user-button .vue-card-tracked, #navigation #user-button #userDropdown #user-button .vue-card-tracked, .w3-bar-block .w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block .w3-dropdown-click #filtersSidebarButton, #navigation #user-button #userDropdown .w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown .w3-dropdown-click #filtersSidebarButton, .w3-bar-block #navigation #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar-block #navigation #user-button #filtersSidebarButton, #navigation .w3-bar-block #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation .w3-bar-block #user-button #filtersSidebarButton, #navigation #user-button #userDropdown #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #userDropdown #user-button #filtersSidebarButton {
   width: 100%;
   text-align: left;
   padding: 8px 16px; }
@@ -397,7 +397,7 @@ a {
   width: 100%;
   overflow: hidden; }
 
-.w3-center .w3-bar, #page #page-title .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #page #page-title #navigation, #filtersSidebar header #navigation {
+.w3-center .w3-bar, #page #page-title .w3-bar, .vue-card-product-info .vue-card-image-box .w3-bar, .vue-card-product-info .vue-card-summary-box .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #page #page-title #navigation, .vue-card-product-info .vue-card-image-box #navigation, .vue-card-product-info .vue-card-summary-box #navigation, #filtersSidebar header #navigation {
   display: inline-block;
   width: auto; }
 
@@ -413,7 +413,7 @@ a {
   position: static;
   float: left; }
 
-.w3-bar .w3-button, #navigation .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .w3-bar .vue-card-track, #navigation .vue-card-track, .w3-bar #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar #filtersSidebarButton, #navigation #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #filtersSidebarButton {
+.w3-bar .w3-button, #navigation .w3-button, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .w3-bar .vue-card-track, #navigation .vue-card-track, .w3-bar .vue-card-tracked, #navigation .vue-card-tracked, .w3-bar #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-bar #filtersSidebarButton, #navigation #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #filtersSidebarButton {
   white-space: normal; }
 
 .w3-bar-block .w3-bar-item, #navigation #user-button #userDropdown .w3-bar-item, .w3-bar-block #navigation a, #navigation .w3-bar-block a, .w3-bar-block #navigation #user-button, #navigation .w3-bar-block #user-button, #navigation #user-button #userDropdown #user-button, #navigation #user-button #userDropdown a {
@@ -426,10 +426,10 @@ a {
   white-space: normal;
   float: none; }
 
-.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
+.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box .w3-bar-item, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box .w3-bar-item, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box .w3-bar-item, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, .vue-card-product-info .w3-bar-block.vue-card-image-box .w3-bar-item, .vue-card-product-info .w3-bar-block.vue-card-summary-box .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation a, #navigation .vue-card-product-info .w3-bar-block.vue-card-image-box a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation a, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box #user-button, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box #user-button, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box #user-button, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation #user-button, #navigation .vue-card-product-info .w3-bar-block.vue-card-image-box #user-button, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box a, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box a, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box a, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .vue-card-product-info .w3-bar-block.vue-card-image-box a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
   text-align: center; }
 
-.w3-block, .vue-card-track {
+.w3-block, .vue-card-track, .vue-card-tracked {
   display: block;
   width: 100%; }
 
@@ -567,13 +567,13 @@ a {
   display: table;
   width: 100%; }
 
-.w3-cell, .vue-card-product-info .vue-card-image-box, .vue-card-product-info .vue-card-summary-box {
+.w3-cell, .vue-card-product-info .vue-card-image-box {
   display: table-cell; }
 
 .w3-cell-top {
   vertical-align: top; }
 
-.w3-cell-middle {
+.w3-cell-middle, .vue-card-product-info .vue-card-summary-box {
   vertical-align: middle; }
 
 .w3-cell-bottom {
@@ -609,7 +609,7 @@ a {
   .w3-bar-item.w3-mobile, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .w3-bar-item.vue-card-container, .w3-bar-item.title-box, .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.vue-card-container, .w3-dropdown-hover.title-box, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.vue-card-container, .w3-dropdown-click.title-box {
     text-align: center; }
 
-  .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.vue-card-container, .w3-dropdown-hover.title-box, .w3-dropdown-hover.w3-mobile .w3-btn, #navigation a.w3-dropdown-hover .w3-btn, #navigation .w3-dropdown-hover#user-button .w3-btn, .w3-dropdown-hover.vue-card-container .w3-btn, .w3-dropdown-hover.title-box .w3-btn, .w3-dropdown-hover.w3-mobile .w3-button, #navigation a.w3-dropdown-hover .w3-button, #navigation .w3-dropdown-hover#user-button .w3-button, .w3-dropdown-hover.vue-card-container .w3-button, .w3-dropdown-hover.title-box .w3-button, .w3-dropdown-hover.w3-mobile #navigation a, #navigation .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button a, .w3-dropdown-hover.vue-card-container #navigation a, #navigation .w3-dropdown-hover.vue-card-container a, .w3-dropdown-hover.title-box #navigation a, #navigation .w3-dropdown-hover.title-box a, .w3-dropdown-hover.w3-mobile #navigation #user-button, #navigation .w3-dropdown-hover.w3-mobile #user-button, #navigation a.w3-dropdown-hover #user-button, #navigation .w3-dropdown-hover#user-button #user-button, .w3-dropdown-hover.vue-card-container #navigation #user-button, #navigation .w3-dropdown-hover.vue-card-container #user-button, .w3-dropdown-hover.title-box #navigation #user-button, #navigation .w3-dropdown-hover.title-box #user-button, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover #user-button #userDropdown a, #navigation #user-button #userDropdown a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button #userDropdown a, .w3-dropdown-hover.vue-card-container #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.vue-card-container a, .w3-dropdown-hover.title-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.title-box a, .w3-dropdown-hover.w3-mobile .vue-card-track, #navigation a.w3-dropdown-hover .vue-card-track, #navigation .w3-dropdown-hover#user-button .vue-card-track, .w3-dropdown-hover.vue-card-container .vue-card-track, .w3-dropdown-hover.title-box .vue-card-track, .w3-dropdown-hover.w3-mobile #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.w3-mobile #filtersSidebarButton, #navigation a.w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation a.w3-dropdown-hover #filtersSidebarButton, #navigation .w3-dropdown-hover#user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation .w3-dropdown-hover#user-button #filtersSidebarButton, .w3-dropdown-hover.vue-card-container #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.vue-card-container #filtersSidebarButton, .w3-dropdown-hover.title-box #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.title-box #filtersSidebarButton, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.vue-card-container, .w3-dropdown-click.title-box, .w3-dropdown-click.w3-mobile .w3-btn, #navigation a.w3-dropdown-click .w3-btn, #navigation #user-button .w3-btn, .w3-dropdown-click.vue-card-container .w3-btn, .w3-dropdown-click.title-box .w3-btn, .w3-dropdown-click.w3-mobile .w3-button, #navigation a.w3-dropdown-click .w3-button, #navigation #user-button .w3-button, .w3-dropdown-click.vue-card-container .w3-button, .w3-dropdown-click.title-box .w3-button, .w3-dropdown-click.w3-mobile #navigation a, #navigation .w3-dropdown-click.w3-mobile a, #navigation a.w3-dropdown-click a, #navigation #user-button a, .w3-dropdown-click.vue-card-container #navigation a, #navigation .w3-dropdown-click.vue-card-container a, .w3-dropdown-click.title-box #navigation a, #navigation .w3-dropdown-click.title-box a, .w3-dropdown-click.w3-mobile #navigation #user-button, #navigation .w3-dropdown-click.w3-mobile #user-button, #navigation a.w3-dropdown-click #user-button, #navigation #user-button #user-button, .w3-dropdown-click.vue-card-container #navigation #user-button, #navigation .w3-dropdown-click.vue-card-container #user-button, .w3-dropdown-click.title-box #navigation #user-button, #navigation .w3-dropdown-click.title-box #user-button, #navigation #user-button #userDropdown a, .w3-dropdown-click.w3-mobile .vue-card-track, #navigation a.w3-dropdown-click .vue-card-track, #navigation #user-button .vue-card-track, .w3-dropdown-click.vue-card-container .vue-card-track, .w3-dropdown-click.title-box .vue-card-track, .w3-dropdown-click.w3-mobile #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.w3-mobile #filtersSidebarButton, #navigation a.w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation a.w3-dropdown-click #filtersSidebarButton, #navigation #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #filtersSidebarButton, .w3-dropdown-click.vue-card-container #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.vue-card-container #filtersSidebarButton, .w3-dropdown-click.title-box #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.title-box #filtersSidebarButton {
+  .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.vue-card-container, .w3-dropdown-hover.title-box, .w3-dropdown-hover.w3-mobile .w3-btn, #navigation a.w3-dropdown-hover .w3-btn, #navigation .w3-dropdown-hover#user-button .w3-btn, .w3-dropdown-hover.vue-card-container .w3-btn, .w3-dropdown-hover.title-box .w3-btn, .w3-dropdown-hover.w3-mobile .w3-button, #navigation a.w3-dropdown-hover .w3-button, #navigation .w3-dropdown-hover#user-button .w3-button, .w3-dropdown-hover.vue-card-container .w3-button, .w3-dropdown-hover.title-box .w3-button, .w3-dropdown-hover.w3-mobile #navigation a, #navigation .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button a, .w3-dropdown-hover.vue-card-container #navigation a, #navigation .w3-dropdown-hover.vue-card-container a, .w3-dropdown-hover.title-box #navigation a, #navigation .w3-dropdown-hover.title-box a, .w3-dropdown-hover.w3-mobile #navigation #user-button, #navigation .w3-dropdown-hover.w3-mobile #user-button, #navigation a.w3-dropdown-hover #user-button, #navigation .w3-dropdown-hover#user-button #user-button, .w3-dropdown-hover.vue-card-container #navigation #user-button, #navigation .w3-dropdown-hover.vue-card-container #user-button, .w3-dropdown-hover.title-box #navigation #user-button, #navigation .w3-dropdown-hover.title-box #user-button, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover #user-button #userDropdown a, #navigation #user-button #userDropdown a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button #userDropdown a, .w3-dropdown-hover.vue-card-container #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.vue-card-container a, .w3-dropdown-hover.title-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.title-box a, .w3-dropdown-hover.w3-mobile .vue-card-track, #navigation a.w3-dropdown-hover .vue-card-track, #navigation .w3-dropdown-hover#user-button .vue-card-track, .w3-dropdown-hover.vue-card-container .vue-card-track, .w3-dropdown-hover.title-box .vue-card-track, .w3-dropdown-hover.w3-mobile .vue-card-tracked, #navigation a.w3-dropdown-hover .vue-card-tracked, #navigation .w3-dropdown-hover#user-button .vue-card-tracked, .w3-dropdown-hover.vue-card-container .vue-card-tracked, .w3-dropdown-hover.title-box .vue-card-tracked, .w3-dropdown-hover.w3-mobile #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.w3-mobile #filtersSidebarButton, #navigation a.w3-dropdown-hover #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation a.w3-dropdown-hover #filtersSidebarButton, #navigation .w3-dropdown-hover#user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation .w3-dropdown-hover#user-button #filtersSidebarButton, .w3-dropdown-hover.vue-card-container #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.vue-card-container #filtersSidebarButton, .w3-dropdown-hover.title-box #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-hover.title-box #filtersSidebarButton, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.vue-card-container, .w3-dropdown-click.title-box, .w3-dropdown-click.w3-mobile .w3-btn, #navigation a.w3-dropdown-click .w3-btn, #navigation #user-button .w3-btn, .w3-dropdown-click.vue-card-container .w3-btn, .w3-dropdown-click.title-box .w3-btn, .w3-dropdown-click.w3-mobile .w3-button, #navigation a.w3-dropdown-click .w3-button, #navigation #user-button .w3-button, .w3-dropdown-click.vue-card-container .w3-button, .w3-dropdown-click.title-box .w3-button, .w3-dropdown-click.w3-mobile #navigation a, #navigation .w3-dropdown-click.w3-mobile a, #navigation a.w3-dropdown-click a, #navigation #user-button a, .w3-dropdown-click.vue-card-container #navigation a, #navigation .w3-dropdown-click.vue-card-container a, .w3-dropdown-click.title-box #navigation a, #navigation .w3-dropdown-click.title-box a, .w3-dropdown-click.w3-mobile #navigation #user-button, #navigation .w3-dropdown-click.w3-mobile #user-button, #navigation a.w3-dropdown-click #user-button, #navigation #user-button #user-button, .w3-dropdown-click.vue-card-container #navigation #user-button, #navigation .w3-dropdown-click.vue-card-container #user-button, .w3-dropdown-click.title-box #navigation #user-button, #navigation .w3-dropdown-click.title-box #user-button, #navigation #user-button #userDropdown a, .w3-dropdown-click.w3-mobile .vue-card-track, #navigation a.w3-dropdown-click .vue-card-track, #navigation #user-button .vue-card-track, .w3-dropdown-click.vue-card-container .vue-card-track, .w3-dropdown-click.title-box .vue-card-track, .w3-dropdown-click.w3-mobile .vue-card-tracked, #navigation a.w3-dropdown-click .vue-card-tracked, #navigation #user-button .vue-card-tracked, .w3-dropdown-click.vue-card-container .vue-card-tracked, .w3-dropdown-click.title-box .vue-card-tracked, .w3-dropdown-click.w3-mobile #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.w3-mobile #filtersSidebarButton, #navigation a.w3-dropdown-click #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation a.w3-dropdown-click #filtersSidebarButton, #navigation #user-button #filtersSidebar #filtersSidebarButton, #filtersSidebar #navigation #user-button #filtersSidebarButton, .w3-dropdown-click.vue-card-container #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.vue-card-container #filtersSidebarButton, .w3-dropdown-click.title-box #filtersSidebar #filtersSidebarButton, #filtersSidebar .w3-dropdown-click.title-box #filtersSidebarButton {
     width: 100%; } }
 @media (max-width: 768px) {
   .w3-modal-content {
@@ -848,7 +848,7 @@ a {
   to {
     bottom: 0;
     opacity: 1; } }
-.w3-animate-zoom, #product-list {
+.w3-animate-zoom {
   animation: animatezoom 0.6s; }
 
 @keyframes animatezoom {
@@ -925,7 +925,7 @@ a {
 .w3-justify {
   text-align: justify !important; }
 
-.w3-center, #page #page-title, #filtersSidebar header {
+.w3-center, #page #page-title, .vue-card-product-info .vue-card-image-box, .vue-card-product-info .vue-card-summary-box, #filtersSidebar header {
   text-align: center !important; }
 
 .w3-border-0 {
@@ -980,7 +980,7 @@ a {
 .w3-padding-small {
   padding: 4px 8px !important; }
 
-.w3-padding, footer {
+.w3-padding, footer, .vue-card-product-info .vue-card-image-box {
   padding: 8px 16px !important; }
 
 .w3-padding-large {
@@ -1012,7 +1012,7 @@ a {
 .w3-right, #navigation #user-button {
   float: right !important; }
 
-.w3-button:hover, #navigation a:hover, #navigation #user-button:hover, #navigation #user-button #userDropdown a:hover, .vue-card-track:hover, #filtersSidebar #filtersSidebarButton:hover {
+.w3-button:hover, #navigation a:hover, #navigation #user-button:hover, #navigation #user-button #userDropdown a:hover, .vue-card-track:hover, .vue-card-tracked:hover, #filtersSidebar #filtersSidebarButton:hover {
   color: #000 !important;
   background-color: #ccc !important; }
 
@@ -1031,7 +1031,7 @@ a {
   color: #000 !important;
   background-color: #00ffff !important; }
 
-.w3-blue, .w3-hover-blue:hover, .vue-card-track:hover {
+.w3-blue, .w3-hover-blue:hover, .vue-card-track:hover, .vue-card-tracked:hover {
   color: #fff !important;
   background-color: #2196F3 !important; }
 
@@ -1091,7 +1091,7 @@ a {
   color: #fff !important;
   background-color: #673ab7 !important; }
 
-.w3-red, .w3-hover-red:hover {
+.w3-red, .w3-hover-red:hover, .vue-card-tracked:hover {
   color: #fff !important;
   background-color: #f44336 !important; }
 
@@ -1107,7 +1107,7 @@ a {
   color: #000 !important;
   background-color: #ffeb3b !important; }
 
-.w3-white, #user_icon, .vue-card-container, .vue-card-product-info, .vue-card-track, .w3-hover-white:hover {
+.w3-white, #user_icon, .vue-card-container, .vue-card-product-info, .vue-card-track, .vue-card-tracked, .w3-hover-white:hover {
   color: #000 !important;
   background-color: #fff !important; }
 
@@ -1328,6 +1328,10 @@ a {
 
 #overlay {
   cursor: pointer; }
+  @media (max-width: 600px) {
+    #overlay {
+      display: none !important;
+      visibility: hidden !important; } }
 
 header {
   text-align: center; }
@@ -1337,11 +1341,9 @@ header {
     text-align: left; } }
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 /* CARDS template */
-.vue-card-container img {
-  height: 220px; }
-  @media (min-width: 601px) {
-    .vue-card-container img {
-      opacity: 0.75; } }
+@media (min-width: 601px) {
+  .vue-card-container img {
+    opacity: 0.75; } }
 @media (min-width: 601px) {
   .vue-card-container {
     width: 50%; } }
@@ -1358,20 +1360,21 @@ header {
 .vue-card-product {
   overflow: hidden;
   cursor: pointer; }
+  @media (min-width: 601px) {
+    .vue-card-product {
+      height: 450px; } }
 
 .vue-card-product-info .vue-card-image-box {
+  overflow: hidden;
   min-width: 75%;
   max-width: 75%; }
-.vue-card-product-info .vue-card-summary-box {
-  min-width: 25%;
-  max-width: 25%; }
 
 /* FILTERS sidebar */
 #filtersSidebar {
   display: block;
   left: -266px;
   width: 294px;
-  padding-right: 44px;
+  padding-right: 48px;
   position: absolute;
   z-index: 901;
   transition-property: left;
@@ -1390,6 +1393,6 @@ header {
 
 @media (min-width: 601px) {
   .has-sidebar {
-    margin-left: 44px; } }
+    margin-left: 48px; } }
 
 /*# sourceMappingURL=main.css.map */
