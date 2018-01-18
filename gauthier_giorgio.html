@@ -21,6 +21,7 @@
         <script src="js/scripts/myTrack.js"></script>
     --->
     <script src="js/scripts/UI_effects.js"></script>
+    <script src="js/scripts/dynamicContents.js"></script>
 
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
@@ -145,6 +146,16 @@
 
 </aside>
 
+<!-- Modal content -->
+<div id="modal" class="w3-modal w3-hide">
+    <div class="w3-modal-content">
+        <span onclick="showHideTarget('modal')" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
+        <div id="zoomed-product">
+        </div>
+    </div>
+</div>
+
+<!-- grey overlay -->
 <div id="overlay" onclick="openCloseSidebar('filtersSidebar', 'overlay')"></div>
 
 <section id="page" class="has-sidebar">

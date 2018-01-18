@@ -1333,6 +1333,9 @@ a {
       display: none !important;
       visibility: hidden !important; } }
 
+.w3-modal {
+  z-index: 900; }
+
 header {
   text-align: center; }
 
@@ -1376,7 +1379,7 @@ header {
   width: 294px;
   padding-right: 48px;
   position: absolute;
-  z-index: 901;
+  z-index: 100;
   transition-property: left;
   transition-duration: 1s;
   transition-timing-function: ease;

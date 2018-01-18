@@ -66,6 +66,10 @@ $user_icon_size: 34px;  /* this is the profile pic of logged users */
     }
 }
 
+.w3-modal {
+    z-index: 900;
+}
+
 footer {
     @extend .w3-padding;
     @extend .w3-black;
