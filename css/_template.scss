@@ -61,8 +61,8 @@ $user_icon_size: 34px;  /* this is the profile pic of logged users */
     @extend .w3-animate-opacity;
     cursor: pointer;
     @media (max-width: 600px) {
-        display: none;
-        visibility: none;
+        display: none !important;
+        visibility: hidden !important;
     }
 }
 

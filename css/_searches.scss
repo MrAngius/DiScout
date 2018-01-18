@@ -3,9 +3,7 @@
 /* CARDS template */
 $product-image-max-height: 220px;
 
-#product-list {
-    @extend .w3-animate-zoom;
-}
+#product-list {}
 
 // card container
 .vue-card-container{
@@ -69,15 +67,15 @@ $product-image-max-height: 220px;
     .vue-card-image-box{
         // image container
         @extend .w3-cell;
+        @extend .w3-padding;
         min-width: 75%;
         max-width: 75%;
     }
 
     .vue-card-summary-box{
-        @extend .w3-cell;
+        @extend .w3-cell-middle;
         @extend .w3-container;
-        min-width: 25%;
-        max-width: 25%;
+        @extend .w3-center;
     }
 }
 

@@ -397,7 +397,7 @@ a {
   width: 100%;
   overflow: hidden; }
 
-.w3-center .w3-bar, #page #page-title .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #page #page-title #navigation, #filtersSidebar header #navigation {
+.w3-center .w3-bar, #page #page-title .w3-bar, .vue-card-product-info .vue-card-summary-box .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #page #page-title #navigation, .vue-card-product-info .vue-card-summary-box #navigation, #filtersSidebar header #navigation {
   display: inline-block;
   width: auto; }
 
@@ -426,7 +426,7 @@ a {
   white-space: normal;
   float: none; }
 
-.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
+.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box .w3-bar-item, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, .vue-card-product-info .w3-bar-block.vue-card-summary-box .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation a, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box #user-button, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box a, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
   text-align: center; }
 
 .w3-block, .vue-card-track {
@@ -567,13 +567,13 @@ a {
   display: table;
   width: 100%; }
 
-.w3-cell, .vue-card-product-info .vue-card-image-box, .vue-card-product-info .vue-card-summary-box {
+.w3-cell, .vue-card-product-info .vue-card-image-box {
   display: table-cell; }
 
 .w3-cell-top {
   vertical-align: top; }
 
-.w3-cell-middle {
+.w3-cell-middle, .vue-card-product-info .vue-card-summary-box {
   vertical-align: middle; }
 
 .w3-cell-bottom {
@@ -848,7 +848,7 @@ a {
   to {
     bottom: 0;
     opacity: 1; } }
-.w3-animate-zoom, #product-list {
+.w3-animate-zoom {
   animation: animatezoom 0.6s; }
 
 @keyframes animatezoom {
@@ -925,7 +925,7 @@ a {
 .w3-justify {
   text-align: justify !important; }
 
-.w3-center, #page #page-title, #filtersSidebar header {
+.w3-center, #page #page-title, .vue-card-product-info .vue-card-summary-box, #filtersSidebar header {
   text-align: center !important; }
 
 .w3-border-0 {
@@ -980,7 +980,7 @@ a {
 .w3-padding-small {
   padding: 4px 8px !important; }
 
-.w3-padding, footer {
+.w3-padding, footer, .vue-card-product-info .vue-card-image-box {
   padding: 8px 16px !important; }
 
 .w3-padding-large {
@@ -1330,8 +1330,8 @@ a {
   cursor: pointer; }
   @media (max-width: 600px) {
     #overlay {
-      display: none;
-      visibility: none; } }
+      display: none !important;
+      visibility: hidden !important; } }
 
 header {
   text-align: center; }
@@ -1366,9 +1366,6 @@ header {
 .vue-card-product-info .vue-card-image-box {
   min-width: 75%;
   max-width: 75%; }
-.vue-card-product-info .vue-card-summary-box {
-  min-width: 25%;
-  max-width: 25%; }
 
 /* FILTERS sidebar */
 #filtersSidebar {
