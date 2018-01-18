@@ -83,7 +83,7 @@
     <aside class="w3-quarter" style="width:15%">
         This contains the list of products    
         <div id="product-list">
-            <product-list ref="ref_prod_list"></product-list>
+            <product-list ref="ref_product_list"></product-list>
         </div>
     </aside>
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
@@ -93,22 +93,46 @@
         <div class="w3-cell" style="height: 300px">
 
             <!-- DETAILS -->
-            <div class="w3-cell-row" style="height: 300px">
+            <div class="w3-row" style="height: 300px">
                 <h2>{{ productFocusTitle }}</h2>
                 <p>{{ productFocusInfo }}</p>
+                <div class="w3-quarter" >
+                    <img style="height: 200px; width: 200px" :src="productImageSrc">
+                </div>
+                <div class="w3-rest">
+                    <table class="w3-table w3-bordered ">
+                        <tr>
+                            <td>Price: {{ productPrice }}€</td>
+                            <td>Lower Price: {{ productPriceLower }}€</td>
+                        </tr>
+                        <tr>
+                            <td>Rating: {{ productRating }}</td>
+                            <td>Price Trend: {{ productPriceTrend }}%</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor: {{ productVendor }}</td>
+                            <td>Category: {{ productCategory }}</td>
+                        </tr>
+                        <tr>
+                            <td> <a :src = "productLink">Link</a></td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
 
 
             <!-- GRAPH -->
-            <div class="w3-cell-row" style="margin-bottom: 24px">
+            <div class="" style="margin-bottom: 24px">
                 <h2>{{ graphTitle }}</h2>
                 <div id="graph" style="right: 0"></div>
             </div>
             
 
             <!-- SIMILAR PRODUCTS -->
-            <div class="w3-cell-row">
+            <div class="">
                 <!-- products -->
+                <h2>Similar Products</h2>
                 <div class="w3-cell w3-card w3-hover-teal search_result">
                     <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
                     <div class="w3-container">

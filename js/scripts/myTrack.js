@@ -5,9 +5,18 @@ window.addEventListener('load', function (ev) {
     new Vue({
         el: "#main-page",
         data: {
-            productFocusTitle: "My brand new iPhone",
-            productFocusInfo: "Some info of our product",
-            graphTitle: "Price changes"
+            productFocusTitle: "Smart Home Kit",
+            productFocusInfo: "The best product to automatize your Hose!",
+            productRating: 3.4,
+            productPrice: 120,
+            productPriceTrend: -15,
+            productPriceLower: 110,
+            productCategory: "Home, Electronic",
+            productVendor: "Amazon.fr",
+            productImageSrc: "./img/sample_images/door-window-homekit.jpg",
+            productLink: "https://superhome.com.au/shop/apple-homekit/homekit-door-window-sensor/",
+            graphTitle: "Price changes",
+
         },
         methods: {
 
@@ -50,8 +59,7 @@ window.addEventListener('load', function (ev) {
                 tickformat: "%B, %Y"              // customize the date format to "month, day"
             },
             margin: {                           // update the left, bottom, right, top margin
-                l: 40, b: 80, r: 10, t: 20,
-                pad: 0
+                l: 40, b: 80, r: 10, t: 80,
             }
         };
 
