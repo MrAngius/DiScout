@@ -29,7 +29,6 @@ Vue.component('card', {
             <div class="vue-card-track">
                 <i class="fa fa-plus"></i> Track
             </div>
-            <button><i class="fa fa-plus"></i> Track</button>
         </div>
     </div>
     `,

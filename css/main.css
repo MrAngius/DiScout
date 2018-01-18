@@ -599,7 +599,7 @@ a {
   .w3-dropdown-hover.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-hover .w3-dropdown-content, #navigation .w3-dropdown-hover#user-button .w3-dropdown-content, .w3-dropdown-hover.vue-card-container .w3-dropdown-content, .w3-dropdown-hover.title-box .w3-dropdown-content, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.w3-mobile #userDropdown, #navigation a.w3-dropdown-hover #user-button #userDropdown, #navigation #user-button a.w3-dropdown-hover #userDropdown, #navigation .w3-dropdown-hover#user-button #userDropdown, .w3-dropdown-hover.vue-card-container #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.vue-card-container #userDropdown, .w3-dropdown-hover.title-box #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.title-box #userDropdown, .w3-dropdown-click.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-click .w3-dropdown-content, #navigation #user-button .w3-dropdown-content, .w3-dropdown-click.vue-card-container .w3-dropdown-content, .w3-dropdown-click.title-box .w3-dropdown-content, #navigation #user-button #userDropdown {
     position: relative; }
 
-  .w3-hide-small, #filtersSidebar #filtersSidebarButton {
+  .w3-hide-small, #filtersSidebar, #filtersSidebar #filtersSidebarButton {
     display: none !important; }
 
   .w3-mobile, #navigation a, #navigation #user-button, .vue-card-container, .title-box {
@@ -1388,7 +1388,8 @@ header {
     left: 266px;
     position: absolute; }
 
-.has-sidebar {
-  margin-left: 44px; }
+@media (min-width: 601px) {
+  .has-sidebar {
+    margin-left: 44px; } }
 
 /*# sourceMappingURL=main.css.map */

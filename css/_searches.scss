@@ -98,6 +98,7 @@ $left-shift: 266px;
     @extend .w3-container;
     @extend .w3-pale-green;
     @extend .w3-card;
+    @extend .w3-hide-small;
     display: block;
     left: -$left-shift;
     width: 294px;
@@ -133,5 +134,7 @@ $left-shift: 266px;
 }
 
 .has-sidebar {
-    margin-left: $closed-sidebar-width;
+    @media (min-width: 601px) {
+        margin-left: $closed-sidebar-width;
+    }
 }
