@@ -438,7 +438,8 @@ a {
   overflow-x: auto; }
 
 .w3-container:after, .w3-container:before, .w3-panel:after, .w3-panel:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
-.w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, .w3-clear:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
+.w3-cell-row:before,
+.vue-card-main-container:before, .w3-cell-row:after, .vue-card-main-container:after, .w3-clear:after, .w3-clear:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
   clear: both; }
@@ -562,7 +563,7 @@ a {
 .w3-rest {
   overflow: hidden; }
 
-.w3-cell-row {
+.w3-cell-row, .vue-card-main-container {
   display: table;
   width: 100%; }
 
@@ -572,7 +573,7 @@ a {
 .w3-cell-top {
   vertical-align: top; }
 
-.w3-cell-middle {
+.w3-cell-middle, .vue-card-image-box, .vue-card-product-summary {
   vertical-align: middle; }
 
 .w3-cell-bottom {
@@ -595,20 +596,20 @@ a {
   .w3-modal {
     padding-top: 30px; }
 
-  .w3-dropdown-hover.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-hover .w3-dropdown-content, #navigation .w3-dropdown-hover#user-button .w3-dropdown-content, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.w3-mobile #userDropdown, #navigation a.w3-dropdown-hover #user-button #userDropdown, #navigation #user-button a.w3-dropdown-hover #userDropdown, #navigation .w3-dropdown-hover#user-button #userDropdown, .w3-dropdown-click.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-click .w3-dropdown-content, #navigation #user-button .w3-dropdown-content, #navigation #user-button #userDropdown {
+  .w3-dropdown-hover.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-hover .w3-dropdown-content, #navigation .w3-dropdown-hover#user-button .w3-dropdown-content, .w3-dropdown-hover.vue-card-main-container .w3-dropdown-content, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.w3-mobile #userDropdown, #navigation a.w3-dropdown-hover #user-button #userDropdown, #navigation #user-button a.w3-dropdown-hover #userDropdown, #navigation .w3-dropdown-hover#user-button #userDropdown, .w3-dropdown-hover.vue-card-main-container #navigation #user-button #userDropdown, #navigation #user-button .w3-dropdown-hover.vue-card-main-container #userDropdown, .w3-dropdown-click.w3-mobile .w3-dropdown-content, #navigation a.w3-dropdown-click .w3-dropdown-content, #navigation #user-button .w3-dropdown-content, .w3-dropdown-click.vue-card-main-container .w3-dropdown-content, #navigation #user-button #userDropdown {
     position: relative; }
 
   .w3-hide-small {
     display: none !important; }
 
-  .w3-mobile, #navigation a, #navigation #user-button {
+  .w3-mobile, #navigation a, #navigation #user-button, .vue-card-main-container {
     display: block;
     width: 100% !important; }
 
-  .w3-bar-item.w3-mobile, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button {
+  .w3-bar-item.w3-mobile, #navigation a, #navigation #user-button, #navigation #user-button #userDropdown a, .w3-bar-item.vue-card-main-container, .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.vue-card-main-container, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.vue-card-main-container {
     text-align: center; }
 
-  .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.w3-mobile .w3-btn, #navigation a.w3-dropdown-hover .w3-btn, #navigation .w3-dropdown-hover#user-button .w3-btn, .w3-dropdown-hover.w3-mobile .w3-button, #navigation a.w3-dropdown-hover .w3-button, #navigation .w3-dropdown-hover#user-button .w3-button, .w3-dropdown-hover.w3-mobile #navigation a, #navigation .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button a, .w3-dropdown-hover.w3-mobile #navigation #user-button, #navigation .w3-dropdown-hover.w3-mobile #user-button, #navigation a.w3-dropdown-hover #user-button, #navigation .w3-dropdown-hover#user-button #user-button, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover #user-button #userDropdown a, #navigation #user-button #userDropdown a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button #userDropdown a, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.w3-mobile .w3-btn, #navigation a.w3-dropdown-click .w3-btn, #navigation #user-button .w3-btn, .w3-dropdown-click.w3-mobile .w3-button, #navigation a.w3-dropdown-click .w3-button, #navigation #user-button .w3-button, .w3-dropdown-click.w3-mobile #navigation a, #navigation .w3-dropdown-click.w3-mobile a, #navigation a.w3-dropdown-click a, #navigation #user-button a, .w3-dropdown-click.w3-mobile #navigation #user-button, #navigation .w3-dropdown-click.w3-mobile #user-button, #navigation a.w3-dropdown-click #user-button, #navigation #user-button #user-button, #navigation #user-button #userDropdown a {
+  .w3-dropdown-hover.w3-mobile, #navigation a.w3-dropdown-hover, #navigation .w3-dropdown-hover#user-button, .w3-dropdown-hover.vue-card-main-container, .w3-dropdown-hover.w3-mobile .w3-btn, #navigation a.w3-dropdown-hover .w3-btn, #navigation .w3-dropdown-hover#user-button .w3-btn, .w3-dropdown-hover.vue-card-main-container .w3-btn, .w3-dropdown-hover.w3-mobile .w3-button, #navigation a.w3-dropdown-hover .w3-button, #navigation .w3-dropdown-hover#user-button .w3-button, .w3-dropdown-hover.vue-card-main-container .w3-button, .w3-dropdown-hover.w3-mobile #navigation a, #navigation .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button a, .w3-dropdown-hover.vue-card-main-container #navigation a, #navigation .w3-dropdown-hover.vue-card-main-container a, .w3-dropdown-hover.w3-mobile #navigation #user-button, #navigation .w3-dropdown-hover.w3-mobile #user-button, #navigation a.w3-dropdown-hover #user-button, #navigation .w3-dropdown-hover#user-button #user-button, .w3-dropdown-hover.vue-card-main-container #navigation #user-button, #navigation .w3-dropdown-hover.vue-card-main-container #user-button, .w3-dropdown-hover.w3-mobile #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.w3-mobile a, #navigation a.w3-dropdown-hover #user-button #userDropdown a, #navigation #user-button #userDropdown a.w3-dropdown-hover a, #navigation .w3-dropdown-hover#user-button #userDropdown a, .w3-dropdown-hover.vue-card-main-container #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-dropdown-hover.vue-card-main-container a, .w3-dropdown-click.w3-mobile, #navigation a.w3-dropdown-click, #navigation #user-button, .w3-dropdown-click.vue-card-main-container, .w3-dropdown-click.w3-mobile .w3-btn, #navigation a.w3-dropdown-click .w3-btn, #navigation #user-button .w3-btn, .w3-dropdown-click.vue-card-main-container .w3-btn, .w3-dropdown-click.w3-mobile .w3-button, #navigation a.w3-dropdown-click .w3-button, #navigation #user-button .w3-button, .w3-dropdown-click.vue-card-main-container .w3-button, .w3-dropdown-click.w3-mobile #navigation a, #navigation .w3-dropdown-click.w3-mobile a, #navigation a.w3-dropdown-click a, #navigation #user-button a, .w3-dropdown-click.vue-card-main-container #navigation a, #navigation .w3-dropdown-click.vue-card-main-container a, .w3-dropdown-click.w3-mobile #navigation #user-button, #navigation .w3-dropdown-click.w3-mobile #user-button, #navigation a.w3-dropdown-click #user-button, #navigation #user-button #user-button, .w3-dropdown-click.vue-card-main-container #navigation #user-button, #navigation .w3-dropdown-click.vue-card-main-container #user-button, #navigation #user-button #userDropdown a {
     width: 100%; } }
 @media (max-width: 768px) {
   .w3-modal-content {
@@ -771,7 +772,7 @@ a {
   padding-right: 4px;
   font-size: 110%; }
 
-.w3-card, .w3-card-2 {
+.w3-card, .vue-card-main-container, .w3-card-2 {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .w3-card-4, #navigation #user-button #userDropdown, .w3-hover-shadow:hover {
@@ -864,13 +865,13 @@ a {
 .w3-opacity, .w3-hover-opacity:hover {
   opacity: 0.60; }
 
-.w3-opacity-off, .w3-hover-opacity-off:hover {
+.w3-opacity-off, .vue-card-main-container:hover img, .w3-hover-opacity-off:hover, .vue-card-main-container:hover {
   opacity: 1; }
 
 .w3-opacity-max {
   opacity: 0.25; }
 
-.w3-opacity-min {
+.w3-opacity-min, .vue-card-main-container img {
   opacity: 0.75; }
 
 .w3-greyscale-max, .w3-grayscale-max, .w3-hover-greyscale:hover, .w3-hover-grayscale:hover {
@@ -961,7 +962,7 @@ a {
   margin-top: 16px !important;
   margin-bottom: 16px !important; }
 
-.w3-margin {
+.w3-margin, .vue-card-main-container {
   margin: 16px !important; }
 
 .w3-margin-top {
@@ -1005,7 +1006,7 @@ a {
   padding-top: 64px !important;
   padding-bottom: 64px !important; }
 
-.w3-left {
+.w3-left, .vue-card-main-container {
   float: left !important; }
 
 .w3-right, #navigation #user-button {
@@ -1030,7 +1031,7 @@ a {
   color: #000 !important;
   background-color: #00ffff !important; }
 
-.w3-blue, .w3-hover-blue:hover {
+.w3-blue, .w3-hover-blue:hover, .vue-card-product-summary:hover {
   color: #fff !important;
   background-color: #2196F3 !important; }
 
@@ -1090,7 +1091,7 @@ a {
   color: #fff !important;
   background-color: #673ab7 !important; }
 
-.w3-red, .w3-hover-red:hover {
+.w3-red, .w3-hover-red:hover, .vue-card-top-container:hover {
   color: #fff !important;
   background-color: #f44336 !important; }
 
@@ -1098,7 +1099,7 @@ a {
   color: #000 !important;
   background-color: #fdf5e6 !important; }
 
-.w3-teal, .w3-hover-teal:hover, #navigation a:hover, #navigation #user-button:hover {
+.w3-teal, .w3-hover-teal:hover, #navigation a:hover, #navigation #user-button:hover, .vue-card-main-container:hover {
   color: #fff !important;
   background-color: #009688 !important; }
 
@@ -1106,7 +1107,7 @@ a {
   color: #000 !important;
   background-color: #ffeb3b !important; }
 
-.w3-white, #user_icon, .w3-hover-white:hover {
+.w3-white, #user_icon, .vue-card-top-container, .vue-card-product-summary, .w3-hover-white:hover {
   color: #000 !important;
   background-color: #fff !important; }
 
@@ -1354,5 +1355,38 @@ header {
 
 .search_result:hover img {
   opacity: 1; }
+
+/* CARDS template */
+.vue-card-main-container {
+  cursor: pointer;
+  max-width: 350px;
+  max-height: 300px; }
+  .vue-card-main-container img {
+    height: 240px;
+    width: 100%; }
+
+.vue-card-image-box {
+  width: 70%; }
+
+.vue-card-bottom-bar {
+  min-height: 60px;
+  height: 60px;
+  max-height: 60px; }
+
+.vue-card-product-image {
+  position: relative;
+  float: left;
+  height: 95%;
+  width: 95%; }
+
+.vue-card-title-box {
+  margin: auto;
+  text-align: left;
+  font-size: 20px; }
+
+button.vue-card {
+  border-style: solid;
+  float: right;
+  margin-right: 10px; }
 
 /*# sourceMappingURL=main.css.map */
