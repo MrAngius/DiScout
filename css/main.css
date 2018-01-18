@@ -397,7 +397,7 @@ a {
   width: 100%;
   overflow: hidden; }
 
-.w3-center .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #filtersSidebar header #navigation {
+.w3-center .w3-bar, #page #page-title .w3-bar, #filtersSidebar header .w3-bar, .w3-center #navigation, #page #page-title #navigation, #filtersSidebar header #navigation {
   display: inline-block;
   width: auto; }
 
@@ -426,7 +426,7 @@ a {
   white-space: normal;
   float: none; }
 
-.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
+.w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
   text-align: center; }
 
 .w3-block, .vue-card-track {
@@ -439,7 +439,7 @@ a {
 
 .w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, .w3-panel:after, .w3-panel:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
 .w3-cell-row:before,
-.vue-card-product-info:before, .w3-cell-row:after, .vue-card-product-info:after, .w3-clear:after, .vue-card-product-info:after, .w3-clear:before, .vue-card-product-info:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
+.vue-card-product-info:before, .w3-cell-row:after, .vue-card-product-info:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
   clear: both; }
@@ -647,7 +647,7 @@ a {
 .w3-bottom {
   bottom: 0; }
 
-.w3-overlay {
+.w3-overlay, #overlay {
   position: fixed;
   display: none;
   width: 100%;
@@ -796,7 +796,7 @@ a {
     opacity: 1; }
   100% {
     opacity: 0; } }
-.w3-animate-opacity {
+.w3-animate-opacity, #overlay {
   animation: opac 0.8s; }
 
 @keyframes opac {
@@ -848,7 +848,7 @@ a {
   to {
     bottom: 0;
     opacity: 1; } }
-.w3-animate-zoom {
+.w3-animate-zoom, #product-list {
   animation: animatezoom 0.6s; }
 
 @keyframes animatezoom {
@@ -895,7 +895,7 @@ a {
 .w3-tiny {
   font-size: 10px !important; }
 
-.w3-small {
+.w3-small, footer {
   font-size: 12px !important; }
 
 .w3-medium {
@@ -907,7 +907,7 @@ a {
 .w3-xlarge {
   font-size: 24px !important; }
 
-.w3-xxlarge {
+.w3-xxlarge, #page #page-title {
   font-size: 36px !important; }
 
 .w3-xxxlarge {
@@ -925,7 +925,7 @@ a {
 .w3-justify {
   text-align: justify !important; }
 
-.w3-center, #filtersSidebar header {
+.w3-center, #page #page-title, #filtersSidebar header {
   text-align: center !important; }
 
 .w3-border-0 {
@@ -980,7 +980,7 @@ a {
 .w3-padding-small {
   padding: 4px 8px !important; }
 
-.w3-padding {
+.w3-padding, footer {
   padding: 8px 16px !important; }
 
 .w3-padding-large {
@@ -1111,7 +1111,7 @@ a {
   color: #000 !important;
   background-color: #fff !important; }
 
-.w3-black, #navigation, .w3-hover-black:hover {
+.w3-black, #navigation, footer, .w3-hover-black:hover {
   color: #fff !important;
   background-color: #000 !important; }
 
@@ -1326,12 +1326,8 @@ a {
   height: 34px;
   margin-right: 8px; }
 
-#page {
-  margin-bottom: 72px; }
-
-footer {
-  padding: 16px;
-  height: 40px; }
+#overlay {
+  cursor: pointer; }
 
 header {
   text-align: center; }
@@ -1339,13 +1335,6 @@ header {
 @media (min-width: 601px) {
   header {
     text-align: left; } }
-#closed_sidebar {
-  display: none;
-  z-index: 5; }
-
-#overlay {
-  cursor: pointer; }
-
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 /* CARDS template */
 .vue-card-container img {
@@ -1387,9 +1376,19 @@ header {
   z-index: 901;
   transition-property: left;
   transition-duration: 1s;
-  transition-timing-function: ease; }
+  transition-timing-function: ease;
+  /*.filter-button {
+      @extend .w3-button;
+      @extend .w3-ripple;
+      @extend .w3-block;
+      @extend .w3-round;
+      @extend .w3-section;
+  }*/ }
   #filtersSidebar #filtersSidebarButton {
     left: 266px;
     position: absolute; }
+
+.has-sidebar {
+  margin-left: 44px; }
 
 /*# sourceMappingURL=main.css.map */

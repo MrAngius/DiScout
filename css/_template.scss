@@ -1,8 +1,6 @@
 /* TEMPLATE elements, present in every page */
 
 $user_icon_size: 34px;  /* this is the profile pic of logged users */
-$footer_height: 40px;
-$footer_padding: 16px;
 
 #navigation {
     @extend .w3-black;
@@ -50,12 +48,24 @@ $footer_padding: 16px;
 }
 
 #page {
-    margin-bottom: $footer_height + 2*$footer_padding;
+    @extend .w3-clear;
+
+    #page-title {
+        @extend .w3-center;
+        @extend .w3-xxlarge;
+    }
+}
+
+#overlay {
+    @extend .w3-overlay;
+    @extend .w3-animate-opacity;
+    cursor: pointer;
 }
 
 footer {
-    padding: $footer_padding;
-    height: $footer_height;
+    @extend .w3-padding;
+    @extend .w3-black;
+    @extend .w3-small;
 }
 
 header {
@@ -68,13 +78,3 @@ header {
     }
 }
 
-
-
-#closed_sidebar {
-    display: none;
-    z-index: 5;
-}
-
-#overlay {
-    cursor: pointer;
-}

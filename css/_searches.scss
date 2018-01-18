@@ -3,6 +3,10 @@
 /* CARDS template */
 $product-image-max-height: 220px;
 
+#product-list {
+    @extend .w3-animate-zoom;
+}
+
 // card container
 .vue-card-container{
     @extend .w3-white;
@@ -87,14 +91,17 @@ $product-image-max-height: 220px;
 
 
 /* FILTERS sidebar */
+$closed-sidebar-width: 44px;
+$left-shift: 266px;
+
 #filtersSidebar {
     @extend .w3-container;
     @extend .w3-pale-green;
     @extend .w3-card;
     display: block;
-    left: -266px;
+    left: -$left-shift;
     width: 294px;
-    padding-right: 44px;
+    padding-right: $closed-sidebar-width;
     position: absolute;
     z-index: 901;
 
@@ -108,11 +115,23 @@ $product-image-max-height: 220px;
         @extend .w3-hide-small;
         @extend .w3-teal;
         @extend .w3-card;
-        left: 266px;
+        left: $left-shift;
         position: absolute;
     }
+
+    /*.filter-button {
+        @extend .w3-button;
+        @extend .w3-ripple;
+        @extend .w3-block;
+        @extend .w3-round;
+        @extend .w3-section;
+    }*/
 
     header {
         @extend .w3-center;
     }
+}
+
+.has-sidebar {
+    margin-left: $closed-sidebar-width;
 }
