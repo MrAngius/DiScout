@@ -3,21 +3,10 @@ $card-max-width: 350px;
 $card-max-height: 300px;
 
 // card container
-.vue-card-main-container{
-    @extend .w3-cell-row;
-    @extend .w3-margin;
-    @extend .w3-left;
+.vue-card-container{
     @extend .w3-white;
-    @extend .w3-hover-teal;
     @extend .w3-mobile;
-    @extend .w3-card;
-    @extend .w3-hover-opacity-off;
-    @extend .w3-mobile;
-    @extend .w3-round-large;
-    cursor: pointer;
-
-    max-width: $card-max-width;
-    max-height: $card-max-height;
+    @extend .w3-left;
 
     img {
         // the product image is partially transparent by default
@@ -25,22 +14,33 @@ $card-max-height: 300px;
         @extend .w3-image;
         height: 0.8*$card-max-height;
     }
-
-    button {
-        @extend .w3-button;
-    }
 }
 
-.vue-card-main-container:hover img {
+// the product itself
+.vue-card-product {
+    @extend .w3-round-large;
+    @extend .w3-card;
+    @extend .w3-hover-teal;
+    @extend .w3-margin;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.vue-card-product:hover img {
     // we want images to become fully visible when the mouse i over the container
     @extend .w3-opacity-off;
 }
 
-.vue-card-top-container {
+.title-box{
+    @extend .w3-container;
+    @extend .w3-mobile;
+}
+
+.vue-card-product-info {
     // image, price and other statistics
     @extend .w3-white;
-    @extend .w3-hover-red;
     @extend .w3-clear;
+    @extend .w3-cell-row;
 
     .vue-card-image-box{
         // image container
@@ -49,16 +49,18 @@ $card-max-height: 300px;
         max-width: 75%;
     }
 
-    .vue-card-product-summary{
+    .vue-card-summary-box{
         @extend .w3-cell;
-        @extend .w3-white;
-        @extend .w3-hover-blue;
         @extend .w3-container;
         min-width: 25%;
         max-width: 25%;
     }
 }
 
-.title-box{
-    @extend .w3-container;
+.vue-card-track {
+    @extend .w3-white;
+    @extend .w3-hover-teal;
+    @extend .w3-button;
+    @extend .w3-ripple;
+    @extend .w3-block;
 }
