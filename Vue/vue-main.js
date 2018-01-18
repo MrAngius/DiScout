@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
      */
         function addSomeProducts(){
             for(var i=1; i<10; i++) {
-                vue_one.$refs.ref_product_list.addProduct("Dynamic Product " + i, i*10)
+                vue_one.$refs.ref_product_list.addProduct(i*100, "Dynamic Product " + i, i*10)
             }
         }
         window.setTimeout(addSomeProducts, 100)

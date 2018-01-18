@@ -7,6 +7,8 @@ Other information and the product image are represented on a single row, inside 
 
 */
 
+// NOTE: The product + id is required to have the information for the drag and drop
+
 
 Vue.component('card', {
     template: `
@@ -19,7 +21,7 @@ Vue.component('card', {
                     <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
                 </div>
                 <div class="vue-card-summary-box">
-                    <div v-if="price" v-text="price + '$'"></div>
+                    <div v-if="price" v-text="price + '€'"></div>
                     <div v-if="trend" v-text="trend"></div>
                 </div>
             </div>
@@ -37,7 +39,7 @@ Vue.component('card', {
     props: {
         id: {
             type: Number,
-            required: false
+            required: true
         },
         title: {
             type: String,
@@ -70,6 +72,19 @@ Vue.component('card', {
         trend: {
             type: Number,
             required: false
+        },
+        rating: {
+            type: Number,
+            required: false
+        },
+        id_similar_p: {
+            type: Array,
+            required: false
+        },
+        lowest_price: {
+            type: Number,
+            required: false
         }
+
     }
 });
