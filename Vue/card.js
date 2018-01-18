@@ -38,7 +38,7 @@ Vue.component('card', {
     },
     props: {
         id: {
-            type: Number,
+            type: String,
             required: false
         },
         title: {
@@ -66,15 +66,15 @@ Vue.component('card', {
             required: false
         },
         price: {
-            type: Number,
+            type: String,
             required: true,
         },
         trend: {
-            type: Number,
+            type: String,
             required: false
         },
         rating: {
-            type: Number,
+            type: String,
             required: false
         },
         id_similar_p: {
@@ -82,7 +82,7 @@ Vue.component('card', {
             required: false
         },
         lowest_price: {
-            type: Number,
+            type: String,
             required: false
         }
     }
