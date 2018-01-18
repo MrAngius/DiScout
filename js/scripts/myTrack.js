@@ -1,6 +1,8 @@
 // use the addEvent listener to wait the load of the page before use JS
 
 let graph;
+let vueInstance1;
+
 window.addEventListener('load', function (ev) {
 
 
@@ -33,12 +35,6 @@ window.addEventListener('load', function (ev) {
             productCompareLink: null,
 
             isNotVisible: true
-        },
-        methods: {
-            visible: function (){
-                this.isNotVisible = !this.isNotVisible;
-                alert("putttana")
-            }
         }
 
     });
@@ -84,10 +80,7 @@ window.addEventListener('load', function (ev) {
         Plotly.newPlot(graph, [data], layout);
     });
 
-
-
 });
-
 
 
 // NOTE: consider this as the basic reference of an object
@@ -105,20 +98,19 @@ const fakeObject = {
     id_similar_p: [5, 3, 2],
     lowest_price: 9999,
 };
-
 const fakeObjectComparisons = {
-    id: 1,
-    title: "La piu bella Cosa",
-    description: "Booooooooooooo",
-    product_category: "Home, Plubelle",
-    product_vendor: "Amazino",
-    img_src: "./img/sample_images/laplusbelle.jpg",
+    id: 3,
+    title: "La piu Brutta",
+    description: "Leeeeeeena",
+    product_category: "Home, ART",
+    product_vendor: "Magazino",
+    img_src: "./img/sample_images/lena.jpg",
     product_link: "",
-    price: 10000,
-    trend: 50,
-    rating: 5,
+    price: "Undefined",
+    trend: 50000,
+    rating: 20,
     id_similar_p: [5, 3, 2],
-    lowest_price: 9999,
+    lowest_price: 999999999,
 };
 
 
@@ -130,10 +122,13 @@ function updateGraph(fileID) {
     // get the data associated with the graph
     // IMPROVEMENT: possible to add multiple objects comparison
 
-
     Plotly.d3.csv("./data/finance-charts-apple.csv", function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
+        }
+
+        while (graph.data.length > 1) {
+            Plotly.deleteTraces(graph, -1);
         }
 
         let trace_add = {
@@ -187,26 +182,23 @@ function updateValues(data) {
     vueInstance1.$data.productFocusLink = fakeObject.product_link;
     vueInstance1.$data.productFocusImageSrc = fakeObject.img_src;
 
-    alert(data.toString())
 }
 
 function updateValuesComparisons(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    vueInstance1.$data.isVisible = false;
+    vueInstance1.$data.isNotVisible = false;
 
-    vueInstance1.$data.productComparisonTitle = fakeObjectComparisons.title;
-    vueInstance1.$data.productComparisonDescription = fakeObjectComparisons.description;
-    vueInstance1.$data.productComparisonPrice = fakeObjectComparisons.price;
-    vueInstance1.$data.productComparisonPriceLower = fakeObjectComparisons.lowest_price;
-    vueInstance1.$data.productComparisonRating = fakeObjectComparisons.rating;
-    vueInstance1.$data.productComparisonPriceTrend = fakeObjectComparisons.trend;
-    vueInstance1.$data.productComparisonVendor = fakeObjectComparisons.product_vendor;
-    vueInstance1.$data.productComparisonCategory = fakeObjectComparisons.product_category;
-    vueInstance1.$data.productComparisonLink = fakeObjectComparisons.product_link;
-    vueInstance1.$data.productComparisonImageSrc = fakeObjectComparisons.img_src;
+    vueInstance1.$data.productCompareTitle = fakeObjectComparisons.title;
+    vueInstance1.$data.productCompareDescription = fakeObjectComparisons.description;
+    vueInstance1.$data.productComparePrice = fakeObjectComparisons.price;
+    vueInstance1.$data.productComparePriceLower = fakeObjectComparisons.lowest_price;
+    vueInstance1.$data.productCompareRating = fakeObjectComparisons.rating;
+    vueInstance1.$data.productComparePriceTrend = fakeObjectComparisons.trend;
+    vueInstance1.$data.productCompareVendor = fakeObjectComparisons.product_vendor;
+    vueInstance1.$data.productCompareCategory = fakeObjectComparisons.product_category;
+    vueInstance1.$data.productCompareLink = fakeObjectComparisons.product_link;
+    vueInstance1.$data.productCompareImageSrc = fakeObjectComparisons.img_src;
 
-
-    alert(data.toString())
 }
