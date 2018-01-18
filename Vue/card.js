@@ -9,7 +9,6 @@ Other information and the product image are represented on a single row, inside 
 
 // NOTE: The product + id is required to have the information for the drag and drop
 
-
 Vue.component('card', {
     template: `
     <div :id="'product' + id" draggable="true" ondragstart="drag(event)" class="vue-card-container">

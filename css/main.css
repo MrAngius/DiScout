@@ -579,7 +579,7 @@ a {
 .w3-cell-bottom {
   vertical-align: bottom; }
 
-.w3-hide {
+.w3-hide, .hidden {
   display: none !important; }
 
 .w3-show-block, .w3-show {

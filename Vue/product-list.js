@@ -12,7 +12,7 @@ Vue.component('product-list', {
     // NOTE: this function is used to add additional data
     methods: {
         addProduct: function (id, title, price, rating, trend, vendor, low_price, link, img_src) {
-            var p={
+            let p={
                 id: id,
                 title: title,
                 price: price,
@@ -22,7 +22,7 @@ Vue.component('product-list', {
                 low_price: low_price,
                 link: link,
                 img_src: img_src
-            }
+            };
             this.cards.push(p)
         }
     },
