@@ -32,6 +32,50 @@
 
 </head>
 
+<!--<button :id="idbutton" :onclick="'openCloseSidebar(\'' + idSidebar + '\', \'' + idOverlay + '\')'">-->
+
+<script>
+    Vue.component('filters', {
+        template: `
+        <button :id="idButton">
+            <i class="fa fa-search-plus w3-xlarge"></i>
+        </button>
+        <header>
+            <h2>FILTERS</h2>
+        </header>
+        <div class="filters">
+            <p><label><input type="checkbox">Filter 1</label></p>
+            <p><label><input type="checkbox">Filter 2</label></p>
+            <p><label><input type="checkbox">Filter 3</label></p>
+            <p><label><input type="checkbox">Filter 4</label></p>
+            <p><label><input type="checkbox">Filter 5</label></p>
+            <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Reset</button>
+            <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">Set filters</button>
+        </div>
+        `,
+        name: "filters",
+        data() {
+            return {}
+        },
+        props: {
+            idButton: {
+                type: String,
+                required: true
+            },
+            idSidebar: {
+                type: String,
+                required: true
+            },
+            idOverlay: {
+                type: String,
+                required: false
+            }
+        }
+    });
+</script>
+
+
+
 <body>
 <header class="w3-container">
     <a href="#">
@@ -56,14 +100,35 @@
             <a href="#">User item 4</a>
         </div>
     </div>
-    <div class="w3-clear"></div>
 </nav>
+
+<div class="w3-hide-large w3-hide-medium w3-pale-green">
+    <button id="filtersNavButton" class="w3-grey w3-hover-teal w3-mobile w3-button" onclick="showHideTarget('filtersNavbar')">
+        <i class="fa fa-search-plus w3-xlarge"></i>
+    </button>
+    <div id="filtersNavbar" class="w3-hide w3-padding">
+        <header>
+            <h2>FILTERS</h2>
+        </header>
+        <div class="filters">
+            <p><label><input type="checkbox">Filter 1</label></p>
+            <p><label><input type="checkbox">Filter 2</label></p>
+            <p><label><input type="checkbox">Filter 3</label></p>
+            <p><label><input type="checkbox">Filter 4</label></p>
+            <p><label><input type="checkbox">Filter 5</label></p>
+            <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Reset</button>
+            <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">Set filters</button>
+        </div>
+    </div>
+</div>
 
 
 <!-- FILTERS SIDEBAR open-->
 <aside data-open="False" id="filtersSidebar">
+    <filters :idButton="filtersSidebarButton" :idSidebar="filtersSidebar" :idOverlay="overlay"></filters>
+    <!--
     <button id="filtersSidebarButton" onclick="openCloseSidebar('filtersSidebar', 'overlay')">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-search-plus w3-xlarge"></i>
     </button>
     <header>
         <h2>FILTERS</h2>
@@ -77,6 +142,7 @@
         <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Reset</button>
         <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">Set filters</button>
     </div>
+    -->
 </aside>
 
 <div id="overlay" onclick="openCloseSidebar('filtersSidebar', 'overlay')"></div>

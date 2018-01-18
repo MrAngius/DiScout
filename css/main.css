@@ -1328,6 +1328,10 @@ a {
 
 #overlay {
   cursor: pointer; }
+  @media (max-width: 600px) {
+    #overlay {
+      display: none;
+      visibility: none; } }
 
 header {
   text-align: center; }
@@ -1371,7 +1375,7 @@ header {
   display: block;
   left: -266px;
   width: 294px;
-  padding-right: 44px;
+  padding-right: 48px;
   position: absolute;
   z-index: 901;
   transition-property: left;
@@ -1390,6 +1394,6 @@ header {
 
 @media (min-width: 601px) {
   .has-sidebar {
-    margin-left: 44px; } }
+    margin-left: 48px; } }
 
 /*# sourceMappingURL=main.css.map */

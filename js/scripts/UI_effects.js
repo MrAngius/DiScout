@@ -32,6 +32,17 @@ function openSidebar(sidebarElem, overlayElem) {
     overlayElem.style.display = 'block';
 }
 
+/* GENERAL ITEMS */
+function showHideTarget(targetId) {
+    const elem = document.getElementById(targetId);
+    if(elem.classList.contains('w3-hide')){
+        elem.classList.remove('w3-hide');
+    }
+    else {
+        elem.classList.add('w3-hide');
+    }
+}
+
 /* DROPDOWNS */
 function showDropdown(dropdownContentId) {
     const elem = document.getElementById(dropdownContentId)
