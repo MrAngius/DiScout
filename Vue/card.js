@@ -5,7 +5,7 @@ The "title"is on top of the card.
 The "track" button is at bottom.
 Other information and the product image are represented on a single row, inside the element with class "vue-card-product-info"
 
- */
+*/
 
 
 Vue.component('card', {
