@@ -1,6 +1,6 @@
 Vue.component('card', {
     template: `
-    <div class="vue-card-main-container w3-row-padding w3-margin-top">
+    <div class="vue-card-main-container">
         <div class="vue-card-top-container">
             <div class="vue-card-image-box">
                 <img v-if="img_src" class='vue-card-product-image' :src="img_src">

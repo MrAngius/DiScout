@@ -1,0 +1,66 @@
+/* CARDS template */
+$card-max-width: 350px;
+$card-max-height: 300px;
+
+.vue-card-main-container{
+    @extend .w3-cell-row;
+    @extend .w3-margin;
+    @extend .w3-left;
+    @extend .w3-hover-teal;
+    @extend .w3-mobile;
+    @extend .w3-card;
+    @extend .w3-hover-opacity-off;
+    cursor: pointer;
+    max-width: $card-max-width;
+    max-height: $card-max-height;
+
+    img {
+        @extend .w3-opacity-min;
+        height: 0.8*$card-max-height;
+        width: 100%;
+    }
+}
+
+.vue-card-main-container:hover img {
+    @extend .w3-opacity-off;
+}
+
+.vue-card-top-container {
+    @extend .w3-white;
+    @extend .w3-hover-red;
+}
+
+.vue-card-image-box{
+    @extend .w3-cell-middle;
+    width: 70%;
+}
+
+.vue-card-product-summary{
+    @extend .w3-white;
+    @extend .w3-hover-blue;
+    @extend .w3-cell-middle;
+}
+
+.vue-card-bottom-bar{
+    min-height: 0.2*$card-max-height;
+    height: 0.2*$card-max-height;
+    max-height: 0.2*$card-max-height;
+}
+
+.vue-card-product-image{
+    position: relative;
+    float: left;
+    height: 95%;
+    width: 95%;
+}
+.vue-card-title-box{
+    margin: auto;
+    text-align: left;
+    font-size: 20px;
+}
+button.vue-card{
+    border-style: solid;
+    float: right;
+    margin-right: 10px;
+
+}
