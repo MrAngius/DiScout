@@ -1,7 +1,7 @@
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 
 /* CARDS template */
-$product-image-max-height: 220px;
+$product-card-height: 450px;
 
 #product-list {}
 
@@ -14,7 +14,6 @@ $product-image-max-height: 220px;
     img {
         // the product image is partially transparent by default
         @extend .w3-image;
-        height: $product-image-max-height;
 
         @media (min-width: 601px) {
             opacity: 0.75;
@@ -44,8 +43,13 @@ $product-image-max-height: 220px;
     @extend .w3-card;
     @extend .w3-hover-teal;
     @extend .w3-margin;
+    @extend .w3-display-container;
     overflow: hidden;
     cursor: pointer;
+
+    @media (min-width: 601px) {
+        height: $product-card-height;
+    }
 }
 
 .vue-card-product:hover img {
@@ -68,6 +72,8 @@ $product-image-max-height: 220px;
         // image container
         @extend .w3-cell;
         @extend .w3-padding;
+        @extend .w3-center;
+        overflow: hidden;
         min-width: 75%;
         max-width: 75%;
     }
