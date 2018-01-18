@@ -1,18 +1,17 @@
+let vue_one
 window.addEventListener('load', function () {
-    let vue_one = new Vue({
+    vue_one = new Vue({
         el: '#product-list',
     });
-
-
-    /* This is to test the possibility of changing dynamically the content of the list
-     * The following code will be removed
-     */
-        function addSomeProducts(){
-            for(var i=1; i<10; i++) {
-                vue_one.$refs.ref_product_list.addProduct(i*100, "Dynamic Product " + i, i*10)
-            }
-        }
-        window.setTimeout(addSomeProducts, 100)
-    /*
-     */
+    loadDB('database.json')
 });
+
+function loadDB(database){
+    //alert("Loading DB")
+    Plotly.d3.json(database, function(e,data){
+        for(var i=0; i<data.products.length; i++) {
+            p=data.products[i]
+            vue_one.$refs.ref_product_list.addProduct(parseInt(p.id), p.name, parseFloat(p.price), parseFloat(p.rating), parseFloat(p.trend), p.vendor, parseFloat(p.low_price), p.link, p.img_source);
+        }
+    })
+}

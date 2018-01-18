@@ -11,43 +11,25 @@ Vue.component('product-list', {
     name: 'App',
     // NOTE: this function is used to add additional data
     methods: {
-        addProduct: function (id, title, price) {
-            this.cards.push({
-                    id: id,
-                    title: title,
-                    price: price
-                }
-            )
+        addProduct: function (id, title, price, rating, trend, vendor, low_price, link, img_src) {
+            var p={
+                id: id,
+                title: title,
+                price: price,
+                rating: rating,
+                trend: trend,
+                vendor: vendor,
+                low_price: low_price,
+                link: link,
+                img_src: img_src
+            }
+            this.cards.push(p)
         }
     },
     data() {
         return {
             // NOTE: default data which is added on load
             cards: [
-                {
-                    id: 1,
-                    title: 'Product 1',
-                    price: 14,
-                    img_src: "img/search_result.jpg"
-                },
-                {
-                    id: 2,
-                    title: 'Product 2',
-                    price: 34,
-                    img_src: "img/search_result.jpg"
-                },
-                {
-                    id: 3,
-                    title: 'Product 3',
-                    price: 65,
-                    img_src: "img/search_result.jpg"
-                },
-                {
-                    id: 4,
-                    title: 'Product 4',
-                    price: 12,
-                    img_src: "img/search_result.jpg"
-                }
             ]
         }
     }
