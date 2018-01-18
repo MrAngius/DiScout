@@ -43,7 +43,6 @@ $product-card-height: 450px;
     @extend .w3-card;
     @extend .w3-hover-teal;
     @extend .w3-margin;
-    @extend .w3-display-container;
     overflow: hidden;
     cursor: pointer;
 
@@ -91,6 +90,11 @@ $product-card-height: 450px;
     @extend .w3-button;
     @extend .w3-ripple;
     @extend .w3-block;
+}
+
+.vue-card-tracked {
+    @extend .vue-card-track;
+    @extend .w3-hover-red;
 }
 
 
