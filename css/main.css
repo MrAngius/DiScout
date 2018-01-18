@@ -871,7 +871,7 @@ a {
 .w3-opacity-max {
   opacity: 0.25; }
 
-.w3-opacity-min, .vue-card-container img {
+.w3-opacity-min {
   opacity: 0.75; }
 
 .w3-greyscale-max, .w3-grayscale-max, .w3-hover-greyscale:hover, .w3-hover-grayscale:hover {
@@ -1031,7 +1031,7 @@ a {
   color: #000 !important;
   background-color: #00ffff !important; }
 
-.w3-blue, .w3-hover-blue:hover {
+.w3-blue, .w3-hover-blue:hover, .vue-card-track:hover {
   color: #fff !important;
   background-color: #2196F3 !important; }
 
@@ -1099,7 +1099,7 @@ a {
   color: #000 !important;
   background-color: #fdf5e6 !important; }
 
-.w3-teal, .w3-hover-teal:hover, #navigation a:hover, #navigation #user-button:hover, .vue-card-product:hover, .vue-card-track:hover {
+.w3-teal, .w3-hover-teal:hover, #navigation a:hover, #navigation #user-button:hover, .vue-card-product:hover {
   color: #fff !important;
   background-color: #009688 !important; }
 
@@ -1349,7 +1349,22 @@ header {
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 /* CARDS template */
 .vue-card-container img {
-  height: 240px; }
+  height: 220px; }
+  @media (min-width: 601px) {
+    .vue-card-container img {
+      opacity: 0.75; } }
+@media (min-width: 601px) {
+  .vue-card-container {
+    width: 50%; } }
+@media (min-width: 901px) {
+  .vue-card-container {
+    width: 33.33%; } }
+@media (min-width: 1151px) {
+  .vue-card-container {
+    width: 25%; } }
+@media (min-width: 1501px) {
+  .vue-card-container {
+    width: 20%; } }
 
 .vue-card-product {
   overflow: hidden;
