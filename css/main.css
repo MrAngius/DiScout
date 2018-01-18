@@ -579,7 +579,7 @@ a {
 .w3-cell-bottom {
   vertical-align: bottom; }
 
-.w3-hide, .hidden {
+.w3-hide {
   display: none !important; }
 
 .w3-show-block, .w3-show {
@@ -1394,5 +1394,8 @@ header {
 @media (min-width: 601px) {
   .has-sidebar {
     margin-left: 48px; } }
+
+.hidden {
+  display: none !important; }
 
 /*# sourceMappingURL=main.css.map */
