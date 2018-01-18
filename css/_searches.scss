@@ -37,6 +37,11 @@ $product-card-height: 450px;
     }
 }
 
+.vue-card-tracked-product {
+    @extend .vue-card-container;
+    @extend .w3-block;
+}
+
 // the product itself
 .vue-card-product {
     @extend .w3-round-large;
