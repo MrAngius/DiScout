@@ -12,7 +12,7 @@ window.addEventListener('load', function (ev) {
         data: {
             // these data need to be updated depending on the content
             productFocusTitle: "Smart Home Kit",
-            productFocusInfo: "The best product to automatize your Hose!",
+            productFocusInfo: "An Amazing product!",
             productFocusRating: 3.4,
             productFocusPrice: 120,
             productFocusPriceTrend: -15,
@@ -100,54 +100,16 @@ window.addEventListener('load', function (ev) {
 
 });
 
-
+// NOTE: probably is better to load it and store as web-store
 function loadDB(database){
     //alert("Loading DB")
     Plotly.d3.json(database, function(e,data) {
         vueInstance1.$data.cards = data.products
-        /* Following code is used to insert categories dynamically, not working atm */
-        /*
-        for (var i = 0; i < data.products.length; i++) {
-            var cat = data.products[i].category
-            vue.categories[cat] = true
-        }
-        */
-
     })
 }
 
 window.onresize = function() {
     Plotly.Plots.resize(graph);
-};
-
-// NOTE: consider this as the basic reference of an object
-const fakeObject = {
-    id: 1,
-    title: "La piu bella Cosa",
-    description: "Booooooooooooo",
-    product_category: "Home, Plubelle",
-    product_vendor: "Amazino",
-    img_src: "./img/sample_images/laplusbelle.jpg",
-    product_link: "",
-    price: 10000,
-    trend: 50,
-    rating: 5,
-    id_similar_p: [5, 3, 2],
-    lowest_price: 9999,
-};
-const fakeObjectComparisons = {
-    id: 3,
-    title: "La piu Brutta",
-    description: "Leeeeeeena",
-    product_category: "Home, ART",
-    product_vendor: "Magazino",
-    img_src: "./img/sample_images/lena.jpg",
-    product_link: "",
-    price: "Undefined",
-    trend: 50000,
-    rating: 20,
-    id_similar_p: [5, 3, 2],
-    lowest_price: 999999999,
 };
 
 
@@ -187,37 +149,52 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function drag(ev) {
+function drag(ev, isFocus) {
     // used to send data
     ev.dataTransfer.setData("id", ev.target.id);
+    ev.dataTransfer.setData("isFocus", isFocus)
 }
 
 function drop(ev) {
     ev.preventDefault();
-    // retrieve the information
-    let data = ev.dataTransfer.getData("id");
 
-    // call a function for updating the values
-    updateValuesComparisons(data);
+    let data = ev.dataTransfer.getData("id");
+    let type = ev.dataTransfer.getData("isFocus");
+
+    if(type) {
+        updateValuesFocus(data);
+    } else {
+        updateValuesComparisons(data);
+    }
     updateGraph(data);
+
 }
+
 
 // TODO: need to make the function read the id of the object and retrieve the info
 
-function updateValues(data) {
+function updateValuesFocus(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    vueInstance1.$data.productFocusTitle = fakeObject.title;
-    vueInstance1.$data.productFocusDescription = fakeObject.description;
-    vueInstance1.$data.productFocusPrice = fakeObject.price;
-    vueInstance1.$data.productFocusPriceLower = fakeObject.lowest_price;
-    vueInstance1.$data.productFocusRating = fakeObject.rating;
-    vueInstance1.$data.productFocusPriceTrend = fakeObject.trend;
-    vueInstance1.$data.productFocusVendor = fakeObject.product_vendor;
-    vueInstance1.$data.productFocusCategory = fakeObject.product_category;
-    vueInstance1.$data.productFocusLink = fakeObject.product_link;
-    vueInstance1.$data.productFocusImageSrc = fakeObject.img_src;
+    console.log(data);
+    let productFocused = vueInstance1.$data.cards.filter(function( obj ) {
+        return obj.id === data;
+    });
+
+    console.log(productFocused);
+
+
+    vueInstance1.$data.productFocusTitle = productFocused.name;
+    //vueInstance1.$data.productFocusDescription = productFocused.description;
+    vueInstance1.$data.productFocusPrice = productFocused.price;
+    vueInstance1.$data.productFocusPriceLower = productFocused.low_price;
+    vueInstance1.$data.productFocusRating = productFocused.rating;
+    vueInstance1.$data.productFocusPriceTrend = productFocused.trend;
+    vueInstance1.$data.productFocusVendor = productFocused.vendor;
+    vueInstance1.$data.productFocusCategory = productFocused.category;
+    vueInstance1.$data.productFocusLink = productFocused.link;
+    vueInstance1.$data.productFocusImageSrc = productFocused.img_source;
 
 }
 
@@ -227,15 +204,21 @@ function updateValuesComparisons(data) {
 
     vueInstance1.$data.isNotVisible = false;
 
-    vueInstance1.$data.productCompareTitle = fakeObjectComparisons.title;
-    vueInstance1.$data.productCompareDescription = fakeObjectComparisons.description;
-    vueInstance1.$data.productComparePrice = fakeObjectComparisons.price;
-    vueInstance1.$data.productComparePriceLower = fakeObjectComparisons.lowest_price;
-    vueInstance1.$data.productCompareRating = fakeObjectComparisons.rating;
-    vueInstance1.$data.productComparePriceTrend = fakeObjectComparisons.trend;
-    vueInstance1.$data.productCompareVendor = fakeObjectComparisons.product_vendor;
-    vueInstance1.$data.productCompareCategory = fakeObjectComparisons.product_category;
-    vueInstance1.$data.productCompareLink = fakeObjectComparisons.product_link;
-    vueInstance1.$data.productCompareImageSrc = fakeObjectComparisons.img_src;
+    let productCompared = vueInstance1.$data.cards.filter(function( obj ) {
+        return obj.id !== data;
+    });
+
+    console.log(productFocused);
+
+    vueInstance1.$data.productCompareTitle = productCompared.name;
+    //vueInstance1.$data.productCompareDescription = productCompared.description;
+    vueInstance1.$data.productComparePrice = productCompared.price;
+    vueInstance1.$data.productComparePriceLower = productCompared.low_price;
+    vueInstance1.$data.productCompareRating = productCompared.rating;
+    vueInstance1.$data.productComparePriceTrend = productCompared.trend;
+    vueInstance1.$data.productCompareVendor = productCompared.vendor;
+    vueInstance1.$data.productCompareCategory = productCompared.category;
+    vueInstance1.$data.productCompareLink = productCompared.link;
+    vueInstance1.$data.productCompareImageSrc = productCompared.img_source;
 
 }
