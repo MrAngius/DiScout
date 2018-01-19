@@ -8,7 +8,7 @@ window.addEventListener('load', function (ev) {
 
     // handle the page using vue
     vueInstance1 = new Vue({
-        el: "#main-page",
+        el: "#vue-mytrack",
         data: {
             // these data need to be updated depending on the content
             productFocusTitle: "Smart Home Kit",
@@ -34,7 +34,23 @@ window.addEventListener('load', function (ev) {
             productCompareImageSrc: null,
             productCompareLink: null,
 
-            isNotVisible: true
+            isNotVisible: true,
+
+            cards: [
+            ],
+            categories: {
+                Accessories: true,
+                Bags: true,
+                Books_and_Music: true,
+                Hi_tech: true,
+                Home: true,
+                Shoes: true,
+                Sports: true,
+                Tools: true,
+                Toys: true,
+                Vetements: true
+            },
+
         }
 
     });
@@ -80,11 +96,29 @@ window.addEventListener('load', function (ev) {
         Plotly.newPlot(graph, [data], layout);
     });
 
+    loadDB('database.json')
+
 });
+
+
+function loadDB(database){
+    //alert("Loading DB")
+    Plotly.d3.json(database, function(e,data) {
+        vueInstance1.$data.cards = data.products
+        /* Following code is used to insert categories dynamically, not working atm */
+        /*
+        for (var i = 0; i < data.products.length; i++) {
+            var cat = data.products[i].category
+            vue.categories[cat] = true
+        }
+        */
+
+    })
+}
 
 window.onresize = function() {
     Plotly.Plots.resize(graph);
-}
+};
 
 // NOTE: consider this as the basic reference of an object
 const fakeObject = {
