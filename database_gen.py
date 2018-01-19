@@ -7,7 +7,7 @@ products=db.readlines()
 id=0
 for k in range(2):
 	for j in range(len(products)):
-		print('\t\t"pruduct' + str(id) + '": {')
+		print('\t\t"product' + str(id) + '": {')
 		props=products[j].split(',')
 		for i in range(len(props)):
 		    if(header[i]!="\n"):

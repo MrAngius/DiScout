@@ -18,7 +18,7 @@ function openCloseSidebar(sidebarId, overlayId) {
 
 function closeSidebar(sidebarElem, overlayElem) {
     // hide the sidebar
-    sidebarElem.style.left = "-266px";
+    sidebarElem.classList.add('shifted-sidebar');
     sidebarElem.setAttribute('data-open', "false")
     // hide the overlay
     overlayElem.style.display = 'none';
@@ -26,7 +26,7 @@ function closeSidebar(sidebarElem, overlayElem) {
 
 function openSidebar(sidebarElem, overlayElem) {
     //show the sidebar
-    sidebarElem.style.left = "0";
+    sidebarElem.classList.remove('shifted-sidebar');
     sidebarElem.setAttribute('data-open', "true")
     //show the overlay
     overlayElem.style.display = 'block';

@@ -1335,7 +1335,7 @@ a {
 
 #overlay {
   cursor: pointer; }
-  @media (max-width: 600px) {
+  @media (max-width: 600px), (min-width: 1501px) {
     #overlay {
       display: none !important;
       visibility: hidden !important; } }
@@ -1380,9 +1380,12 @@ header {
   max-width: 75%; }
 
 /* FILTERS sidebar */
+.shifted-sidebar {
+  left: -266px !important; }
+
 #filtersSidebar {
   display: block;
-  left: -266px;
+  left: 0;
   width: 294px;
   padding-right: 48px;
   position: absolute;
@@ -1399,7 +1402,7 @@ header {
   }*/ }
   @media (min-width: 1501px) {
     #filtersSidebar {
-      left: 0;
+      left: 0 !important;
       padding-right: 16px;
       width: 278px;
       height: 100%; } }
