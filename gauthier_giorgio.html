@@ -98,7 +98,7 @@
             <!-- Search results-->
             <div id="product-list">
                 <div v-for="card in cards">
-                    <card v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                    <card v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                 </div>
             </div>
         </main>

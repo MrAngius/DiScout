@@ -13,12 +13,12 @@ window.addEventListener('load', function () {
                     name: 'Bags'
                 },
                 {
-                    id: 'Books_and_Music',
+                    id: 'BooksandMusic',
                     name: 'Books and Music'
                 },
                 {
-                    id: 'Hi_tech',
-                    name: 'Hi tech'
+                    id: 'Hitech',
+                    name: 'Hi-tech'
                 },
                 {
                     id: 'Home',
@@ -45,8 +45,10 @@ window.addEventListener('load', function () {
                     name: 'Vetements'
                 }
             ],
-            cards: [
-            ],
+            cards: {
+
+            }
+            ,
 
             /*
              * Dynamically loaded element will make the filter not work (WTF?!)
@@ -55,8 +57,8 @@ window.addEventListener('load', function () {
             categories: {
                 Accessories: true,
                 Bags: true,
-                Books_and_Music: true,
-                Hi_tech: true,
+                BooksandMusic: true,
+                Hitech: true,
                 Home: true,
                 Shoes: true,
                 Sports: true,
@@ -64,13 +66,26 @@ window.addEventListener('load', function () {
                 Toys: true,
                 Vetements: true
             },
+            show: true,
+        },
 
-
-
+        computed: {
 
         },
+
         methods: {
+            resetFilters: function(){
+                for(var i=0; i<this.filters.length; i++){
+                    var element=document.getElementById(this.filters[i].id).checked=true;
+                    this.categories[this.filters[i].id]=true;
+                }
+            },
+            showOrCat: function(cat){
+                return this.show && this.categories[cat.replace(/[^A-Za-z0-9]/gi, '')]
+            },
             updateCategory(e){
+
+                console.log(e.target.id)
                 /* Cannot update the value in the array :( */
                 /* this.categories[e.target.id]=e.target.checked */
                 this.categories[e.target.id]=e.target.checked;
@@ -85,6 +100,7 @@ window.addEventListener('load', function () {
 function loadDB(database){
     //alert("Loading DB")
     Plotly.d3.json(database, function(e,data) {
+
         vue.cards = data.products
         /* Following code is used to insert categories dynamically, not working atm */
         /*
