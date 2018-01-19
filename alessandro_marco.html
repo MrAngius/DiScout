@@ -57,31 +57,28 @@
 </nav>
 
 <!-- MAIN CONTAINER -->
-<main class="w3-padding w3-cell-row">
-
+<main class="w3-padding" style="clear: both;">
 
     <!-- LIST OF TRACKED PRODUCTS -->
-    <aside class="w3-quarter" style="width:15%">
+    <aside class="w3-left" style="width:15%;">
         This contains the list of products    
         <div id="product-list">
             <product-list ref="ref_product_list"></product-list>
         </div>
     </aside>
 
-
-
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
     <div id="main-page" class="w3-padding w3-rest">
 
         <!-- TRACKED PRODUCT DETAIL -->
         <!-- NOTE: style for debug purpose only -->
-        <div class="w3-cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div ondrop="drop(event)" ondragover="allowDrop(event)">
 
             <!-- DETAILS -->
-            <div class="w3-row">
-                <h2>{{ productFocusTitle }}</h2>
+            <section class="w3-row">
+                <h2 class="w3-teal w3-container w3-round">{{ productFocusTitle }}</h2>
                 <p>{{ productFocusInfo }}</p>
-                <div class="w3-quarter" >
+                <div class="w3-quarter">
                     <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
                 </div>
                 <div class="w3-rest">
@@ -119,21 +116,21 @@
                     </table>
                 </div>
 
-            </div>
+            </section>
 
 
             <!-- GRAPH -->
-            <div class="" style="margin-bottom: 24px">
-                <h2>Price Trend</h2>
-                <div id="graph" style="right: 0"></div>
-            </div>
+            <section class="w3-section">
+                <h2 class="w3-blue w3-container w3-round">Price Trend</h2>
+                <div id="graph"></div>
+            </section>
 
         </div>
 
         <!-- SIMILAR PRODUCTS -->
         <div>
             <!-- products -->
-            <h2>Similar Products</h2>
+            <h2 class="w3-red w3-container w3-round">Similar Products</h2>
             <div class="w3-cell w3-card w3-hover-teal search_result">
                 <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
                 <div class="w3-container">

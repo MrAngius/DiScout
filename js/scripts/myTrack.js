@@ -82,6 +82,9 @@ window.addEventListener('load', function (ev) {
 
 });
 
+window.onresize = function() {
+    Plotly.Plots.resize(graph);
+}
 
 // NOTE: consider this as the basic reference of an object
 const fakeObject = {
