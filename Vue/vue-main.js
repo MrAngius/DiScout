@@ -47,8 +47,7 @@ window.addEventListener('load', function () {
             ],
             cards: {
 
-            }
-            ,
+            },
 
             /*
              * Dynamically loaded element will make the filter not work (WTF?!)
@@ -68,15 +67,10 @@ window.addEventListener('load', function () {
             },
             show: true,
         },
-
-        computed: {
-
-        },
-
         methods: {
             resetFilters: function(){
-                for(var i=0; i<this.filters.length; i++){
-                    var element=document.getElementById(this.filters[i].id).checked=true;
+                for(let i=0; i<this.filters.length; i++){
+                    let element=document.getElementById(this.filters[i].id).checked=true;
                     this.categories[this.filters[i].id]=true;
                 }
             },

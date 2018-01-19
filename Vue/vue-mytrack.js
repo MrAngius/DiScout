@@ -51,6 +51,15 @@ window.addEventListener('load', function (ev) {
                 Vetements: true
             },
 
+        },
+        computed: {
+            shortList: function(){
+                console.log(this.cards);
+                let tmp =  Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
+                console.log(tmp)
+                return tmp
+
+            }
         }
 
     });
@@ -96,7 +105,7 @@ window.addEventListener('load', function (ev) {
         Plotly.newPlot(graph, [data], layout);
     });
 
-    loadDB('database.json')
+    loadDB('database.json');
 
 });
 
@@ -104,7 +113,7 @@ window.addEventListener('load', function (ev) {
 function loadDB(database){
     //alert("Loading DB")
     Plotly.d3.json(database, function(e,data) {
-        vueInstance1.$data.cards = data.products
+        vueInstance1.cards = data.products;
     })
 }
 
@@ -178,9 +187,7 @@ function updateValuesFocus(data) {
     // use them to populate the information on the graph and in the table
 
     console.log(data);
-    let productFocused = vueInstance1.$data.cards.filter(function( obj ) {
-        return obj.id === data;
-    });
+    let productFocused = vueInstance1.$data.cards[data];
 
     console.log(productFocused);
 
@@ -203,12 +210,11 @@ function updateValuesComparisons(data) {
     // use them to populate the information on the graph and in the table
 
     vueInstance1.$data.isNotVisible = false;
+    console.log(data);
+    // NOTE: hard coded for now
+    let productCompared = vueInstance1.$data.cards[data];
+    console.log(productCompared);
 
-    let productCompared = vueInstance1.$data.cards.filter(function( obj ) {
-        return obj.id !== data;
-    });
-
-    console.log(productFocused);
 
     vueInstance1.$data.productCompareTitle = productCompared.name;
     //vueInstance1.$data.productCompareDescription = productCompared.description;
