@@ -51,11 +51,14 @@ $user_icon_size: 34px;  /* this is the profile pic of logged users */
     @extend .w3-clear;
     position: relative;
     overflow: hidden;
-    min-height: 650px;
 
     #page-title {
         @extend .w3-center;
         @extend .w3-xxlarge;
+    }
+
+    @media (min-width: 601px) {
+        min-height: 650px;
     }
 }
 

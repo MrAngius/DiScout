@@ -1328,8 +1328,10 @@ a {
 
 #page {
   position: relative;
-  overflow: hidden;
-  min-height: 650px; }
+  overflow: hidden; }
+  @media (min-width: 601px) {
+    #page {
+      min-height: 650px; } }
 
 #overlay {
   cursor: pointer; }
