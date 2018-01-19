@@ -37,18 +37,20 @@
         <navbar></navbar>
 
         <!-- MAIN CONTAINER -->
-        <main class="w3-padding" style="clear: both;">
+        <main class="w3-row">
 
             <!-- LIST OF TRACKED PRODUCTS -->
-            <aside class="w3-left" style="width:15%;">
-                This contains the list of products
-                <div v-for="card in cards">
-                    <card draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+            <aside class="w3-col" style="width:15%;">
+                <p class="w3-container w3-large">Your tracked products</p>
+                <div id="tracked-products-list" class="w3-panel" style="max-height: 1500px; overflow: auto; width: 100%">
+                    <div v-for="card in cards">
+                        <card class="vue-card-tracked-product" draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                    </div>
                 </div>
             </aside>
 
             <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-            <div id="main-page" class="w3-padding w3-rest">
+            <div id="main-page" class="w3-rest w3-panel">
 
                 <!-- TRACKED PRODUCT DETAIL -->
                 <!-- NOTE: style for debug purpose only -->
@@ -110,7 +112,7 @@
                 <!-- SIMILAR PRODUCTS -->
                 <div>
                     <div v-for="card in shortList">
-                        <card draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                        <card class="vue-card-container" draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                     </div>
                 </div>
             </div>

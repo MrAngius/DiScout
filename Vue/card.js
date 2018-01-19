@@ -11,7 +11,7 @@ Other information and the product image are represented on a single row, inside 
 
 Vue.component('card', {
     template: `
-    <div :id="'product' + id" class="vue-card-container">
+    <div :id="'product' + id">
         <div class="vue-card-product">
             <div onclick="productPreview(this.parentNode.parentNode, 'modal')">
                 <p class="title-box" v-text="title"></p>

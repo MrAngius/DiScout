@@ -429,7 +429,7 @@ a {
 .w3-bar-block.w3-center .w3-bar-item, #navigation #user-button .w3-center#userDropdown .w3-bar-item, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box .w3-bar-item, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box .w3-bar-item, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box .w3-bar-item, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box .w3-bar-item, #navigation #user-button #filtersSidebar header#userDropdown .w3-bar-item, #filtersSidebar #navigation #user-button header#userDropdown .w3-bar-item, #page .w3-bar-block#page-title .w3-bar-item, .vue-card-product-info .w3-bar-block.vue-card-image-box .w3-bar-item, .vue-card-product-info .w3-bar-block.vue-card-summary-box .w3-bar-item, #filtersSidebar header.w3-bar-block .w3-bar-item, .w3-bar-block.w3-center #navigation a, #navigation .w3-bar-block.w3-center a, #page .w3-bar-block#page-title #navigation a, #navigation #page .w3-bar-block#page-title a, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation a, #navigation .vue-card-product-info .w3-bar-block.vue-card-image-box a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation a, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation a, #navigation #filtersSidebar header.w3-bar-block a, .w3-bar-block.w3-center #navigation #user-button, #navigation .w3-bar-block.w3-center #user-button, #navigation #user-button .w3-center#userDropdown #user-button, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box #user-button, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box #user-button, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box #user-button, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box #user-button, #navigation #user-button #filtersSidebar header#userDropdown #user-button, #filtersSidebar #navigation #user-button header#userDropdown #user-button, #page .w3-bar-block#page-title #navigation #user-button, #navigation #page .w3-bar-block#page-title #user-button, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation #user-button, #navigation .vue-card-product-info .w3-bar-block.vue-card-image-box #user-button, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button, #navigation .vue-card-product-info .w3-bar-block.vue-card-summary-box #user-button, #filtersSidebar header.w3-bar-block #navigation #user-button, #navigation #filtersSidebar header.w3-bar-block #user-button, .w3-bar-block.w3-center #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .w3-bar-block.w3-center a, #navigation #user-button .w3-center#userDropdown a, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-image-box a, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-image-box a, #navigation #user-button .vue-card-product-info #userDropdown.vue-card-summary-box a, .vue-card-product-info #navigation #user-button #userDropdown.vue-card-summary-box a, #navigation #user-button #filtersSidebar header#userDropdown a, #filtersSidebar #navigation #user-button header#userDropdown a, .vue-card-product-info .w3-bar-block.vue-card-image-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .vue-card-product-info .w3-bar-block.vue-card-image-box a, .vue-card-product-info .w3-bar-block.vue-card-summary-box #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown .vue-card-product-info .w3-bar-block.vue-card-summary-box a, #filtersSidebar header.w3-bar-block #navigation #user-button #userDropdown a, #navigation #user-button #userDropdown #filtersSidebar header.w3-bar-block a {
   text-align: center; }
 
-.w3-block, .vue-card-tracked-product, .vue-card-track, .vue-card-tracked {
+.w3-block, .vue-card-track, .vue-card-tracked {
   display: block;
   width: 100%; }
 
@@ -1366,6 +1366,13 @@ header {
 @media (min-width: 1801px) {
   .vue-card-container, .vue-card-tracked-product {
     width: 20%; } }
+
+.vue-card-tracked-product {
+  width: 100% !important;
+  float: none !important; }
+  .vue-card-tracked-product .vue-card-product {
+    margin: 12px 0 4px 0 !important;
+    height: auto !important; }
 
 .vue-card-product {
   overflow: hidden;
