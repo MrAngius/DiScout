@@ -1,2 +1,5 @@
 .idea
 .idea/*
+./css/main.css
+./css/main.css.map
+./css/main.min.css
