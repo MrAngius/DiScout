@@ -43,7 +43,7 @@
             <aside class="w3-left" style="width:15%;">
                 This contains the list of products
                 <div v-for="card in cards">
-                    <card v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                    <card draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                 </div>
             </aside>
 
@@ -111,7 +111,7 @@
                 <div>
                     <!-- products -->
                     <h2 class="w3-red w3-container w3-round">Similar Products</h2>
-                    <div class="w3-cell w3-card w3-hover-teal search_result">
+                    <div draggable="true" ondragstart="drag(event, false)" class="w3-cell w3-card w3-hover-teal search_result">
                         <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
                         <div class="w3-container">
                             <p>Nice product</p>
