@@ -23,6 +23,8 @@
     <!-- VUE: components in nesting orders -->
     <script src="Vue/card.js"></script>
     <script src="Vue/product-list.js"></script>
+    <script src="Vue/header.js"></script>
+    <script src="Vue/navBar.js"></script>
     <script src="Vue/vue-main.js"></script>
 
     <!-- Website icon -->
@@ -30,143 +32,122 @@
 </head>
 
 <body>
-<header class="w3-container">
-    <a href="#">
-        <img src="img/logo.png" alt="DiScout LOGO" class="w3-image" />
-    </a>
-</header>
+    <div id="vue">
+        <headertemplate></headertemplate>
+        <navbar></navbar>
 
-<nav id="navigation" class="w3-black w3-bar">
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 3</a>
-    <div class="w3-bar-item w3-button w3-mobile w3-hover-teal w3-dropdown-click w3-right" style="padding: 0;">
-        <div class="w3-padding" onclick="showDropdown('userDropdown')">
-            <img src="img/user.png" alt="" id="user_icon" class="w3-circle w3-white" />
-            Welcome, user! <i class="fa fa-caret-down"></i>
-        </div>
+        <!-- MAIN CONTAINER -->
+        <main class="w3-padding" style="clear: both;">
 
-        <div class="w3-dropdown-content w3-bar-block w3-card-4" id="userDropdown" style="min-width: 100%;">
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom">User item 1</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom">User item 2</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom">User item 3</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom">User item 4</a>
-        </div>
+            <!-- LIST OF TRACKED PRODUCTS -->
+            <aside class="w3-left" style="width:15%;">
+                This contains the list of products
+                <div v-for="card in cards">
+                    <card v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                </div>
+            </aside>
+
+            <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
+            <div id="main-page" class="w3-padding w3-rest">
+
+                <!-- TRACKED PRODUCT DETAIL -->
+                <!-- NOTE: style for debug purpose only -->
+                <div ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                    <!-- DETAILS -->
+                    <section class="w3-row">
+                        <h2 class="w3-teal w3-container w3-round">{{ productFocusTitle }}</h2>
+                        <p>{{ productFocusInfo }}</p>
+                        <div class="w3-quarter">
+                            <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
+                        </div>
+                        <div class="w3-rest">
+                            <!-- product table details -->
+                            <table class="w3-table w3-bordered ">
+                                <tr>
+                                    <td>Price: </td><td> {{ productFocusPrice }}€ </td>
+                                    <td class=>Lower Price: </td><td> {{ productFocusPriceLower }}€ </td>
+                                </tr>
+                                <tr :class="{ hidden: isNotVisible }">
+                                    <td></td><td> {{ productComparePrice }}€ </td>
+                                    <td></td><td> {{ productComparePriceLower }}€ </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Rating: </td><td> {{ productFocusRating }} </td>
+                                    <td>Price Trend: </td><td> {{ productFocusPriceTrend }}% </td>
+                                </tr>
+                                <tr :class="{ hidden: isNotVisible }">
+                                    <td> </td><td> {{ productCompareRating }} </td>
+                                    <td> </td><td> {{ productComparePriceTrend }}% </td>
+                                </tr>
+                                <tr>
+                                    <td>Vendor: </td><td> {{ productFocusVendor }} </td>
+                                    <td>Category: </td><td> {{ productFocusCategory }} </td>
+                                </tr>
+                                <tr :class="{ hidden: isNotVisible }">
+                                    <td></td><td> {{ productCompareVendor }} </td>
+                                    <td></td><td> {{ productCompareCategory }} </td>
+                                </tr>
+                                <tr>
+                                    <td> <a :href = "productFocusLink">Link</a></td>
+                                    <td :class="{ hidden: isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </section>
+
+
+                    <!-- GRAPH -->
+                    <section class="w3-section">
+                        <h2 class="w3-blue w3-container w3-round">Price Trend</h2>
+                        <div id="graph"></div>
+                    </section>
+
+                </div>
+
+                <!-- SIMILAR PRODUCTS -->
+                <div>
+                    <!-- products -->
+                    <h2 class="w3-red w3-container w3-round">Similar Products</h2>
+                    <div class="w3-cell w3-card w3-hover-teal search_result">
+                        <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                        <div class="w3-container">
+                            <p>Nice product</p>
+                        </div>
+                    </div>
+                    <div class="w3-cell w3-card w3-hover-teal search_result">
+                        <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                        <div class="w3-container">
+                            <p>Nice product</p>
+                        </div>
+                    </div>
+                    <div class="w3-cell w3-card w3-hover-teal search_result">
+                        <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                        <div class="w3-container">
+                            <p>Nice product</p>
+                        </div>
+                    </div>
+                    <div class="w3-cell w3-card w3-hover-teal search_result">
+                        <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
+                        <div class="w3-container">
+                            <p>Nice product</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+
+
+        <div class="w3-overlay w3-animate-opacity" onclick="closeSidebar('closed_sidebar', 'overlay')" id="overlay"></div>
+
+
+        <footer class="w3-container w3-black w3-small w3-padding">
+            This is the footer!
+        </footer>
     </div>
-    <div class="w3-clear"></div>
-</nav>
-
-<!-- MAIN CONTAINER -->
-<main class="w3-padding" style="clear: both;">
-
-    <!-- LIST OF TRACKED PRODUCTS -->
-    <aside class="w3-left" style="width:15%;">
-        This contains the list of products    
-        <div id="product-list">
-            <product-list ref="ref_product_list"></product-list>
-        </div>
-    </aside>
-
-    <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-    <div id="main-page" class="w3-padding w3-rest">
-
-        <!-- TRACKED PRODUCT DETAIL -->
-        <!-- NOTE: style for debug purpose only -->
-        <div ondrop="drop(event)" ondragover="allowDrop(event)">
-
-            <!-- DETAILS -->
-            <section class="w3-row">
-                <h2 class="w3-teal w3-container w3-round">{{ productFocusTitle }}</h2>
-                <p>{{ productFocusInfo }}</p>
-                <div class="w3-quarter">
-                    <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
-                </div>
-                <div class="w3-rest">
-                    <!-- product table details -->
-                    <table class="w3-table w3-bordered ">
-                        <tr>
-                            <td>Price: </td><td> {{ productFocusPrice }}€ </td>
-                            <td class=>Lower Price: </td><td> {{ productFocusPriceLower }}€ </td>
-                        </tr>
-                        <tr :class="{ hidden: isNotVisible }">
-                            <td></td><td> {{ productComparePrice }}€ </td>
-                            <td></td><td> {{ productComparePriceLower }}€ </td>
-                        </tr>
-
-                        <tr>
-                            <td>Rating: </td><td> {{ productFocusRating }} </td>
-                            <td>Price Trend: </td><td> {{ productFocusPriceTrend }}% </td>
-                        </tr>
-                        <tr :class="{ hidden: isNotVisible }">
-                            <td> </td><td> {{ productCompareRating }} </td>
-                            <td> </td><td> {{ productComparePriceTrend }}% </td>
-                        </tr>
-                        <tr>
-                            <td>Vendor: </td><td> {{ productFocusVendor }} </td>
-                            <td>Category: </td><td> {{ productFocusCategory }} </td>
-                        </tr>
-                        <tr :class="{ hidden: isNotVisible }">
-                            <td></td><td> {{ productCompareVendor }} </td>
-                            <td></td><td> {{ productCompareCategory }} </td>
-                        </tr>
-                        <tr>
-                            <td> <a :href = "productFocusLink">Link</a></td>
-                            <td :class="{ hidden: isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
-                        </tr>
-                    </table>
-                </div>
-
-            </section>
-
-
-            <!-- GRAPH -->
-            <section class="w3-section">
-                <h2 class="w3-blue w3-container w3-round">Price Trend</h2>
-                <div id="graph"></div>
-            </section>
-
-        </div>
-
-        <!-- SIMILAR PRODUCTS -->
-        <div>
-            <!-- products -->
-            <h2 class="w3-red w3-container w3-round">Similar Products</h2>
-            <div class="w3-cell w3-card w3-hover-teal search_result">
-                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                <div class="w3-container">
-                    <p>Nice product</p>
-                </div>
-            </div>
-            <div class="w3-cell w3-card w3-hover-teal search_result">
-                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                <div class="w3-container">
-                    <p>Nice product</p>
-                </div>
-            </div>
-            <div class="w3-cell w3-card w3-hover-teal search_result">
-                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                <div class="w3-container">
-                    <p>Nice product</p>
-                </div>
-            </div>
-            <div class="w3-cell w3-card w3-hover-teal search_result">
-                <img height="200px" width="200px" src="img/search_result.jpg" alt="" class="w3-image" />
-                <div class="w3-container">
-                    <p>Nice product</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-</main>
-
-
-<div class="w3-overlay w3-animate-opacity" onclick="closeSidebar('closed_sidebar', 'overlay')" id="overlay"></div>
-
-
-<footer class="w3-container w3-black w3-small w3-padding">
-    This is the footer!
-</footer>
 </body>
 </html>

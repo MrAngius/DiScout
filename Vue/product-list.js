@@ -1,3 +1,5 @@
+/*
+
 Vue.component('product-list', {
     template: `
     <!-- TODO: verify the utility of the app id -->
@@ -42,3 +44,4 @@ function loadDB(database){
         vue_one.$refs.ref_product_list.cards = data.products
     })
 }
+*/

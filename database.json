@@ -8,7 +8,7 @@
 			 "trend": "-40",
 			 "img_source": "img/products/product0.jpg",
 			 "vendor": "zalando",
-			 "category": "vetements",
+			 "category": "Vetements",
 			 "link": "https://www.zalando.fr/pier-one-blazer-dark-blue-pi922ba19-k11.html",
 			 "id": "0"
 		},
@@ -20,7 +20,7 @@
 			 "trend": "3",
 			 "img_source": "img/products/product1.jpg",
 			 "vendor": "ebay",
-			 "category": "tools",
+			 "category": "Tools",
 			 "link": "https://www.ebay.fr/itm/Tronconneuse-a-essence-scie-20-puissance-62cc-Greencut/361876941810?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
 			 "id": "1"
 		},
@@ -32,7 +32,7 @@
 			 "trend": "-6",
 			 "img_source": "img/products/product2.jpg",
 			 "vendor": "ebay",
-			 "category": "home",
+			 "category": "Home",
 			 "link": "https://www.ebay.fr/itm/Proscenic-790T-Aspirateur-Robot-Puissant-Telecommande-Classe-energetique-A/142593633214?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
 			 "id": "2"
 		},
@@ -44,8 +44,8 @@
 			 "trend": "2",
 			 "img_source": "img/products/product3.jpg",
 			 "vendor": "/I/61rPixjn5cL._SX425_.jpg",
-			 "category": "amazon",
-			 "link": "electronic",
+			 "category": "Books and Music",
+			 "link": "https://www.amazon.fr/dp/B00QJDO0QC/ref=gw_Eink_Muscat_PMP17?pf_rd_p=a5e26dbb-2f1a-4271-9f78-085e52badb2f&pf_rd_r=PJS3GPPMWX4V1T55WAJK",
 			 "id": "3"
 		},
 		{
@@ -56,7 +56,7 @@
 			 "trend": "-29",
 			 "img_source": "img/products/product4.jpg",
 			 "vendor": "decathlon",
-			 "category": "bags",
+			 "category": "Bags",
 			 "link": "https://www.decathlon.fr/sac-a-dos-sym-h-7010l-blu-id_8300991.html",
 			 "id": "4"
 		},
@@ -68,7 +68,7 @@
 			 "trend": "0",
 			 "img_source": "img/products/product5.jpg",
 			 "vendor": "ikea",
-			 "category": "home",
+			 "category": "Home",
 			 "link": "http://www.ikea.com/fr/fr/catalog/products/S99192651/?icid=fr|20180109|hpb4|farlov",
 			 "id": "5"
 		},
@@ -80,7 +80,7 @@
 			 "trend": "-10",
 			 "img_source": "img/products/product6.jpg",
 			 "vendor": "amazon",
-			 "category": "accessory",
+			 "category": "Accessories",
 			 "link": "https://www.amazon.fr/Casio-Collection-Digitale-Bracelet-Inoxydable/dp/B000LAKYW8/ref=lp_14232061031_1_7?s=apparel&ie=UTF8&qid=1516285233&sr=1-7",
 			 "id": "6"
 		},
@@ -92,7 +92,7 @@
 			 "trend": "5",
 			 "img_source": "img/products/product7.jpg",
 			 "vendor": "decathlon",
-			 "category": "vetements sportives",
+			 "category": "Vetements",
 			 "link": "https://www.decathlon.fr/slide-300-warm-homme-grise-id_8371429.html",
 			 "id": "7"
 		},
@@ -128,7 +128,7 @@
 			 "trend": "9",
 			 "img_source": "img/products/product10.jpg",
 			 "vendor": "amazon",
-			 "category": "toys",
+			 "category": "Toys",
 			 "link": "https://www.amazon.fr/VERCART-Nounours-Peluches-dAnniversaire-Decoratif/dp/B01MA58EHS/ref=sr_1_4?s=toys&ie=UTF8&qid=1516285486&sr=1-4&keywords=teddy+bear",
 			 "id": "10"
 		},
@@ -140,7 +140,7 @@
 			 "trend": "30",
 			 "img_source": "img/products/product11.jpg",
 			 "vendor": "fnac",
-			 "category": "Musique",
+			 "category": "Books and Music",
 			 "link": "https://musique.fnac.com/a11293270/Justin-Timberlake-Man-of-the-Woods-CD-album#int=S:<b>Pr%C3%A9commandes du moment <-b>Justin Timberlake",
 			 "id": "11"
 		},
@@ -152,7 +152,7 @@
 			 "trend": "5",
 			 "img_source": "img/products/product12.jpg",
 			 "vendor": "amazon",
-			 "category": "computer",
+			 "category": "Hi-tech",
 			 "link": "https://www.amazon.fr/gp/product/B075QJCJW1/ref=s9_acsd_top_hd_bw_bT5jAl_c_x_1_w?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-4&pf_rd_r=1Y9HMBMFF2RMQ2V5SW5K&pf_rd_t=101&pf_rd_p=96c3c7c4-1dfb-50e2-86ef-d5e6476062fa&pf_rd_i=429879031",
 			 "id": "12"
 		},
@@ -176,7 +176,7 @@
 			 "trend": "30",
 			 "img_source": "img/products/product11.jpg",
 			 "vendor": "fnac",
-			 "category": "Musique",
+			 "category": "Books and Music",
 			 "link": "https://musique.fnac.com/a11293270/Justin-Timberlake-Man-of-the-Woods-CD-album#int=S:<b>Pr%C3%A9commandes du moment <-b>Justin Timberlake",
 			 "id": "14"
 		} ,
@@ -193,6 +193,30 @@
 			 "id": "15"
 		} ,
 		{
+			 "name": "Veste de costume",
+			 "price": "48",
+			 "rating": "4.8",
+			 "low_price": "48",
+			 "trend": "-40",
+			 "img_source": "img/products/product0.jpg",
+			 "vendor": "zalando",
+			 "category": "Vetements",
+			 "link": "https://www.zalando.fr/pier-one-blazer-dark-blue-pi922ba19-k11.html",
+			 "id": "16"
+		} ,
+		{
+			 "name": "Nappy the teddy bear",
+			 "price": "74.99",
+			 "rating": "5",
+			 "low_price": "70",
+			 "trend": "9",
+			 "img_source": "img/products/product10.jpg",
+			 "vendor": "amazon",
+			 "category": "Toys",
+			 "link": "https://www.amazon.fr/VERCART-Nounours-Peluches-dAnniversaire-Decoratif/dp/B01MA58EHS/ref=sr_1_4?s=toys&ie=UTF8&qid=1516285486&sr=1-4&keywords=teddy+bear",
+			 "id": "17"
+		} ,
+		{
 			 "name": "Liseuse Kindle Paperwhite",
 			 "price": "129.99",
 			 "rating": "4.3",
@@ -200,21 +224,21 @@
 			 "trend": "2",
 			 "img_source": "img/products/product3.jpg",
 			 "vendor": "/I/61rPixjn5cL._SX425_.jpg",
-			 "category": "amazon",
-			 "link": "electronic",
-			 "id": "16"
+			 "category": "Books and Music",
+			 "link": "https://www.amazon.fr/dp/B00QJDO0QC/ref=gw_Eink_Muscat_PMP17?pf_rd_p=a5e26dbb-2f1a-4271-9f78-085e52badb2f&pf_rd_r=PJS3GPPMWX4V1T55WAJK",
+			 "id": "18"
 		} ,
 		{
-			 "name": "VESTE SKI HOMME SLIDE 300 WARM GRISE WED'ZE",
-			 "price": "69.99",
-			 "rating": "4.5",
-			 "low_price": "60",
-			 "trend": "5",
-			 "img_source": "img/products/product7.jpg",
-			 "vendor": "decathlon",
-			 "category": "vetements sportives",
-			 "link": "https://www.decathlon.fr/slide-300-warm-homme-grise-id_8371429.html",
-			 "id": "17"
+			 "name": "Proscenic 790T Aspirateur Robot Puissant",
+			 "price": "219.99",
+			 "rating": "4.9",
+			 "low_price": "219.99",
+			 "trend": "-6",
+			 "img_source": "img/products/product2.jpg",
+			 "vendor": "ebay",
+			 "category": "Home",
+			 "link": "https://www.ebay.fr/itm/Proscenic-790T-Aspirateur-Robot-Puissant-Telecommande-Classe-energetique-A/142593633214?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
+			 "id": "19"
 		} ,
 		{
 			 "name": "FARLOV",
@@ -224,9 +248,21 @@
 			 "trend": "0",
 			 "img_source": "img/products/product5.jpg",
 			 "vendor": "ikea",
-			 "category": "home",
+			 "category": "Home",
 			 "link": "http://www.ikea.com/fr/fr/catalog/products/S99192651/?icid=fr|20180109|hpb4|farlov",
-			 "id": "18"
+			 "id": "20"
+		} ,
+		{
+			 "name": "Tronconneuse a essence scie 20 puissance 62cc -Greencut",
+			 "price": "79",
+			 "rating": "4.3",
+			 "low_price": "75",
+			 "trend": "3",
+			 "img_source": "img/products/product1.jpg",
+			 "vendor": "ebay",
+			 "category": "Tools",
+			 "link": "https://www.ebay.fr/itm/Tronconneuse-a-essence-scie-20-puissance-62cc-Greencut/361876941810?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
+			 "id": "21"
 		} ,
 		{
 			 "name": "Asus Vivobook S14 S406UA-BM013T",
@@ -236,33 +272,9 @@
 			 "trend": "5",
 			 "img_source": "img/products/product12.jpg",
 			 "vendor": "amazon",
-			 "category": "computer",
+			 "category": "Hi-tech",
 			 "link": "https://www.amazon.fr/gp/product/B075QJCJW1/ref=s9_acsd_top_hd_bw_bT5jAl_c_x_1_w?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-4&pf_rd_r=1Y9HMBMFF2RMQ2V5SW5K&pf_rd_t=101&pf_rd_p=96c3c7c4-1dfb-50e2-86ef-d5e6476062fa&pf_rd_i=429879031",
-			 "id": "19"
-		} ,
-		{
-			 "name": "VTT ROCKRIDER 900 GRIS/LIME 27'' 5 POUCES B'TWIN",
-			 "price": "799.99",
-			 "rating": "4.2",
-			 "low_price": "799.99",
-			 "trend": "-15",
-			 "img_source": "img/products/product8.jpg",
-			 "vendor": "decathlon",
-			 "category": "Sports",
-			 "link": "https://www.decathlon.fr/vtt-rockrider-900-275-id_8366620.html",
-			 "id": "20"
-		} ,
-		{
-			 "name": "casio A168WA-1YES",
-			 "price": "22.31",
-			 "rating": "4.1",
-			 "low_price": "22.31",
-			 "trend": "-10",
-			 "img_source": "img/products/product6.jpg",
-			 "vendor": "amazon",
-			 "category": "accessory",
-			 "link": "https://www.amazon.fr/Casio-Collection-Digitale-Bracelet-Inoxydable/dp/B000LAKYW8/ref=lp_14232061031_1_7?s=apparel&ie=UTF8&qid=1516285233&sr=1-7",
-			 "id": "21"
+			 "id": "22"
 		} ,
 		{
 			 "name": "Samsung Galaxy S8+ Plus G955FD Duos LTE 64GB Midnight Black meilleur",
@@ -274,7 +286,7 @@
 			 "vendor": "ebay",
 			 "category": "Hi-tech",
 			 "link": "https://www.ebay.fr/itm/Samsung-Galaxy-S8-Plus-G955FD-Duos-LTE-64GB-Midnight-Black-meilleur/252895889482?_trkparms=pageci%253A7c7f1c9d-fc5e-11e7-b8e9-74dbd1808ff7%257Cparentrq%253A09bd0e371610aadc35951181ffdafef0%257Ciid%253A1",
-			 "id": "22"
+			 "id": "23"
 		} ,
 		{
 			 "name": "SAC A DOS TREKKING SYMBIUM HOMME 70+10 LITRES BLEU FONCE QUECHUA",
@@ -284,56 +296,44 @@
 			 "trend": "-29",
 			 "img_source": "img/products/product4.jpg",
 			 "vendor": "decathlon",
-			 "category": "bags",
+			 "category": "Bags",
 			 "link": "https://www.decathlon.fr/sac-a-dos-sym-h-7010l-blu-id_8300991.html",
-			 "id": "23"
-		} ,
-		{
-			 "name": "Proscenic 790T Aspirateur Robot Puissant",
-			 "price": "219.99",
-			 "rating": "4.9",
-			 "low_price": "219.99",
-			 "trend": "-6",
-			 "img_source": "img/products/product2.jpg",
-			 "vendor": "ebay",
-			 "category": "home",
-			 "link": "https://www.ebay.fr/itm/Proscenic-790T-Aspirateur-Robot-Puissant-Telecommande-Classe-energetique-A/142593633214?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
 			 "id": "24"
 		} ,
 		{
-			 "name": "Tronconneuse a essence scie 20 puissance 62cc -Greencut",
-			 "price": "79",
-			 "rating": "4.3",
-			 "low_price": "75",
-			 "trend": "3",
-			 "img_source": "img/products/product1.jpg",
-			 "vendor": "ebay",
-			 "category": "tools",
-			 "link": "https://www.ebay.fr/itm/Tronconneuse-a-essence-scie-20-puissance-62cc-Greencut/361876941810?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1",
+			 "name": "VESTE SKI HOMME SLIDE 300 WARM GRISE WED'ZE",
+			 "price": "69.99",
+			 "rating": "4.5",
+			 "low_price": "60",
+			 "trend": "5",
+			 "img_source": "img/products/product7.jpg",
+			 "vendor": "decathlon",
+			 "category": "Vetements",
+			 "link": "https://www.decathlon.fr/slide-300-warm-homme-grise-id_8371429.html",
 			 "id": "25"
 		} ,
 		{
-			 "name": "Veste de costume",
-			 "price": "48",
-			 "rating": "4.8",
-			 "low_price": "48",
-			 "trend": "-40",
-			 "img_source": "img/products/product0.jpg",
-			 "vendor": "zalando",
-			 "category": "vetements",
-			 "link": "https://www.zalando.fr/pier-one-blazer-dark-blue-pi922ba19-k11.html",
+			 "name": "casio A168WA-1YES",
+			 "price": "22.31",
+			 "rating": "4.1",
+			 "low_price": "22.31",
+			 "trend": "-10",
+			 "img_source": "img/products/product6.jpg",
+			 "vendor": "amazon",
+			 "category": "Accessories",
+			 "link": "https://www.amazon.fr/Casio-Collection-Digitale-Bracelet-Inoxydable/dp/B000LAKYW8/ref=lp_14232061031_1_7?s=apparel&ie=UTF8&qid=1516285233&sr=1-7",
 			 "id": "26"
 		} ,
 		{
-			 "name": "Nappy the teddy bear",
-			 "price": "74.99",
-			 "rating": "5",
-			 "low_price": "70",
-			 "trend": "9",
-			 "img_source": "img/products/product10.jpg",
-			 "vendor": "amazon",
-			 "category": "toys",
-			 "link": "https://www.amazon.fr/VERCART-Nounours-Peluches-dAnniversaire-Decoratif/dp/B01MA58EHS/ref=sr_1_4?s=toys&ie=UTF8&qid=1516285486&sr=1-4&keywords=teddy+bear",
+			 "name": "VTT ROCKRIDER 900 GRIS/LIME 27'' 5 POUCES B'TWIN",
+			 "price": "799.99",
+			 "rating": "4.2",
+			 "low_price": "799.99",
+			 "trend": "-15",
+			 "img_source": "img/products/product8.jpg",
+			 "vendor": "decathlon",
+			 "category": "Sports",
+			 "link": "https://www.decathlon.fr/vtt-rockrider-900-275-id_8366620.html",
 			 "id": "27"
 		} 
 	]
