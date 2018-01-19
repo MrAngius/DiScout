@@ -37,15 +37,17 @@ function showHideTarget(targetId) {
     const elem = document.getElementById(targetId);
     if(elem.classList.contains('w3-hide')){
         elem.classList.remove('w3-hide');
+        elem.classList.add('w3-show');
     }
     else {
         elem.classList.add('w3-hide');
+        elem.classList.remove('w3-show');
     }
 }
 
 /* DROPDOWNS */
 function showDropdown(dropdownContentId) {
-    const elem = document.getElementById(dropdownContentId)
+    const elem = document.getElementById(dropdownContentId);
 	if (elem.classList.contains("w3-show"))
         elem.classList.remove("w3-show");
     else 
