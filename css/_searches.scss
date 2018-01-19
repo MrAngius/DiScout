@@ -7,7 +7,7 @@ $product-card-height: 450px;
 
 // card container
 .vue-card-container{
-    @extend .w3-white;
+    @extend .w3-light-grey;
     @extend .w3-mobile;
     @extend .w3-left;
 
@@ -39,6 +39,7 @@ $product-card-height: 450px;
 
 .vue-card-tracked-product {
     @extend .vue-card-container;
+    background-color: transparent !important;
     width: 100% !important;
     float: none !important;
 
@@ -54,6 +55,7 @@ $product-card-height: 450px;
     @extend .w3-card;
     @extend .w3-hover-teal;
     @extend .w3-margin;
+    @extend .w3-white;
     overflow: hidden;
     cursor: pointer;
 
