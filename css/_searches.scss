@@ -109,13 +109,17 @@ $sidebar-width: 294px;
 $opened-sidebar-width: $sidebar-width + $closed-sidebar-width;
 $left-shift: 266px;
 
+.shifted-sidebar {
+    left: -$left-shift !important;
+}
+
 #filtersSidebar {
     @extend .w3-container;
     @extend .w3-pale-green;
     @extend .w3-card;
     @extend .w3-hide-small;
     display: block;
-    left: -$left-shift;
+    left: 0;
     width: $sidebar-width;
     padding-right: $closed-sidebar-width;
     position: absolute;
@@ -126,7 +130,7 @@ $left-shift: 266px;
     transition-timing-function: ease;
 
     @media (min-width: 1501px) {
-        left: 0;
+        left: 0 !important;
         padding-right: 16px;
         width: $sidebar-width - 16px;
         height: 100%;
