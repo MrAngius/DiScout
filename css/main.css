@@ -1326,6 +1326,10 @@ a {
   height: 34px;
   margin-right: 8px; }
 
+#page {
+  position: relative;
+  overflow: hidden; }
+
 #overlay {
   cursor: pointer; }
   @media (max-width: 600px) {
@@ -1394,7 +1398,8 @@ header {
     #filtersSidebar {
       left: 0;
       padding-right: 16px;
-      width: 278px; } }
+      width: 278px;
+      height: 100%; } }
   #filtersSidebar #filtersSidebarButton {
     left: 266px;
     position: absolute; }
@@ -1404,10 +1409,10 @@ header {
 
 @media (min-width: 601px) {
   .has-sidebar {
-    margin-left: 48px; } }
+    padding-left: 48px; } }
 @media (min-width: 1501px) {
   .has-sidebar {
-    margin-left: 294px; } }
+    padding-left: 294px; } }
 
 .hidden {
   display: none !important; }

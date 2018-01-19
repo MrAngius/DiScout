@@ -129,6 +129,7 @@ $left-shift: 266px;
         left: 0;
         padding-right: 16px;
         width: $sidebar-width - 16px;
+        height: 100%;
     }
 
     #filtersSidebarButton {
@@ -160,10 +161,10 @@ $left-shift: 266px;
 
 .has-sidebar {
     @media (min-width: 601px) {
-        margin-left: $closed-sidebar-width;
+        padding-left: $closed-sidebar-width;
     }
 
     @media (min-width: 1501px) {
-        margin-left: $sidebar-width;
+        padding-left: $sidebar-width;
     }
 }

@@ -49,6 +49,8 @@ $user_icon_size: 34px;  /* this is the profile pic of logged users */
 
 #page {
     @extend .w3-clear;
+    position: relative;
+    overflow: hidden;
 
     #page-title {
         @extend .w3-center;
