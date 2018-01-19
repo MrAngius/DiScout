@@ -50,7 +50,7 @@
                     <h2>FILTERS</h2>
                 </header>
                 <div class="filters">
-                    <div v-for="filter in filters">
+                    <div v-for="filter in filters.categories">
                         <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
                     </div>
                     <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
@@ -58,7 +58,6 @@
                 </div>
             </div>
         </div>
-
 
 
         <!-- POPUP: modal content -->
@@ -84,11 +83,22 @@
                     <h2>FILTERS</h2>
                 </header>
                 <div class="filters">
-                    <div v-for="filter in filters">
-                        <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
+                    <div @click="filters.dispCat=!filters.dispCat">
+                        <a href="#" style="text-decoration: none; font-size: 18px"><i class="fa" v-bind:class="{'fa-arrow-circle-o-right': !filters.dispCat, 'fa-arrow-circle-o-down': filters.dispCat}"></i> Categories</i></a>
                     </div>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">View all</button>
+                    <div v-if="filters.dispCat" v-for="filter in filters.categories" style="padding-left: 20px">
+                        <div class="styled-input-container styled-input--rounded">
+                            <div class="styled-input-single">
+                                <input type="checkbox" v-model="categories[filter.id]"/>
+                                <label @click="updateCategory($event)" :id="filter.id" v-bind:class="{'w3-text-blue': categories[filter.id], 'w3-text-blue-grey': !categories[filter.id]}">
+                                    {{ filter.name }}
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red" >Delete</button>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal" @click="resetFilters">View all</button>
                 </div>
             </aside>
 
