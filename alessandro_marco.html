@@ -110,7 +110,9 @@
                 </div>
 
                 <!-- SIMILAR PRODUCTS -->
-                <div>
+                <div id="similar-products-list" class="w3-light-grey w3-container" style="position: relative; overflow: auto">
+                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
+                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
                     <div v-for="card in shortList">
                         <card class="vue-card-container" draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                     </div>
