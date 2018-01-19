@@ -1356,7 +1356,7 @@ header {
 @media (min-width: 1151px) {
   .vue-card-container, .vue-card-tracked-product {
     width: 25%; } }
-@media (min-width: 1501px) {
+@media (min-width: 1801px) {
   .vue-card-container, .vue-card-tracked-product {
     width: 20%; } }
 
@@ -1390,13 +1390,24 @@ header {
       @extend .w3-round;
       @extend .w3-section;
   }*/ }
+  @media (min-width: 1501px) {
+    #filtersSidebar {
+      left: 0;
+      padding-right: 16px;
+      width: 278px; } }
   #filtersSidebar #filtersSidebarButton {
     left: 266px;
     position: absolute; }
+    @media (min-width: 1501px) {
+      #filtersSidebar #filtersSidebarButton {
+        display: none; } }
 
 @media (min-width: 601px) {
   .has-sidebar {
     margin-left: 48px; } }
+@media (min-width: 1501px) {
+  .has-sidebar {
+    margin-left: 294px; } }
 
 .hidden {
   display: none !important; }
