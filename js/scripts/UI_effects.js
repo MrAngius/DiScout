@@ -45,6 +45,15 @@ function showHideTarget(targetId) {
     }
 }
 
+function addRemoveClass(targetElem, className) {
+    if(targetElem.classList.contains(className)){
+        targetElem.classList.remove(className);
+    }
+    else {
+        targetElem.classList.add(className);
+    }
+}
+
 /* DROPDOWNS */
 function showDropdown(dropdownContentId) {
     const elem = document.getElementById(dropdownContentId);

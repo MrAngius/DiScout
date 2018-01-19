@@ -5,7 +5,7 @@ Vue.component('navbar', {
         <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 2</a>
         <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Menu item 3</a>
         <div class="w3-bar-item w3-button w3-mobile w3-hover-teal w3-dropdown-click w3-right" style="padding: 0;">
-            <div class="w3-padding" onclick="showDropdown('userDropdown')">
+            <div class="w3-padding" onclick="showDropdown('userDropdown'); addRemoveClass(this, 'w3-teal')">
                 <img src="img/user.png" alt="" id="user_icon" class="w3-circle w3-white" />
                 Welcome, user! <i class="fa fa-caret-down"></i>
             </div>
