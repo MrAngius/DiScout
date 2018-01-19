@@ -23,13 +23,23 @@
             transition-duration: 1.2s;
             transition-timing-function: ease;
         }
+
+        #search button {
+            position: absolute;
+            top: -6px;
+            right: 10%;
+        }
+
+
     </style>
 </head>
 
 <body style="position: relative;">
 <section id="search">
-    <input type="text" class="w3-input w3-border w3-round-xlarge w3-center w3-left" style="width: 60%">
-    <button class="w3-button w3-grey w3-hover-blue w3-round-large w3-left" onclick="this.parentNode.style.top=0;">Search</button>
+    <input type="text" class="w3-input w3-border w3-round-xlarge w3-center w3-cell">
+    <button class="w3-button w3-grey w3-hover-blue w3-circle w3-cell w3-xlarge" onclick="this.parentNode.style.top=0;">
+        <i class="fa fa-search"></i>
+    </button>
 </section>
 </body>
 
