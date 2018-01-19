@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/src/dygraph.css">
+
+    <script src="js/src/vue.js"></script>
+    <script src="js/src/dygraph.js"></script>
+    <script src="js/scripts/myTrack.js"></script>
+    <script src="js/scripts/UI_effects.js"></script>
+
+    <style>
+        #search {
+            position: absolute;
+            top: 200px;
+            width: 100%;
+            padding: 0 10%;
+
+            transition-property: top;
+            transition-duration: 1.2s;
+            transition-timing-function: ease;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+<section id="search">
+    <input type="text" class="w3-input w3-border w3-round-xlarge w3-center w3-left" style="width: 60%">
+    <button class="w3-button w3-grey w3-hover-blue w3-round-large w3-left" onclick="this.parentNode.style.top=0;">Search</button>
+</section>
+</body>
+
+</html>
