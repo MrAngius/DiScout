@@ -1335,7 +1335,7 @@ a {
 
 #overlay {
   cursor: pointer; }
-  @media (max-width: 600px) {
+  @media (max-width: 600px), (min-width: 1501px) {
     #overlay {
       display: none !important;
       visibility: hidden !important; } }
