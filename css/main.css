@@ -1328,7 +1328,8 @@ a {
 
 #page {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 650px; }
 
 #overlay {
   cursor: pointer; }
