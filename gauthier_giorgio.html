@@ -40,9 +40,26 @@
         <headertemplate></headertemplate>
         <navbar></navbar>
 
+        <!-- FILTERS (mobile version) -->
+        <div class="w3-hide-large w3-hide-medium w3-pale-green">
+            <button id="filtersNavButton" class="w3-grey w3-hover-teal w3-mobile w3-button" onclick="showHideTarget('filtersNavbar')">
+                <i class="fa fa-search-plus w3-xlarge"></i>
+            </button>
+            <div id="filtersNavbar" class="w3-hide w3-padding">
+                <header>
+                    <h2>FILTERS</h2>
+                </header>
+                <div class="filters">
+                    <div v-for="filter in filters">
+                        <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
+                    </div>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-blue w3-hover-blue">Remove filters</button>
+                </div>
+            </div>
+        </div>
 
-
-        <!-- FILTERS SIDEBAR open-->
+        <!-- FILTERS (tablet version) -->
         <aside data-open="False" id="filtersSidebar">
             <button id="filtersSidebarButton" onclick="openCloseSidebar('filtersSidebar', 'overlay')">
                 <i class="fa fa-search-plus w3-xlarge"></i>
@@ -54,13 +71,13 @@
                 <div v-for="filter in filters">
                     <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
                 </div>
-                <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Reset</button>
-                <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">Set filters</button>
+                <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
+                <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">Remove filters</button>
             </div>
 
         </aside>
 
-        <!-- Modal content -->
+        <!-- POPUP: modal content -->
         <div id="modal" class="w3-modal w3-hide">
             <div class="w3-modal-content">
                 <span onclick="showHideTarget('modal')" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
@@ -69,23 +86,24 @@
             </div>
         </div>
 
-        <!-- grey overlay -->
+        <!-- OVERLAY -->
         <div id="overlay" onclick="openCloseSidebar('filtersSidebar', 'overlay')"></div>
 
-        <section id="page" class="has-sidebar">
+        <!-- PAGE content -->
+        <main id="page" class="has-sidebar">
             <h2 id="page-title">
                     Search results
             </h2>
 
-            <!-- The product list -->
+            <!-- Search results-->
             <div id="product-list">
                 <div v-for="card in cards">
                     <card v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                 </div>
             </div>
-        </section>
+        </main>
 
-
+        <!-- FOOTER -->
         <footer>
             This is the footer!
         </footer>

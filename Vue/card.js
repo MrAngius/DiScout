@@ -12,17 +12,19 @@ Other information and the product image are represented on a single row, inside 
 Vue.component('card', {
     template: `
     <div :id="'product' + id" draggable="true" ondragstart="drag(event)" class="vue-card-container">
-        <div class="vue-card-product" onclick="productPreview(this.parentNode, 'modal')">
-            <p class="title-box" v-text="title"></p>
-            <div class="vue-card-product-info">
-                <div class="vue-card-image-box">
-                    <img v-if="img_src" class='vue-card-product-image' :src="img_src">
-                    <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
-                </div>
-                <div class="vue-card-summary-box">
-                    <!-- Add here other product useful information... -->
-                    <div v-if="price" v-text="price + '€'"></div>
-                    <div v-if="trend" v-text="trend"></div>
+        <div class="vue-card-product">
+            <div onclick="productPreview(this.parentNode.parentNode, 'modal')">
+                <p class="title-box" v-text="title"></p>
+                <div class="vue-card-product-info">
+                    <div class="vue-card-image-box">
+                        <img v-if="img_src" class='vue-card-product-image' :src="img_src">
+                        <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
+                    </div>
+                    <div class="vue-card-summary-box">
+                        <!-- Add here other product useful information... -->
+                        <div v-if="price" v-text="price + '€'"></div>
+                        <div v-if="trend" v-text="trend"></div>
+                    </div>
                 </div>
             </div>
             <div class="vue-card-track">
