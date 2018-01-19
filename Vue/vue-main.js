@@ -3,48 +3,59 @@ window.addEventListener('load', function () {
     vue=new Vue({
         el: '#vue',
         data: {
-            filters: [
-                {
-                    id: 'Accessories',
-                    name: 'Accessories'
+            filters: {
+                categories:[
+                    {
+                        id: 'Accessories',
+                        name: 'Accessories'
+                    },
+                    {
+                        id: 'Bags',
+                        name: 'Bags'
+                    },
+                    {
+                        id: 'BooksandMusic',
+                        name: 'Books and Music'
+                    },
+                    {
+                        id: 'Hitech',
+                        name: 'Hi-tech'
+                    },
+                    {
+                        id: 'Home',
+                        name: 'Home'
+                    },
+                    {
+                        id: 'Shoes',
+                        name: 'Shoes'
+                    },
+                    {
+                        id: 'Sports',
+                        name: 'Sports'
+                    },
+                    {
+                        id: 'Tools',
+                        name: 'Tools'
+                    },
+                    {
+                        id: 'Toys',
+                        name: 'Toys'
+                    },
+                    {
+                        id: 'Vetements',
+                        name: 'Vetements'
+                    }
+                ],
+                price: {
+                    min: 0,
+                    max: 1000
                 },
-                {
-                    id: 'Bags',
-                    name: 'Bags'
+                rating: {
+                    min: 0,
+                    max: 5
                 },
-                {
-                    id: 'BooksandMusic',
-                    name: 'Books and Music'
-                },
-                {
-                    id: 'Hitech',
-                    name: 'Hi-tech'
-                },
-                {
-                    id: 'Home',
-                    name: 'Home'
-                },
-                {
-                    id: 'Shoes',
-                    name: 'Shoes'
-                },
-                {
-                    id: 'Sports',
-                    name: 'Sports'
-                },
-                {
-                    id: 'Tools',
-                    name: 'Tools'
-                },
-                {
-                    id: 'Toys',
-                    name: 'Toys'
-                },
-                {
-                    id: 'Vetements',
-                    name: 'Vetements'
-                }
-            ],
+                dispCat: false
+            },
             cards: {
 
             },
@@ -70,7 +81,6 @@ window.addEventListener('load', function () {
         methods: {
             resetFilters: function(){
                 for(let i=0; i<this.filters.length; i++){
-                    let element=document.getElementById(this.filters[i].id).checked=true;
                     this.categories[this.filters[i].id]=true;
                 }
             },
@@ -78,13 +88,16 @@ window.addEventListener('load', function () {
                 return this.show && this.categories[cat.replace(/[^A-Za-z0-9]/gi, '')]
             },
             updateCategory(e){
-
-                console.log(e.target.id)
                 /* Cannot update the value in the array :( */
                 /* this.categories[e.target.id]=e.target.checked */
-                this.categories[e.target.id]=e.target.checked;
+                this.categories[e.target.id]=!this.categories[e.target.id];
+            },
+            showCategory: function(){
+                this.filters.dispCat=!this.filters.dispCat
             }
         }
+
+
     });
     loadDB('database.json')
 });
@@ -94,7 +107,6 @@ window.addEventListener('load', function () {
 function loadDB(database){
     //alert("Loading DB")
     if(window.sessionStorage.getItem('database')==undefined) {
-        alert("Not found")
         Plotly.d3.json(database, function (e, data) {
             vue.cards = data.products
             /* Following code is used to insert categories dynamically, not working atm */
@@ -109,7 +121,6 @@ function loadDB(database){
         })
     }
     else {
-        alert("Found")
         vue.cards = JSON.parse(window.sessionStorage.getItem('database'))
 
     }
