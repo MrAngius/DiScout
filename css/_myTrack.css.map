@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,OAAQ;EACN,UAAU,EAAE,MAAM",
+"sources": ["myTrack.scss"],
+"names": [],
+"file": "myTrack.css"
+}
