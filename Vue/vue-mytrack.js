@@ -161,7 +161,7 @@ function allowDrop(ev) {
 function drag(ev, isFocus) {
     // used to send data
     ev.dataTransfer.setData("id", ev.target.id);
-    ev.dataTransfer.setData("isFocus", isFocus)
+    ev.dataTransfer.setData("isFocus", isFocus);
 }
 
 function drop(ev) {
@@ -169,8 +169,9 @@ function drop(ev) {
 
     let data = ev.dataTransfer.getData("id");
     let type = ev.dataTransfer.getData("isFocus");
+    alert(type);
 
-    if(type) {
+    if(type === "true") {
         updateValuesFocus(data);
     } else {
         updateValuesComparisons(data);
