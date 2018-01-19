@@ -1423,4 +1423,50 @@ header {
 .hidden {
   display: none !important; }
 
+.filter_entry {
+  font-size: 18px; }
+
+a.filter_entry {
+  text-decoration: none; }
+
+.filter-category-block {
+  padding-left: 20px; }
+
+/****** Style Star Rating Widget *****/
+.rating {
+  border: none;
+  float: left;
+  padding: 0px 0px 0px 0px; }
+
+.rating > input {
+  display: none; }
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005"; }
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute; }
+
+.rating > label {
+  color: #ddd;
+  float: right; }
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700; }
+
+/* hover previous stars in list */
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85; }
+
 /*# sourceMappingURL=main.css.map */
