@@ -50,15 +50,22 @@
                     <h2>FILTERS</h2>
                 </header>
                 <div class="filters">
-                    <div v-for="filter in filters">
-                        <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
+                    <div @click="filters.dispCat=!filters.dispCat">
+                        <a href="#" style="text-decoration: none; font-size: 18px"><i class="fa" v-bind:class="{'fa-arrow-circle-o-right': !filters.dispCat, 'fa-arrow-circle-o-down': filters.dispCat}"></i> Categories</i></a>
                     </div>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">View all</button>
+                    <div v-if="filters.dispCat" v-for="filter in filters.categories" style="padding-left: 20px">
+                        <div class="styled-input-container styled-input--rounded">
+                            <div class="styled-input-single">
+                                <input type="checkbox" v-model="categories[filter.id]"/>
+                                <label @click="updateCategory($event)" :id="filter.id" v-bind:class="{'w3-text-blue': categories[filter.id], 'w3-text-blue-grey': !categories[filter.id]}">
+                                    {{ filter.name }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
 
 
         <!-- POPUP: modal content -->
@@ -74,7 +81,7 @@
         <div id="overlay" onclick="openCloseSidebar('filtersSidebar', 'overlay')"></div>
 
         <!-- PAGE content -->
-        <main id="page" class="has-sidebar">
+        <main id="page" class="has-sidebar w3-light-grey">
             <!-- FILTERS (tablet version) -->
             <aside data-open="false" id="filtersSidebar" class="shifted-sidebar">
                 <button id="filtersSidebarButton" onclick="openCloseSidebar('filtersSidebar', 'overlay')">
@@ -84,11 +91,35 @@
                     <h2>FILTERS</h2>
                 </header>
                 <div class="filters">
-                    <div v-for="filter in filters">
-                        <p><label><input type="checkbox" :id="filter.id" checked @click="updateCategory($event)"> {{ filter.name }} </label></p>
+                    <div @click="filters.dispCat=!filters.dispCat">
+                        <a href="#" class="filter_entry"><i class="fa" v-bind:class="{'fa-arrow-circle-o-right': !filters.dispCat, 'fa-arrow-circle-o-down': filters.dispCat}"></i> Categories</i></a>
                     </div>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red">Delete</button>
-                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal">View all</button>
+                    <div class="filter-category-block" v-if="filters.dispCat" v-for="filter in filters.categories">
+                        <div class="styled-input-container styled-input--rounded">
+                            <div class="styled-input-single">
+                                <input type="checkbox" v-model="categories[filter.id]"/>
+                                <label @click="updateCategory($event)" :id="filter.id" v-bind:class="{'w3-text-blue': categories[filter.id], 'w3-text-blue-grey': !categories[filter.id]}">
+                                    {{ filter.name }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="filter_entry">Minimum rating</span>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="5 stars"></label>
+                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="4.5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="3.5 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="3 stars"></label>
+                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="2.5 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="2 stars"></label>
+                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="1.5 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="1 star"></label>
+                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="0.5 stars"></label>
+                    </fieldset>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-red w3-hover-red" >Delete</button>
+                    <button class="w3-button w3-ripple w3-block w3-round w3-section w3-teal w3-hover-teal" @click="resetFilters">View all</button>
                 </div>
             </aside>
 
@@ -99,7 +130,7 @@
             <!-- Search results-->
             <div id="product-list">
                 <div v-for="card in cards">
-                    <card v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                    <card class="vue-card-container" v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
                 </div>
             </div>
         </main>

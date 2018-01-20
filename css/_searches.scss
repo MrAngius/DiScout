@@ -1,18 +1,18 @@
 /* Elements present in pages where the user does PRODUCTS RESEARCHES */
 
 /* CARDS template */
-$product-card-height: 450px;
+$product-card-height: 380px;
 
 #product-list {}
 
 // card container
 .vue-card-container{
-    @extend .w3-white;
     @extend .w3-mobile;
     @extend .w3-left;
+    background-color: transparent;
 
     img {
-        // the product image is partially transparent by default
+        // the product image is partially transparent by default (but not on smartphones)
         @extend .w3-image;
 
         @media (min-width: 601px) {
@@ -39,7 +39,13 @@ $product-card-height: 450px;
 
 .vue-card-tracked-product {
     @extend .vue-card-container;
-    @extend .w3-block;
+    width: 100% !important;
+    float: none !important;
+
+    .vue-card-product {
+        margin: 12px 0 4px 0 !important;
+        height: auto !important;
+    }
 }
 
 // the product itself
@@ -48,6 +54,7 @@ $product-card-height: 450px;
     @extend .w3-card;
     @extend .w3-hover-teal;
     @extend .w3-margin;
+    @extend .w3-white;
     overflow: hidden;
     cursor: pointer;
 
