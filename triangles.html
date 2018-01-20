@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <title>DiScout - My products</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- LIBRARIES-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/src/vue.js"></script>
+
+    <!-- CSS code -->
+    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/foo.css" />
+
+    <!-- NOTE: update the rest to be compliant -->
+    <script src="js/scripts/UI_effects.js"></script>
+
+    <!-- VUE: components in nesting orders -->
+    <script src="Vue/card.js"></script>
+    <script src="Vue/product-list.js"></script>
+    <script src="Vue/header.js"></script>
+    <script src="Vue/navBar.js"></script>
+    <script src="Vue/vue-mytrack.js"></script>
+
+
+    <!-- Website icon -->
+    <link rel="icon" type="image/ico" href="img/favicon.ico" />
+
+
+    <style>
+    	.pageOption {
+		  overflow: hidden;
+		  position: relative;
+		  width: 40em; height: 27em;
+		  background-color: grey;
+		}
+		.option {
+		  width: 100%;
+		  height: 100%;
+		  overflow: hidden;
+		  position: absolute;  
+		  background-color: white;
+		  /* arctan(27 / 40) = 34.01935deg 
+		   * need to skew by 90deg - 34.01935deg = 55.98065deg
+		  */
+		  transform: skewX(-55.98deg);
+		}
+		.option:first-child {
+		  left: -.25em;
+		  transform-origin: 100% 0;
+		}
+		.option:last-child {
+		  right: -.25em;
+		  transform-origin: 0 100%;
+		}
+		.option img {
+		  width: 65%;
+		  height: 100%;
+		  transform: skewX(55.98deg);
+		  transform-origin: inherit;
+		}
+		.bottom-aligned {
+		  vertical-align: bottom !important;
+		}
+    </style>
+
+    <script>
+    	var N_elems = 0;
+
+		function allowDrop(ev) {
+		    ev.preventDefault();
+		}
+
+		function drag(ev) {
+		    ev.dataTransfer.setData("img_src", ev.target.getAttribute("src"));
+		}
+
+		function drop(ev, elem) {
+		    ev.preventDefault();
+
+		    // we can accept up to two images
+		    if (N_elems < 2)
+		    	N_elems++;
+
+		    // retrieve the image source
+		    var data = ev.dataTransfer.getData("img_src");
+
+		    // if this is the first image to be dropped, position it in the top-left corner
+		    if(N_elems == 1) {
+		    	elem.firstChild.style.visibility = 'visible';
+		    	elem.firstChild.firstChild.src = data;
+		    }
+		    // otherwise, place it in the bottom-right corner
+		    else {
+		    	elem.firstChild.classList.add('option')
+		    	elem.lastChild.style.visibility = 'visible';
+		    	elem.lastChild.firstChild.src = data;
+		    }
+		}
+	</script>
+
+</head>
+
+<body>
+    <div id="vue-mytrack">
+        <headertemplate></headertemplate>
+        <navbar></navbar>
+
+		<div class='pageOption' ondrop="drop(event, this)" ondragover="allowDrop(event)">
+		  <a href='#' class='' data-inf='photo' style="visibility: hidden;">
+		    <img src='img/products/product0.jpg'>
+		  </a>
+		  <a href='#' class='option' data-inf='cinema' style="visibility: hidden; text-align: right;">
+		    <img src='img/products/product1.jpg'>
+		  </a>
+		</div>
+		<div>
+			<img src='img/products/product0.jpg' draggable="true" ondragstart="drag(event)">
+			<img src='img/products/product1.jpg' draggable="true" ondragstart="drag(event)">
+		</div>
+
+		<footer class="w3-container w3-black w3-small w3-padding">
+            This is the footer!
+        </footer>
+    </div>
+</body>
+</html>
