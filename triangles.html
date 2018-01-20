@@ -31,13 +31,18 @@
 
 
     <style>
-    	.pageOption {
+        #triangles-container img {
+            width: 100%;
+        }
+
+    	#triangles-container {
 		  overflow: hidden;
 		  position: relative;
 		  width: 40em; height: 27em;
 		  background-color: grey;
+            border: 5px outset grey;
 		}
-		.option {
+		.triangle {
 		  width: 100%;
 		  height: 100%;
 		  overflow: hidden;
@@ -48,27 +53,46 @@
 		  */
 		  transform: skewX(-55.98deg);
 		}
-		.option:first-child {
+		.triangle:first-child {
 		  left: -.25em;
 		  transform-origin: 100% 0;
 		}
-		.option:last-child {
+		.triangle:last-child {
 		  right: -.25em;
 		  transform-origin: 0 100%;
 		}
-		.option img {
-		  width: 65%;
+		.triangle img {
+		  width: 65% !important;
 		  height: 100%;
 		  transform: skewX(55.98deg);
 		  transform-origin: inherit;
-		}
-		.bottom-aligned {
-		  vertical-align: bottom !important;
 		}
     </style>
 
     <script>
     	var N_elems = 0;
+
+    	// use this function to set the top-left image
+    	function setMainImage(container, src) {
+            container.firstChild.style.visibility = 'visible';
+            container.firstChild.firstChild.src = src;
+        }
+
+        // use this function to set the bottom-right image
+        function setOtherImage(container, src) {
+            container.firstChild.classList.add('triangle')
+            container.lastChild.style.visibility = 'visible';
+            container.lastChild.firstChild.src = src;
+        }
+
+        // use this image to set an image only (without triangles)
+        function setMainImageOnly(container, src) {
+    	    setMainImage(container, src);
+            container.firstChild.classList.remove('triangle');
+            container.lastChild.style.visibility = 'hidden';
+    	    // reset the number of displayed elements
+            N_elems = 1;
+        }
 
 		function allowDrop(ev) {
 		    ev.preventDefault();
@@ -89,16 +113,9 @@
 		    var data = ev.dataTransfer.getData("img_src");
 
 		    // if this is the first image to be dropped, position it in the top-left corner
-		    if(N_elems == 1) {
-		    	elem.firstChild.style.visibility = 'visible';
-		    	elem.firstChild.firstChild.src = data;
-		    }
+		    if(N_elems === 1) setMainImage(elem, data);
 		    // otherwise, place it in the bottom-right corner
-		    else {
-		    	elem.firstChild.classList.add('option')
-		    	elem.lastChild.style.visibility = 'visible';
-		    	elem.lastChild.firstChild.src = data;
-		    }
+		    else setOtherImage(elem, data);
 		}
 	</script>
 
@@ -109,18 +126,28 @@
         <headertemplate></headertemplate>
         <navbar></navbar>
 
-		<div class='pageOption' ondrop="drop(event, this)" ondragover="allowDrop(event)">
-		  <a href='#' class='' data-inf='photo' style="visibility: hidden;">
-		    <img src='img/products/product0.jpg'>
-		  </a>
-		  <a href='#' class='option' data-inf='cinema' style="visibility: hidden; text-align: right;">
-		    <img src='img/products/product1.jpg'>
-		  </a>
+
+
+        <!-- This is the element in which make the triangles compare -->
+		<div id='triangles-container' ondrop="drop(event, this)" ondragover="allowDrop(event)">
+		  <div class='' style="visibility: hidden;">
+		    <img src=''>
+		  </div>
+		  <div class='triangle' style="visibility: hidden; text-align: right;">
+		    <img src=''>
+		  </div>
 		</div>
+
+        <!-- Toy examples you can drag in the previous container -->
 		<div>
 			<img src='img/products/product0.jpg' draggable="true" ondragstart="drag(event)">
 			<img src='img/products/product1.jpg' draggable="true" ondragstart="drag(event)">
 		</div>
+
+        <!-- Test other functionalities -->
+        <button type="button" onclick="setMainImageOnly(document.getElementById('triangles-container'), 'img/products/product0.jpg')">Main image only (product 1)</button><br>
+        <button type="button" onclick="setMainImageOnly(document.getElementById('triangles-container'), 'img/products/product1.jpg')">Main image only (product 2)</button>
+
 
 		<footer class="w3-container w3-black w3-small w3-padding">
             This is the footer!
