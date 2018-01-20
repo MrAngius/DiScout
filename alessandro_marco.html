@@ -111,8 +111,10 @@
                 <section id="similar-products-slider" class="w3-light-grey w3-container" style="position: relative; overflow: auto;">
                     <!--<button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
                     <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>-->
-                    <div id="similar-products-list" style="position: relative; overflow: auto; height: 412px; width: 20000px;">
-                        <card v-for="card in cards" class="vue-card-suggested-product" draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick_callback="''"></card>
+
+                    <!-- Here, we need to know the exact number of products that will be printed in the suggestion list -->
+                    <div id="similar-products-list" :style="'width: ' + Object.entries(cards).length * 320 + 'px; position: relative; overflow: auto; height: 412px;'">
+                        <card v-for="card in cards" class="vue-card-suggested-product" draggable="true" ondragstart="drag(event, false)" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick_callback="''"></card>
                     </div>
                 </section>
             </div>
