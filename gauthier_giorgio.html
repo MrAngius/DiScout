@@ -39,6 +39,9 @@
 <body>
     <div id="vue">
         <headertemplate></headertemplate>
+        <button id="menu-button-mobile" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'), addRemoveClass(this, 'w3-teal')">
+            <i class="fa fa-bars"></i>
+        </button>
         <navbar></navbar>
 
         <!-- FILTERS (mobile version) -->
@@ -52,7 +55,7 @@
                 </header>
                 <section class="filter">
                     <span @click="filters.dispCat=!filters.dispCat">
-                        <i class="fa" v-bind:class="{'fa-arrow-circle-o-right': !filters.dispCat, 'fa-arrow-circle-o-down': filters.dispCat}"></i> Categories
+                        <i class="fa" v-bind:class="{'fa-caret-right': !filters.dispCat, 'fa-caret-down': filters.dispCat}"></i> Categories
                     </span>
                     <div class="filter-options" v-if="filters.dispCat">
                         <label :id="filter.id" v-for="filter in filters.categories" v-bind:class="{'w3-text-blue': categories[filter.id], 'w3-text-blue-grey': !categories[filter.id]}">
@@ -62,7 +65,7 @@
                     </div>
                 </section>
                 <section class="filter">
-                    Minimum rating
+                    Minimum rating<br>
                     <fieldset class="rating">
                         <input type="radio" id="star5" name="rating" value="5" />           <label class="full" for="star5" title="5 stars"></label>
                         <input type="radio" id="star4half" name="rating" value="4.5" />     <label class="half" for="star4half" title="4.5 stars"></label>
@@ -108,7 +111,7 @@
                 </header>
                 <section class="filter">
                     <span @click="filters.dispCat=!filters.dispCat">
-                        <i class="fa" v-bind:class="{'fa-arrow-circle-o-right': !filters.dispCat, 'fa-arrow-circle-o-down': filters.dispCat}"></i> Categories
+                        <i class="fa" v-bind:class="{'fa-caret-right': !filters.dispCat, 'fa-caret-down': filters.dispCat}"></i> Categories
                     </span>
                     <div class="filter-options" v-if="filters.dispCat">
                         <label :id="filter.id" v-for="filter in filters.categories" v-bind:class="{'w3-text-blue': categories[filter.id], 'w3-text-blue-grey': !categories[filter.id]}">
