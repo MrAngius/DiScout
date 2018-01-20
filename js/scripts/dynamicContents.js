@@ -6,5 +6,5 @@ function productPreview(productElem, modalContainerId) {
     // set its content
     const modalContent = document.getElementById('zoomed-product');
     // TODO: create the trend graph, according to the Vue component written by Marco
-    modalContent.innerHTML = 'Product ID = ' + productElem.getAttribute('id');
+    modalContent.innerHTML = 'Product ID = ' + productElem.getAttribute('data-id');
 }
