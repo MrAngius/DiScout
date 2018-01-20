@@ -11,17 +11,17 @@ window.addEventListener('load', function (ev) {
         el: "#vue-mytrack",
         data: {
             // these data need to be updated depending on the content
-            productFocusTitle: "Smart Home Kit",
-            productFocusInfo: "An Amazing product!",
-            productFocusRating: 3.4,
-            productFocusPrice: 120,
-            productFocusPriceTrend: -15,
-            productFocusPriceLower: 110,
-            productFocusCategory: "Home, Electronic",
-            productFocusVendor: "Amazon.fr",
+            productFocusTitle: null,
+            productFocusInfo: null,
+            productFocusRating: null,
+            productFocusPrice: null,
+            productFocusPriceTrend: null,
+            productFocusPriceLower: null,
+            productFocusCategory: null,
+            productFocusVendor: null,
 
-            productFocusImageSrc: "./img/sample_images/door-window-homekit.jpg",
-            productFocusLink: "https://superhome.com.au/shop/apple-homekit/homekit-door-window-sensor/",
+            productFocusImageSrc: null,
+            productFocusLink: null,
 
             // comparison product
             productCompareRating: null,
@@ -53,10 +53,9 @@ window.addEventListener('load', function (ev) {
 
         },
         computed: {
+            // TODO: define a better way to create this list!!
             shortList: function(){
-                console.log(this.cards);
                 let tmp =  Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
-                console.log(tmp);
                 return tmp
 
             }
@@ -68,20 +67,21 @@ window.addEventListener('load', function (ev) {
     // ######## GRAPH ##########
     // extract data from the CSV, the graph need to be called when the data
     // has been extracted
-    Plotly.d3.csv("./data/finance-charts-apple.csv", function(err, rows){
+    Plotly.d3.csv("./data_graphs_production/data_products/data_0.csv", function(err, rows){
 
         // used to split the row and get the desired values
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
         }
 
+
         graph = document.getElementById("graph");
 
         let data = {
             type: "scatter",
             mode: "lines",
-            x: unpack(rows, 'Date'),
-            y: unpack(rows, 'AAPL.High'),
+            x: unpack(rows, 'date'),
+            y: unpack(rows, 'value'),
             line: {color: '#17BECF'}
         };
 
@@ -89,20 +89,20 @@ window.addEventListener('load', function (ev) {
         let layout = {
             title: 'Basic Time Series',
             xaxis: {
-                range: ['2016-07-01', '2016-12-31'],
+                range: ['2017-01-01 00:00:00', '2017-12-31 23:59:59'],
                 type: 'date'
             },
             yaxis: {
                 autorange: true,
-                range: [85, 140],
                 type: 'linear'
             },
-            margin: {                           // update the left, bottom, right, top margin
+            margin: {
                 l: 40, b: 80, r: 10, t: 80,
             }
         };
 
-        Plotly.newPlot(graph, [data], layout);
+        Plotly.newPlot(graph, [], layout);
+
     });
 
     loadDB('database_production/product_db.json');
@@ -121,7 +121,7 @@ window.onresize = function() {
     Plotly.Plots.resize(graph);
 };
 
-
+// IMPROVEMENT: improve the graph style
 function updateGraph(fileID) {
     // I need to retrieve the file from the fileID
     // TODO: take the id passed to the function and then update the graph
@@ -130,10 +130,12 @@ function updateGraph(fileID) {
     // get the data associated with the graph
     // IMPROVEMENT: possible to add multiple objects comparison
 
-    Plotly.d3.csv("./data/finance-charts-apple.csv", function (err, rows) {
+
+    Plotly.d3.csv("./data_graphs_production/data_products/data_" + fileID +".csv", function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function(row) { return row[key]; });
         }
+
 
         while (graph.data.length > 1) {
             Plotly.deleteTraces(graph, -1);
@@ -142,12 +144,13 @@ function updateGraph(fileID) {
         let trace_add = {
             type: "scatter",
             mode: "lines",
-            x: unpack(rows, 'Date'),
-            y: unpack(rows, 'AAPL.Close'),
+            x: unpack(rows, 'date'),
+            y: unpack(rows, 'value'),
             line: {color: '#68ac56'}
         };
 
         Plotly.addTraces(graph, trace_add)
+
     })
 }
 
@@ -180,6 +183,23 @@ function drop(ev) {
 
 }
 
+// add a function to make the product selection working also with the click
+// NOTE: possible to remove the isFocus and retrive this info from the id
+function clickProduct(ev, isFocus){
+
+    let data = ev.target.id;
+    // TODO: parse the ID depending on the arrival location
+
+    if(isFocus === "true") {
+        updateValuesFocus(data);
+    } else {
+        updateValuesComparisons(data);
+    }
+    //updateGraph(data);
+
+
+}
+
 
 // TODO: need to make the function read the id of the object and retrieve the info
 
@@ -187,10 +207,9 @@ function updateValuesFocus(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    console.log(data);
     let productFocused = vueInstance1.$data.cards[data];
 
-    console.log(productFocused);
+    console.log( "the selected id is " + data);
 
 
     vueInstance1.$data.productFocusTitle = productFocused.name;
@@ -213,6 +232,8 @@ function updateValuesComparisons(data) {
     vueInstance1.$data.isNotVisible = false;
     // NOTE: hard coded for now
     let productCompared = vueInstance1.$data.cards[data];
+    console.log(productCompared);
+    console.log( "the compared id is " + data);
 
 
     vueInstance1.$data.productCompareTitle = productCompared.name;

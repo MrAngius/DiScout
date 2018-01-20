@@ -7,6 +7,7 @@ if __name__ == "__main__":
 
     f = open("database_products.csv")
     header = f.readline().split(";")
+    header_cln = [h.replace("\n", "") for h in header]
     #print(header)
 
 
@@ -14,7 +15,7 @@ if __name__ == "__main__":
         tmp = row.split(";")
         product = {}
         product["id"] = id
-        for column, value in zip(header, tmp):
+        for column, value in zip(header_cln, tmp):
             product[column] = value
         l[id] = product
 
@@ -32,6 +33,7 @@ if __name__ == "__main__":
     d = open("product_db.json", mode="r")
     evaluation = d.readlines()
 
-    pprint.pprint(json.loads(evaluation[0]))
+    obj = json.loads(evaluation[0])
+    pprint.pprint(obj)
 
     d.close()

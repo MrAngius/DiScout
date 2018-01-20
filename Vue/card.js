@@ -7,23 +7,21 @@ Other information and the product image are represented on a single row, inside 
 
 */
 
-// NOTE: The product + id is required to have the information for the drag and drop
-
 Vue.component('card', {
     template: `
     <div :id="id" class="vue-card-container">
         <div class="vue-card-product">
             <div onclick="productPreview(this.parentNode.parentNode, 'modal')">
-                <p class="title-box" v-text="title"></p>
+                <p class="title-box" v-text="name"></p>
                 <div class="vue-card-product-info">
                     <div class="vue-card-image-box">
-                        <img v-if="img_src" class='vue-card-product-image' :src="img_src">
+                        <img v-if="img_source" class='vue-card-product-image' :src="img_source">
                         <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
                     </div>
                     <div class="vue-card-summary-box">
                         <!-- Add here other product useful information... -->
-                        <div v-if="price" v-text="price + '€'"></div>
-                        <div v-if="trend" v-text="trend"></div>
+                        <div v-if="price_current" v-text="price_current + '€'"></div>
+                        <div v-if="off" v-text="off"></div>
                     </div>
                 </div>
             </div>
@@ -40,12 +38,14 @@ Vue.component('card', {
     // name;price_current;price;reduction;rating;
     // low_price;off;img_source;vendor;category;link
 
+    // NOTE: possible to review these fields
+    // those fields can be be filled when declaring the card template
     props: {
         id: {
             type: Number,
             required: false
         },
-        title: {
+        name: {
             type: String,
             required: true
         },
@@ -53,27 +53,31 @@ Vue.component('card', {
             type: String,
             required: false
         },
-        product_category: {
+        category: {
             type: String,
             required: false
         },
-        product_vendor: {
+        vendor: {
             type: String,
             required: false
         },
-        img_src: {
+        img_source: {
             type: String,
             required: false
         },
-        product_link: {
+        link: {
             type: String,
             required: false
+        },
+        price_current: {
+            type: String,
+            required: false,
         },
         price: {
             type: String,
-            required: true,
+            required: false
         },
-        trend: {
+        off: {
             type: String,
             required: false
         },
@@ -85,7 +89,7 @@ Vue.component('card', {
             type: Array,
             required: false
         },
-        lowest_price: {
+        low_price: {
             type: String,
             required: false
         }
