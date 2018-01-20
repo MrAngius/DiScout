@@ -11,7 +11,7 @@ Vue.component('card', {
     template: `
     <div :id="id" class="vue-card-container">
         <div class="vue-card-product">
-            <div onclick="productPreview(this.parentNode.parentNode, 'modal')">
+            <div :onclick="onclick_callback">
                 <p class="title-box" v-text="name"></p>
                 <div class="vue-card-product-info">
                     <div class="vue-card-image-box">
@@ -92,6 +92,10 @@ Vue.component('card', {
         low_price: {
             type: String,
             required: false
+        },
+        onclick_callback: {
+            type: String,
+            required: true
         }
     }
 });

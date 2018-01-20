@@ -3,8 +3,6 @@
 /* CARDS template */
 $product-card-height: 380px;
 
-#product-list {}
-
 // card container
 .vue-card-container{
     @extend .w3-mobile;
@@ -48,6 +46,11 @@ $product-card-height: 380px;
     }
 }
 
+.vue-card-suggested-product {
+    @extend .vue-card-container;
+    width: 320px !important;
+}
+
 // the product itself
 .vue-card-product {
     @extend .w3-round-large;
@@ -57,6 +60,7 @@ $product-card-height: 380px;
     @extend .w3-white;
     overflow: hidden;
     cursor: pointer;
+    max-height: $product-card-height;
 
     @media (min-width: 601px) {
         height: $product-card-height;
