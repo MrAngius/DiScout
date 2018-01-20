@@ -96,17 +96,15 @@ window.addEventListener('load', function () {
                 this.filters.dispCat=!this.filters.dispCat
             }
         }
-
-
     });
-    loadDB('database.json')
+    loadDB('database_production/products_db.json')
 });
 
 
-
+// NOTE: DO you thing we can place it only in one place and avoid to call it twice?
 function loadDB(database){
     //alert("Loading DB")
-    if(window.sessionStorage.getItem('database')==undefined) {
+    if(window.sessionStorage.getItem('database')===undefined) {
         Plotly.d3.json(database, function (e, data) {
             vue.cards = data.products
             /* Following code is used to insert categories dynamically, not working atm */

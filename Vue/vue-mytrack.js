@@ -56,7 +56,7 @@ window.addEventListener('load', function (ev) {
             shortList: function(){
                 console.log(this.cards);
                 let tmp =  Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
-                console.log(tmp)
+                console.log(tmp);
                 return tmp
 
             }
@@ -105,7 +105,7 @@ window.addEventListener('load', function (ev) {
         Plotly.newPlot(graph, [data], layout);
     });
 
-    loadDB('database.json');
+    loadDB('database_production/product_db.json');
 
 });
 
@@ -211,10 +211,8 @@ function updateValuesComparisons(data) {
     // use them to populate the information on the graph and in the table
 
     vueInstance1.$data.isNotVisible = false;
-    console.log(data);
     // NOTE: hard coded for now
     let productCompared = vueInstance1.$data.cards[data];
-    console.log(productCompared);
 
 
     vueInstance1.$data.productCompareTitle = productCompared.name;
