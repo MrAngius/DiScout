@@ -1,4 +1,5 @@
-let vue
+let vue;
+
 window.addEventListener('load', function () {
     vue=new Vue({
         el: '#vue',
@@ -79,24 +80,24 @@ window.addEventListener('load', function () {
             },
             updateCategory(e){
 
-                console.log(e.target.id)
+                console.log(e.target.id);
                 /* Cannot update the value in the array :( */
                 /* this.categories[e.target.id]=e.target.checked */
                 this.categories[e.target.id]=e.target.checked;
             }
         }
     });
-    loadDB('database.json')
+    loadDB('database_production.json')
 });
 
 
-
+// NOTE: DO you thing we can place it only in one place and avoid to call it twice?
 function loadDB(database){
     //alert("Loading DB")
-    if(window.sessionStorage.getItem('database')==undefined) {
-        alert("Not found")
+    if(window.sessionStorage.getItem('database')===undefined) {
+        alert("Not found");
         Plotly.d3.json(database, function (e, data) {
-            vue.cards = data.products
+            vue.cards = data.products;
             /* Following code is used to insert categories dynamically, not working atm */
             /*
             for (var i = 0; i < data.products.length; i++) {
@@ -104,12 +105,12 @@ function loadDB(database){
                 vue.categories[cat] = true
             }
             */
-            console.log(JSON.stringify(data.products))
+            console.log(JSON.stringify(data.products));
             window.sessionStorage.setItem('database', JSON.stringify(data.products))
         })
     }
     else {
-        alert("Found")
+        alert("Found");
         vue.cards = JSON.parse(window.sessionStorage.getItem('database'))
 
     }
