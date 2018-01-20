@@ -43,9 +43,7 @@
             <aside class="w3-col" style="width:15%;">
                 <p class="w3-container w3-large">Your tracked products</p>
                 <div id="tracked-products-list" class="w3-panel" style="max-height: 1500px; overflow: auto; width: 100%">
-                    <div v-for="card in cards">
-                        <card class="vue-card-tracked-product" draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
-                    </div>
+                    <card v-for="card in cards" class="vue-card-tracked-product" draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick_callback="''"></card>
                 </div>
             </aside>
 
@@ -110,13 +108,13 @@
                 </div>
 
                 <!-- SIMILAR PRODUCTS -->
-                <div id="similar-products-list" class="w3-light-grey w3-container" style="position: relative; overflow: auto">
-                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
-                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
-                    <div v-for="card in shortList">
-                        <card class="vue-card-container" draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source"></card>
+                <section id="similar-products-slider" class="w3-light-grey w3-container" style="position: relative; overflow: auto;">
+                    <!--<button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
+                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>-->
+                    <div id="similar-products-list" style="position: relative; overflow: auto; height: 412px; width: 20000px;">
+                        <card v-for="card in cards" class="vue-card-suggested-product" draggable="true" ondragstart="drag(event, false)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick_callback="''"></card>
                     </div>
-                </div>
+                </section>
             </div>
 
 
