@@ -54,7 +54,7 @@ window.addEventListener('load', function () {
                     min: 0,
                     max: 5
                 },
-                dispCat: false
+                dispCat: true
             },
             cards: {
 
