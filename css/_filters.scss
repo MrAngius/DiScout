@@ -1,45 +1,74 @@
-.filter_entry {
-    font-size: 18px
-}
-a.filter_entry {
-    text-decoration: none;
-}
-.filter-category-block {
-    padding-left: 20px;
+/* FILTERS */
+
+// This is a filter type (category, price, rating...)
+.filter {
+  @extend .w3-large;
+  @extend .w3-section;
+  @extend .w3-clear;
 }
 
-/****** Style Star Rating Widget *****/
+// This is a specific option for the filter (ex: category = toy)
+.filter-options {
+  @extend .w3-medium;
+  padding-left: 16px;
+
+  label {
+    display: block;
+  }
+}
+
+// These are the green and red buttons at the bottom
+.filter-buttons {
+  button {
+    @extend .w3-ripple;
+    @extend .w3-block;
+    @extend .w3-round;
+    @extend .w3-section;
+  }
+}
+
+/* 5 STARS RATING FILTER */
+// This is tha main container
 .rating {
-    border: none;
-    float: left;
-    padding: 0px 0px 0px 0px;
+  border: none;
+  float: left;
+  padding: 0;
 }
 
-.rating > input { display: none; }
-.rating > label:before {
-    margin: 5px;
-    font-size: 1.25em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
+// Radio inputs are hidden
+.rating > input {
+  display: none;
 }
 
-.rating > .half:before {
-    content: "\f089";
-    position: absolute;
-}
-
+// While labels are stars (left/right half part)
 .rating > label {
-    color: #ddd;
-    float: right;
+  color: #ddd;
+  float: right;
+}
+
+.rating > label:before {
+  @extend .w3-xlarge;
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-right: 6px;
+  content: "\f005";  // full star
+}
+
+.rating > label.half:before {
+  content: "\f089";  // the full-star is overridden with an half star, in case of "half" class
+  position: absolute;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700; /* hover previous stars in list */
+}
 
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85;
+}
