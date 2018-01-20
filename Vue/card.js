@@ -9,14 +9,14 @@ Other information and the product image are represented on a single row, inside 
 
 Vue.component('card', {
     template: `
-    <div :id="id" class="vue-card-container">
-        <div class="vue-card-product">
+    <div :data-id="id" class="vue-card-container">
+        <div class="vue-card-product" draggable="true" :ondragstart="drag_callback">
             <div :onclick="onclick_callback">
                 <p class="title-box" v-text="name"></p>
                 <div class="vue-card-product-info">
                     <div class="vue-card-image-box">
-                        <img v-if="img_source" class='vue-card-product-image' :src="img_source">
-                        <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg">
+                        <img v-if="img_source" class='vue-card-product-image' :src="img_source" draggable="false">
+                        <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
                     </div>
                     <div class="vue-card-summary-box">
                         <!-- Add here other product useful information... -->
@@ -96,6 +96,10 @@ Vue.component('card', {
         onclick_callback: {
             type: String,
             required: true
+        },
+        drag_callback: {
+            type: String,
+            required: false
         }
     }
 });

@@ -55,8 +55,8 @@ window.addEventListener('load', function (ev) {
         computed: {
             // TODO: define a better way to create this list!!
             shortList: function(){
-                let tmp =  Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
-                return tmp
+                return Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
+
 
             }
         }
@@ -93,7 +93,6 @@ window.addEventListener('load', function (ev) {
                 type: 'date'
             },
             yaxis: {
-                autorange: true,
                 type: 'linear'
             },
             margin: {
@@ -154,7 +153,6 @@ function updateGraph(fileID) {
     })
 }
 
-
 // ######## DRAG AND DROP ########
 function allowDrop(ev) {
     // enable the default action for drop
@@ -163,7 +161,7 @@ function allowDrop(ev) {
 
 function drag(ev, isFocus) {
     // used to send data
-    ev.dataTransfer.setData("id", ev.target.id);
+    ev.dataTransfer.setData("id", ev.target.parentNode.getAttribute("data-id"));
     ev.dataTransfer.setData("isFocus", isFocus);
 }
 
@@ -171,8 +169,11 @@ function drop(ev) {
     ev.preventDefault();
 
     let data = ev.dataTransfer.getData("id");
+    alert(ev);
+    console.log(data);
+
     let type = ev.dataTransfer.getData("isFocus");
-    alert(type);
+    console.log(type);
 
     if(type === "true") {
         updateValuesFocus(data);
@@ -184,7 +185,7 @@ function drop(ev) {
 }
 
 // add a function to make the product selection working also with the click
-// NOTE: possible to remove the isFocus and retrive this info from the id
+// NOTE: possible to remove the isFocus and retrieve this info from the id
 function clickProduct(ev, isFocus){
 
     let data = ev.target.id;
@@ -207,7 +208,7 @@ function updateValuesFocus(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    let productFocused = vueInstance1.$data.cards[data];
+    let productFocused = vueInstance1.cards[data];
 
     console.log( "the selected id is " + data);
 
@@ -231,7 +232,7 @@ function updateValuesComparisons(data) {
 
     vueInstance1.$data.isNotVisible = false;
     // NOTE: hard coded for now
-    let productCompared = vueInstance1.$data.cards[data];
+    let productCompared = vueInstance1.cards[data];
     console.log(productCompared);
     console.log( "the compared id is " + data);
 
