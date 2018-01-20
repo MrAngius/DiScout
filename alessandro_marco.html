@@ -41,7 +41,7 @@
 
             <!-- LIST OF TRACKED PRODUCTS -->
             <aside class="w3-col" style="width:15%;">
-                <p class="w3-container w3-large">Your tracked products</p>
+                <p class="w3-container w3-large"><i class="fa fa-binoculars"></i> Your tracked products</p>
                 <div id="tracked-products-list" class="w3-panel" style="max-height: 1500px; overflow: auto; width: 100%">
                     <card v-for="card in cards" class="vue-card-tracked-product" draggable="true" ondragstart="drag(event, true)" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick_callback="''"></card>
                 </div>
@@ -56,7 +56,7 @@
 
                     <!-- DETAILS -->
                     <section class="w3-row">
-                        <h2 class="w3-teal w3-container w3-round">{{ productFocusTitle }}</h2>
+                        <h2 class="w3-teal w3-container w3-round"><i class="fa fa-cart-plus"></i> {{ productFocusTitle }}</h2>
                         <p>{{ productFocusInfo }}</p>
                         <div class="w3-quarter">
                             <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
@@ -101,7 +101,7 @@
 
                     <!-- GRAPH -->
                     <section class="w3-section">
-                        <h2 class="w3-blue w3-container w3-round">Price Trend</h2>
+                        <h2 class="w3-blue w3-container w3-round"><i class="fa fa-line-chart"></i> Price Trend</h2>
                         <div id="graph"></div>
                     </section>
 

@@ -60,6 +60,7 @@ $product-card-height: 380px;
     @extend .w3-white;
     overflow: hidden;
     cursor: pointer;
+    max-height: $product-card-height;
 
     @media (min-width: 601px) {
         height: $product-card-height;

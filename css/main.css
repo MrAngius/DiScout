@@ -1381,7 +1381,8 @@ header {
 
 .vue-card-product {
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  max-height: 380px; }
   @media (min-width: 601px) {
     .vue-card-product {
       height: 380px; } }
