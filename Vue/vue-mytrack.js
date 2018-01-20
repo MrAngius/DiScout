@@ -1,16 +1,55 @@
-// use the addEvent listener to wait the load of the page before use JS
+// COLORS
+const COLORS = ['#f5b041','#f4d03f','#58d68d','#52be80','#45b39d','#48c9b0','#2874a6','#1f618d','#6c3483'];
+const COLORS2 = ['#aed6f1','#a9cce3','#d2b4de','#d7bde2','#f5b7b1','#e6b0aa','#fad7a0','#f9e79f','#abebc6'];
+const COLORS3 = ['#a9dfbf','#a2d9ce','#a3e4d7','#5dade2','#5499c7','#a569bd','#af7ac5','#ec7063','#cd6155'];
 
+let LAYOUT = {
+    xaxis: {
+        range: ['2017-12-01 00:00:00', '2017-12-31 23:59:59'],
+        type: 'date',
+        rangeslider: {
+            bgcolor: "#D6EAF8",
+            thickness: 0.20,
+            autorange: true,
+            visible: false
+        },
+    },
+    yaxis: {
+        type: 'linear',
+        // fixed tp avoid the user to mess up
+        fixedrange: true,
+        titlefont: {
+            size: 10,
+            color: "#2980B9"
+        }
+    },
+    margin: {
+        l: 40, b: 80, r: 10, t: 50,
+    },
+    legend: {
+        font: {
+            size: 14
+        }
+    }
+};
+
+
+// declarations
 let graph;
-let vueInstance1;
+let vue;
+let countTraces;
+let sliderHide;
 
+// use the addEvent listener to wait the load of the page before use JS
 window.addEventListener('load', function (ev) {
 
+    countTraces = 0;
+    sliderHide = true;
 
     // handle the page using vue
-    vueInstance1 = new Vue({
+    vue = new Vue({
         el: "#vue-mytrack",
         data: {
-            // these data need to be updated depending on the content
             productFocusTitle: null,
             productFocusInfo: null,
             productFocusRating: null,
@@ -23,7 +62,6 @@ window.addEventListener('load', function (ev) {
             productFocusImageSrc: null,
             productFocusLink: null,
 
-            // comparison product
             productCompareRating: null,
             productComparePrice: null,
             productComparePriceTrend: null,
@@ -56,53 +94,15 @@ window.addEventListener('load', function (ev) {
             // TODO: define a better way to create this list!!
             shortList: function(){
                 return Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
-
-
             }
         }
 
     });
 
+    // graph
+    graph = document.getElementById("graph");
+    Plotly.newPlot(graph, [], LAYOUT, {displayModeBar: false});
 
-    // ######## GRAPH ##########
-    // extract data from the CSV, the graph need to be called when the data
-    // has been extracted
-    Plotly.d3.csv("./data_graphs_production/data_products/data_0.csv", function(err, rows){
-
-        // used to split the row and get the desired values
-        function unpack(rows, key) {
-            return rows.map(function(row) { return row[key]; });
-        }
-
-
-        graph = document.getElementById("graph");
-
-        let data = {
-            type: "scatter",
-            mode: "lines",
-            x: unpack(rows, 'date'),
-            y: unpack(rows, 'value'),
-            line: {color: '#17BECF'}
-        };
-
-
-        let layout = {
-            title: 'Basic Time Series',
-            xaxis: {
-                range: ['2017-01-01 00:00:00', '2017-12-31 23:59:59'],
-                type: 'date'
-            },
-            yaxis: {
-                type: 'linear'
-            },
-            margin: {
-                l: 40, b: 80, r: 10, t: 80,
-            }
-        };
-
-        Plotly.newPlot(graph, [], layout);
-
-    });
 
     loadDB('database_production/product_db.json');
 
@@ -112,7 +112,7 @@ window.addEventListener('load', function (ev) {
 function loadDB(database){
     //alert("Loading DB")
     Plotly.d3.json(database, function(e,data) {
-        vueInstance1.cards = data.products;
+        vue.cards = data.products;
     })
 }
 
@@ -120,8 +120,57 @@ window.onresize = function() {
     Plotly.Plots.resize(graph);
 };
 
+
+// ######## GRAPH ##########
+function addTrace(fileID, name){
+
+    Plotly.d3.csv("./data_graphs_production/data_products/data_" + fileID +".csv", function (err, rows) {
+        function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+        }
+
+        let traceAdd = {
+            type: "scatter",
+            name: name,
+            showlegend: true,
+            mode: "lines",
+            x: unpack(rows, 'date'),
+            y: unpack(rows, 'value'),
+            line: {color: COLORS[countTraces]}
+        };
+        countTraces ++;
+        Plotly.addTraces(graph, traceAdd);
+
+
+    });
+}
+
+function removeTrace(flush) {
+
+    if (!flush){
+        Plotly.deleteTraces(graph, -1);
+        countTraces --;
+    } else {
+        while (countTraces !== 0){
+            Plotly.deleteTraces(graph, -1);
+            countTraces --;
+        }
+    }
+}
+
+function showHideRangeSlider(){
+
+    let update = {
+        'xaxis.rangeslider.visible': sliderHide
+    };
+
+    sliderHide = !sliderHide;
+
+    Plotly.relayout(graph, update);
+}
+
 // IMPROVEMENT: improve the graph style
-function updateGraph(fileID) {
+function updateGraph(fileID, mode) {
     // I need to retrieve the file from the fileID
     // TODO: take the id passed to the function and then update the graph
 
@@ -129,28 +178,21 @@ function updateGraph(fileID) {
     // get the data associated with the graph
     // IMPROVEMENT: possible to add multiple objects comparison
 
-
-    Plotly.d3.csv("./data_graphs_production/data_products/data_" + fileID +".csv", function (err, rows) {
-        function unpack(rows, key) {
-            return rows.map(function(row) { return row[key]; });
+    if (mode === "comparison"){
+        if (countTraces > 1){
+            removeTrace(false)
         }
+        addTrace(fileID, "Compared");
 
+    } else {
+        removeTrace(true);
+        addTrace(fileID, "Tracked")
+    }
 
-        while (graph.data.length > 1) {
-            Plotly.deleteTraces(graph, -1);
-        }
+    if (sliderHide) {
+        showHideRangeSlider();
+    }
 
-        let trace_add = {
-            type: "scatter",
-            mode: "lines",
-            x: unpack(rows, 'date'),
-            y: unpack(rows, 'value'),
-            line: {color: '#68ac56'}
-        };
-
-        Plotly.addTraces(graph, trace_add)
-
-    })
 }
 
 // ######## DRAG AND DROP ########
@@ -177,52 +219,51 @@ function drop(ev) {
 
     if(type === "true") {
         updateValuesFocus(data);
+        updateGraph(data, "focus");
+
     } else {
         updateValuesComparisons(data);
+        updateGraph(data, "comparison");
     }
-    updateGraph(data);
 
 }
 
 // add a function to make the product selection working also with the click
-// NOTE: possible to remove the isFocus and retrieve this info from the id
-function clickProduct(ev, isFocus){
+function clickProduct(elem, isFocus){
 
-    let data = ev.target.id;
-    // TODO: parse the ID depending on the arrival location
+    let data = elem.parentNode.parentNode.getAttribute("data-id");
+    console.log(data);
 
     if(isFocus === "true") {
         updateValuesFocus(data);
+        updateGraph(data, "focus");
+
     } else {
         updateValuesComparisons(data);
+        updateGraph(data, "comparison");
+
     }
-    //updateGraph(data);
-
-
 }
 
 
 // TODO: need to make the function read the id of the object and retrieve the info
-
+// ###### UPDATES ######
 function updateValuesFocus(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    let productFocused = vueInstance1.cards[data];
+    let productFocused = vue.cards[data];
 
-    console.log( "the selected id is " + data);
-
-
-    vueInstance1.$data.productFocusTitle = productFocused.name;
-    //vueInstance1.$data.productFocusDescription = productFocused.description;
-    vueInstance1.$data.productFocusPrice = productFocused.price;
-    vueInstance1.$data.productFocusPriceLower = productFocused.low_price;
-    vueInstance1.$data.productFocusRating = productFocused.rating;
-    vueInstance1.$data.productFocusPriceTrend = productFocused.trend;
-    vueInstance1.$data.productFocusVendor = productFocused.vendor;
-    vueInstance1.$data.productFocusCategory = productFocused.category;
-    vueInstance1.$data.productFocusLink = productFocused.link;
-    vueInstance1.$data.productFocusImageSrc = productFocused.img_source;
+    vue.productFocusTitle = productFocused.name;
+    //vue.$data.productFocusDescription = productFocused.description;
+    vue.productFocusPrice = productFocused.price;
+    vue.productFocusPriceLower = productFocused.low_price;
+    vue.productFocusRating = productFocused.rating;
+    vue.productFocusPriceTrend = productFocused.off;
+    vue.productFocusVendor = productFocused.vendor;
+    vue.productFocusCategory = productFocused.category;
+    vue.productFocusLink = productFocused.link;
+    vue.productFocusImageSrc = productFocused.img_source;
 
 }
 
@@ -230,22 +271,18 @@ function updateValuesComparisons(data) {
     // TODO: Based on the object ID we need to retrieve its information and
     // use them to populate the information on the graph and in the table
 
-    vueInstance1.$data.isNotVisible = false;
-    // NOTE: hard coded for now
-    let productCompared = vueInstance1.cards[data];
-    console.log(productCompared);
-    console.log( "the compared id is " + data);
+    vue.isNotVisible = false;
+    let productCompared = vue.cards[data];
+    console.log(data);
 
-
-    vueInstance1.$data.productCompareTitle = productCompared.name;
-    //vueInstance1.$data.productCompareDescription = productCompared.description;
-    vueInstance1.$data.productComparePrice = productCompared.price;
-    vueInstance1.$data.productComparePriceLower = productCompared.low_price;
-    vueInstance1.$data.productCompareRating = productCompared.rating;
-    vueInstance1.$data.productComparePriceTrend = productCompared.trend;
-    vueInstance1.$data.productCompareVendor = productCompared.vendor;
-    vueInstance1.$data.productCompareCategory = productCompared.category;
-    vueInstance1.$data.productCompareLink = productCompared.link;
-    vueInstance1.$data.productCompareImageSrc = productCompared.img_source;
-
+    vue.productCompareTitle = productCompared.name;
+    //vue.$data.productCompareDescription = productCompared.description;
+    vue.productComparePrice = productCompared.price;
+    vue.productComparePriceLower = productCompared.low_price;
+    vue.productCompareRating = productCompared.rating;
+    vue.productComparePriceTrend = productCompared.off;
+    vue.productCompareVendor = productCompared.vendor;
+    vue.productCompareCategory = productCompared.category;
+    vue.productCompareLink = productCompared.link;
+    vue.productCompareImageSrc = productCompared.img_source;
 }

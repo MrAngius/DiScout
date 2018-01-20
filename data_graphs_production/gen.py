@@ -30,7 +30,7 @@ if __name__ == "__main__":
     d.close()
     series = []
 
-    for result in genTime(datetime(2017, 1, 1, 0), datetime(2017, 12, 1, 23), timedelta(hours=6)):
+    for result in genTime(datetime(2017, 1, 1, 0), datetime(2017, 12, 31, 23), timedelta(hours=6)):
         series.append(result.__str__())
 
     # pprint(series)
