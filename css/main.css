@@ -437,130 +437,130 @@ a {
   display: block;
   overflow-x: auto; }
 
-.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, .w3-panel:after, .w3-panel:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
+.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, #tracked-products p:after, #track-page:after, #track-page .banner:after, #track-page #similar-products-slider:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, #tracked-products p:before, #track-page:before, #track-page .banner:before, #track-page #similar-products-slider:before, .w3-panel:after, #tracked-products #tracked-products-list:after, .w3-panel:before, #tracked-products #tracked-products-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
 .w3-cell-row:before,
 .vue-card-product-info:before, .w3-cell-row:after, .vue-card-product-info:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .filter:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .filter:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
   clear: both; }
 
-.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+.w3-col, #tracked-products, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
   float: left;
   width: 100%; }
 
-.w3-col.s1 {
+.w3-col.s1, .s1#tracked-products {
   width: 8.33333%; }
 
-.w3-col.s2 {
+.w3-col.s2, .s2#tracked-products {
   width: 16.66666%; }
 
-.w3-col.s3 {
+.w3-col.s3, .s3#tracked-products {
   width: 24.99999%; }
 
-.w3-col.s4 {
+.w3-col.s4, .s4#tracked-products {
   width: 33.33333%; }
 
-.w3-col.s5 {
+.w3-col.s5, .s5#tracked-products {
   width: 41.66666%; }
 
-.w3-col.s6 {
+.w3-col.s6, .s6#tracked-products {
   width: 49.99999%; }
 
-.w3-col.s7 {
+.w3-col.s7, .s7#tracked-products {
   width: 58.33333%; }
 
-.w3-col.s8 {
+.w3-col.s8, .s8#tracked-products {
   width: 66.66666%; }
 
-.w3-col.s9 {
+.w3-col.s9, .s9#tracked-products {
   width: 74.99999%; }
 
-.w3-col.s10 {
+.w3-col.s10, .s10#tracked-products {
   width: 83.33333%; }
 
-.w3-col.s11 {
+.w3-col.s11, .s11#tracked-products {
   width: 91.66666%; }
 
-.w3-col.s12 {
+.w3-col.s12, .s12#tracked-products {
   width: 99.99999%; }
 
 @media (min-width: 601px) {
-  .w3-col.m1 {
+  .w3-col.m1, .m1#tracked-products {
     width: 8.33333%; }
 
-  .w3-col.m2 {
+  .w3-col.m2, .m2#tracked-products {
     width: 16.66666%; }
 
-  .w3-col.m3, .w3-quarter {
+  .w3-col.m3, .m3#tracked-products, .w3-quarter {
     width: 24.99999%; }
 
-  .w3-col.m4, .w3-third {
+  .w3-col.m4, .m4#tracked-products, .w3-third {
     width: 33.33333%; }
 
-  .w3-col.m5 {
+  .w3-col.m5, .m5#tracked-products {
     width: 41.66666%; }
 
-  .w3-col.m6, .w3-half {
+  .w3-col.m6, .m6#tracked-products, .w3-half {
     width: 49.99999%; }
 
-  .w3-col.m7 {
+  .w3-col.m7, .m7#tracked-products {
     width: 58.33333%; }
 
-  .w3-col.m8, .w3-twothird {
+  .w3-col.m8, .m8#tracked-products, .w3-twothird {
     width: 66.66666%; }
 
-  .w3-col.m9, .w3-threequarter {
+  .w3-col.m9, .m9#tracked-products, .w3-threequarter {
     width: 74.99999%; }
 
-  .w3-col.m10 {
+  .w3-col.m10, .m10#tracked-products {
     width: 83.33333%; }
 
-  .w3-col.m11 {
+  .w3-col.m11, .m11#tracked-products {
     width: 91.66666%; }
 
-  .w3-col.m12 {
+  .w3-col.m12, .m12#tracked-products {
     width: 99.99999%; } }
 @media (min-width: 993px) {
-  .w3-col.l1 {
+  .w3-col.l1, .l1#tracked-products {
     width: 8.33333%; }
 
-  .w3-col.l2 {
+  .w3-col.l2, .l2#tracked-products {
     width: 16.66666%; }
 
-  .w3-col.l3 {
+  .w3-col.l3, .l3#tracked-products {
     width: 24.99999%; }
 
-  .w3-col.l4 {
+  .w3-col.l4, .l4#tracked-products {
     width: 33.33333%; }
 
-  .w3-col.l5 {
+  .w3-col.l5, .l5#tracked-products {
     width: 41.66666%; }
 
-  .w3-col.l6 {
+  .w3-col.l6, .l6#tracked-products {
     width: 49.99999%; }
 
-  .w3-col.l7 {
+  .w3-col.l7, .l7#tracked-products {
     width: 58.33333%; }
 
-  .w3-col.l8 {
+  .w3-col.l8, .l8#tracked-products {
     width: 66.66666%; }
 
-  .w3-col.l9 {
+  .w3-col.l9, .l9#tracked-products {
     width: 74.99999%; }
 
-  .w3-col.l10 {
+  .w3-col.l10, .l10#tracked-products {
     width: 83.33333%; }
 
-  .w3-col.l11 {
+  .w3-col.l11, .l11#tracked-products {
     width: 91.66666%; }
 
-  .w3-col.l12 {
+  .w3-col.l12, .l12#tracked-products {
     width: 99.99999%; } }
 .w3-content {
   max-width: 980px;
   margin: auto; }
 
-.w3-rest {
+.w3-rest, #track-page {
   overflow: hidden; }
 
 .w3-cell-row, .vue-card-product-info {
@@ -579,7 +579,7 @@ a {
 .w3-cell-bottom {
   vertical-align: bottom; }
 
-.w3-hide, .hidden {
+.w3-hide {
   display: none !important; }
 
 .w3-show-block, .w3-show {
@@ -732,7 +732,7 @@ a {
 .w3-round-small {
   border-radius: 2px; }
 
-.w3-round, .filter-buttons button, .w3-round-medium {
+.w3-round, #track-page .banner, .filter-buttons button, .w3-round-medium {
   border-radius: 4px; }
 
 .w3-round-large, .vue-card-product {
@@ -744,13 +744,13 @@ a {
 .w3-round-xxlarge {
   border-radius: 32px; }
 
-.w3-row-padding, .w3-row-padding > .w3-half, .w3-row-padding > .w3-third, .w3-row-padding > .w3-twothird, .w3-row-padding > .w3-threequarter, .w3-row-padding > .w3-quarter, .w3-row-padding > .w3-col {
+.w3-row-padding, .w3-row-padding > .w3-half, .w3-row-padding > .w3-third, .w3-row-padding > .w3-twothird, .w3-row-padding > .w3-threequarter, .w3-row-padding > .w3-quarter, .w3-row-padding > .w3-col, .w3-row-padding > #tracked-products {
   padding: 0 8px; }
 
-.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, #filtersSidebar, .w3-panel {
+.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, #filtersSidebar, #tracked-products p, #track-page, #track-page .banner, #track-page #similar-products-slider, .w3-panel, #tracked-products #tracked-products-list {
   padding: 0.01em 16px; }
 
-.w3-panel {
+.w3-panel, #tracked-products #tracked-products-list {
   margin-top: 16px;
   margin-bottom: 16px; }
 
@@ -901,7 +901,7 @@ a {
 .w3-medium, .filter-options {
   font-size: 15px !important; }
 
-.w3-large, #filtersSidebar #filtersSidebarButton, .filter {
+.w3-large, #filtersSidebar #filtersSidebarButton, #tracked-products p, .filter {
   font-size: 18px !important; }
 
 .w3-xlarge, #menu-button-mobile, .rating > label:before {
@@ -1119,7 +1119,7 @@ a {
   color: #000 !important;
   background-color: #9e9e9e !important; }
 
-.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+.w3-light-grey, #track-page #similar-products-slider, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
   color: #000 !important;
   background-color: #f1f1f1 !important; }
 
@@ -1434,6 +1434,53 @@ header {
 @media (min-width: 1501px) {
   .has-sidebar {
     padding-left: 294px; } }
+
+/* TRACKING page specific elements */
+#tracked-products {
+  width: 280px; }
+  #tracked-products #tracked-products-list {
+    max-height: 1500px;
+    overflow: auto;
+    width: 100%; }
+
+#track-page #triangles-container {
+  overflow: hidden;
+  position: relative;
+  width: 40em;
+  height: 27em;
+  background-color: grey;
+  border: 5px outset grey; }
+  #track-page #triangles-container img {
+    width: 100%; }
+  #track-page #triangles-container .triangle {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    background-color: white;
+    /* arctan(27 / 40) = 34.01935deg
+     * need to skew by 90deg - 34.01935deg = 55.98065deg
+    */
+    transform: skewX(-55.98deg); }
+  #track-page #triangles-container .triangle:first-child {
+    left: -.25em;
+    transform-origin: 100% 0; }
+  #track-page #triangles-container .triangle:last-child {
+    right: -.25em;
+    transform-origin: 0 100%; }
+  #track-page #triangles-container .triangle img {
+    width: 65% !important;
+    height: 100%;
+    transform: skewX(55.98deg);
+    transform-origin: inherit; }
+#track-page #similar-products-slider {
+  position: relative;
+  overflow: auto;
+  width: 100%; }
+  #track-page #similar-products-slider #similar-products-list {
+    position: relative;
+    overflow: auto;
+    height: 412px; }
 
 /* FILTERS */
 .filter-options {
