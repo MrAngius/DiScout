@@ -95,7 +95,7 @@ Vue.component('card', {
         },
         onclick_callback: {
             type: String,
-            required: true
+            required: false
         },
         drag_callback: {
             type: String,

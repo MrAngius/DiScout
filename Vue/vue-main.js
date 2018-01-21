@@ -87,7 +87,7 @@ window.addEventListener('load', function () {
             showOrCat: function(cat){
                 return this.show && this.categories[cat.replace(/[^A-Za-z0-9]/gi, '')]
             },
-            updateCategory(e){
+            updateCategory: function(e){
                 /* Cannot update the value in the array :( */
                 /* this.categories[e.target.id]=e.target.checked */
                 this.categories[e.target.id]=!this.categories[e.target.id];
@@ -97,29 +97,6 @@ window.addEventListener('load', function () {
             }
         }
     });
-    loadDB('database_production/products_db.json')
+    loadDB('database_production/product_db.json')
 });
 
-
-// NOTE: DO you thing we can place it only in one place and avoid to call it twice?
-function loadDB(database){
-    //alert("Loading DB")
-    if(window.sessionStorage.getItem('database')===undefined) {
-        Plotly.d3.json(database, function (e, data) {
-            vue.cards = data.products
-            /* Following code is used to insert categories dynamically, not working atm */
-            /*
-            for (var i = 0; i < data.products.length; i++) {
-                var cat = data.products[i].category
-                vue.categories[cat] = true
-            }
-            */
-            console.log(JSON.stringify(data.products))
-            window.sessionStorage.setItem('database', JSON.stringify(data.products))
-        })
-    }
-    else {
-        vue.cards = JSON.parse(window.sessionStorage.getItem('database'))
-
-    }
-}

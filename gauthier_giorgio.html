@@ -23,6 +23,7 @@
     <script src="js/scripts/UI_effects.js"></script>
     <script src="js/scripts/forms.js"></script>
     <script src="js/scripts/dynamicContents.js"></script>
+    <script src="js/utils.js"></script>
 
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
@@ -148,7 +149,7 @@
 
             <!-- Search results-->
             <div id="product-list">
-                <card v-for="card in cards" class="vue-card-container" v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id' :id="card.id" :title="card.name" :price="card.price" :img_src="card.img_source" :onclick="'productPreview(this.parentNode.parentNode, \'modal\');'"></card>
+                <card v-for="card in cards" class="vue-card-container" v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price="card.price" :img_source="card.img_source" :onclick="'productPreview(this.parentNode.parentNode, \'modal\');'"></card>
             </div>
         </main>
 

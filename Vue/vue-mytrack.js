@@ -110,13 +110,6 @@ window.addEventListener('load', function (ev) {
 
 });
 
-// NOTE: probably is better to load it and store as web-store
-function loadDB(database){
-    //alert("Loading DB")
-    Plotly.d3.json(database, function(e,data) {
-        vue.cards = data.products;
-    })
-}
 
 window.onresize = function() {
     Plotly.Plots.resize(graph);
