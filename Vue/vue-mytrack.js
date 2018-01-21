@@ -270,10 +270,12 @@ function clickProduct(elem, isFocus){
     console.log(data);
 
     if(isFocus === "true") {
+        setMainImageOnly(image);
         updateValuesFocus(data);
         updateGraph(data, "focus");
 
     } else {
+        setOtherImage(image);
         updateValuesComparisons(data);
         updateGraph(data, "comparison");
 
