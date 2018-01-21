@@ -27,9 +27,51 @@
     <script src="Vue/navBar.js"></script>
     <script src="Vue/vue-mytrack.js"></script>
 
-
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
+
+
+
+    <!-- Temporary CSS and JS code for the images triangles -->
+    <style>
+        #triangles-container img {
+            width: 100%;
+        }
+
+        #triangles-container {
+          overflow: hidden;
+          position: relative;
+          width: 40em; height: 27em;
+          background-color: grey;
+            border: 5px outset grey;
+        }
+        .triangle {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          position: absolute;  
+          background-color: white;
+          /* arctan(27 / 40) = 34.01935deg 
+           * need to skew by 90deg - 34.01935deg = 55.98065deg
+          */
+          transform: skewX(-55.98deg);
+        }
+        .triangle:first-child {
+          left: -.25em;
+          transform-origin: 100% 0;
+        }
+        .triangle:last-child {
+          right: -.25em;
+          transform-origin: 0 100%;
+        }
+        .triangle img {
+          width: 65% !important;
+          height: 100%;
+          transform: skewX(55.98deg);
+          transform-origin: inherit;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -62,9 +104,16 @@
                     <section class="w3-row">
                         <h2 class="w3-teal w3-container w3-round"><i class="fa fa-cart-plus"></i> {{ productFocusTitle }}</h2>
                         <p>{{ productFocusInfo }}</p>
-                        <div class="w3-quarter">
-                            <img style="height: 200px; width: 200px" :src="productFocusImageSrc">
+                        <!-- Product image preview -->
+                        <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                            <div class="" style="visibility: hidden;">
+                                <img src="">
+                            </div>
+                            <div class="triangle" style="visibility: hidden; text-align: right;">
+                                <img src="">
+                            </div>
                         </div>
+
                         <div class="w3-rest">
                             <!-- product table details -->
                             <table class="w3-table w3-bordered ">

@@ -2,6 +2,8 @@
 
 let graph;
 let vueInstance1;
+let N_elems = 0;    // number of compared elements (0 = no data; 1 = single element; 2 = comparison between two products)
+
 
 window.addEventListener('load', function (ev) {
 
@@ -20,7 +22,7 @@ window.addEventListener('load', function (ev) {
             productFocusCategory: null,
             productFocusVendor: null,
 
-            productFocusImageSrc: null,
+            //productFocusImageSrc: null,
             productFocusLink: null,
 
             // comparison product
@@ -120,6 +122,33 @@ window.onresize = function() {
     Plotly.Plots.resize(graph);
 };
 
+// TODO: I would like to define "productImageContainer" as a global constant... but this script is loaded before the DOM elements!
+
+// use this function to set the top-left product image
+function setMainImage(src) {
+    const productImageContainer = document.getElementById('triangles-container')
+    productImageContainer.firstChild.style.visibility = 'visible';
+    productImageContainer.firstChild.firstChild.src = src;
+}
+
+// use this function to set the bottom-right product image
+function setOtherImage(src) {
+    const productImageContainer = document.getElementById('triangles-container')
+    productImageContainer.firstChild.classList.add('triangle')
+    productImageContainer.lastChild.style.visibility = 'visible';
+    productImageContainer.lastChild.firstChild.src = src;
+}
+
+// use this image to set an image only (without triangles)
+function setMainImageOnly(src) {
+    setMainImage(src);
+    const productImageContainer = document.getElementById('triangles-container')
+    productImageContainer.firstChild.classList.remove('triangle');
+    productImageContainer.lastChild.style.visibility = 'hidden';
+    // reset the number of displayed elements
+    N_elems = 1;
+}
+
 // IMPROVEMENT: improve the graph style
 function updateGraph(fileID) {
     // I need to retrieve the file from the fileID
@@ -161,23 +190,41 @@ function allowDrop(ev) {
 
 function drag(ev, isFocus) {
     // used to send data
-    ev.dataTransfer.setData("id", ev.target.parentNode.getAttribute("data-id"));
+    ev.dataTransfer.setData("id", ev.target.parentNode.getAttribute("data-id"));    // product id
+    ev.dataTransfer.setData("img_src", ev.target.parentNode.getAttribute("data-image"));  // product image
     ev.dataTransfer.setData("isFocus", isFocus);
 }
 
 function drop(ev) {
     ev.preventDefault();
 
+    // get the product ID
     let data = ev.dataTransfer.getData("id");
     alert(ev);
     console.log(data);
 
+    // get the product image
+    let image = ev.dataTransfer.getData("img_src");
+    console.log(image);
+
+    // get the type of drag'n drop operation
     let type = ev.dataTransfer.getData("isFocus");
     console.log(type);
 
+    // we can compare up to two products
+    if (N_elems < 2)
+        N_elems++;
+
     if(type === "true") {
-        updateValuesFocus(data);
+        // we want to update information about the main product
+        if(N_elems === 1)
+            setMainImageOnly(image);
+        else
+            setMainImage(image);
+        updateValuesFocus(data, image);
     } else {
+        // we want to compare the main product with another one
+        setOtherImage(image);
         updateValuesComparisons(data);
     }
     updateGraph(data);
@@ -222,7 +269,7 @@ function updateValuesFocus(data) {
     vueInstance1.$data.productFocusVendor = productFocused.vendor;
     vueInstance1.$data.productFocusCategory = productFocused.category;
     vueInstance1.$data.productFocusLink = productFocused.link;
-    vueInstance1.$data.productFocusImageSrc = productFocused.img_source;
+    //vueInstance1.$data.productFocusImageSrc = productFocused.img_source;
 
 }
 

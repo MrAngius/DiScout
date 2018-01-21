@@ -9,7 +9,7 @@ Other information and the product image are represented on a single row, inside 
 
 Vue.component('card', {
     template: `
-    <div :data-id="id" class="vue-card-container">
+    <div :data-id="id" :data-image="img_source" class="vue-card-container">
         <div class="vue-card-product" draggable="true" :ondragstart="drag_callback">
             <div :onclick="onclick_callback">
                 <p class="title-box" v-text="name"></p>
