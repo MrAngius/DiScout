@@ -116,6 +116,16 @@
         function setChecked(formElemId, checked) {
             document.getElementById(formElemId).checked = checked;
         }
+
+        function saveTrackingSettings() {
+            alert('Saved!');
+            // TODO
+        }
+
+        function untrackProduct() {
+            alert('Stop tracking...');
+            // TODO
+        }
     </script>
 
 </head>
@@ -134,7 +144,7 @@
             <form class="w3-container">
                 <section class="w3-section">
                     <label style="display: block;">Threshold: <span id="threshold_value"></span>€</label>
-                    <input id="track_threshold" onchange="setContent('threshold_value', this.value)" type="range" min="0" max="100" step="1" style="width: 50%;" />
+                    <input id="track_threshold" oninput="setContent('threshold_value', this.value);" type="range" min="0" max="100" step="1" style="width: 50%;" />
                 </section>
                 <section class="w3-section">
                     <div>Email notifications</div>
@@ -145,7 +155,10 @@
                     </label>
                 </section>
                 <section class="w3-section" style="margin-bottom: 16px;">
-                    <button class="w3-button w3-light-blue w3-hover-blue w3-ripple w3-round-large">
+                    <button class="w3-button w3-light-blue w3-hover-teal w3-ripple w3-round-large" onclick="saveTrackingSettings()">
+                        <i class="fa fa-check"></i> Save settings
+                    </button>
+                    <button class="w3-button w3-light-blue w3-hover-red w3-ripple w3-round-large" onclick="untrackProduct()">
                         <i class="fa fa-close"></i> Stop tracking
                     </button>
                 </section>
@@ -158,12 +171,15 @@
     <pagefooter></pagefooter>
 </div>
 <script>
-    // Once the product to track is loaded, define its current threshold (previously defined by the user)
-    var userThreshold = 80;     // TODO: use the real threshold value
-    setValue('track_threshold', userThreshold)
-    // and the email notification option (yes/no)
-    var mailsOn = false;     // TODO: use the real email value
-    setChecked('mail_option', false)
+    window.onload = function () {
+        // Once the product to track is loaded, define its current threshold (previously defined by the user)
+        var userThreshold = 80;     // TODO: use the real threshold value
+        setValue('track_threshold', userThreshold);
+        setContent('threshold_value', userThreshold);
+        // and the email notification option (yes/no)
+        var mailsOn = false;     // TODO: use the real email value
+        setChecked('mail_option', mailsOn);
+    }
 </script>
 </body>
 </html>
