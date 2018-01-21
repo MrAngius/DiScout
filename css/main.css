@@ -579,7 +579,7 @@ a {
 .w3-cell-bottom {
   vertical-align: bottom; }
 
-.w3-hide {
+.w3-hide, .hidden {
   display: none !important; }
 
 .w3-show-block, .w3-show {
@@ -1434,9 +1434,6 @@ header {
 @media (min-width: 1501px) {
   .has-sidebar {
     padding-left: 294px; } }
-
-.hidden {
-  display: none !important; }
 
 /* FILTERS */
 .filter-options {
