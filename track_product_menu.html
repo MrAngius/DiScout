@@ -104,6 +104,20 @@
         }
     </style>
 
+    <script>
+        function setContent(elemId, content) {
+            document.getElementById(elemId).innerHTML = content;
+        }
+
+        function setValue(formElemId, value) {
+            document.getElementById(formElemId).value = value;
+        }
+
+        function setChecked(formElemId, checked) {
+            document.getElementById(formElemId).checked = checked;
+        }
+    </script>
+
 </head>
 
 <body>
@@ -119,14 +133,14 @@
             <h3 class="w3-teal w3-container"><i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings</h3>
             <form class="w3-container">
                 <section class="w3-section">
-                    <label style="display: block;">Threshold: <span>{{ threshold_foo }} €</span></label>
-                    <input id="track_threshold" onchange="console.log(this.value)" type="range" min="0" max="100" value="80" step="1" v-model:value="threshold_foo" style="width: 50%;" />
+                    <label style="display: block;">Threshold: <span id="threshold_value"></span>€</label>
+                    <input id="track_threshold" onchange="setContent('threshold_value', this.value)" type="range" min="0" max="100" step="1" style="width: 50%;" />
                 </section>
                 <section class="w3-section">
                     <div>Email notifications</div>
                     <!-- <input id="track_email" type="checkbox" class="w3-check" /> -->
                     <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" id="mail_option">
                         <span class="slider round"></span>
                     </label>
                 </section>
@@ -143,5 +157,13 @@
     <!-- FOOTER -->
     <pagefooter></pagefooter>
 </div>
+<script>
+    // Once the product to track is loaded, define its current threshold (previously defined by the user)
+    var userThreshold = 80;     // TODO: use the real threshold value
+    setValue('track_threshold', userThreshold)
+    // and the email notification option (yes/no)
+    var mailsOn = false;     // TODO: use the real email value
+    setChecked('mail_option', false)
+</script>
 </body>
 </html>
