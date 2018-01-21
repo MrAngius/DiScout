@@ -251,10 +251,7 @@ function drop(ev) {
 
     if(type === "true") {
         // we want to update information about the main product
-        if(N_elems === 1)
-            setMainImageOnly(image);
-        else
-            setMainImage(image);
+        setMainImageOnly(image);
         updateValuesFocus(data);
         updateGraph(data, "focus");
     } else {
