@@ -20,10 +20,13 @@
         Probably do not need this here
         <script src="js/scripts/myTrack.js"></script>
     --->
-    <script src="js/scripts/UI_effects.js"></script>
+    <script src="js/scripts/uiEffects.js"></script>
     <script src="js/scripts/forms.js"></script>
     <script src="js/scripts/dynamicContents.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/scripts/graph.js"></script>
+    <script src="js/scripts/updateValues.js"></script>
+
 
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
@@ -31,10 +34,10 @@
     <!-- VUE: components in nesting orders -->
     <script src="Vue/card.js"></script>
     <script src="Vue/footer.js"></script>
-    <script src="Vue/product-list.js"></script>
+    <script src="Vue/productList.js"></script>
     <script src="Vue/header.js"></script>
     <script src="Vue/navBar.js"></script>
-    <script src="Vue/vue-main.js"></script>
+    <script src="Vue/vueMain.js"></script>
 
 </head>
 
@@ -94,6 +97,56 @@
             <div class="w3-modal-content">
                 <span onclick="showHideTarget('modal')" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
                 <div id="zoomed-product">
+                    <section class="w3-row">
+                        <h2 class="w3-teal w3-container w3-round"><i class="fa fa-cart-plus"></i> {{ productFocusTitle }}</h2>
+                        <p>{{ productFocusInfo }}</p>
+                        <!-- Product image preview -->
+                        <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                            <div class="" style="visibility: hidden;">
+                                <img src="">
+                            </div>
+                            <div class="triangle" style="visibility: hidden; text-align: right;">
+                                <img src="">
+                            </div>
+                        </div>
+
+                        <div class="w3-rest">
+                            <!-- product table details -->
+                            <table class="w3-table w3-bordered ">
+                                <tr>
+                                    <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
+                                    <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
+                                    <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
+                                </tr>
+                                <tr>
+                                    <td>Rating:</td><td> {{ productFocusRating }} </td>
+                                    <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
+                                    <td>Saves:</td><td> {{ productFocusSave }}€ </td>
+                                </tr>
+                                <tr>
+                                    <td>Vendor:</td><td> {{ productFocusVendor }} </td>
+                                    <td>Category:</td><td> {{ productFocusCategory }} </td>
+                                    <td> <a :href = "productFocusLink">Link</a></td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+                    </section>
+
+
+                    <!-- GRAPH -->
+                    <section class="w3-section">
+                        <h2 class="w3-blue w3-container w3-round"><i class="fa fa-line-chart"></i> Price Trend</h2>
+                        <div>
+                            <button @click="showRange(1, $event)">1Month</button>
+                            <button @click="showRange(3, $event)">3Month</button>
+                            <button @click="showRange(6, $event)">6Month</button>
+
+                        </div>
+                        <div id="graph"></div>
+                    </section>
+
                 </div>
             </div>
         </div>

@@ -1,7 +1,39 @@
+// LOYOUT DEFINITION
+let LAYOUT = {
+    xaxis: {
+        range: ['2017-12-01 00:00:00', '2017-12-31 23:59:59'],
+        type: 'date',
+        rangeslider: {
+            bgcolor: "#D6EAF8",
+            thickness: 0.1,
+            autorange: true,
+            visible: false
+        },
+    },
+    yaxis: {
+        type: 'linear',
+        // fixed tp avoid the user to mess up
+        fixedrange: true,
+        titlefont: {
+            size: 10,
+            color: "#2980B9"
+        }
+    },
+    margin: {
+        l: 30, b: 40, r: 30, t: 40,
+    },
+    legend: {
+        font: {
+            size: 14
+        }
+    },
+    autosize: true
+};
 let vue;
 
 window.addEventListener('load', function () {
-    vue=new Vue({
+
+    vue = new Vue({
         el: '#vue',
         data: {
             filters: {
@@ -61,6 +93,19 @@ window.addEventListener('load', function () {
 
             },
 
+            // table
+            productFocusTitle: null,
+            productFocusInfo: null,
+            productFocusRating: null,
+            productFocusPrice: null,
+            productFocusPriceTrend: null,
+            productFocusPriceNow: null,
+            productFocusSave: null,
+            productFocusPriceLower: null,
+            productFocusCategory: null,
+            productFocusVendor: null,
+            productFocusLink: null,
+
             /*
              * Dynamically loaded element will make the filter not work (WTF?!)
              * Working on it..
@@ -95,9 +140,22 @@ window.addEventListener('load', function () {
             },
             showCategory: function(){
                 this.filters.dispCat=!this.filters.dispCat
+            },
+            showRange: function (value, event) {
+                setHistory(value)
             }
         }
     });
+
+    // graph
+    graph = document.getElementById("graph");
+    Plotly.newPlot(graph, [], LAYOUT, {displayModeBar: false});
+
+
     loadDB('database_production/product_db.json')
 });
 
+
+window.onresize = function() {
+    Plotly.Plots.resize(graph);
+};
