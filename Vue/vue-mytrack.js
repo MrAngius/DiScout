@@ -9,7 +9,7 @@ let LAYOUT = {
         type: 'date',
         rangeslider: {
             bgcolor: "#D6EAF8",
-            thickness: 0.20,
+            thickness: 0.1,
             autorange: true,
             visible: false
         },
@@ -24,7 +24,7 @@ let LAYOUT = {
         }
     },
     margin: {
-        l: 40, b: 80, r: 10, t: 50,
+        l: 30, b: 40, r: 30, t: 40,
     },
     legend: {
         font: {
@@ -39,8 +39,6 @@ let graph;
 let vue;
 let countTraces;
 let sliderHide;
-let N_elems = 0;    // number of compared elements (0 = no data; 1 = single element; 2 = comparison between two products)
-
 
 // use the addEvent listener to wait the load of the page before use JS
 window.addEventListener('load', function (ev) {
@@ -57,21 +55,21 @@ window.addEventListener('load', function (ev) {
             productFocusRating: null,
             productFocusPrice: null,
             productFocusPriceTrend: null,
+            productFocusPriceNow: null,
+            productFocusSave: null,
             productFocusPriceLower: null,
             productFocusCategory: null,
             productFocusVendor: null,
-
-            //productFocusImageSrc: null,
             productFocusLink: null,
 
             productCompareRating: null,
             productComparePrice: null,
             productComparePriceTrend: null,
+            productComparePriceNow: null,
+            productCompareSave: null,
             productComparePriceLower: null,
             productCompareCategory: null,
             productCompareVendor: null,
-
-            productCompareImageSrc: null,
             productCompareLink: null,
 
             isNotVisible: true,
@@ -97,6 +95,11 @@ window.addEventListener('load', function (ev) {
             shortList: function(){
                 return Object.entries(this.cards).slice(0,5).map(entry => entry[1]);
             }
+        },
+        methods: {
+            showRange: function (value, event) {
+                setHistory(value)
+            }
         }
 
     });
@@ -119,15 +122,15 @@ window.onresize = function() {
 
 // use this function to set the top-left product image
 function setMainImage(src) {
-    const productImageContainer = document.getElementById('triangles-container')
+    const productImageContainer = document.getElementById('triangles-container');
     productImageContainer.firstChild.style.visibility = 'visible';
     productImageContainer.firstChild.firstChild.src = src;
 }
 
 // use this function to set the bottom-right product image
 function setOtherImage(src) {
-    const productImageContainer = document.getElementById('triangles-container')
-    productImageContainer.firstChild.classList.add('triangle')
+    const productImageContainer = document.getElementById('triangles-container');
+    productImageContainer.firstChild.classList.add('triangle');
     productImageContainer.lastChild.style.visibility = 'visible';
     productImageContainer.lastChild.firstChild.src = src;
 }
@@ -135,11 +138,9 @@ function setOtherImage(src) {
 // use this image to set an image only (without triangles)
 function setMainImageOnly(src) {
     setMainImage(src);
-    const productImageContainer = document.getElementById('triangles-container')
+    const productImageContainer = document.getElementById('triangles-container');
     productImageContainer.firstChild.classList.remove('triangle');
     productImageContainer.lastChild.style.visibility = 'hidden';
-    // reset the number of displayed elements
-    N_elems = 1;
 }
 
 // ######## GRAPH ##########
@@ -216,6 +217,36 @@ function updateGraph(fileID, mode) {
 
 }
 
+function setHistory(month) {
+    let update;
+
+    console.log(month);
+
+    switch (month){
+        case 1:
+            update = {
+                'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']
+            };
+            break;
+        case 3:
+            update = {
+                'xaxis.range': ['2017-10-01 00:00:00', '2017-12-31 23:59:59']
+            };
+            break;
+        case 6:
+            update = {
+                'xaxis.range': ['2017-7-01 00:00:00', '2017-12-31 23:59:59']
+            };
+            break;
+        default:
+            update = {
+                'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']
+            };
+            break;
+    }
+    Plotly.relayout(graph, update);
+}
+
 // ######## DRAG AND DROP ########
 function allowDrop(ev) {
     // enable the default action for drop
@@ -245,9 +276,6 @@ function drop(ev) {
     let type = ev.dataTransfer.getData("isFocus");
     console.log(type);
 
-    // we can compare up to two products
-    if (N_elems < 2)
-        N_elems++;
 
     if(type === "true") {
         // we want to update information about the main product
@@ -263,9 +291,14 @@ function drop(ev) {
 
 }
 
-// add a function to make the product selection working also with the click
+// ####### ONCLICK ########
 function clickProduct(elem, isFocus){
 
+    // get the product image
+    let image = elem.parentNode.parentNode.getAttribute("data-image");
+    console.log(image);
+
+    // get the data product data-id
     let data = elem.parentNode.parentNode.getAttribute("data-id");
     console.log(data);
 
@@ -284,42 +317,39 @@ function clickProduct(elem, isFocus){
 
 
 // TODO: need to make the function read the id of the object and retrieve the info
-// ###### UPDATES ######
-function updateValuesFocus(data) {
-    // TODO: Based on the object ID we need to retrieve its information and
-    // use them to populate the information on the graph and in the table
+// ####### UPDATES #######
 
+function updateValuesFocus(data) {
+    vue.isNotVisible = true;
     let productFocused = vue.cards[data];
 
     vue.productFocusTitle = productFocused.name;
     //vue.$data.productFocusDescription = productFocused.description;
     vue.productFocusPrice = productFocused.price;
+    vue.productFocusPriceNow = productFocused.price_current;
     vue.productFocusPriceLower = productFocused.low_price;
+    vue.productFocusSave = productFocused.reduction;
     vue.productFocusRating = productFocused.rating;
     vue.productFocusPriceTrend = productFocused.off;
     vue.productFocusVendor = productFocused.vendor;
     vue.productFocusCategory = productFocused.category;
     vue.productFocusLink = productFocused.link;
-    //vue.productFocusImageSrc = productFocused.img_source;
 
 }
 
 function updateValuesComparisons(data) {
-    // TODO: Based on the object ID we need to retrieve its information and
-    // use them to populate the information on the graph and in the table
-
     vue.isNotVisible = false;
     let productCompared = vue.cards[data];
-    console.log(data);
 
     vue.productCompareTitle = productCompared.name;
     //vue.$data.productCompareDescription = productCompared.description;
     vue.productComparePrice = productCompared.price;
+    vue.productComparePriceNow = productCompared.price_current;
     vue.productComparePriceLower = productCompared.low_price;
+    vue.productCompareSave = productCompared.reduction;
     vue.productCompareRating = productCompared.rating;
     vue.productComparePriceTrend = productCompared.off;
     vue.productCompareVendor = productCompared.vendor;
     vue.productCompareCategory = productCompared.category;
     vue.productCompareLink = productCompared.link;
-    vue.productCompareImageSrc = productCompared.img_source;
 }

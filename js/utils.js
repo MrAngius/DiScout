@@ -1,15 +1,15 @@
 function loadDB(database){
-    alert("Loading DB")
-    if(window.sessionStorage.getItem('database')==undefined) {
-        alert("Not found")
+    alert("Loading DB");
+    if(window.sessionStorage.getItem('database')===undefined) {
+        alert("Not found");
         Plotly.d3.json(database, function (e, data) {
 
-            vue.cards = data.products
+            vue.cards = data.products;
             window.sessionStorage.setItem('database', JSON.stringify(data.products))
         })
     }
     else {
-        alert("Found")
+        alert("Found");
         vue.cards = JSON.parse(window.sessionStorage.getItem('database'))
     }
 

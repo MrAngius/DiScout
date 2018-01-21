@@ -1,4 +1,5 @@
-let vue
+let vue;
+
 window.addEventListener('load', function () {
     vue=new Vue({
         el: '#vue',

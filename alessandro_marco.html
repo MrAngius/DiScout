@@ -119,33 +119,38 @@
                             <!-- product table details -->
                             <table class="w3-table w3-bordered ">
                                 <tr>
-                                    <td>Price: </td><td> {{ productFocusPrice }}€ </td>
-                                    <td class=>Lower Price: </td><td> {{ productFocusPriceLower }}€ </td>
+                                    <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
+                                    <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
+                                    <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
                                 </tr>
                                 <tr :class="{ hidden: isNotVisible }">
                                     <td></td><td> {{ productComparePrice }}€ </td>
+                                    <td></td> <td> {{ productComparePriceNow }}€ </td>
                                     <td></td><td> {{ productComparePriceLower }}€ </td>
                                 </tr>
 
                                 <tr>
-                                    <td>Rating: </td><td> {{ productFocusRating }} </td>
-                                    <td>Price Trend: </td><td> {{ productFocusPriceTrend }}% </td>
+                                    <td>Rating:</td><td> {{ productFocusRating }} </td>
+                                    <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
+                                    <td>Saves:</td><td> {{ productFocusSave }}€ </td>
                                 </tr>
                                 <tr :class="{ hidden: isNotVisible }">
-                                    <td> </td><td> {{ productCompareRating }} </td>
-                                    <td> </td><td> {{ productComparePriceTrend }}% </td>
+                                    <td></td><td> {{ productCompareRating }} </td>
+                                    <td></td><td> {{ productComparePriceTrend }}% </td>
+                                    <td></td><td> {{ productCompareSave }}€ </td>
+
                                 </tr>
                                 <tr>
-                                    <td>Vendor: </td><td> {{ productFocusVendor }} </td>
-                                    <td>Category: </td><td> {{ productFocusCategory }} </td>
+                                    <td>Vendor:</td><td> {{ productFocusVendor }} </td>
+                                    <td>Category:</td><td> {{ productFocusCategory }} </td>
+                                    <td> <a :href = "productFocusLink">Link</a></td>
+
                                 </tr>
                                 <tr :class="{ hidden: isNotVisible }">
                                     <td></td><td> {{ productCompareVendor }} </td>
                                     <td></td><td> {{ productCompareCategory }} </td>
-                                </tr>
-                                <tr>
-                                    <td> <a :href = "productFocusLink">Link</a></td>
                                     <td :class="{ hidden: isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
+
                                 </tr>
                             </table>
                         </div>
@@ -156,6 +161,12 @@
                     <!-- GRAPH -->
                     <section class="w3-section">
                         <h2 class="w3-blue w3-container w3-round"><i class="fa fa-line-chart"></i> Price Trend</h2>
+                        <div>
+                            <button @click="showRange(1, $event)">1Month</button>
+                            <button @click="showRange(3, $event)">3Month</button>
+                            <button @click="showRange(6, $event)">6Month</button>
+
+                        </div>
                         <div id="graph"></div>
                     </section>
 
