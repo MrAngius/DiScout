@@ -17,16 +17,21 @@
     <link rel="stylesheet" href="css/foo.css" />
 
     <!-- NOTE: update the rest to be compliant -->
-    <script src="js/scripts/UI_effects.js"></script>
+    <script src="js/scripts/uiEffects.js"></script>
     <script src="js/utils.js"></script>
 
     <!-- VUE: components in nesting orders -->
     <script src="Vue/card.js"></script>
     <script src="Vue/footer.js"></script>
-    <script src="Vue/product-list.js"></script>
+    <script src="Vue/productList.js"></script>
     <script src="Vue/header.js"></script>
     <script src="Vue/navBar.js"></script>
-    <script src="Vue/vue-mytrack.js"></script>
+    <script src="Vue/vueMytrack.js"></script>
+    <script src="js/scripts/graph.js"></script>
+    <script src="js/scripts/updateValues.js"></script>
+    <script src="js/scripts/dragAndDrop.js"></script>
+    <script src="js/scripts/utilsMyTrack.js"></script>
+
 
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
@@ -123,7 +128,7 @@
                                     <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
                                     <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
                                 </tr>
-                                <tr :class="{ hidden: isNotVisible }">
+                                <tr :class="{ 'w3-hide': isNotVisible }">
                                     <td></td><td> {{ productComparePrice }}€ </td>
                                     <td></td> <td> {{ productComparePriceNow }}€ </td>
                                     <td></td><td> {{ productComparePriceLower }}€ </td>
@@ -134,7 +139,7 @@
                                     <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
                                     <td>Saves:</td><td> {{ productFocusSave }}€ </td>
                                 </tr>
-                                <tr :class="{ hidden: isNotVisible }">
+                                <tr :class="{ 'w3-hide': isNotVisible }">
                                     <td></td><td> {{ productCompareRating }} </td>
                                     <td></td><td> {{ productComparePriceTrend }}% </td>
                                     <td></td><td> {{ productCompareSave }}€ </td>
@@ -146,7 +151,7 @@
                                     <td> <a :href = "productFocusLink">Link</a></td>
 
                                 </tr>
-                                <tr :class="{ hidden: isNotVisible }">
+                                <tr :class="{ 'w3-hide': isNotVisible }">
                                     <td></td><td> {{ productCompareVendor }} </td>
                                     <td></td><td> {{ productCompareCategory }} </td>
                                     <td :class="{ hidden: isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
