@@ -19,12 +19,12 @@ export default {
     'vue-header': Header,
     'vue-navbar': NavBar,
     'vue-footer': Footer,
-    'vue-searchpage': SearchPage,
-    'vue-graphpage': GraphPage
+    'vue-search-page': SearchPage,
+    'vue-graph-page': GraphPage
   },
   data() {
     return{
-      whichpage: 'vue-searchpage'
+      whichpage: 'vue-search-page'
     }
   }
 }

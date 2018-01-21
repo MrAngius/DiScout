@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "search-page"
+        name: "vue-search-page"
     }
 </script>
 

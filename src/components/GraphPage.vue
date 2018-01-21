@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "graph-page"
+        name: "vue-graph-page"
     }
 </script>
 

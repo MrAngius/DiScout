@@ -1,10 +1,12 @@
 <template>
-
+  <footer>
+    This is the footer!
+  </footer>
 </template>
 
 <script>
     export default {
-        name: "footer"
+        name: "vue-footer"
     }
 </script>
 
