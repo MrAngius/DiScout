@@ -1375,6 +1375,8 @@ header {
   .vue-card-tracked-product .vue-card-product {
     margin: 12px 0 4px 0 !important;
     height: auto !important; }
+  .vue-card-tracked-product .vue-card-track, .vue-card-tracked-product .vue-card-tracked, .vue-card-tracked-product .vue-card-tracked {
+    display: none !important; }
 
 .vue-card-suggested-product {
   width: 320px !important; }

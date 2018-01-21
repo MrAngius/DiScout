@@ -46,6 +46,10 @@ $tracking-button-height: 39px;
         margin: 12px 0 4px 0 !important;
         height: auto !important;
     }
+
+    .vue-card-track, .vue-card-tracked {
+        display: none !important;
+    }
 }
 
 .vue-card-suggested-product {
