@@ -1,6 +1,6 @@
 function loadDB(database){
     alert("Loading DB");
-    if(window.sessionStorage.getItem('database')===undefined) {
+    if(window.sessionStorage.getItem('database')===null) {
         alert("Not found");
         Plotly.d3.json(database, function (e, data) {
 
