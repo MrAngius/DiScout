@@ -31,48 +31,6 @@
     <!-- Website icon -->
     <link rel="icon" type="image/ico" href="img/favicon.ico" />
 
-
-
-    <!-- Temporary CSS and JS code for the images triangles -->
-    <style>
-        #triangles-container img {
-            width: 100%;
-        }
-
-        #triangles-container {
-          overflow: hidden;
-          position: relative;
-          width: 40em; height: 27em;
-          background-color: grey;
-            border: 5px outset grey;
-        }
-        .triangle {
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          position: absolute;  
-          background-color: white;
-          /* arctan(27 / 40) = 34.01935deg 
-           * need to skew by 90deg - 34.01935deg = 55.98065deg
-          */
-          transform: skewX(-55.98deg);
-        }
-        .triangle:first-child {
-          left: -.25em;
-          transform-origin: 100% 0;
-        }
-        .triangle:last-child {
-          right: -.25em;
-          transform-origin: 0 100%;
-        }
-        .triangle img {
-          width: 65% !important;
-          height: 100%;
-          transform: skewX(55.98deg);
-          transform-origin: inherit;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -84,26 +42,30 @@
         <navbar></navbar>
 
         <!-- MAIN CONTAINER -->
-        <main class="w3-row">
+        <main id="page" class="w3-row">
 
             <!-- LIST OF TRACKED PRODUCTS -->
-            <aside class="w3-col" style="width:15%;">
-                <p class="w3-container w3-large"><i class="fa fa-binoculars"></i> Your tracked products</p>
-                <div id="tracked-products-list" class="w3-panel" style="max-height: 1500px; overflow: auto; width: 100%">
+            <aside id="tracked-products">
+                <p>
+                    <i class="fa fa-binoculars"></i> Your tracked products
+                </p>
+                <div id="tracked-products-list">
                     <card v-for="card in cards" class="vue-card-tracked-product" :drag_callback="'drag(event, true)'" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :onclick_callback="'clickProduct(this, \'true\')'"></card>
                 </div>
             </aside>
 
             <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-            <div id="main-page" class="w3-rest w3-panel">
+            <div id="track-page">
 
                 <!-- TRACKED PRODUCT DETAIL -->
                 <!-- NOTE: style for debug purpose only -->
                 <div ondrop="drop(event)" ondragover="allowDrop(event)">
 
                     <!-- DETAILS -->
-                    <section class="w3-row">
-                        <h2 class="w3-teal w3-container w3-round"><i class="fa fa-cart-plus"></i> {{ productFocusTitle }}</h2>
+                    <section>
+                        <h2 class="w3-teal banner">
+                            <i class="fa fa-cart-plus"></i> {{ productFocusTitle }}
+                        </h2>
                         <p>{{ productFocusInfo }}</p>
                         <!-- Product image preview -->
                         <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
@@ -115,81 +77,75 @@
                             </div>
                         </div>
 
-                        <div class="w3-rest">
-                            <!-- product table details -->
-                            <table class="w3-table w3-bordered ">
-                                <tr>
-                                    <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
-                                    <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
-                                    <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
-                                </tr>
-                                <tr :class="{ hidden: isNotVisible }">
-                                    <td></td><td> {{ productComparePrice }}€ </td>
-                                    <td></td> <td> {{ productComparePriceNow }}€ </td>
-                                    <td></td><td> {{ productComparePriceLower }}€ </td>
-                                </tr>
+                        <!-- product table details -->
+                        <table class="w3-table w3-bordered" style="width: 100%;">
+                            <tr>
+                                <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
+                                <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
+                                <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
+                            </tr>
+                            <tr :class="{ 'w3-hide': isNotVisible }">
+                                <td></td><td> {{ productComparePrice }}€ </td>
+                                <td></td> <td> {{ productComparePriceNow }}€ </td>
+                                <td></td><td> {{ productComparePriceLower }}€ </td>
+                            </tr>
 
-                                <tr>
-                                    <td>Rating:</td><td> {{ productFocusRating }} </td>
-                                    <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
-                                    <td>Saves:</td><td> {{ productFocusSave }}€ </td>
-                                </tr>
-                                <tr :class="{ hidden: isNotVisible }">
-                                    <td></td><td> {{ productCompareRating }} </td>
-                                    <td></td><td> {{ productComparePriceTrend }}% </td>
-                                    <td></td><td> {{ productCompareSave }}€ </td>
+                            <tr>
+                                <td>Rating:</td><td> {{ productFocusRating }} </td>
+                                <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
+                                <td>Saves:</td><td> {{ productFocusSave }}€ </td>
+                            </tr>
+                            <tr :class="{ 'w3-hide': isNotVisible }">
+                                <td></td><td> {{ productCompareRating }} </td>
+                                <td></td><td> {{ productComparePriceTrend }}% </td>
+                                <td></td><td> {{ productCompareSave }}€ </td>
 
-                                </tr>
-                                <tr>
-                                    <td>Vendor:</td><td> {{ productFocusVendor }} </td>
-                                    <td>Category:</td><td> {{ productFocusCategory }} </td>
-                                    <td> <a :href = "productFocusLink">Link</a></td>
+                            </tr>
+                            <tr>
+                                <td>Vendor:</td><td> {{ productFocusVendor }} </td>
+                                <td>Category:</td><td> {{ productFocusCategory }} </td>
+                                <td> <a :href = "productFocusLink">Link</a></td>
 
-                                </tr>
-                                <tr :class="{ hidden: isNotVisible }">
-                                    <td></td><td> {{ productCompareVendor }} </td>
-                                    <td></td><td> {{ productCompareCategory }} </td>
-                                    <td :class="{ hidden: isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
+                            </tr>
+                            <tr :class="{ 'w3-hide': isNotVisible }">
+                                <td></td><td> {{ productCompareVendor }} </td>
+                                <td></td><td> {{ productCompareCategory }} </td>
+                                <td :class="{ 'w3-hide': isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
 
-                                </tr>
-                            </table>
-                        </div>
-
+                            </tr>
+                        </table>
                     </section>
 
 
                     <!-- GRAPH -->
                     <section class="w3-section">
-                        <h2 class="w3-blue w3-container w3-round"><i class="fa fa-line-chart"></i> Price Trend</h2>
-                        <div>
-                            <button @click="showRange(1, $event)">1Month</button>
-                            <button @click="showRange(3, $event)">3Month</button>
-                            <button @click="showRange(6, $event)">6Month</button>
-
+                        <h2 class="w3-blue banner">
+                            <i class="fa fa-line-chart"></i> Price Trend
+                        </h2>
+                        <div id="graph_buttons">
+                            <button @click="showRange(1, $event)">1 Month</button>
+                            <button @click="showRange(3, $event)">3 Month</button>
+                            <button @click="showRange(6, $event)">6 Month</button>
                         </div>
                         <div id="graph"></div>
                     </section>
-
                 </div>
 
                 <!-- SIMILAR PRODUCTS -->
-                <section id="similar-products-slider" class="w3-light-grey w3-container" style="position: relative; overflow: auto;">
-                    <!--<button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
-                    <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>-->
+                <section id="similar-products-slider">
+                    <!--
+                        SLIDER BUTTONS (draft)
+                        <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-left" style="position: relative; top: 188px"><</button>
+                        <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
+                    -->
 
                     <!-- Here, we need to know the exact number of products that will be printed in the suggestion list -->
-                    <div id="similar-products-list" :style="'width: ' + Object.entries(cards).length * 320 + 'px; position: relative; overflow: auto; height: 412px;'">
+                    <div id="similar-products-list" :style="'width: ' + Object.entries(cards).length * 320 + 'px;'">
                         <card v-for="card in cards" class="vue-card-suggested-product" :type="true" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :drag_callback="'drag(event, false)'" :onclick_callback="'clickProduct(this, \'false\')'"></card>
                     </div>
                 </section>
             </div>
-
-
         </main>
-
-
-        <div class="w3-overlay w3-animate-opacity" onclick="closeSidebar('closed_sidebar', 'overlay')" id="overlay"></div>
-
 
         <!-- FOOTER -->
         <pagefooter></pagefooter>
