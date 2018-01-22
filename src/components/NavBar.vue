@@ -8,7 +8,7 @@
       <a href="#" v-on:click="changePage('MyTrack')">MyTrack</a>
       <a href="#">Menu item 3</a>
       <div id="user-button">
-        <div class="w3-padding" onclick="showDropdown('userDropdown'); addRemoveClass(this, 'w3-teal')">
+        <div class="w3-padding">
           <img src="../../static/img/user.png" alt="" id="user_icon" />
           Hello<span v-if="loggedIn">, {{ userInfo.name }}! </span> <i class="fa fa-caret-down"></i>
         </div>

@@ -43,7 +43,6 @@
         return this.type==="tracked"
       },
       general: function () {
-        console.log(this.type)
         return this.type==="general"
       },
       suggested: function () {

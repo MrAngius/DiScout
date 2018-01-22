@@ -32,6 +32,7 @@
               bgcolor: "#D6EAF8",
               thickness: 0.1,
               autorange: true,
+              /* TODO hide in mobile version */
               visible: false
             },
           },
@@ -57,20 +58,55 @@
         traces: 0
       }
     },
+    created() {
+
+    },
     mounted() {
       Plotly.newPlot('graph', [], this.layout, {displayModeBar: false})
       window.addEventListener('onresize', function () {
-        console.log('Resized')
         Plotly.Plots.resize('graph')
       })
-      bus.$on('updateGraph', updateGraph)
+      bus.$on('updateGraph', this.updateGraph)
     },
     methods: {
-      updateGraph: function () {
+      updateGraph: function (data) {
+        let i=data.isFocus ? 0: 1
+        while(this.traces>i){
+          /* Remove traces */
+          this.removeTrace(data)
+        }
+        /* Add traces */
+        this.addTrace(data)
 
       },
       showRange: function (month) {
         Plotly.relayout(document.getElementById('graph'), this.update[month]);
+      },
+      removeTrace(){
+        Plotly.deleteTraces('graph', -1);
+        this.traces--
+      },
+      addTrace(data){
+        let self=this
+        Plotly.d3.csv("./data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
+          function unpack(rows, key) {
+            return rows.map(function(row){ return row[key]; });
+          }
+
+          let traceAdd = {
+            type: "scatter",
+            name: data.isFocus ? 'Tracked' : 'Compared',
+            showlegend: true,
+            mode: "lines",
+            x: unpack(rows, 'date'),
+            y: unpack(rows, 'value'),
+            line: {color: self.colors[self.traces]}
+          };
+          self.traces ++;
+          Plotly.addTraces('graph', traceAdd);
+
+
+        });
       }
 
     }

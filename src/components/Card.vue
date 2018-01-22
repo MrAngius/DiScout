@@ -97,13 +97,11 @@
       }
     },
     computed:{
-      eventName: function(){
-        return this.isFocus ? 'updateGraphFocus' : 'updateGraph'
-      }
+
     },
     methods: {
       focusCard: function(){
-        bus.$emit(this.eventName, this.id)
+        bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus})
         bus.$emit('updateTable')
         bus.$emit('showModalEvent')
       }
