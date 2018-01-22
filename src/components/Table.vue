@@ -5,11 +5,11 @@
     </h2>
     <p>{{ focus.info }}</p>
     <!-- Product image preview -->
-    <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-      <div class="" style="visibility: hidden;">
-        <img src="">
+    <div id="triangles-container" v-on:drop="drop(event, this)" ondragover="allowDrop(event)" v-if="isOn">
+      <div v-bind:class="{'triangle': comparing}">
+        <img v-bind:src="focus.img_source">
       </div>
-      <div class="triangle" style="visibility: hidden; text-align: right;">
+      <div class="triangle" style="text-align: right" v-if="comparing">
         <img src="">
       </div>
     </div>
@@ -24,7 +24,7 @@
         <td>Lowest Price:</td>
         <td> {{ focus.priceLower }}€</td>
       </tr>
-      <tr :class="{ 'w3-hide': isNotVisible }">
+      <tr v-if="comparing">
         <td></td>
         <td> {{ compare.price }}€</td>
         <td></td>
@@ -41,7 +41,7 @@
         <td>Saves:</td>
         <td> {{ focus.save }}€</td>
       </tr>
-      <tr :class="{ 'w3-hide': isNotVisible }">
+      <tr v-if="comparing">
         <td></td>
         <td> {{ compare.rating }}</td>
         <td></td>
@@ -58,7 +58,7 @@
         <td><a :href="focus.link">Link</a></td>
 
       </tr>
-      <tr :class="{ 'w3-hide': isNotVisible }">
+      <tr v-if="comparing">
         <td></td>
         <td> {{ compare.vendor }}</td>
         <td></td>
@@ -71,6 +71,8 @@
 </template>
 
 <script>
+  import {bus} from '../main'
+
   export default {
     name: "table",
     data() {
@@ -88,6 +90,7 @@
           category: null,
           vendor: null,
           link: null,
+          img_source: null
         },
         compare: {
           title: null,
@@ -102,7 +105,39 @@
           category: null,
           vendor: null,
           link: null,
+          img_source: null
         },
+        comparing: false,
+        isOn: false
+      }
+    },
+    created() {
+      bus.$on('updateTable', this.updateTable)
+    },
+    methods: {
+      updateTable: function (data) {
+        let tmp = {
+          title: data.name,
+          info: data.description,
+          rating: data.rating,
+          price: data.price,
+          priceNow: data.price_current,
+          priceTrend: data.off,
+          save: data.reduction,
+          priceLower: data.low_price,
+          category: data.category,
+          vendor: data.vendor,
+          link: data.link,
+          img_source: data.img_source
+        }
+        this.isOn=true
+        if (data.isFocus) {
+          this.focus = tmp
+        }
+        else {
+          this.comparing=true
+          this.compare = tmp
+        }
       }
     }
   }

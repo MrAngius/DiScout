@@ -16,10 +16,10 @@
       <div ondrop="drop(event)" ondragover="allowDrop(event)">
 
         <!-- DETAILS -->
-        <!--vue-table/>
+        <vue-table/>
 
         <!-- GRAPH -->
-        <!--vue-graph/-->
+        <vue-graph/>
       </div>
 
       <!-- SIMILAR PRODUCTS -->
