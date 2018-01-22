@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="vue-card-product" draggable="true" :ondragstart="drag_callback">
-      <div v-on:click='showModal'>
+      <div v-on:click='focusCard'>
         <p class="title-box" v-text="name"></p>
         <div class="vue-card-product-info">
           <div class="vue-card-image-box">
@@ -90,10 +90,21 @@
       drag_callback: {
         type: String,
         required: false
+      },
+      isFocus:{
+        type: Boolean,
+        required: false
+      }
+    },
+    computed:{
+      eventName: function(){
+        return this.isFocus ? 'updateGraphFocus' : 'updateGraph'
       }
     },
     methods: {
-      showModal: function(){
+      focusCard: function(){
+        bus.$emit(this.eventName, this.id)
+        bus.$emit('updateTable')
         bus.$emit('showModalEvent')
       }
     }
