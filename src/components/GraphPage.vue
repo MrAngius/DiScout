@@ -62,7 +62,8 @@
             Tools: true,
             Toys: true,
             Vetements: true
-          }
+          },
+          cards: {}
         }
       }
     }

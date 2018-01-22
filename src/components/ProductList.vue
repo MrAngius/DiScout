@@ -1,7 +1,9 @@
 <template>
   <div id="product-list">
     <!-- TODO fix callbacks -->
-    <card v-for="card in cards" v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested}"
+    <card v-for="card in cards"
+          v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested}"
+          v-bind:style="suggstyle"
           v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id'
           :id="card.id" :name="card.name" :price_current="card.price_current" :img_source='"static/" + card.img_source'
           :onclick_callback="'productPreview(this.parentNode.parentNode, \'modal\');'"></card>
@@ -33,10 +35,14 @@
       }
     },
     computed:{
+      suggstyle: function(){
+        return this.suggested ? 'width:' + Object.entries(cards).length * 320 + 'px' : ""
+      },
       tracked: function () {
         return this.type==="tracked"
       },
       general: function () {
+        console.log(this.type)
         return this.type==="general"
       },
       suggested: function () {
@@ -55,5 +61,5 @@
 </script>
 
 <style scoped>
-
+.sudgested {}
 </style>
