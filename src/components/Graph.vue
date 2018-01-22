@@ -70,6 +70,7 @@
     },
     methods: {
       updateGraph: function (data) {
+        console.log(data)
         let i=data.isFocus ? 0: 1
         while(this.traces>i){
           /* Remove traces */
@@ -88,7 +89,7 @@
       },
       addTrace(data){
         let self=this
-        Plotly.d3.csv("./data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
+        Plotly.d3.csv("./static/data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
           function unpack(rows, key) {
             return rows.map(function(row){ return row[key]; });
           }
