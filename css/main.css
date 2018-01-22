@@ -734,7 +734,7 @@ a {
 .w3-round, #track-page .banner, .filter-buttons button, .w3-round-medium {
   border-radius: 4px; }
 
-.w3-round-large, .vue-card-product {
+.w3-round-large, .vue-card-product, #track-page #triangles-container {
   border-radius: 8px; }
 
 .w3-round-xlarge {
@@ -1110,7 +1110,7 @@ a {
   color: #000 !important;
   background-color: #fff !important; }
 
-.w3-black, #menu-button-mobile, #navigation, footer, .w3-hover-black:hover {
+.w3-black, #navigation, footer, .w3-hover-black:hover {
   color: #fff !important;
   background-color: #000 !important; }
 
@@ -1376,6 +1376,11 @@ header {
 
 .vue-card-suggested-product {
   width: 320px !important; }
+  .vue-card-suggested-product .vue-card-product {
+    height: 380px !important; }
+  .vue-card-suggested-product #product-clickable {
+    overflow: hidden !important;
+    height: 341px !important; }
 
 .vue-card-product {
   overflow: hidden;
@@ -1470,9 +1475,9 @@ header {
   float: left;
   overflow: hidden;
   position: relative;
-  width: 20em;
-  height: 20em;
-  border: 5px outset grey; }
+  width: 15em;
+  height: 15em;
+  max-width: 100% !important; }
   #track-page #triangles-container img {
     width: 100%;
     height: auto; }

@@ -41,7 +41,7 @@
 <body>
     <div id="vue-mytrack">
         <headertemplate></headertemplate>
-        <button id="menu-button-mobile" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'), addRemoveClass(this, 'w3-teal')">
+        <button id="menu-button-mobile" class="w3-black" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'); addRemoveClass(this, 'w3-teal');">
             <i class="fa fa-bars"></i>
         </button>
         <navbar></navbar>
@@ -50,12 +50,12 @@
         <main id="page" class="w3-row">
 
             <!-- LIST OF TRACKED PRODUCTS -->
-            <aside id="tracked-products">
+            <aside id="tracked-products" class="w3-hide-small">
                 <p>
                     <i class="fa fa-binoculars"></i> Your tracked products
                 </p>
                 <div id="tracked-products-list">
-                    <card v-for="card in cards" class="vue-card-tracked-product" :drag_callback="'drag(event, true)'" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :onclick_callback="'clickProduct(this, \'true\')'"></card>
+                    <card v-for="card in cards" class="vue-card-tracked-product" :drag_callback="'drag(event, true)'" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :onclick_callback="'clickProduct(this, \'true\'); addRemoveClass(document.getElementById(\'tracked-products\'), \'w3-black\');'"></card>
                 </div>
             </aside>
 
@@ -71,24 +71,22 @@
                         <h2 class="w3-teal banner">
                             <i class="fa fa-cart-plus"></i> Details
                         </h2>
-                        <p>{{ productFocusInfo }}</p>
-
                         <div class="w3-clear w3-light-grey">
                             <!-- Product image preview -->
-                            <div class="w3-left">
-                                <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                            <div class="w3-left w3-mobile">
+                                <div id="triangles-container" class="w3-card w3-margin" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                                     <div class="" style="visibility: hidden;">
-                                        <img src="">
+                                        <img src="" draggable="false">
                                     </div>
                                     <div class="triangle" style="visibility: hidden; text-align: right;">
-                                        <img src="">
+                                        <img src="" draggable="false">
                                     </div>
                                 </div>
                             </div>
 
                             <!-- product table details -->
                             <!--<div class="w3-rest w3-container w3-left w3-margin w3-clear">-->
-                            <div class="w3-left">
+                            <div class="w3-left w3-mobile">
                                 <div class="w3-round-large w3-card w3-white w3-margin">
                                     <div class="w3-blue w3-block w3-container w3-xlarge">Product A</div>
                                     <p class="w3-container">
@@ -102,7 +100,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div :class="{ 'w3-hide': isNotVisible }" class="w3-left">
+                            <div :class="{ 'w3-hide': isNotVisible }" class="w3-left w3-mobile">
                                 <div class="w3-round-large w3-card w3-white w3-margin">
                                     <div class="w3-red w3-block w3-container w3-xlarge">Product B</div>
                                     <p class="w3-container">

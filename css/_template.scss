@@ -4,7 +4,6 @@ $user_icon_size: 34px;  /* this is the profile pic of logged users */
 
 #menu-button-mobile {
     @extend .w3-button;
-    @extend .w3-black;
     @extend .w3-hover-teal;
     @extend .w3-mobile;
     @extend .w3-hide-medium;

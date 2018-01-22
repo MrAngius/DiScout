@@ -35,11 +35,15 @@
   // triangles: products images compared in a box
   #triangles-container {
     @extend .w3-grey;
+    @extend .w3-round-large;
+    //@extend .w3-mobile;
     float: left;
     overflow: hidden;
     position: relative;
-    width: 20em; height: 20em;
-    border: 5px outset grey;
+    width: 15em;
+    height: 15em;
+    max-width: 100% !important;
+    //border: 5px outset grey;
 
     // only the main product image is displayed
     img {

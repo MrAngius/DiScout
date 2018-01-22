@@ -46,6 +46,15 @@ $tracking-button-height: 39px;
 .vue-card-suggested-product {
     @extend .vue-card-container;
     width: 320px !important;
+
+    .vue-card-product {
+        height: $product-card-height !important;
+    }
+
+    #product-clickable {
+        overflow: hidden !important;
+        height: $product-card-height - $tracking-button-height !important;
+    }
 }
 
 // the product itself
