@@ -69,56 +69,55 @@
                     <!-- DETAILS -->
                     <section>
                         <h2 class="w3-teal banner">
-                            <i class="fa fa-cart-plus"></i> {{ productFocusTitle }}
+                            <i class="fa fa-cart-plus"></i> Details
                         </h2>
                         <p>{{ productFocusInfo }}</p>
-                        <!-- Product image preview -->
-                        <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-                            <div class="" style="visibility: hidden;">
-                                <img src="">
+
+                        <div class="w3-clear w3-light-grey">
+                            <!-- Product image preview -->
+                            <div class="w3-left">
+                                <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                                    <div class="" style="visibility: hidden;">
+                                        <img src="">
+                                    </div>
+                                    <div class="triangle" style="visibility: hidden; text-align: right;">
+                                        <img src="">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="triangle" style="visibility: hidden; text-align: right;">
-                                <img src="">
+
+                            <!-- product table details -->
+                            <!--<div class="w3-rest w3-container w3-left w3-margin w3-clear">-->
+                            <div class="w3-left">
+                                <div class="w3-round-large w3-card w3-white w3-margin">
+                                    <div class="w3-blue w3-block w3-container w3-xlarge">Product A</div>
+                                    <p class="w3-container">
+                                        <span class="w3-text-red" style="text-decoration: line-through;">{{ productFocusPrice }}€</span><br>
+                                        <span class="w3-text-teal"><span class="w3-xlarge">{{ productFocusPriceNow }}€</span> (-{{ productFocusPriceTrend }}%)</span>
+                                    </p>
+                                    <p class="w3-container">
+                                        <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ productFocusRating }}</span></span><br>
+                                        Category: {{ productFocusCategory }}<br>
+                                        Sold by: {{ productFocusVendor }} (<a :href = "productFocusLink">link</a>)
+                                    </p>
+                                </div>
                             </div>
+                            <div :class="{ 'w3-hide': isNotVisible }" class="w3-left">
+                                <div class="w3-round-large w3-card w3-white w3-margin">
+                                    <div class="w3-red w3-block w3-container w3-xlarge">Product B</div>
+                                    <p class="w3-container">
+                                        <span class="w3-text-red" style="text-decoration: line-through;">{{ productComparePrice }}€</span><br>
+                                        <span class="w3-text-teal"><span class="w3-xlarge">{{ productComparePriceNow }}€</span> (-{{ productComparePriceTrend }}%)</span>
+                                    </p>
+                                    <p class="w3-container">
+                                        <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ productCompareRating }}</span></span><br>
+                                        Category: {{ productCompareCategory }}<br>
+                                        Sold by: {{ productCompareVendor }} (<a :href = "productCompareLink">link</a>)
+                                    </p>
+                                </div>
+                            </div>
+                            <!--</div>-->
                         </div>
-
-                        <!-- product table details -->
-                        <table class="w3-table w3-bordered" style="width: 100%;">
-                            <tr>
-                                <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
-                                <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
-                                <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
-                            </tr>
-                            <tr :class="{ 'w3-hide': isNotVisible }">
-                                <td></td><td> {{ productComparePrice }}€ </td>
-                                <td></td> <td> {{ productComparePriceNow }}€ </td>
-                                <td></td><td> {{ productComparePriceLower }}€ </td>
-                            </tr>
-
-                            <tr>
-                                <td>Rating:</td><td> {{ productFocusRating }} </td>
-                                <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
-                                <td>Saves:</td><td> {{ productFocusSave }}€ </td>
-                            </tr>
-                            <tr :class="{ 'w3-hide': isNotVisible }">
-                                <td></td><td> {{ productCompareRating }} </td>
-                                <td></td><td> {{ productComparePriceTrend }}% </td>
-                                <td></td><td> {{ productCompareSave }}€ </td>
-
-                            </tr>
-                            <tr>
-                                <td>Vendor:</td><td> {{ productFocusVendor }} </td>
-                                <td>Category:</td><td> {{ productFocusCategory }} </td>
-                                <td> <a :href = "productFocusLink">Link</a></td>
-
-                            </tr>
-                            <tr :class="{ 'w3-hide': isNotVisible }">
-                                <td></td><td> {{ productCompareVendor }} </td>
-                                <td></td><td> {{ productCompareCategory }} </td>
-                                <td :class="{ 'w3-hide': isNotVisible }"> <a :href = "productCompareLink">Link</a></td>
-
-                            </tr>
-                        </table>
                     </section>
 
 

@@ -34,15 +34,17 @@
 
   // triangles: products images compared in a box
   #triangles-container {
+    @extend .w3-grey;
+    float: left;
     overflow: hidden;
     position: relative;
-    width: 40em; height: 27em;
-    background-color: grey;
+    width: 20em; height: 20em;
     border: 5px outset grey;
 
     // only the main product image is displayed
     img {
       width: 100%;
+      height: auto;
     }
 
     // container of a product we want to compare to another
@@ -55,7 +57,8 @@
       /* arctan(27 / 40) = 34.01935deg
        * need to skew by 90deg - 34.01935deg = 55.98065deg
       */
-      transform: skewX(-55.98deg);
+      // transform: skewX(-55.98deg);
+      transform: skewX(-45deg);
     }
 
     // the main product
@@ -68,13 +71,16 @@
     .triangle:last-child {
       right: -.25em;
       transform-origin: 0 100%;
+      vertical-align: bottom;
+      text-align: right;
     }
 
     // images inside the triangle
     .triangle img {
       width: 65% !important;
       height: 100%;
-      transform: skewX(55.98deg);
+      // transform: skewX(55.98deg);
+      transform: skewX(45deg);
       transform-origin: inherit;
     }
   }

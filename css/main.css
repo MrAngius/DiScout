@@ -1114,7 +1114,7 @@ a {
   color: #fff !important;
   background-color: #000 !important; }
 
-.w3-grey, .w3-hover-grey:hover, .w3-gray, .w3-hover-gray:hover {
+.w3-grey, #track-page #triangles-container, .w3-hover-grey:hover, .w3-gray, .w3-hover-gray:hover {
   color: #000 !important;
   background-color: #9e9e9e !important; }
 
@@ -1467,14 +1467,15 @@ header {
     width: 100%; }
 
 #track-page #triangles-container {
+  float: left;
   overflow: hidden;
   position: relative;
-  width: 40em;
-  height: 27em;
-  background-color: grey;
+  width: 20em;
+  height: 20em;
   border: 5px outset grey; }
   #track-page #triangles-container img {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
   #track-page #triangles-container .triangle {
     width: 100%;
     height: 100%;
@@ -1484,17 +1485,19 @@ header {
     /* arctan(27 / 40) = 34.01935deg
      * need to skew by 90deg - 34.01935deg = 55.98065deg
     */
-    transform: skewX(-55.98deg); }
+    transform: skewX(-45deg); }
   #track-page #triangles-container .triangle:first-child {
     left: -.25em;
     transform-origin: 100% 0; }
   #track-page #triangles-container .triangle:last-child {
     right: -.25em;
-    transform-origin: 0 100%; }
+    transform-origin: 0 100%;
+    vertical-align: bottom;
+    text-align: right; }
   #track-page #triangles-container .triangle img {
     width: 65% !important;
     height: 100%;
-    transform: skewX(55.98deg);
+    transform: skewX(45deg);
     transform-origin: inherit; }
 #track-page #similar-products-slider {
   position: relative;
