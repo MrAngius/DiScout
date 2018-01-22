@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="vue-card-product" draggable="true" v-on:dragstart="drag_callback">
-      <div v-on:click='focusCard'>
+    <div class="vue-card-product" v-bind:draggable="isDraggable" v-on:dragstart="dragStart">
+      <div id="product-clickable" v-on:click='focusCard'>
         <p class="title-box" v-text="name"></p>
         <div class="vue-card-product-info">
           <div class="vue-card-image-box">
@@ -91,19 +91,29 @@
         type: String,
         required: false
       },
-      isFocus:{
-        type: Boolean,
-        required: false
+      type:{
+        type: String,
+        required: true
       }
     },
     computed:{
-
+      isFocus: function () {
+        return this.type==="tracked" || this.type==="general"
+      },
+      isDraggable: function () {
+        return this.type==="tracked" || this.type==="suggested"
+      }
     },
     methods: {
       focusCard: function(){
         bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus})
-        bus.$emit('updateTable', this.$props)
+        bus.$emit('updateTable', this.$props, this.isFocus)
         bus.$emit('showModalEvent')
+      },
+      dragStart: function (ev) {
+        ev.dataTransfer.setData("id", this.id);    // product id
+        ev.dataTransfer.setData("img_src", this.img_source);  // product image
+        ev.dataTransfer.setData("isFocus", this.isFocus);
       }
     }
   }

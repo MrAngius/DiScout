@@ -19,7 +19,7 @@
         <vue-table/>
 
         <!-- GRAPH -->
-        <vue-graph/>
+        <vue-graph :page="'Tracking'"/>
       </div>
 
       <!-- SIMILAR PRODUCTS -->

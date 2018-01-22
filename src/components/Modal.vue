@@ -5,7 +5,7 @@
       <span v-on:click="show=!show" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
       <div id="zoomed-product">
         <!--vue-table/--->
-        <vue-graph/>
+        <vue-graph :page="'Tracking'"/>
       </div>
     </div>
   </div>

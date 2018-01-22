@@ -7,13 +7,13 @@
       <a href="#" v-on:click="changePage('Home')">Home</a>
       <a href="#" v-on:click="changePage('MyTrack')">MyTrack</a>
       <a href="#">Menu item 3</a>
-      <div id="user-button">
+      <div id="user-button" v-on:click="showUser=!showUser" v-on:mouseout="showUser=false">
         <div class="w3-padding">
           <img src="../../static/img/user.png" alt="" id="user_icon" />
           Hello<span v-if="loggedIn">, {{ userInfo.name }}! </span> <i class="fa fa-caret-down"></i>
         </div>
 
-        <div id="userDropdown" v-bind:class="{'w3-show': showUser, 'w3-teal': showUser}">
+        <div id="userDropdown" v-bind:class="{'w3-show': showUser}">
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Login')">Login</a>
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Registration')">Register</a>
           <a href="#" v-if="loggedIn">My Profile</a>

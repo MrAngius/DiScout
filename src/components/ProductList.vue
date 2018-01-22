@@ -7,7 +7,7 @@
           v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id'
           :id="card.id" :name="card.name" :price_current="card.price_current" :img_source='"static/" + card.img_source'
           :low_price="card.low_price" :reduction="card.reduction" :rating="card.rating" :category="card.category"
-          :off="card.off" :price="card.price" :vendor="card.vendor" :link="card.link" :isFocus="tracked || general"></card>
+          :off="card.off" :price="card.price" :vendor="card.vendor" :link="card.link" :type="type"></card>
   </div>
 </template>
 
@@ -37,7 +37,7 @@
     },
     computed:{
       suggstyle: function(){
-        return this.suggested ? 'width:' + Object.entries(cards).length * 320 + 'px' : ""
+        return this.suggested ? 'width:' + Object.entries(this.cards).length * 320 + 'px' : ""
       },
       tracked: function () {
         return this.type==="tracked"

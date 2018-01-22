@@ -5,12 +5,12 @@
     </h2>
     <p>{{ focus.info }}</p>
     <!-- Product image preview -->
-    <div id="triangles-container" v-on:drop="drop(event, this)" ondragover="allowDrop(event)" v-if="isOn">
+    <div id="triangles-container" v-on:drop.prevent="drop($event)" ondragover="allowDrop(event)" v-if="isOn">
       <div v-bind:class="{'triangle': comparing}">
         <img v-bind:src="focus.img_source">
       </div>
       <div class="triangle" style="text-align: right" v-if="comparing">
-        <img src="">
+        <img v-bind:src="compare.img_source">
       </div>
     </div>
 
@@ -74,7 +74,7 @@
   import {bus} from '../main'
 
   export default {
-    name: "table",
+    name: "vue-table",
     data() {
       return {
         focus: {
@@ -115,7 +115,7 @@
       bus.$on('updateTable', this.updateTable)
     },
     methods: {
-      updateTable: function (data) {
+      updateTable: function (data, isFocus) {
         let tmp = {
           title: data.name,
           info: data.description,
@@ -131,12 +131,34 @@
           img_source: data.img_source
         }
         this.isOn=true
-        if (data.isFocus) {
+
+
+        if (isFocus) {
           this.focus = tmp
         }
         else {
           this.comparing=true
           this.compare = tmp
+        }
+      },
+      drop(ev){
+        let data = ev.dataTransfer.getData("id");
+        // get the product image
+        let image = ev.dataTransfer.getData("img_source");
+        // get the type of drag'n drop operation
+        let type = ev.dataTransfer.getData("isFocus");
+
+
+        if(type === "true") {
+          // we want to update information about the main product
+          setMainImageOnly(image);
+          updateValuesFocus(data);
+          updateGraph(data, "focus");
+        } else {
+          // we want to compare the main product with another one
+          setOtherImage(image);
+          updateValuesComparisons(data);
+          updateGraph(data, "comparison");
         }
       }
     }
