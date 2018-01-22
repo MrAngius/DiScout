@@ -18,7 +18,7 @@
             <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
         -->
         <!-- Here, we need to know the exact number of products that will be printed in the suggestion list -->
-        <product-list v-bind:style="'width: ' + Object.entries(cards).length * 320 + 'px;'" v-bind:categories="categories" type="suggested"/>
+        <product-list v-bind:categories="categories" type="suggested"/>
       </section>
     </div>
     </main>
@@ -52,6 +52,9 @@
           },
           cards: {}
         }
+      },
+      methods: {
+
       }
     }
 </script>
