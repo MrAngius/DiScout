@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 export const bus=new Vue();
 
 /* eslint-disable no-new */
-new Vue({
+let vue=new Vue({
   el: '#app',
   components: { App },
   template: '<App/>'

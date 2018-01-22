@@ -8,7 +8,7 @@
       <button v-on:click="showRange(3)">3 Month</button>
       <button v-on:click="showRange(6)">6 Month</button>
     </div>
-    <div id="graph"></div>
+    <div ref="thegraph" id="graph"></div>
   </section>
 </template>
 
@@ -55,63 +55,48 @@
           }
         },
         colors: ['#f5b041', '#f4d03f', '#58d68d', '#52be80', '#45b39d', '#48c9b0', '#2874a6', '#1f618d', '#6c3483'],
-        traces: 0
+
       }
     },
     created() {
 
     },
     mounted() {
-      Plotly.newPlot('graph', [], this.layout, {displayModeBar: false})
+      Plotly.newPlot(this.$refs.thegraph, [], this.layout, {displayModeBar: false})
       window.addEventListener('onresize', function () {
-        Plotly.Plots.resize('graph')
+        Plotly.Plots.resize(this.$refs.thegraph)
       })
       bus.$on('updateGraph', this.updateGraph)
     },
     methods: {
       updateGraph: function (data) {
-        console.log("Starting with " + this.traces)
-        let i=data.isFocus ? 0: 1
-        while(this.traces>i){
-          console.log("Descrease to " + this.traces)
-          /* Remove traces */
-          this.removeTrace(data)
+        let i = data.isFocus===true ? 0 : 1
+        while(this.$refs.thegraph.data.length > i){
+          Plotly.deleteTraces(this.$refs.thegraph, 0)
         }
         /* Add traces */
-        this.addTrace(data)
-        console.log("Increased to " + this.traces)
+        let self = this
+        Plotly.d3.csv("static/data_graphs_production/data_products/data_" + data.id + ".csv",
+          function (err, rows) {
+            function unpack(rows, key) {
+              return rows.map((row) => row[key])
+            }
+
+            let traceAdd = {
+              type: "scatter",
+              name: data.isFocus ? 'Tracked' : 'Compared',
+              showlegend: true,
+              mode: "lines",
+              x: unpack(rows, 'date'),
+              y: unpack(rows, 'value'),
+              line: {color: self.colors[self.traces]}
+            };
+            Plotly.addTraces('graph', traceAdd);
+          })
 
       },
       showRange: function (month) {
-        Plotly.relayout(document.getElementById('graph'), this.update[month]);
-      },
-      removeTrace(){
-        Plotly.deleteTraces('graph', -1);
-        this.traces--
-      },
-      addTrace(data){
-        console.log("...")
-        let self=this
-        Plotly.d3.csv("./data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
-          function unpack(rows, key) {
-            return rows.map(function(row){ return row[key]; });
-          }
-
-          console.log("...")
-          let traceAdd = {
-            type: "scatter",
-            name: data.isFocus ? 'Tracked' : 'Compared',
-            showlegend: true,
-            mode: "lines",
-            x: unpack(rows, 'date'),
-            y: unpack(rows, 'value'),
-            line: {color: self.colors[self.traces]}
-          };
-          self.traces ++;
-          Plotly.addTraces('graph', traceAdd);
-
-
-        });
+        Plotly.relayout(this.$refs.thegraph, this.update[month]);
       }
 
     }

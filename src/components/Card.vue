@@ -101,7 +101,7 @@
         return this.type==="tracked" || this.type==="general"
       },
       isDraggable: function () {
-        return this.type==="tracked" || this.type==="suggested"
+        return str(this.type==="tracked" || this.type==="suggested")
       }
     },
     methods: {

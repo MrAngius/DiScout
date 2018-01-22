@@ -5,7 +5,7 @@
     </h2>
     <p>{{ focus.info }}</p>
     <!-- Product image preview -->
-    <div id="triangles-container" v-on:drop.prevent="drop($event)" ondragover="allowDrop(event)" v-if="isOn">
+    <div id="triangles-container" v-on:drop.prevent="drop($event)" v-on:dragover.prevent="()=>false" v-if="isOn">
       <div v-bind:class="{'triangle': comparing}">
         <img v-bind:src="focus.img_source">
       </div>
@@ -63,7 +63,7 @@
         <td> {{ compare.vendor }}</td>
         <td></td>
         <td> {{ compare.category }}</td>
-        <td :class="{ 'w3-hide': isNotVisible }"><a :href="compare.link">Link</a></td>
+        <td><a :href="compare.link">Link</a></td>
 
       </tr>
     </table>
