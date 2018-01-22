@@ -1,23 +1,24 @@
 <template>
   <div>
-    <button id="menu-button-mobile" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'), addRemoveClass(this, 'w3-teal')">
+    <button id="menu-button-mobile" v-on:click="showMobile=!showMobile" v-bind:class="{'w3-black': !showMobile, 'w3-teal': showMobile}">
       <i class="fa fa-bars"></i>
     </button>
-    <nav id="navigation" class="w3-hide-small">
-      <a href="#">Menu item 1</a>
-      <a href="#">Menu item 2</a>
+    <nav id="navigation" v-bind:class="{'w3-hide-small': !showMobile, 'w3-show-small': showMobile}">
+      <a href="#" v-on:click="changePage('Home')">Home</a>
+      <a href="#" v-on:click="changePage('MyTrack')">MyTrack</a>
       <a href="#">Menu item 3</a>
       <div id="user-button">
         <div class="w3-padding" onclick="showDropdown('userDropdown'); addRemoveClass(this, 'w3-teal')">
           <img src="../../static/img/user.png" alt="" id="user_icon" />
-          Welcome, user! <i class="fa fa-caret-down"></i>
+          Hello<span v-if="loggedIn">, {{ userInfo.name }}! </span> <i class="fa fa-caret-down"></i>
         </div>
 
-        <div id="userDropdown">
-          <a href="#">User item 1</a>
-          <a href="#">User item 2</a>
-          <a href="#">User item 3</a>
-          <a href="#">User item 4</a>
+        <div id="userDropdown" v-bind:class="{'w3-show': showUser, 'w3-teal': showUser}">
+          <a href="#" v-if="!loggedIn" v-on:click="changePage('Login')">Login</a>
+          <a href="#" v-if="!loggedIn" v-on:click="changePage('Registration')">Register</a>
+          <a href="#" v-if="loggedIn">My Profile</a>
+          <a href="#" v-if="loggedIn" v-on:click="changePage('MyTracks')">My Tracks</a>
+          <a href="#" v-if="loggedIn" v-on:click="logout">Logout</a>
         </div>
       </div>
     </nav>
@@ -25,9 +26,36 @@
 </template>
 
 <script>
-    export default {
-        name: "vue-nav-bar"
+  export default {
+      name: "vue-nav-bar",
+    data(){
+        return{
+          showMobile: false,
+          showUser: false,
+        }
+    },
+    props:{
+      userInfo: {
+        required: true,
+        type: Object
+      },
+      loggedIn: {
+        required: true,
+        type: Boolean
+      }
+    },
+    created(){
+
+    },
+    methods:{
+      logout: function () {
+        this.$emit('logout')
+      },
+      changePage: function(page){
+        this.$emit('changepage', page)
+      }
     }
+  }
 </script>
 
 <style scoped>

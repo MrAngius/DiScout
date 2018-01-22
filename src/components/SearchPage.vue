@@ -1,23 +1,16 @@
 <template>
   <div id="searchpage">
     <!-- FILTERS (mobile version) -->
-    <div class="w3-hide-large w3-hide-medium w3-pale-green">
-      <button id="filtersNavButton" class="w3-grey w3-hover-teal w3-mobile w3-button" onclick="showHideTarget('filtersNavbar'); addRemoveClass(this, 'w3-grey'), addRemoveClass(this, 'w3-teal')">
-        <i class="fa fa-search-plus w3-xlarge"></i>
-      </button>
-      <filters type="mobile"></filters>
-    </div>
-    <modal></modal>
-    <!-- OVERLAY -->
-    <div id="overlay" onclick="openCloseSidebar('filtersSidebar', 'overlay')"></div>
+    <filters type="mobile" v-bind:categories="categories" />
+    <modal/>
 
     <!-- PAGE content -->
     <main id="page" class="has-sidebar w3-light-grey">
-      <filters type="tablet"></filters>
+      <filters v-bind:categories="categories" type="tablet"/>
       <h2 id="page-title">
         Search results
       </h2>
-      <product-list></product-list>
+      <product-list type="general" v-bind:categories="categories" />
     </main>
   </div>
 </template>
@@ -32,6 +25,22 @@
         'filters': Filters,
         'modal': Modal,
         'product-list': ProductList
+      },
+      data() {
+        return{
+          categories: {
+            Accessories: true,
+            Bags: true,
+            BooksandMusic: true,
+            Hitech: true,
+            Home: true,
+            Shoes: true,
+            Sports: true,
+            Tools: true,
+            Toys: true,
+            Vetements: true
+          }
+        }
       }
     }
 </script>
