@@ -33,7 +33,7 @@
               thickness: 0.1,
               autorange: true,
               /* TODO hide in mobile version */
-              visible: false
+              visible: true
             },
           },
           yaxis: {
@@ -62,36 +62,44 @@
 
     },
     mounted() {
-      Plotly.newPlot(this.$refs.thegraph, [], this.layout, {displayModeBar: false})
+      Plotly.newPlot(this.$refs.thegraph, [], this.layout, {displayModeBar: false});
       window.addEventListener('onresize', function () {
         Plotly.Plots.resize(this.$refs.thegraph)
-      })
+      });
       bus.$on('updateGraph', this.updateGraph)
     },
     methods: {
       itemDropped: function (ev) {
-        let data = JSON.parse(ev.dataTransfer.getData("card"))
-        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"})
-        bus.$emit('updateTable', data, data.type==="tracked" || data.type==="general")
+        let data = JSON.parse(ev.dataTransfer.getData("card"));
+        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"});
+        bus.$emit('updateTable', data, data.type === "tracked" || data.type === "general")
       },
 
 
       updateGraph: function (data) {
-        let theGraph=this.$refs.thegraph
+        let theGraph=this.$refs.thegraph;
+
+        // NOTE: what does it do?
         if(theGraph==undefined)
-          return
-        let i = data.isFocus===true ? 0 : 1
+          return;
+
+        // determine how to proceed
+        let i = data.isFocus===true ? 0 : 1;
+
+        // delete the trace to update
         while(theGraph.data.length > i){
-          Plotly.deleteTraces(this.$refs.thegraph, 0)
+          Plotly.deleteTraces(this.$refs.thegraph, -1)
         }
-        /* Add traces */
-        let self = this
+
+        // add the trace
+        let self = this;
         Plotly.d3.csv("static/data_graphs_production/data_products/data_" + data.id + ".csv",
           function (err, rows) {
             function unpack(rows, key) {
               return rows.map((row) => row[key])
             }
 
+            // the trace to add
             let traceAdd = {
               type: "scatter",
               name: data.isFocus ? 'Tracked' : 'Compared',
@@ -101,6 +109,7 @@
               y: unpack(rows, 'value'),
               line: {color: self.colors[self.traces]}
             };
+            // plotting
             Plotly.addTraces(theGraph, traceAdd);
           })
 
