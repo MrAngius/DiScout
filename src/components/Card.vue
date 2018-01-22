@@ -83,14 +83,6 @@
         type: String,
         required: false
       },
-      onclick_callback: {
-        type: String,
-        required: false
-      },
-      drag_callback: {
-        type: String,
-        required: false
-      },
       type:{
         type: String,
         required: true
