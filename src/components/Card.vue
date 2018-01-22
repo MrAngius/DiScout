@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="vue-card-product" draggable="true" :ondragstart="drag_callback">
-      <div :onclick="onclick_callback">
+      <div v-on:click='showModal'>
         <p class="title-box" v-text="name"></p>
         <div class="vue-card-product-info">
           <div class="vue-card-image-box">
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import { bus } from '../main'
   export default {
     name: "card",
     props: {
@@ -66,6 +67,10 @@
         type: String,
         required: false
       },
+      reduction: {
+        type: String,
+        required: false
+      },
       rating: {
         type: String,
         required: false
@@ -85,6 +90,11 @@
       drag_callback: {
         type: String,
         required: false
+      }
+    },
+    methods: {
+      showModal: function(){
+        bus.$emit('showModalEvent')
       }
     }
   }
