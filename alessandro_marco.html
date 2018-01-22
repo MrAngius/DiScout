@@ -49,18 +49,22 @@
         <!-- MAIN CONTAINER -->
         <main id="page" class="w3-row">
 
+            <div id="instructions-mobile" class="w3-hide-medium w3-hide-large w3-teal w3-padding w3-large w3-justify">
+                Click one of the tracked product, to see extra information
+            </div>
+
             <!-- LIST OF TRACKED PRODUCTS -->
-            <aside id="tracked-products" class="w3-hide-small">
+            <aside id="tracked-products" class="">
                 <p>
                     <i class="fa fa-binoculars"></i> Your tracked products
                 </p>
                 <div id="tracked-products-list">
-                    <card v-for="card in cards" class="vue-card-tracked-product" :drag_callback="'drag(event, true)'" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :onclick_callback="'clickProduct(this, \'true\'); addRemoveClass(document.getElementById(\'tracked-products\'), \'w3-black\');'"></card>
+                    <card v-for="card in cards" class="vue-card-tracked-product" :drag_callback="'drag(event, true)'" v-if="categories[card.category]" :ref='"ref_prod" + card.id' :id="card.id" :name="card.name" :price_current="card.price_current" :img_source="card.img_source" :onclick_callback="'clickProduct(this, \'true\'); addRemoveClass(document.getElementById(\'tracked-products\'), \'w3-hide-small\'); addRemoveClass(document.getElementById(\'track-page\'), \'w3-hide-small\'); addRemoveClass(document.getElementById(\'instructions-mobile\'), \'w3-hide-small\');'"></card>
                 </div>
             </aside>
 
             <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-            <div id="track-page">
+            <div id="track-page" class="w3-hide-small">
 
                 <!-- TRACKED PRODUCT DETAIL -->
                 <!-- NOTE: style for debug purpose only -->
