@@ -70,8 +70,11 @@
     },
     methods: {
       updateGraph: function (data) {
+        let theGraph=this.$refs.thegraph
+        if(theGraph==undefined)
+          return
         let i = data.isFocus===true ? 0 : 1
-        while(this.$refs.thegraph.data.length > i){
+        while(theGraph.data.length > i){
           Plotly.deleteTraces(this.$refs.thegraph, 0)
         }
         /* Add traces */
@@ -91,7 +94,7 @@
               y: unpack(rows, 'value'),
               line: {color: self.colors[self.traces]}
             };
-            Plotly.addTraces('graph', traceAdd);
+            Plotly.addTraces(theGraph, traceAdd);
           })
 
       },

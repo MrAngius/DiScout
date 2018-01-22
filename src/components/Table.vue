@@ -135,6 +135,7 @@
 
         if (isFocus) {
           this.focus = tmp
+          this.comparing=false
         }
         else {
           this.comparing=true
