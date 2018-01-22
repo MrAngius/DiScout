@@ -70,16 +70,14 @@
     },
     methods: {
       updateGraph: function (data) {
-        console.log("Starting with " + this.traces)
+        console.log(".....")
         let i=data.isFocus ? 0: 1
         while(this.traces>i){
-          console.log("Descrease to " + this.traces)
           /* Remove traces */
           this.removeTrace(data)
         }
         /* Add traces */
         this.addTrace(data)
-        console.log("Increased to " + this.traces)
 
       },
       showRange: function (month) {
@@ -90,14 +88,12 @@
         this.traces--
       },
       addTrace(data){
-        console.log("...")
         let self=this
-        Plotly.d3.csv("./data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
+        Plotly.d3.csv("./static/data_graphs_production/data_products/data_" + data.id +".csv", function (err, rows) {
           function unpack(rows, key) {
             return rows.map(function(row){ return row[key]; });
           }
 
-          console.log("...")
           let traceAdd = {
             type: "scatter",
             name: data.isFocus ? 'Tracked' : 'Compared',
