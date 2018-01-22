@@ -1,12 +1,12 @@
 <template>
-  <section class="w3-section">
+  <section class="w3-section" v-on:drop.prevent="itemDropped" v-on:dragover.prevent="()=>false">
     <h2 class="w3-blue banner">
       <i class="fa fa-line-chart"></i> Price Trend
     </h2>
     <div id="graph_buttons">
-      <button v-on:click="showRange(1)">1 Month</button>
-      <button v-on:click="showRange(3)">3 Month</button>
-      <button v-on:click="showRange(6)">6 Month</button>
+      <button v-on:click="showRange('1')">1 Month</button>
+      <button v-on:click="showRange('3')">3 Month</button>
+      <button v-on:click="showRange('6')">6 Month</button>
     </div>
     <div ref="thegraph" id="graph"></div>
   </section>
@@ -20,9 +20,9 @@
     data() {
       return {
         update: {
-          1: {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
-          3: {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
-          6: {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']}
+          '1': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
+          '3': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
+          '6': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']}
         },
         layout: {
           xaxis: {
@@ -69,6 +69,13 @@
       bus.$on('updateGraph', this.updateGraph)
     },
     methods: {
+      itemDropped: function (ev) {
+        let data = JSON.parse(ev.dataTransfer.getData("card"))
+        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"})
+        bus.$emit('updateTable', data, data.type==="tracked" || data.type==="general")
+      },
+
+
       updateGraph: function (data) {
         let theGraph=this.$refs.thegraph
         if(theGraph==undefined)

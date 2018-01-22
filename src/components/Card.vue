@@ -103,9 +103,7 @@
         bus.$emit('showModalEvent')
       },
       dragStart: function (ev) {
-        ev.dataTransfer.setData("id", this.id);    // product id
-        ev.dataTransfer.setData("img_src", this.img_source);  // product image
-        ev.dataTransfer.setData("isFocus", this.isFocus);
+          ev.dataTransfer.setData('card', JSON.stringify(this.$props))
       }
     }
   }

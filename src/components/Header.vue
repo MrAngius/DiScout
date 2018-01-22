@@ -1,6 +1,6 @@
 <template>
   <header class="w3-container">
-    <a href="#">
+    <a href="index.html">
       <img src="static/img/logo.png" alt="DiScout LOGO" class="w3-image" />
     </a>
   </header>

@@ -1,11 +1,11 @@
 <template>
-  <section>
+  <section v-on:drop.prevent="itemDropped" v-on:dragover.prevent="()=>false">
     <h2 class="w3-teal banner">
       <i class="fa fa-cart-plus"></i> {{ focus.title }}
     </h2>
     <p>{{ focus.info }}</p>
     <!-- Product image preview -->
-    <div id="triangles-container" v-on:drop.prevent="drop($event)" v-on:dragover.prevent="()=>false" v-if="isOn">
+    <div id="triangles-container" v-if="isOn">
       <div v-bind:class="{'triangle': comparing}">
         <img v-bind:src="focus.img_source">
       </div>
@@ -115,6 +115,12 @@
       bus.$on('updateTable', this.updateTable)
     },
     methods: {
+      itemDropped: function (ev) {
+        let data = JSON.parse(ev.dataTransfer.getData("card"))
+        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"})
+        bus.$emit('updateTable', data, data.type==="tracked" || data.type==="general")
+      },
+
       updateTable: function (data, isFocus) {
         let tmp = {
           title: data.name,
@@ -140,26 +146,6 @@
         else {
           this.comparing=true
           this.compare = tmp
-        }
-      },
-      drop(ev){
-        let data = ev.dataTransfer.getData("id");
-        // get the product image
-        let image = ev.dataTransfer.getData("img_source");
-        // get the type of drag'n drop operation
-        let type = ev.dataTransfer.getData("isFocus");
-
-
-        if(type === "true") {
-          // we want to update information about the main product
-          setMainImageOnly(image);
-          updateValuesFocus(data);
-          updateGraph(data, "focus");
-        } else {
-          // we want to compare the main product with another one
-          setOtherImage(image);
-          updateValuesComparisons(data);
-          updateGraph(data, "comparison");
         }
       }
     }
