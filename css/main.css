@@ -185,7 +185,7 @@ hr {
   border-top: 1px solid #eee;
   margin: 20px 0; }
 
-.w3-image, .vue-card-container img, .vue-card-tracked-product img, .vue-card-suggested-product img {
+.w3-image {
   max-width: 100%;
   height: auto; }
 
@@ -438,8 +438,7 @@ a {
   overflow-x: auto; }
 
 .w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, #tracked-products p:after, #track-page:after, #track-page .banner:after, #track-page #similar-products-slider:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, #tracked-products p:before, #track-page:before, #track-page .banner:before, #track-page #similar-products-slider:before, .w3-panel:after, #tracked-products #tracked-products-list:after, .w3-panel:before, #tracked-products #tracked-products-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
-.w3-cell-row:before,
-.vue-card-product-info:before, .w3-cell-row:after, .vue-card-product-info:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .filter:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .filter:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
+.w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .filter:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .filter:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
   clear: both; }
@@ -563,17 +562,17 @@ a {
 .w3-rest, #track-page {
   overflow: hidden; }
 
-.w3-cell-row, .vue-card-product-info {
+.w3-cell-row {
   display: table;
   width: 100%; }
 
-.w3-cell, .vue-card-product-info .vue-card-image-box {
+.w3-cell {
   display: table-cell; }
 
 .w3-cell-top {
   vertical-align: top; }
 
-.w3-cell-middle, .vue-card-product-info .vue-card-summary-box {
+.w3-cell-middle {
   vertical-align: middle; }
 
 .w3-cell-bottom {
@@ -1006,7 +1005,7 @@ a {
   padding-top: 64px !important;
   padding-bottom: 64px !important; }
 
-.w3-left, .vue-card-container, .vue-card-tracked-product, .vue-card-suggested-product {
+.w3-left, .vue-card-container, .vue-card-tracked-product, .vue-card-suggested-product, .vue-card-product-info .vue-card-image-box, .vue-card-product-info .vue-card-summary-box {
   float: left !important; }
 
 .w3-right, #navigation #user-button {
@@ -1354,9 +1353,6 @@ header {
 .vue-card-container, .vue-card-tracked-product, .vue-card-suggested-product {
   background-color: transparent; }
   @media (min-width: 601px) {
-    .vue-card-container img, .vue-card-tracked-product img, .vue-card-suggested-product img {
-      opacity: 0.75; } }
-  @media (min-width: 601px) {
     .vue-card-container, .vue-card-tracked-product, .vue-card-suggested-product {
       width: 50%; } }
   @media (min-width: 901px) {
@@ -1383,16 +1379,43 @@ header {
 
 .vue-card-product {
   overflow: hidden;
-  cursor: pointer;
-  max-height: 380px; }
+  cursor: pointer; }
   @media (min-width: 601px) {
     .vue-card-product {
       height: 380px; } }
 
-.vue-card-product-info .vue-card-image-box {
-  overflow: hidden;
-  min-width: 75%;
-  max-width: 75%; }
+#product-clickable {
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 601px) {
+    #product-clickable {
+      overflow: hidden;
+      height: 341px; } }
+
+.vue-card-product-info {
+  flex: auto; }
+  .vue-card-product-info .vue-card-image-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    width: 75%;
+    height: 100%; }
+    .vue-card-product-info .vue-card-image-box img {
+      max-width: 100%;
+      max-height: 100%; }
+      @media (min-width: 601px) {
+        .vue-card-product-info .vue-card-image-box img {
+          opacity: 0.75; } }
+  .vue-card-product-info .vue-card-summary-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+    height: 100%; }
+
+.vue-card-track, .vue-card-tracked {
+  height: 39px; }
 
 /* FILTERS sidebar */
 .shifted-sidebar {

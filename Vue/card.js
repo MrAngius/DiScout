@@ -11,7 +11,7 @@ Vue.component('card', {
     template: `
     <div :data-id="id" :data-image="img_source">
         <div class="vue-card-product" draggable="true" :ondragstart="drag_callback">
-            <div :onclick="onclick_callback">
+            <div id="product-clickable" :onclick="onclick_callback">
                 <p class="title-box" v-text="name"></p>
                 <div class="vue-card-product-info">
                     <div class="vue-card-image-box">

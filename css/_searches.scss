@@ -11,15 +11,6 @@ $tracking-button-height: 39px;
     @extend .w3-left;
     background-color: transparent;
 
-    img {
-        // the product image is partially transparent by default (but not on smartphones)
-        @extend .w3-image;
-
-        @media (min-width: 601px) {
-            opacity: 0.75;
-        }
-    }
-
     @media (min-width: 601px) {
         width: 50%;
     }
@@ -66,7 +57,7 @@ $tracking-button-height: 39px;
     @extend .w3-white;
     overflow: hidden;
     cursor: pointer;
-    max-height: $product-card-height;
+    //max-height: $product-card-height;
 
     @media (min-width: 601px) {
         height: $product-card-height;
@@ -78,6 +69,17 @@ $tracking-button-height: 39px;
     @extend .w3-opacity-off;
 }
 
+#product-clickable{
+    // clickable area (title + image and price/other statistics)
+    display: flex; 
+    flex-direction: column;
+
+    @media (min-width: 601px) {
+        overflow: hidden;
+        height: $product-card-height - $tracking-button-height;
+    }
+}
+
 .title-box{
     @extend .w3-container;
     @extend .w3-mobile;
@@ -87,22 +89,44 @@ $tracking-button-height: 39px;
     // image, price and other statistics
     @extend .w3-white;
     @extend .w3-clear;
-    @extend .w3-cell-row;
+    //@extend .w3-cell-row;
+    flex: auto;
 
     .vue-card-image-box{
         // image container
-        @extend .w3-cell;
+        //@extend .w3-cell;
         @extend .w3-padding;
         @extend .w3-center;
+        @extend .w3-left;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         overflow: hidden;
-        min-width: 75%;
-        max-width: 75%;
+        width: 75%;
+        height: 100%;
+
+        img {
+            // the product image is partially transparent by default (but not on smartphones)
+            //@extend .w3-image;
+            max-width: 100%;
+            max-height: 100%;
+
+            @media (min-width: 601px) {
+                opacity: 0.75;
+            }
+        }
     }
 
     .vue-card-summary-box{
-        @extend .w3-cell-middle;
+        //@extend .w3-cell-middle;
         @extend .w3-container;
         @extend .w3-center;
+        @extend .w3-left;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 25%;
+        height: 100%;
     }
 }
 
@@ -112,6 +136,7 @@ $tracking-button-height: 39px;
     @extend .w3-button;
     @extend .w3-ripple;
     @extend .w3-block;
+    height: $tracking-button-height;
 }
 
 .vue-card-tracked {
