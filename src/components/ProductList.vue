@@ -40,6 +40,10 @@
       price: {
         type: Object,
         required: true
+      },
+      search: {
+        type: Object,
+        required: true
       }
     },
     computed:{
@@ -63,7 +67,12 @@
     },
     methods: {
       showing: function (card) {
-        return this.show && this.categories[card.category.replace(/[^A-Za-z0-9]/gi, '')] && card.rating >= this.rating.min && parseInt(card.price_current) <= this.price.value
+        return this.show &&
+          this.categories[card.category.replace(/[^A-Za-z0-9]/gi, '')] &&
+          card.rating >= this.rating.min &&
+          parseInt(card.price_current) <= this.price.value &&
+          card.name.includes(this.search.text)
+          console.log(card.name.includes(this.search.text))
       },
     },
     created() {

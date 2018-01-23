@@ -86,6 +86,9 @@
           threshold_min: 0,
           threshold_max: 1100,
           value: 1000
+        },
+        search: {
+          text: ""
         }
       }
     },
