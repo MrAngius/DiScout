@@ -100,7 +100,7 @@
             }
             else {
               /* TODO eventually register user */
-              this.notFilled=false
+              this.notFilled=false;
               (new Promise((resolve) => setTimeout(resolve, 1000))).then(this.$emit('changepage', 'Home'))
             }
           }

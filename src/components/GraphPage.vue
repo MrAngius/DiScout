@@ -49,7 +49,6 @@
   import ProductList from "./ProductList";
   import Graph from "./Graph";
   import Table from "./Table";
-  import Functions from '../mixin.js';
   import { bus } from '../main'
 
   export default {
@@ -59,7 +58,6 @@
       'vue-table': Table
     },
     name: "vue-graph-page",
-    mixins: [Functions],
     created() {
       bus.$on('showingProduct', this.showOrNot)
 

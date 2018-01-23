@@ -1,13 +1,6 @@
 export default {
   methods: {
-    addRemoveClass: function (targetElem, className) {
-      if (targetElem.classList.contains(className)) {
-        targetElem.classList.remove(className);
-      }
-      else {
-        targetElem.classList.add(className);
-      }
-    },
+
 
     myDebug: function (msg) {
       alert(msg)

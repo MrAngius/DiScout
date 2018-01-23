@@ -7,12 +7,8 @@
 </template>
 
 <script>
-  import Functions from '../mixin.js';
-
-
   export default {
     name: "vue-header",
-    mixins: [Functions]
   }
 </script>
 

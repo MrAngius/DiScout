@@ -8,14 +8,12 @@
       <button v-on:click="showRange('3')" class="w3-button w3-light-blue w3-hover-blue w3-round">3 Month</button>
       <button v-on:click="showRange('6')" class="w3-button w3-light-blue w3-hover-blue w3-round">6 Month</button>
     </p>
-    <!-- TODO: make the little bottom bar disappear on mobile devices (I am speaking about the clickable graph preview) -->
     <div ref="thegraph" id="graph"></div>
   </div>
 </template>
 
 <script>
   import {bus} from '../main'
-  import Functions from '../mixin.js';
 
   export default {
     name: "graph",
@@ -25,7 +23,6 @@
         required: false
       }
     },
-    mixins: [Functions],
     data() {
       return {
         update: {
@@ -41,7 +38,6 @@
               bgcolor: "#D6EAF8",
               thickness: 0.1,
               autorange: true,
-              /* TODO hide in mobile version */
               visible: true
             },
           },
@@ -71,8 +67,14 @@
     },
     mounted() {
       Plotly.newPlot("graph", [], this.layout, {displayModeBar: false});
+
+      // update the graph slider in case we open the page from a mobile support
+      showHideSlider("graph");
+
+      // adding a listener in order to add and remove the slider
       window.addEventListener('resize', function () {
-        Plotly.Plots.resize("graph")
+        Plotly.Plots.resize("graph");
+        showHideSlider("graph");
       });
       bus.$on('updateGraph', this.updateGraph)
     },
@@ -124,7 +126,7 @@
       },
       showRange: function (month) {
         Plotly.relayout("graph", this.update[month]);
-      }
+      },
     }
   }
 </script>
