@@ -1,16 +1,16 @@
 <template>
   <div id="searchpage">
     <!-- FILTERS (mobile version) -->
-    <filters type="mobile" v-bind:categories="categories" v-bind:rating="rating" />
+    <filters type="mobile" v-bind:categories="categories" v-bind:rating="rating" v-bind:price="price"/>
     <modal/>
 
     <!-- PAGE content -->
     <main id="page" class="has-sidebar w3-light-grey">
-      <filters v-bind:categories="categories" v-bind:rating="rating" type="tablet"/>
+      <filters v-bind:categories="categories" v-bind:rating="rating" type="tablet" v-bind:price="price"/>
       <h2 id="page-title">
         Search results
       </h2>
-      <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" />
+      <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" v-bind:price="price"/>
     </main>
   </div>
 </template>
@@ -42,6 +42,11 @@
           },
           rating: {
             min: 0
+          },
+          price: {
+            threshold_min: 0,
+            threshold_max: 1000,
+            value: 1000
           }
         }
       }

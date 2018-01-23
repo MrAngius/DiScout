@@ -23,6 +23,13 @@
             </label>
           </div>
         </section>
+          <section>
+            <label for="track_threshold" style="display: block;">Threshold: {{ price.value }}€</label>
+            <!-- NOTE: backup... oninput="setContent('threshold_value', this.value);"  -->
+            <input id="track_threshold" v-model="price.value" type="range" :min="price.threshold_min" :max="price.threshold_max"
+                   step="1" style="width: 50%;"/>
+          </section>
+
         <section class="filter">
           Minimum rating
           <fieldset class="rating">
@@ -143,6 +150,10 @@
         rating: {
           required: true,
           type: Object
+        },
+        price: {
+          type: Object,
+          required: true
         }
       },
       computed: {
