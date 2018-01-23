@@ -69,12 +69,12 @@
       Plotly.newPlot("graph", [], this.layout, {displayModeBar: false});
 
       // update the graph slider in case we open the page from a mobile support
-      showHideSlider("graph");
+      showHideSlider("graph", this.$props.productPreview);
 
       // adding a listener in order to add and remove the slider
       window.addEventListener('resize', function () {
         Plotly.Plots.resize("graph");
-        showHideSlider("graph");
+        showHideSlider("graph", this.$props.productPreview);
       });
       bus.$on('updateGraph', this.updateGraph)
     },

@@ -19,11 +19,17 @@ function loadDB(database){
   */
 }
 
-function showHideSlider(graphId) {
+function showHideSlider(graphId, productPrev) {
   if (window.innerWidth < 601){
-    Plotly.relayout(graphId, {'xaxis.rangeslider.visible': false})
+    Plotly.relayout(graphId, {
+      'xaxis.rangeslider.visible': false,
+      'showlegend': false
+    })
   }else {
-    Plotly.relayout(graphId, {'xaxis.rangeslider.visible': true})
+    Plotly.relayout(graphId, {
+      'xaxis.rangeslider.visible': true,
+      'showlegend': !productPrev
+    })
   }
 }
 

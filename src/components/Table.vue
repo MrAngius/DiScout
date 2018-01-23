@@ -42,7 +42,7 @@
       <!-- Product table details -->
       <div class="details-container">
         <div class="details">
-          <div class="w3-blue product-name" v-if="!productPreview">Product A</div>
+          <div class="w3-blue product-name" v-if="!productPreview">{{ focus.title }}</div>
           <!-- image -->
           <div class="product-image-preview" v-if="!productPreview">
             <div class="image-container" v-if="isOn">
@@ -67,7 +67,7 @@
       <!-- This is the compared product -->
       <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
         <div class="details">
-          <div class="w3-red product-name">Product B</div>
+          <div class="w3-red product-name">{{ compare.title }}</div>
           <!-- image -->
           <div class="product-image-preview">
             <div class="image-container" v-if="isOn">
