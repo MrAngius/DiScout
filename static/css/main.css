@@ -1484,6 +1484,9 @@ header {
 @media (max-width: 600px) {
   #track-page {
     padding: 0 !important; } }
+@media (max-width: 600px) {
+  #track-page #graph_buttons {
+    padding: 0 16px; } }
 #track-page .image-container {
   overflow: hidden;
   position: relative;

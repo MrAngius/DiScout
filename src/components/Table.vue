@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: why the fuck the background is blue, as the title of the graph?! -->
   <div v-on:drop.prevent="itemDropped" v-on:dragover.prevent="()=>false">
     <h2 class="w3-teal banner">
       <i class="fa fa-cart-plus"></i> Details
@@ -51,7 +50,7 @@
             </div>
           </div>
 
-          <div class="w3-left">
+          <div v-bind:class="{ 'w3-left' : !productPreview }">
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
               <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
@@ -70,7 +69,7 @@
         <div class="details">
           <div class="w3-red product-name">Product B</div>
           <!-- image -->
-          <div class="product-image-preview" v-if="!productPreview">
+          <div class="product-image-preview">
             <div class="image-container" v-if="isOn">
               <img v-bind:src="compare.img_source" draggable="false">
             </div>
@@ -144,12 +143,9 @@
         isOn: false,
         // to hide and show the notification
         isNotification: false,
-        // TODO: the initial threshold depends on the product price! (actually... the user personalized value. But we are going to fake it)
         threshold_value: 80,
         // TODO: same here, if we decide to use user-personalized values from localStorage
         mail_notifications: false,
-        // TODO: threshold extreme values depend on the product price
-        // possible values: min = 0, max = focus.price
         threshold_min: 0,
         threshold_max: 100
       }
@@ -185,7 +181,9 @@
 
         if (isFocus) {
           this.focus = tmp;
-          this.comparing = false
+          this.comparing = false;
+          this.threshold_max = tmp.price;
+          this.threshold_value = Math.round( tmp.price*0.8);
         }
         else {
           this.comparing = true;
