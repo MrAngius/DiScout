@@ -75,6 +75,8 @@
       },
     },
     created() {
+      // TODO: include a which case for load the products based on the different location
+      // TODO: this.type
       this.cards=loadDB('static/database_production/product_db.json')
     }
   }
