@@ -92,25 +92,18 @@
       },
       methods: {
           checkForm: function () {
-            alert("Checking...")
             if(this.userInfo.email=="john@doe.fr"){
-              alert('Exist')
               this.errReg="An account already exists"
             }
             else if(this.userInfo.password!=this.userInfo.cpassword){
-              alert('Pass')
               this.errReg="Password do not match"
             }
             else {
               /* TODO eventually register user */
-              alert('Ok')
               console.log(this.notFilled)
               this.notFilled = !this.notFilled
               console.log(this.notFilled)
-              alert('Wait')
-
               setTimeout(this.reload, 2000);
-              alert('Wait')
             }
           },
           reload: function(){

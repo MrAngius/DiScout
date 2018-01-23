@@ -26,11 +26,9 @@
 </template>
 
 <script>
-  import Functions from '../mixin.js';
 
   export default {
     name: "vue-nav-bar",
-    mixins: [Functions],
     data(){
         return{
           showMobile: false,
@@ -58,9 +56,8 @@
       },
       action: function (elem) {
         this.showUser=!this.showUser;
-        this.addRemoveClass(elem, "w3-teal");
+        addRemoveClass(elem, "w3-teal");
       }
-
     }
   }
 </script>

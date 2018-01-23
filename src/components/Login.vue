@@ -33,11 +33,9 @@
 
 <script>
   import {bus} from '../main'
-  import Functions from '../mixin.js';
 
   export default {
     name: "vue-login-page",
-    mixins: [Functions],
     data(){
       return{
         errLogin: false,
