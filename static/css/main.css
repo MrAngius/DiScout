@@ -437,7 +437,7 @@ a {
   display: block;
   overflow-x: auto; }
 
-.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, .filtersSidebar:after, .banner:after, #track-page .details-container .details div:after, #track-page .details-container .details p:after, #track-page #similar-products-slider:after, #instructions:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, .filtersSidebar:before, .banner:before, #track-page .details-container .details div:before, #track-page .details-container .details p:before, #track-page #similar-products-slider:before, #instructions:before, .w3-panel:after, #tracked-products #tracked-products-list:after, .w3-panel:before, #tracked-products #tracked-products-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
+.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, .filtersSidebar:after, .banner:after, #track-page .details-container .details div:after, #track-page .details-container .details p:after, #track-page #similar-products-slider:after, #instructions:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, .filtersSidebar:before, .banner:before, #track-page .details-container .details div:before, #track-page .details-container .details p:before, #track-page #similar-products-slider:before, #instructions:before, .w3-panel:after, #tracked-products #product-list:after, .w3-panel:before, #tracked-products #product-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
 .w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .filter:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .filter:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
@@ -746,10 +746,10 @@ a {
 .w3-row-padding, .w3-row-padding > .w3-half, .w3-row-padding > .w3-third, .w3-row-padding > .w3-twothird, .w3-row-padding > .w3-threequarter, .w3-row-padding > .w3-quarter, .w3-row-padding > .w3-col, .w3-row-padding > #tracked-products {
   padding: 0 8px; }
 
-.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, .filtersSidebar, .banner, #track-page .details-container .details div, #track-page .details-container .details p, #track-page #similar-products-slider, #instructions, .w3-panel, #tracked-products #tracked-products-list {
+.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, .filtersSidebar, .banner, #track-page .details-container .details div, #track-page .details-container .details p, #track-page #similar-products-slider, #instructions, .w3-panel, #tracked-products #product-list {
   padding: 0.01em 16px; }
 
-.w3-panel, #tracked-products #tracked-products-list {
+.w3-panel, #tracked-products #product-list {
   margin-top: 16px;
   margin-bottom: 16px; }
 
@@ -1473,7 +1473,7 @@ header {
     cursor: pointer;
     position: relative;
     top: 12px; }
-  #tracked-products #tracked-products-list {
+  #tracked-products #product-list {
     max-height: 1500px;
     overflow: auto;
     width: 100%; }
@@ -1485,7 +1485,6 @@ header {
   #track-page {
     padding: 0 !important; } }
 #track-page #triangles-container {
-  float: left;
   overflow: hidden;
   position: relative;
   width: 15em;

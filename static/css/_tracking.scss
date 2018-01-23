@@ -30,7 +30,8 @@
   }
 
   // product list
-  #tracked-products-list {
+  // mod
+  #product-list {
     @extend .w3-panel;
     max-height: 1500px;
     overflow: auto;
@@ -64,7 +65,8 @@
     @extend .w3-card;
     @extend .w3-margin;
     //@extend .w3-mobile;
-    float: left;
+    // NOTE: the float is giving problems
+    //float: left;
     overflow: hidden;
     position: relative;
     width: 15em;
