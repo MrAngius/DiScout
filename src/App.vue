@@ -1,8 +1,8 @@
 <template>
   <main>
     <vue-header/>
-    <vue-navbar :loggedIn="loggedIn" :userInfo="userInfo" v-on:changepage="changePage" v-on:logout="logout"/>
-    <component v-bind:is="whichPage" v-on:userLoggedIn="logIn" v-on:changepage="changePage"/>
+    <vue-navbar :loggedIn="loggedIn" :userInfo="userInfo" v-on:logout="logout"/>
+    <component v-bind:is="whichPage" v-on:userLoggedIn="logIn" />
     <vue-footer/>
   </main>
 </template>
@@ -17,7 +17,7 @@
   import Registration from './components/Registration'
   import UserSettings from './components/UserSettings'
   import News from './components/News'
-
+  import { bus } from './main'
   export default {
     name: 'App',
     components: {
@@ -44,10 +44,12 @@
         this.loggedIn=true;
         this.userInfo=JSON.parse(user)
       }
+      bus.$on('changepage', this.changePage)
     },
     methods: {
       logout: function(){
         this.loggedIn=false;
+        window.sessionStorage.removeItem(this.userInfo.email.replace('@','at'))
         window.sessionStorage.removeItem('user');
         this.changePage('Home')
       },

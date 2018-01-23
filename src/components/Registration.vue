@@ -107,7 +107,7 @@
             }
           },
           reload: function(){
-            this.$emit('changepage', 'Home')
+            bus.$emit('changepage', 'Home')
           }
 
       }

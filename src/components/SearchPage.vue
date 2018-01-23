@@ -17,7 +17,7 @@
       </div><h2 id="page-title">
         Search results
       </h2>
-      <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" v-bind:price="price" v-bind:search="searchtext"/>
+      <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" v-bind:price="price" v-bind:search="searchtext" v-bind:database="'product_db'"/>
     </main>
   </div>
 </template>

@@ -44,6 +44,10 @@
       search: {
         type: Object,
         required: true
+      },
+      database: {
+        required: true,
+        type: String
       }
     },
     computed:{
@@ -75,7 +79,7 @@
       },
     },
     created() {
-      this.cards=loadDB('static/database_production/product_db.json')
+      this.cards=loadDB(this.database)
     }
   }
 </script>

@@ -1,13 +1,15 @@
 
 function loadDB(database){
-  if (window.sessionStorage.getItem('database') === null) {
-    Plotly.d3.json(database, function (e, data) {
-      window.sessionStorage.setItem('database', JSON.stringify(data.products))
+  if (window.sessionStorage.getItem(database) === null) {
+    alert('DB not loaded')
+    Plotly.d3.json('static/database_production/' + database + '.json', function (e, data) {
+      window.sessionStorage.setItem(database, JSON.stringify(data.products))
       return data.products
     })
   }
   else {
-    return JSON.parse(window.sessionStorage.getItem('database'))
+    alert('DB loaded')
+    return JSON.parse(window.sessionStorage.getItem(database))
   }
 
   /* Following code is used to insert categories dynamically, not working atm */
