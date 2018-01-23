@@ -1404,7 +1404,7 @@ header {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
-    width: 75%;
+    width: 60%;
     height: 100%; }
     .vue-card-product-info .vue-card-image-box img {
       max-width: 100%;
@@ -1416,7 +1416,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 25%;
+    width: 40%;
     height: 100%; }
 
 .vue-card-track, .vue-card-tracked {

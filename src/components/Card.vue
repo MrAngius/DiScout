@@ -11,8 +11,12 @@
           </div>
           <div class="vue-card-summary-box">
             <!-- Add here other product useful information... -->
-            <div v-if="price_current" v-text="price_current + '€'"></div>
-            <div v-if="off" v-text="off"></div>
+            <p class="w3-container">
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ price }}€</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
+              <br>
+              <span class="w3-text-yellow w3-xlarge fa fa-star"> {{ rating }}</span>
+            </p>
           </div>
         </div>
       </div>
