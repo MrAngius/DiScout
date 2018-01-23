@@ -49,7 +49,6 @@
     },
     methods:{
       logout: function () {
-        alert("logout");
         this.$emit('logout')
       },
       changePage: function(page){
