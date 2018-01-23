@@ -2,14 +2,14 @@
   <!-- TODO: flex layout may be broken on Chrome... image and price are not vertically centered. Verify cross-browser -->
   <div>
     <div class="vue-card-product" v-bind:draggable="isDraggable" v-on:dragstart="dragStart">
-      <div id="product-clickable" v-on:click='focusCard'>
-        <p class="title-box" v-text="name"></p>
+      <div itemscope itemtype="http://schema.org/Offer" id="product-clickable" v-on:click='focusCard'>
+        <p class="title-box" v-text="name" itemprop="name"></p>
         <div class="vue-card-product-info">
           <div class="vue-card-image-box">
-            <img v-if="img_source" class='vue-card-product-image' :src="img_source" draggable="false">
+            <img itemprop="image" v-if="img_source" class='vue-card-product-image' :src="img_source" draggable="false">
             <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
           </div>
-          <div class="vue-card-summary-box">
+          <div itemprop="price" class="vue-card-summary-box">
             <!-- Add here other product useful information... -->
             <div v-if="price_current" v-text="price_current + '€'"></div>
             <div v-if="off" v-text="off"></div>
