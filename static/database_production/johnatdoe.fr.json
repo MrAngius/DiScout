@@ -1,0 +1,102 @@
+{
+  "products": {
+    "0": {
+      "low_price": "45",
+      "name": "Veste de costume",
+      "reduction": "7",
+      "id": 0,
+      "rating": "4.8",
+      "category": "Vetements",
+      "off": "12",
+      "price_current": "48",
+      "img_source": "img/products/product0.jpg",
+      "price": "55",
+      "vendor": "Zalando",
+      "link": "https://www.zalando.fr/pier-one-blazer-dark-blue-pi922ba19-k11.html\n"
+    },
+    "1": {
+      "low_price": "75",
+      "name": "Tronconneuse a essence",
+      "reduction": "21",
+      "id": 1,
+      "rating": "4.3",
+      "category": "Tools",
+      "off": "21",
+      "price_current": "79",
+      "img_source": "img/products/product1.jpg",
+      "price": "100",
+      "vendor": "ebay",
+      "link": "https://www.ebay.fr/itm/Tronconneuse-a-essence-scie-20-puissance-62cc-Greencut/361876941810?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1\n"
+    },
+    "4": {
+      "low_price": "80",
+      "name": "Sac a Dos trekking Symbium Homme",
+      "reduction": "11",
+      "id": 4,
+      "rating": "3.5",
+      "category": "Bags",
+      "off": "10",
+      "price_current": "99",
+      "img_source": "img/products/product4.jpg",
+      "price": "110",
+      "vendor": "Decathlon",
+      "link": "https://www.decathlon.fr/sac-a-dos-sym-h-7010l-blu-id_8300991.html\n"
+    },
+    "10": {
+      "low_price": "69.99",
+      "name": "Nappy: the teddy bear",
+      "reduction": "5",
+      "id": 10,
+      "rating": "5",
+      "category": "Toys",
+      "off": "6",
+      "price_current": "75",
+      "img_source": "img/products/product10.jpg",
+      "price": "80",
+      "vendor": "Amazon",
+      "link": "https://www.amazon.fr/VERCART-Nounours-Peluches-dAnniversaire-Decoratif/dp/B01MA58EHS/ref=sr_1_4?s=toys&ie=UTF8&qid=1516285486&sr=1-4&keywords=teddy+bear\n"
+    },
+    "12": {
+      "low_price": "729.99",
+      "name": "Asus Vivobook S14 S406UA-BM013T",
+      "reduction": "101",
+      "id": 12,
+      "rating": "3.6",
+      "category": "Hi-tech",
+      "off": "11",
+      "price_current": "749",
+      "img_source": "img/products/product12.jpg",
+      "price": "850",
+      "vendor": "Amazon",
+      "link": "https://www.amazon.fr/gp/product/B075QJCJW1/ref=s9_acsd_top_hd_bw_bT5jAl_c_x_1_w?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-4&pf_rd_r=1Y9HMBMFF2RMQ2V5SW5K&pf_rd_t=101&pf_rd_p=96c3c7c4-1dfb-50e2-86ef-d5e6476062fa&pf_rd_i=429879031\n"
+    },
+    "13": {
+      "low_price": "520",
+      "name": "Samsung Galaxy S8+ Plus",
+      "reduction": "80",
+      "id": 13,
+      "rating": "4.3",
+      "category": "Hi-tech",
+      "off": "12",
+      "price_current": "540",
+      "img_source": "img/products/product13.jpg",
+      "price": "620",
+      "vendor": "ebay",
+      "link": "https://www.ebay.fr/itm/Samsung-Galaxy-S8-Plus-G955FD-Duos-LTE-64GB-Midnight-Black-meilleur/252895889482?_trkparms=pageci%253A7c7f1c9d-fc5e-11e7-b8e9-74dbd1808ff7%257Cparentrq%253A09bd0e371610aadc35951181ffdafef0%257Ciid%253A1\n"
+    },
+    "14": {
+      "low_price": "490",
+      "name": "Lenovo YOGA 520-14IKB Ultrabook tactile?",
+      "reduction": "101",
+      "id": 14,
+      "rating": "4.2",
+      "category": "Hi-tech",
+      "off": "16",
+      "price_current": "499",
+      "img_source": "img/products/product14.jpg",
+      "price": "600",
+      "vendor": "Amazon",
+      "link": "https://www.amazon.fr/Lenovo-520-14IKB-Ultrabook-tactile-Graphics/dp/B073PC1G35/ref=br_msw_pdt-1?_encoding=UTF8&smid=A1X6FK5RDHNB96&pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=&pf_rd_r=G0Z0X0J0XXGMQ8QHEGMC&pf_rd_t=36701&pf_rd_p=54a1d0f8-ce37-49fd-974a-34f4a74af694&pf_rd_i=desktop\n"
+    }
+  }
+}

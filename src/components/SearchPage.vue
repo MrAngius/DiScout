@@ -1,16 +1,16 @@
 <template>
   <div id="searchpage">
     <!-- FILTERS (mobile version) -->
-    <filters type="mobile" v-bind:categories="categories" />
+    <filters type="mobile" v-bind:categories="categories" v-bind:rating="rating" />
     <modal/>
 
     <!-- PAGE content -->
     <main id="page" class="has-sidebar w3-light-grey">
-      <filters v-bind:categories="categories" type="tablet"/>
+      <filters v-bind:categories="categories" v-bind:rating="rating" type="tablet"/>
       <h2 id="page-title">
         Search results
       </h2>
-      <product-list type="general" v-bind:categories="categories" />
+      <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" />
     </main>
   </div>
 </template>
@@ -39,6 +39,9 @@
             Tools: true,
             Toys: true,
             Vetements: true
+          },
+          rating: {
+            min: 0
           }
         }
       }

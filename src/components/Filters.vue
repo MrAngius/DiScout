@@ -25,17 +25,33 @@
         </section>
         <section class="filter">
           Minimum rating
-          <fieldset class="rating">
-            <input type="radio" :id="'star5_'+type" :name="'rating_'+type" value="5" />           <label class="full" :for="'star5_'+type" title="5 stars"></label>
-            <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" />     <label class="half" :for="'star4half_'+type" title="4.5 stars"></label>
-            <input type="radio" :id="'star4_'+type" :name="rating" value="4" />           <label class="full" for="'star4_'+type" title="4 stars"></label>
-            <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" />     <label class="half" :for="'star3half_'+type" title="3.5 stars"></label>
-            <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" />           <label class="full" :for="'star3_'+type" title="3 stars"></label>
-            <input type="radio" :id="'star2half_'+type" :name="'rating_'+type" value="2.5" />     <label class="half" :for="'star2half_'+type" title="2.5 stars"></label>
-            <input type="radio" :id="'star2_'+type" :name="'rating_'+type" value="2" />           <label class="full" :for="'star2_'+type" title="2 stars"></label>
-            <input type="radio" :id="'star1half_'+type" :name="'rating_'+type" value="1.5" />     <label class="half" :for="'star1half_'+type" title="1.5 stars"></label>
-            <input type="radio" :id="'star1_'+type" :name="'rating_'+type" value="1" />           <label class="full" :for="'star1_'+type" title="1 star"></label>
-            <input type="radio" :id="'starhalf_'+type" :name="'rating_'+type" value="0.5" />      <label class="half" :for="'starhalf_'+type" title="0.5 stars"></label>
+          <fieldset class="rating" v-on:click="()=>alert(this.rating.min)" >
+            <!--template v-for="star in stars">
+              <input type="radio" :id="'star'+star+'_'+type" :name="'rating_'+type" :value="star" />
+              <label class="full" :for="'star'+star+'_'+type" :title="star + 'stars'"></label>
+              <input type="radio" :id="'star'+(star-0.5)+'_'+type" :name="'rating_'+type" :value="(star-0.5)" />
+              <label class="half" :for="'star'+(star-0.5)+'_'+type" :title="(star-0.5) + 'stars'"></label>
+            </template-->
+            <input type="radio" :id="'star5_'+type" :name="'rating_'+type" value="5" v-on:click="()=>rating.min=5"/>
+            <label class="full" :for="'star5_'+type" title="5 stars"></label>
+            <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" v-on:click="()=>rating.min=4.5"/>
+            <label class="half" :for="'star4half_'+type" title="4.5 stars"></label>
+            <input type="radio" :id="'star4_'+type" :name="rating" value="4" v-on:click="()=>rating.min=4"/>
+            <label class="full" for="'star4_'+type" title="4 stars"></label>
+            <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" v-on:click="()=>rating.min=3.5"/>
+            <label class="half" :for="'star3half_'+type" title="3.5 stars"></label>
+            <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" v-on:click="()=>rating.min=3"/>
+            <label class="full" :for="'star3_'+type" title="3 stars"></label>
+            <input type="radio" :id="'star2half_'+type" :name="'rating_'+type" value="2.5" v-on:click="()=>rating.min=2.5"/>
+            <label class="half" :for="'star2half_'+type" title="2.5 stars"></label>
+            <input type="radio" :id="'star2_'+type" :name="'rating_'+type" value="2" v-on:click="()=>rating.min=2"/>
+            <label class="full" :for="'star2_'+type" title="2 stars"></label>
+            <input type="radio" :id="'star1half_'+type" :name="'rating_'+type" value="1.5" v-on:click="()=>rating.min=1.5"/>
+            <label class="half" :for="'star1half_'+type" title="1.5 stars"></label>
+            <input type="radio" :id="'star1_'+type" :name="'rating_'+type" value="1" v-on:click="()=>rating.min=1"/>
+            <label class="full" :for="'star1_'+type" title="1 star"></label>
+            <input type="radio" :id="'starhalf_'+type" :name="'rating_'+type" value="0.5" v-on:click="()=>rating.min=0.5"/>
+            <label class="half" :for="'starhalf_'+type" title="0.5 stars"></label>
           </fieldset>
         </section>
         <section class="filter-buttons">
@@ -101,13 +117,18 @@
               min: 0,
               max: 9999
             },
-            // TODO: make the rating work. It has to be the same for both the filters (mobile one and general one)
-            rating: 0,
             // TODO: create the filter search based on the names of the products (in order to insert the moving search bar)
             dispCat: true
             // NOTE: the "overlay" is not appearing anymore on medium-size screens...
           },
-          showSideBar: false
+          showSideBar: false,
+          stars:{
+            1: 1,
+            2: 2,
+            3: 3,
+            4: 4,
+            5: 5
+          }
         }
       },
       props:{
@@ -118,6 +139,10 @@
         type: {
           required: true,
           type: String
+        },
+        rating: {
+          required: true,
+          type: Object
         }
       },
       computed: {
@@ -142,7 +167,7 @@
           }
           this.filters.price.min=0;
           this.filters.price.max=9999;
-          this.filters.rating=0
+          this.filters.rating.min=0
         }
       }
     }
