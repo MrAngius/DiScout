@@ -1,15 +1,32 @@
 /* TRACKING page specific elements */
 
+// colored titles
+.banner {
+  @extend .w3-container;
+  //@extend .w3-round;
+  margin: 0;
+}
+
 // the left column of the page
 #tracked-products {
   @extend .w3-col;
+  @extend .w3-card;
+  @extend .w3-mobile;
   width: 280px;
 
   // title
-  p {
-    @extend .w3-container;
-    @extend .w3-large;
+  #tracked-banner {
+    @extend .w3-grey;
+    @extend .w3-xlarge;
+    @extend .w3-padding;
 
+    // icon
+    i {
+      @extend .w3-right;
+      cursor: pointer;
+      position: relative;
+      top: 12px
+    }
   }
 
   // product list
@@ -21,28 +38,44 @@
   }
 }
 
+// binocular icon (to re-open the tracked product list)
+#collapsed-tracklist {
+  @extend .w3-button;
+  @extend .w3-grey;
+  @extend .w3-hover-dark-grey;
+  @extend .w3-xlarge;
+  @extend .w3-mobile;
+  text-align: left;
+}
+
 // details, graphs and suggested products
 #track-page {
-  @extend .w3-container;
+  @extend .w3-padding;
   @extend .w3-rest;
 
-  // colored titles
-  .banner {
-    @extend .w3-container;
-    @extend .w3-round;
+  @media (max-width: 600px) {
+    padding: 0 !important;
   }
 
   // triangles: products images compared in a box
   #triangles-container {
+    @extend .w3-grey;
+    @extend .w3-round-large;
+    @extend .w3-card;
+    @extend .w3-margin;
+    //@extend .w3-mobile;
+    float: left;
     overflow: hidden;
     position: relative;
-    width: 40em; height: 27em;
-    background-color: grey;
-    border: 5px outset grey;
+    width: 15em;
+    height: 15em;
+    max-width: 100% !important;
+    //border: 5px outset grey;
 
     // only the main product image is displayed
     img {
       width: 100%;
+      height: auto;
     }
 
     // container of a product we want to compare to another
@@ -55,7 +88,8 @@
       /* arctan(27 / 40) = 34.01935deg
        * need to skew by 90deg - 34.01935deg = 55.98065deg
       */
-      transform: skewX(-55.98deg);
+      // transform: skewX(-55.98deg);
+      transform: skewX(-45deg);
     }
 
     // the main product
@@ -68,14 +102,43 @@
     .triangle:last-child {
       right: -.25em;
       transform-origin: 0 100%;
+      vertical-align: bottom;
+      text-align: right;
     }
 
     // images inside the triangle
     .triangle img {
       width: 65% !important;
       height: 100%;
-      transform: skewX(55.98deg);
+      // transform: skewX(55.98deg);
+      transform: skewX(45deg);
       transform-origin: inherit;
+    }
+  }
+
+  // product details
+  .details-container {
+    @extend .w3-left;
+    @extend .w3-mobile;
+
+    // the content
+    .details {
+      @extend .w3-round-large;
+      @extend .w3-card;
+      @extend .w3-white;
+      @extend .w3-margin;
+
+      // product name
+      div {
+        @extend .w3-block;
+        @extend .w3-container;
+        @extend .w3-xlarge;
+      }
+
+      // product information
+      p {
+        @extend .w3-container;
+      }
     }
   }
 
@@ -95,4 +158,78 @@
     }
   }
 
+}
+
+
+#notification-menu {
+  .switch {
+      position: relative;
+      display: inline-block;
+      width: 45px;
+      height: 26px;
+  }
+
+  .switch input {display:none;}
+
+  .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+  }
+
+  .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+  }
+
+  input:checked + .slider {
+      background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+      -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+      transform: translateX(20px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+      border-radius: 26px;
+  }
+
+  .slider.round:before {
+      border-radius: 50%;
+  }
+
+  button {
+    @extend .w3-ripple;
+    @extend .w3-round-large;
+    @extend .w3-mobile;
+    margin-top: 10px;
+  }
+}
+
+// instructions for the suggested products
+#instructions {
+  @extend .w3-large;
+  @extend .w3-light-grey;
+  @extend .w3-container;
+  @extend .w3-justify;
 }

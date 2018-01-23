@@ -10,7 +10,7 @@
       <h2 id="page-title">
         Search results
       </h2>
-      <product-list type="general" v-bind:categories="categories"/>
+      <product-list type="general" v-bind:categories="categories" />
     </main>
   </div>
 </template>

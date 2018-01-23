@@ -2,12 +2,12 @@
   <!-- OVERLAY -->
   <!-- TODO not showing button i mobile mode -->
   <div>
-    <div id="overlay" v-if="showSideBar&&!isMobile" v-on:click="showSideBar=!showSideBar"></div>
-    <div v-bind:data-open="showSideBar" id="filtersSidebar" v-bind:class="{'shifted-sidebar': !showSideBar&&!isMobile, 'w3-hide-large': isMobile, 'w3-hide-medium': isMobile, 'w3-pale-green': isMobile}">
-      <button v-bind:id="filterButton" v-on:click="showSideBar=!showSideBar" v-bind:class="{'w3-grey':isMobile&&!showSideBar, 'w3-teal':isMobile&&showSideBar, 'w3-hover-teal':isMobile, 'w3-mobile w3-button':isMobile }">
+    <div class="overlay" v-bind:style="{'display: block !important; visibility: visible !important;': showSideBar && !isMobile}" v-on:click="showSideBar=!showSideBar"></div>
+    <div v-bind:data-open="showSideBar" v-bind:class="{'filtersSidebar': !isMobile, 'shifted-sidebar': !showSideBar&&!isMobile, 'w3-hide-large': isMobile, 'w3-hide-medium': isMobile, 'w3-pale-green': isMobile}">
+      <button v-on:click="showSideBar=!showSideBar" v-bind:class="{'filtersSidebarButton': !isMobile, 'w3-grey':isMobile&&!showSideBar, 'w3-teal':isMobile&&showSideBar, 'w3-hover-teal w3-mobile w3-button':isMobile }">
         <i class="fa fa-search-plus w3-xlarge"></i>
       </button>
-      <div id="filtersNavbar" v-bind:class="{'w3-hide':isMobile&&!showSideBar, 'w3-show':isMobile&&showSideBar, 'w3-padding': isMobile}" >
+      <div class="filtersNavbar" v-bind:class="{'w3-hide':isMobile&&!showSideBar, 'w3-show':isMobile&&showSideBar, 'w3-padding': isMobile}" >
         <header>
           <h2>FILTERS</h2>
         </header>
@@ -26,16 +26,16 @@
         <section class="filter">
           Minimum rating
           <fieldset class="rating">
-            <input type="radio" id="star5" name="rating" value="5" />           <label class="full" for="star5" title="5 stars"></label>
-            <input type="radio" id="star4half" name="rating" value="4.5" />     <label class="half" for="star4half" title="4.5 stars"></label>
-            <input type="radio" id="star4" name="rating" value="4" />           <label class="full" for="star4" title="4 stars"></label>
-            <input type="radio" id="star3half" name="rating" value="3.5" />     <label class="half" for="star3half" title="3.5 stars"></label>
-            <input type="radio" id="star3" name="rating" value="3" />           <label class="full" for="star3" title="3 stars"></label>
-            <input type="radio" id="star2half" name="rating" value="2.5" />     <label class="half" for="star2half" title="2.5 stars"></label>
-            <input type="radio" id="star2" name="rating" value="2" />           <label class="full" for="star2" title="2 stars"></label>
-            <input type="radio" id="star1half" name="rating" value="1.5" />     <label class="half" for="star1half" title="1.5 stars"></label>
-            <input type="radio" id="star1" name="rating" value="1" />           <label class="full" for="star1" title="1 star"></label>
-            <input type="radio" id="starhalf" name="rating" value="0.5" />      <label class="half" for="starhalf" title="0.5 stars"></label>
+            <input type="radio" :id="'star5_'+type" :name="'rating_'+type" value="5" />           <label class="full" :for="'star5_'+type" title="5 stars"></label>
+            <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" />     <label class="half" :for="'star4half_'+type" title="4.5 stars"></label>
+            <input type="radio" :id="'star4_'+type" :name="rating" value="4" />           <label class="full" for="'star4_'+type" title="4 stars"></label>
+            <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" />     <label class="half" :for="'star3half_'+type" title="3.5 stars"></label>
+            <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" />           <label class="full" :for="'star3_'+type" title="3 stars"></label>
+            <input type="radio" :id="'star2half_'+type" :name="'rating_'+type" value="2.5" />     <label class="half" :for="'star2half_'+type" title="2.5 stars"></label>
+            <input type="radio" :id="'star2_'+type" :name="'rating_'+type" value="2" />           <label class="full" :for="'star2_'+type" title="2 stars"></label>
+            <input type="radio" :id="'star1half_'+type" :name="'rating_'+type" value="1.5" />     <label class="half" :for="'star1half_'+type" title="1.5 stars"></label>
+            <input type="radio" :id="'star1_'+type" :name="'rating_'+type" value="1" />           <label class="full" :for="'star1_'+type" title="1 star"></label>
+            <input type="radio" :id="'starhalf_'+type" :name="'rating_'+type" value="0.5" />      <label class="half" :for="'starhalf_'+type" title="0.5 stars"></label>
           </fieldset>
         </section>
         <section class="filter-buttons">
@@ -96,12 +96,16 @@
                 name: 'Vetements'
               }
             ],
+            // TODO: create the price filter, in both the filters of the search page
             price: {
               min: 0,
-              max: 1000
+              max: 9999
             },
+            // TODO: make the rating work. It has to be the same for both the filters (mobile one and general one)
             rating: 0,
+            // TODO: create the filter search based on the names of the products (in order to insert the moving search bar)
             dispCat: true
+            // NOTE: the "overlay" is not appearing anymore on medium-size screens...
           },
           showSideBar: false
         }
@@ -137,7 +141,7 @@
             }
           }
           this.filters.price.min=0;
-          this.filters.price.max=1000;
+          this.filters.price.max=9999;
           this.filters.rating=0
         }
       }

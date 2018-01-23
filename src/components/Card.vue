@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div class="vue-card-track">
+      <div class="vue-card-track" v-on:click='trackProduct'>
         <i class="fa fa-plus"></i> Track
       </div>
     </div>
@@ -104,6 +104,10 @@
       },
       dragStart: function (ev) {
           ev.dataTransfer.setData('card', JSON.stringify(this.$props))
+      },
+      trackProduct: function (ev) {
+          // TODO: track the chosen product
+          alert('Track the product... TODO')
       }
     }
   }

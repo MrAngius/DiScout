@@ -1,15 +1,15 @@
 <template>
-  <section class="w3-section" v-on:drop.prevent="itemDropped" v-on:dragover.prevent="()=>false">
+  <div class="w3-section" v-on:drop.prevent="itemDropped" v-on:dragover.prevent="()=>false">
     <h2 class="w3-blue banner">
       <i class="fa fa-line-chart"></i> Price Trend
     </h2>
-    <div id="graph_buttons">
-      <button v-on:click="showRange('1')">1 Month</button>
-      <button v-on:click="showRange('3')">3 Month</button>
-      <button v-on:click="showRange('6')">6 Month</button>
-    </div>
+    <p id="graph_buttons">
+      <button v-on:click="showRange('1')" class="w3-button w3-light-blue w3-hover-blue w3-round">1 Month</button>
+      <button v-on:click="showRange('3')" class="w3-button w3-light-blue w3-hover-blue w3-round">3 Month</button>
+      <button v-on:click="showRange('6')" class="w3-button w3-light-blue w3-hover-blue w3-round">6 Month</button>
+    </p>
     <div ref="thegraph" id="graph"></div>
-  </section>
+  </div>
 </template>
 
 <script>
