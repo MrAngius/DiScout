@@ -60,7 +60,6 @@
           }
         },
         colors: ['#f5b041', '#f4d03f', '#58d68d', '#52be80', '#45b39d', '#48c9b0', '#2874a6', '#1f618d', '#6c3483'],
-
       }
     },
     created() {
@@ -68,14 +67,16 @@
     mounted() {
       Plotly.newPlot("graph", [], this.layout, {displayModeBar: false});
 
+      let legendFlag = !!this.productPreview;
       // update the graph slider in case we open the page from a mobile support
-      showHideSlider("graph", this.$props.productPreview);
+      showHideSlider("graph", legendFlag);
 
       // adding a listener in order to add and remove the slider
       window.addEventListener('resize', function () {
         Plotly.Plots.resize("graph");
-        showHideSlider("graph", this.$props.productPreview);
+        showHideSlider("graph", legendFlag);
       });
+
       bus.$on('updateGraph', this.updateGraph)
     },
     methods: {

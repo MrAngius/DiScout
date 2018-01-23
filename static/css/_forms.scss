@@ -1,6 +1,28 @@
 /* FORM ELEMENTS */
 
 /* Insert here new stuff... */
+// User settings
+#news-page {
+  h3 {
+    cursor: pointer;
+  }
+
+  h3:hover, #more-button:hover, .read-more:hover {
+    text-decoration: underline;
+  }
+
+  .article-image {
+    width: 128px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .read-more, #more-button {
+    font-weight: bold;
+    cursor: pointer;
+    color: #444;
+  }
+}
 
 
 /* Input type RANGE */

@@ -1626,6 +1626,19 @@ header {
 
 /* FORM ELEMENTS */
 /* Insert here new stuff... */
+#news-page h3 {
+  cursor: pointer; }
+#news-page h3:hover, #news-page #more-button:hover, #news-page .read-more:hover {
+  text-decoration: underline; }
+#news-page .article-image {
+  width: 128px;
+  max-width: 100%;
+  height: auto; }
+#news-page .read-more, #news-page #more-button {
+  font-weight: bold;
+  cursor: pointer;
+  color: #444; }
+
 /* Input type RANGE */
 /* http://danielstern.ca/range.css/#/ */
 input[type=range] {

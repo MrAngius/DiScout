@@ -1,5 +1,6 @@
 /* Create contents dinamically */
 
+/*
 function productPreview(productElem, modalContainerId) {
     // show the modal window
     showHideTarget(modalContainerId);
@@ -9,3 +10,4 @@ function productPreview(productElem, modalContainerId) {
     removeTrace(true);
     addTrace(productId);
 }
+*/
