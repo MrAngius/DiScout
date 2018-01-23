@@ -3,7 +3,7 @@
   <main id="page" class="w3-row">
     <aside id="tracked-products" v-bind:class="{'w3-hide': !tracklistOpen}">
       <div id="tracked-banner">
-        <i class="fa fa-binoculars" v-on:click="tracklistOpen=!tracklistOpen""></i> Your tracked products
+        <i class="fa fa-binoculars" v-on:click="tracklistOpen=!tracklistOpen"></i> Your tracked products
       </div>
       <div class="w3-panel w3-justify">
         Click on one of the tracked product, to see extra information
@@ -20,7 +20,6 @@
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
     <div id="track-page">
       <!-- DETAILS -->
-
       <vue-table/>
       <!-- GRAPH -->
       <!-- TODO: the graph is working, but it raises an exception in the console. 6 times per click... -->
