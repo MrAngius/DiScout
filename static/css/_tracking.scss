@@ -56,6 +56,18 @@
 
   @media (max-width: 600px) {
     padding: 0 !important;
+
+  }
+
+  #product-image-preview {
+    @extend .w3-mobile;
+    // @extend .w3-left;
+    display: block;
+
+    @media (max-width: 600px) {
+      display: none;
+
+    }
   }
 
   // triangles: products images compared in a box
@@ -79,6 +91,7 @@
       width: 100%;
       height: auto;
     }
+
 
     // container of a product we want to compare to another
     .triangle {
@@ -120,8 +133,10 @@
 
   // product details
   .details-container {
-    @extend .w3-left;
+    //@extend .w3-left;
     @extend .w3-mobile;
+    // mod
+    @extend .w3-row;
 
     // the content
     .details {

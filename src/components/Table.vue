@@ -5,46 +5,70 @@
       <i class="fa fa-cart-plus"></i> Details
     </h2>
     <!-- Product image preview -->
-    <div class="w3-left w3-mobile" v-if="!productPreview">
-      <div id="triangles-container" v-if="isOn">
-        <div v-bind:class="{'triangle': comparing}">
-          <img v-bind:src="focus.img_source" draggable="false">
-        </div>
-        <div class="triangle" style="text-align: right;" v-if="comparing">
-          <img v-bind:src="compare.img_source" draggable="false">
+    <div>
+
+      <!-- REMOVE THE IMAGE -->
+      <!--
+      <div id="product-image-preview" v-if="!productPreview">
+        <div id="triangles-container" v-if="isOn">
+          <div v-bind:class="{'triangle': comparing}">
+            <img v-bind:src="focus.img_source" draggable="false">
+          </div>
+          <div class="triangle" style="text-align: right;" v-if="comparing">
+            <img v-bind:src="compare.img_source" draggable="false">
+          </div>
         </div>
       </div>
+      -->
+
+
+      <div class="w3-row ">
+        <!-- Product table details -->
+        <div class="details-container">
+          <div class="details">
+            <div class="w3-blue" v-if="!productPreview">Product A</div>
+
+            <div id="product-image-preview" v-if="!productPreview">
+              <div id="triangles-container" v-if="isOn">
+                <div >
+                  <img v-bind:src="focus.img_source" draggable="false">
+                </div>
+              </div>
+            </div>
+
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
+            </p>
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
+              Category: {{ focus.category }}<br>
+              Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
+            </p>
+          </div>
+        </div>
+
+        <!-- This is the compared product -->
+        <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
+          <div class="details">
+            <div class="w3-red">Product B</div>
+            <p>
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ compare.priceNow }}€</span> (-{{ compare.priceTrend }}%)</span>
+            </p>
+            <p>
+              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
+              Category: {{ compare.category }}<br>
+              Sold by: {{ compare.vendor }} (<a :href="compare.link" target="_blank">link</a>)
+            </p>
+          </div>
+        </div>
+
     </div>
 
-    <!-- Product table details -->
-    <div class="details-container">
-      <div class="details">
-        <div class="w3-blue" v-if="!productPreview">Product A</div>
-        <p v-bind:class="{'w3-container': productPreview}">
-          <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
-          <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
-        </p>
-        <p v-bind:class="{'w3-container': productPreview}">
-          <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
-          Category: {{ focus.category }}<br>
-          Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
-        </p>
-      </div>
+
     </div>
-    <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true }">
-      <div class="details">
-        <div class="w3-red">Product B</div>
-        <p>
-          <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
-          <span class="w3-text-teal"><span class="w3-xlarge">{{ compare.priceNow }}€</span> (-{{ compare.priceTrend }}%)</span>
-        </p>
-        <p>
-          <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
-          Category: {{ compare.category }}<br>
-          Sold by: {{ compare.vendor }} (<a :href="compare.link" target="_blank">link</a>)
-        </p>
-      </div>
-    </div>
+
 
     <!-- Notification settings menu -->
     <div v-if="!productPreview" id="notification-menu" class="details-container">

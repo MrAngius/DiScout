@@ -20,6 +20,7 @@
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
     <div id="track-page">
       <!-- DETAILS -->
+
       <vue-table/>
       <!-- GRAPH -->
       <!-- TODO: the graph is working, but it raises an exception in the console. 6 times per click... -->
