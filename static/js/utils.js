@@ -19,7 +19,6 @@ function loadDB(database){
   */
 }
 
-
 function showHideSlider(graphId) {
   if (window.innerWidth < 601){
     Plotly.relayout(graphId, {'xaxis.rangeslider.visible': false})
@@ -36,4 +35,4 @@ function addRemoveClass(targetElem, className) {
   else {
     targetElem.classList.add(className);
   }
-},
+}
