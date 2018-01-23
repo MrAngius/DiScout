@@ -1,6 +1,7 @@
 <template>
   <!-- MAIN CONTAINER -->
   <main id="page" class="w3-row">
+
     <aside id="tracked-products" v-bind:class="{'w3-hide': !tracklistOpen}">
       <div id="tracked-banner">
         <i class="fa fa-binoculars" v-on:click="tracklistOpen=!tracklistOpen"></i> Your tracked products
@@ -18,7 +19,7 @@
     </button>
 
     <!-- GRAPHS, DETAILS, OTHER PRODUCTS -->
-    <div id="track-page">
+    <div id="track-page" v-bind:class="{ 'w3-hide': !isShowing }">
       <!-- DETAILS -->
       <vue-table/>
       <!-- GRAPH -->
@@ -49,7 +50,7 @@
   import Graph from "./Graph";
   import Table from "./Table";
   import Functions from '../mixin.js';
-
+  import { bus } from '../main'
 
   export default {
     components: {
@@ -59,6 +60,10 @@
     },
     name: "vue-graph-page",
     mixins: [Functions],
+    created() {
+      bus.$on('showingProduct', this.showOrNot)
+
+  },
     data() {
       return {
         categories: {
@@ -74,10 +79,17 @@
           Vetements: true
         },
         cards: {},
-        tracklistOpen: true
+        tracklistOpen: true,
+        isShowing: false
       }
     },
-    methods: {}
+    methods: {
+      showOrNot: function(value){
+        this.isShowing = value;
+        this.tracklistOpen = !value;
+      }
+
+    }
   }
 </script>
 

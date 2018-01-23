@@ -59,19 +59,13 @@
 
   }
 
-  #product-image-preview {
+  .product-image-preview {
     @extend .w3-mobile;
-    // @extend .w3-left;
-    display: block;
-
-    @media (max-width: 600px) {
-      display: none;
-
-    }
+    @extend .w3-left;
   }
 
   // triangles: products images compared in a box
-  #triangles-container {
+  .image-container {
     @extend .w3-grey;
     @extend .w3-round-large;
     @extend .w3-card;
@@ -144,9 +138,10 @@
       @extend .w3-card;
       @extend .w3-white;
       @extend .w3-margin;
+      @extend .w3-clear;
 
       // product name
-      div {
+      .product-name {
         @extend .w3-block;
         @extend .w3-container;
         @extend .w3-xlarge;

@@ -4,83 +4,19 @@
     <h2 class="w3-teal banner">
       <i class="fa fa-cart-plus"></i> Details
     </h2>
-    <!-- Product image preview -->
-    <div>
-
-      <!-- REMOVE THE IMAGE -->
-      <!--
-      <div id="product-image-preview" v-if="!productPreview">
-        <div id="triangles-container" v-if="isOn">
-          <div v-bind:class="{'triangle': comparing}">
-            <img v-bind:src="focus.img_source" draggable="false">
-          </div>
-          <div class="triangle" style="text-align: right;" v-if="comparing">
-            <img v-bind:src="compare.img_source" draggable="false">
-          </div>
-        </div>
-      </div>
-      -->
-
-
-      <div class="w3-row ">
-        <!-- Product table details -->
-        <div class="details-container">
-          <div class="details">
-            <div class="w3-blue" v-if="!productPreview">Product A</div>
-
-            <div id="product-image-preview" v-if="!productPreview">
-              <div id="triangles-container" v-if="isOn">
-                <div >
-                  <img v-bind:src="focus.img_source" draggable="false">
-                </div>
-              </div>
-            </div>
-
-            <p v-bind:class="{'w3-container': productPreview}">
-              <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
-            </p>
-            <p v-bind:class="{'w3-container': productPreview}">
-              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
-              Category: {{ focus.category }}<br>
-              Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
-            </p>
-          </div>
-        </div>
-
-        <!-- This is the compared product -->
-        <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
-          <div class="details">
-            <div class="w3-red">Product B</div>
-            <p>
-              <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ compare.priceNow }}€</span> (-{{ compare.priceTrend }}%)</span>
-            </p>
-            <p>
-              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
-              Category: {{ compare.category }}<br>
-              Sold by: {{ compare.vendor }} (<a :href="compare.link" target="_blank">link</a>)
-            </p>
-          </div>
-        </div>
-
-    </div>
-
-
-    </div>
-
 
     <!-- Notification settings menu -->
     <div v-if="!productPreview" id="notification-menu" class="details-container">
       <div class="details">
-        <h3 class="w3-teal w3-container">
+        <h3 class="w3-amber w3-container" v-on:click="isNotification = !isNotification" style="margin: 0; cursor: pointer">
           <i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings (A)
         </h3>
-        <form class="w3-padding">
+        <form class="w3-padding" v-if="isNotification">
           <section>
             <label style="display: block;">Threshold: {{ threshold_value }}€</label>
             <!-- NOTE: backup... oninput="setContent('threshold_value', this.value);"  -->
-            <input id="track_threshold" v-model="threshold_value" type="range" :min="threshold_min" :max="threshold_max" step="1" style="width: 50%;" />
+            <input id="track_threshold" v-model="threshold_value" type="range" :min="threshold_min" :max="threshold_max"
+                   step="1" style="width: 50%;"/>
           </section>
           <section>
             <span>Email notifications</span><br>
@@ -101,6 +37,63 @@
         </form>
       </div>
     </div>
+
+    <!-- Product image preview -->
+    <div>
+      <!-- Product table details -->
+      <div class="details-container">
+        <div class="details">
+          <div class="w3-blue product-name" v-if="!productPreview">Product A</div>
+          <!-- image -->
+          <div class="product-image-preview" v-if="!productPreview">
+            <div class="image-container" v-if="isOn">
+              <img v-bind:src="focus.img_source" draggable="false">
+            </div>
+          </div>
+
+          <div class="w3-left">
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
+            </p>
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
+              Category: {{ focus.category }}<br>
+              Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- This is the compared product -->
+      <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
+        <div class="details">
+          <div class="w3-red product-name">Product B</div>
+          <!-- image -->
+          <div class="product-image-preview" v-if="!productPreview">
+            <div class="image-container" v-if="isOn">
+              <img v-bind:src="compare.img_source" draggable="false">
+            </div>
+          </div>
+
+          <div class="w3-left">
+            <p>
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ compare.priceNow }}€</span> (-{{ compare.priceTrend }}%)</span>
+            </p>
+            <p>
+              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
+              Category: {{ compare.category }}<br>
+              Sold by: {{ compare.vendor }} (<a :href="compare.link" target="_blank">link</a>)
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
   </div>
 </template>
 
@@ -149,6 +142,8 @@
         },
         comparing: false,
         isOn: false,
+        // to hide and show the notification
+        isNotification: false,
         // TODO: the initial threshold depends on the product price! (actually... the user personalized value. But we are going to fake it)
         threshold_value: 80,
         // TODO: same here, if we decide to use user-personalized values from localStorage
@@ -164,9 +159,9 @@
     },
     methods: {
       itemDropped: function (ev) {
-        let data = JSON.parse(ev.dataTransfer.getData("card"))
-        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"})
-        bus.$emit('updateTable', data, data.type==="tracked" || data.type==="general")
+        let data = JSON.parse(ev.dataTransfer.getData("card"));
+        bus.$emit('updateGraph', {id: data.id, isFocus: data.type === "tracked" || data.type === "general"});
+        bus.$emit('updateTable', data, data.type === "tracked" || data.type === "general");
       },
 
       updateTable: function (data, isFocus) {
@@ -183,16 +178,17 @@
           vendor: data.vendor,
           link: data.link,
           img_source: data.img_source
-        }
-        this.isOn=true
+        };
+        this.isOn = true;
+        bus.$emit('showingProduct', true);
 
 
         if (isFocus) {
-          this.focus = tmp
-          this.comparing=false
+          this.focus = tmp;
+          this.comparing = false
         }
         else {
-          this.comparing=true
+          this.comparing = true;
           this.compare = tmp
         }
       },
