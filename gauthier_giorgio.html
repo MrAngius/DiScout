@@ -44,7 +44,7 @@
 <body>
     <div id="vue">
         <headertemplate></headertemplate>
-        <button id="menu-button-mobile" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'), addRemoveClass(this, 'w3-teal')">
+        <button id="menu-button-mobile" class="w3-black" onclick="showHideTargetMobile('navigation'); addRemoveClass(this, 'w3-black'), addRemoveClass(this, 'w3-teal')">
             <i class="fa fa-bars"></i>
         </button>
         <navbar></navbar>
@@ -95,49 +95,31 @@
         <!-- POPUP: modal content -->
         <div id="modal" class="w3-modal w3-hide">
             <div class="w3-modal-content">
-                <span onclick="showHideTarget('modal')" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
+                <span onclick="showHideTarget('modal')" class="w3-button w3-display-topright w3-orange w3-hover-red w3-large">&times;</span>
                 <div id="zoomed-product">
-                    <section class="w3-row">
-                        <h2 class="w3-teal w3-container w3-round"><i class="fa fa-cart-plus"></i> {{ productFocusTitle }}</h2>
-                        <p>{{ productFocusInfo }}</p>
-                        <!-- Product image preview -->
-                        <div id="triangles-container" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-                            <div class="" style="visibility: hidden;">
-                                <img src="">
-                            </div>
-                            <div class="triangle" style="visibility: hidden; text-align: right;">
-                                <img src="">
-                            </div>
-                        </div>
-
-                        <div class="w3-rest">
-                            <!-- product table details -->
-                            <table class="w3-table w3-bordered ">
-                                <tr>
-                                    <td>Original Price:</td><td> {{ productFocusPrice }}€ </td>
-                                    <td>Current Price:</td> <td> {{ productFocusPriceNow }}€ </td>
-                                    <td>Lowest Price:</td><td> {{ productFocusPriceLower }}€ </td>
-                                </tr>
-                                <tr>
-                                    <td>Rating:</td><td> {{ productFocusRating }} </td>
-                                    <td>Discount:</td><td> {{ productFocusPriceTrend }}% </td>
-                                    <td>Saves:</td><td> {{ productFocusSave }}€ </td>
-                                </tr>
-                                <tr>
-                                    <td>Vendor:</td><td> {{ productFocusVendor }} </td>
-                                    <td>Category:</td><td> {{ productFocusCategory }} </td>
-                                    <td> <a :href = "productFocusLink">Link</a></td>
-
-                                </tr>
-                            </table>
-                        </div>
-
+                    <section >
+                        <h2 class="w3-teal w3-container"><i class="fa fa-cart-plus">
+                            </i> {{ productFocusTitle }}
+                        </h2>
+                        <!-- TODO: mettere la foto del prodotto cliccato... -->
+                        <img src="foo.jpg" class="w3-image">
+                        <p class="w3-container">
+                            <span class="w3-text-red" style="text-decoration: line-through;">{{ productFocusPrice }}€</span><br>
+                            <span class="w3-text-teal"><span class="w3-xlarge">{{ productFocusPriceNow }}€</span> (-{{ productFocusPriceTrend }}%)</span>
+                        </p>
+                        <p class="w3-container">
+                            <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ productFocusRating }}</span></span><br>
+                            Category: {{ productFocusCategory }}<br>
+                            Sold by: {{ productFocusVendor }} (<a :href = "productFocusLink" target="_blank">link</a>)
+                        </p>
                     </section>
 
 
                     <!-- GRAPH -->
                     <section class="w3-section">
-                        <h2 class="w3-blue w3-container w3-round"><i class="fa fa-line-chart"></i> Price Trend</h2>
+                        <h2 class="w3-blue w3-container">
+                            <i class="fa fa-line-chart"></i> Price Trend
+                        </h2>
                         <div>
                             <button @click="showRange(1, $event)">1Month</button>
                             <button @click="showRange(3, $event)">3Month</button>
