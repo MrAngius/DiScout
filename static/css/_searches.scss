@@ -4,155 +4,164 @@
 $product-card-height: 380px;
 $tracking-button-height: 39px;
 
-
 // card container
-.vue-card-container{
-    @extend .w3-mobile;
-    @extend .w3-left;
-    background-color: transparent;
+.vue-card-container {
+  @extend .w3-mobile;
+  @extend .w3-left;
+  background-color: transparent;
 
-    @media (min-width: 601px) {
-        width: 50%;
-    }
+  @media (min-width: 601px) {
+    width: 50%;
+  }
 
-    @media (min-width: 901px) {
-        width: 33.33%;
-    }
+  @media (min-width: 901px) {
+    width: 33.33%;
+  }
 
-    @media (min-width: 1151px) {
-        width: 25%;
-    }
+  @media (min-width: 1151px) {
+    width: 25%;
+  }
 
-    @media (min-width: 1801px) {
-        width: 20%;
-    }
+  @media (min-width: 1801px) {
+    width: 20%;
+  }
 }
 
 .vue-card-tracked-product {
-    @extend .vue-card-container;
-    width: 100% !important;
-    float: none !important;
+  @extend .vue-card-container;
+  width: 100% !important;
+  float: none !important;
 
-    .vue-card-product {
-        margin: 12px 0 4px 0 !important;
-        height: auto !important;
-    }
+  .vue-card-product {
+    margin: 12px 0 4px 0 !important;
+    height: auto !important;
+  }
 
-    .vue-card-track, .vue-card-tracked {
-        display: none !important;
-    }
+  .vue-card-track, .vue-card-tracked {
+    display: none !important;
+  }
 }
 
 .vue-card-suggested-product {
-    @extend .vue-card-container;
-    width: 320px !important;
+  @extend .vue-card-container;
+  width: 320px !important;
 
-    .vue-card-product {
-        height: $product-card-height !important;
-    }
+  .vue-card-product {
+    height: $product-card-height !important;
+  }
 
-    #product-clickable {
-        overflow: hidden !important;
-        height: $product-card-height - $tracking-button-height !important;
-    }
+  #product-clickable {
+    overflow: hidden !important;
+    height: $product-card-height - $tracking-button-height !important;
+  }
 }
 
 // the product itself
 .vue-card-product {
-    @extend .w3-round-large;
-    @extend .w3-card;
-    @extend .w3-hover-teal;
-    @extend .w3-margin;
-    @extend .w3-white;
-    overflow: hidden;
-    cursor: pointer;
-    //max-height: $product-card-height;
+  @extend .w3-round-large;
+  @extend .w3-card;
+  @extend .w3-hover-teal;
+  @extend .w3-margin;
+  @extend .w3-white;
+  overflow: hidden;
+  cursor: pointer;
+  //max-height: $product-card-height;
 
-    @media (min-width: 601px) {
-        height: $product-card-height;
-    }
+  @media (min-width: 601px) {
+    height: $product-card-height;
+  }
 }
 
 .vue-card-product:hover img {
-    // we want images to become fully visible when the mouse i over the container
-    @extend .w3-opacity-off;
+  // we want images to become fully visible when the mouse i over the container
+  @extend .w3-opacity-off;
 }
 
-#product-clickable{
-    // clickable area (title + image and price/other statistics)
-    display: flex;
-    flex-direction: column;
+#product-clickable {
+  // clickable area (title + image and price/other statistics)
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
 
-    @media (min-width: 601px) {
-        overflow: hidden;
-        height: $product-card-height - $tracking-button-height;
-    }
+  @media (min-width: 601px) {
+    overflow: hidden;
+    height: $product-card-height - $tracking-button-height;
+  }
 }
 
-.title-box{
-    @extend .w3-container;
-    @extend .w3-mobile;
+.title-box {
+  @extend .w3-container;
+  @extend .w3-mobile;
 }
 
 .vue-card-product-info {
-    // image, price and other statistics
-    @extend .w3-white;
-    @extend .w3-clear;
-    //@extend .w3-cell-row;
-    flex: auto;
+  // image, price and other statistics
+  @extend .w3-white;
+  @extend .w3-clear;
+  //@extend .w3-cell-row;
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
 
-    .vue-card-image-box{
-        // image container
-        //@extend .w3-cell;
-        @extend .w3-padding;
-        @extend .w3-center;
-        @extend .w3-left;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        overflow: hidden;
-        width: 60%;
-        height: 100%;
+  .vue-card-image-box {
+    // image container
+    //@extend .w3-cell;
+    @extend .w3-padding;
+    @extend .w3-center;
+    @extend .w3-left;
 
-        img {
-            // the product image is partially transparent by default (but not on smartphones)
-            //@extend .w3-image;
-            max-width: 100%;
-            max-height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    width: 60%;
+    height: 100%;
 
-            @media (min-width: 601px) {
-                opacity: 0.75;
-            }
-        }
+    img {
+      // the product image is partially transparent by default (but not on smartphones)
+      //@extend .w3-image;
+      max-width: 100%;
+      max-height: 100%;
+
+      @media (min-width: 601px) {
+        opacity: 0.75;
+      }
     }
+  }
 
-    .vue-card-summary-box{
-        //@extend .w3-cell-middle;
-        @extend .w3-container;
-        @extend .w3-center;
-        @extend .w3-left;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 40%;
-        height: 100%;
-    }
+  .vue-card-summary-box {
+    //@extend .w3-cell-middle;
+    @extend .w3-container;
+    @extend .w3-center;
+    @extend .w3-left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+  }
 }
 
 .vue-card-track {
-    @extend .w3-white;
-    @extend .w3-hover-blue;
-    @extend .w3-button;
-    @extend .w3-ripple;
-    @extend .w3-block;
-    height: $tracking-button-height;
+  @extend .w3-white;
+  @extend .w3-hover-blue;
+  @extend .w3-button;
+  @extend .w3-ripple;
+  @extend .w3-block;
+  height: $tracking-button-height;
 }
 
 .vue-card-tracked {
-    @extend .vue-card-track;
-    @extend .w3-hover-red;
+  @extend .vue-card-track;
+  @extend .w3-hover-red;
 }
-
 
 /* FILTERS sidebar */
 $closed-sidebar-width: 48px;
@@ -161,65 +170,65 @@ $opened-sidebar-width: $sidebar-width + $closed-sidebar-width;
 $left-shift: 266px;
 
 .shifted-sidebar {
-    left: -$left-shift !important;
+  left: -$left-shift !important;
 }
 
 .filtersSidebar {
-    @extend .w3-container;
-    @extend .w3-pale-green;
-    @extend .w3-card;
-    @extend .w3-hide-small;
-    display: block;
-    left: 0;
-    width: $sidebar-width;
-    padding-right: $closed-sidebar-width;
-    position: absolute;
-    z-index: 100;
+  @extend .w3-container;
+  @extend .w3-pale-green;
+  @extend .w3-card;
+  @extend .w3-hide-small;
+  display: block;
+  left: 0;
+  width: $sidebar-width;
+  padding-right: $closed-sidebar-width;
+  position: absolute;
+  z-index: 100;
 
-    transition-property: left;
-    transition-duration: 1s;
-    transition-timing-function: ease;
+  transition-property: left;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+
+  @media (min-width: 1501px) {
+    left: 0 !important;
+    padding-right: 16px;
+    width: $sidebar-width - 16px;
+    height: 100%;
+  }
+
+  .filtersSidebarButton {
+    @extend .w3-button;
+    @extend .w3-large;
+    @extend .w3-hide-small;
+    @extend .w3-teal;
+    @extend .w3-card;
+    left: $left-shift;
+    position: absolute;
 
     @media (min-width: 1501px) {
-        left: 0 !important;
-        padding-right: 16px;
-        width: $sidebar-width - 16px;
-        height: 100%;
+      display: none;
     }
+  }
 
-    .filtersSidebarButton {
-        @extend .w3-button;
-        @extend .w3-large;
-        @extend .w3-hide-small;
-        @extend .w3-teal;
-        @extend .w3-card;
-        left: $left-shift;
-        position: absolute;
+  /*.filter-button {
+      @extend .w3-button;
+      @extend .w3-ripple;
+      @extend .w3-block;
+      @extend .w3-round;
+      @extend .w3-section;
+  }*/
 
-        @media (min-width: 1501px) {
-            display: none;
-        }
-    }
-
-    /*.filter-button {
-        @extend .w3-button;
-        @extend .w3-ripple;
-        @extend .w3-block;
-        @extend .w3-round;
-        @extend .w3-section;
-    }*/
-
-    header {
-        @extend .w3-center;
-    }
+  header {
+    @extend .w3-center;
+  }
 }
 
 .has-sidebar {
-    @media (min-width: 601px) {
-        padding-left: $closed-sidebar-width;
-    }
+  @media (min-width: 601px) {
+    padding-left: $closed-sidebar-width;
+  }
 
-    @media (min-width: 1501px) {
-        padding-left: $sidebar-width;
-    }
+  @media (min-width: 1501px) {
+    padding-left: $sidebar-width;
+  }
 }

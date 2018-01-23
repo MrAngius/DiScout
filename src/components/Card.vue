@@ -103,8 +103,8 @@
     },
     methods: {
       focusCard: function(){
-        bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus})
-        bus.$emit('updateTable', this.$props, this.isFocus)
+        bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus});
+        bus.$emit('updateTable', this.$props, this.isFocus);
         bus.$emit('showModalEvent')
       },
       dragStart: function (ev) {

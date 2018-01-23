@@ -13,13 +13,13 @@
   import Footer from './components/Footer'
   import SearchPage from './components/SearchPage'
   import Login from './components/Login'
-  import MixIns from './mixin'
   import GraphPage from './components/GraphPage'
   import Registration from './components/Registration'
+  import UserSettings from './components/UserSettings'
+  import News from './components/News'
 
   export default {
     name: 'App',
-    mixins: [MixIns],
     components: {
       'vue-header': Header,
       'vue-navbar': NavBar,
@@ -27,7 +27,9 @@
       'vue-search-page': SearchPage,
       'vue-graph-page': GraphPage,
       'vue-login-page': Login,
-      'vue-registration-page': Registration
+      'vue-registration-page': Registration,
+      'vue-user-settings': UserSettings,
+      'vue-news': News
     },
     data() {
       return{
@@ -61,10 +63,10 @@
         }
         else if(targetPage === "MyTrack"){
           if(this.loggedIn){
-            this.whichPage='vue-graph-page'
+            this.whichPage ='vue-graph-page'
           }
           else{
-            this.whichPage='vue-login-page'
+            this.whichPage ='vue-login-page'
           }
         }
         else if(targetPage === "Login"){
@@ -72,6 +74,12 @@
         }
         else if(targetPage === "Registration"){
           this.whichPage='vue-registration-page'
+        }
+        else if(targetPage === "News"){
+          this.whichPage = 'vue-news'
+        }
+        else if(targetPage === "UserSettings"){
+          this.whichPage = 'vue-user-settings'
         }
       }
     }

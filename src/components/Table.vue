@@ -7,7 +7,8 @@
     <!-- Notification settings menu -->
     <div v-if="!productPreview" id="notification-menu" class="details-container">
       <div class="details">
-        <h3 class="w3-amber w3-container" v-on:click="isNotification = !isNotification" style="margin: 0; cursor: pointer">
+        <h3 class="w3-amber w3-container" v-on:click="isNotification = !isNotification"
+            style="margin: 0; cursor: pointer">
           <i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings (A)
         </h3>
         <form class="w3-padding" v-if="isNotification">
@@ -42,7 +43,7 @@
       <!-- Product table details -->
       <div class="details-container">
         <div class="details">
-          <div class="w3-blue product-name" v-if="!productPreview">Product A</div>
+          <div class="w3-blue product-name" v-if="!productPreview">{{ focus.title }}</div>
           <!-- image -->
           <div class="product-image-preview" v-if="!productPreview">
             <div class="image-container" v-if="isOn">
@@ -52,13 +53,17 @@
 
           <div v-bind:class="{ 'w3-left' : !productPreview }">
             <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-red">Original Price</span><br class="w3-hide-medium w3-hide-large">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
+              <span class="w3-text-teal w3-xlarge">Current Price</span><br class="w3-hide-medium w3-hide-large">
+              <span class="w3-text-teal w3-xlarge">{{ focus.priceNow }}€</span><br>
+              <span class="w3-text-gray w3-large">Discount:</span><br class="w3-hide-medium w3-hide-large">
+              <span class="w3-text-gray w3-large"> {{ focus.priceTrend }}%</span>
             </p>
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
-              Category: {{ focus.category }}<br>
-              Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
+              <span>Category: {{ focus.category }}</span><br>
+              <span>Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
           </div>
         </div>
@@ -67,7 +72,7 @@
       <!-- This is the compared product -->
       <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
         <div class="details">
-          <div class="w3-red product-name">Product B</div>
+          <div class="w3-red product-name">{{ compare.title }}</div>
           <!-- image -->
           <div class="product-image-preview">
             <div class="image-container" v-if="isOn">
@@ -90,7 +95,6 @@
       </div>
 
     </div>
-
 
 
   </div>
@@ -183,7 +187,7 @@
           this.focus = tmp;
           this.comparing = false;
           this.threshold_max = tmp.price;
-          this.threshold_value = Math.round( tmp.price*0.8);
+          this.threshold_value = Math.round(tmp.price * 0.8);
         }
         else {
           this.comparing = true;

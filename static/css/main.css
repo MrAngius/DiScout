@@ -1390,6 +1390,10 @@ header {
       height: 380px; } }
 
 #product-clickable {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-direction: column; }
   @media (min-width: 601px) {
@@ -1398,8 +1402,14 @@ header {
       height: 341px; } }
 
 .vue-card-product-info {
+  -webkit-flex: auto;
+  -ms-flex: auto;
   flex: auto; }
   .vue-card-product-info .vue-card-image-box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1616,6 +1626,19 @@ header {
 
 /* FORM ELEMENTS */
 /* Insert here new stuff... */
+#news-page h3 {
+  cursor: pointer; }
+#news-page h3:hover, #news-page #more-button:hover, #news-page .read-more:hover {
+  text-decoration: underline; }
+#news-page .article-image {
+  width: 128px;
+  max-width: 100%;
+  height: auto; }
+#news-page .read-more, #news-page #more-button {
+  font-weight: bold;
+  cursor: pointer;
+  color: #444; }
+
 /* Input type RANGE */
 /* http://danielstern.ca/range.css/#/ */
 input[type=range] {
