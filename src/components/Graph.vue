@@ -81,7 +81,7 @@
         Plotly.Plots.resize(theGraph);
 
         // NOTE: what does it do?
-        if(theGraph==undefined)
+        if(theGraph===null)
           return;
 
         // determine how to proceed
@@ -89,7 +89,7 @@
 
         // delete the trace to update
         while(theGraph.data.length > i){
-          Plotly.deleteTraces("graph", -1)
+          Plotly.deleteTraces(theGraph, -1)
         }
 
         // add the trace
@@ -111,7 +111,7 @@
               line: {color: self.colors[self.traces]}
             };
             // plotting
-            Plotly.addTraces("graph", traceAdd);
+            Plotly.addTraces(theGraph, traceAdd);
           })
 
       },
