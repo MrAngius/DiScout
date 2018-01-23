@@ -32,7 +32,7 @@
 
         <section class="filter">
           Minimum rating
-          <fieldset class="rating">
+          <fieldset :ref="rating" class="rating">
             <!--template v-for="star in stars">
               <input type="radio" :id="'star'+star+'_'+type" :name="'rating_'+type" :value="star" />
               <label class="full" :for="'star'+star+'_'+type" :title="star + 'stars'"></label>
@@ -119,7 +119,6 @@
                 name: 'Vetements'
               }
             ],
-            // TODO: create the price filter, in both the filters of the search page
             price: {
               min: 0,
               max: 9999
@@ -176,9 +175,7 @@
               check.click()
             }
           }
-          this.filters.price.min=0;
-          this.filters.price.max=9999;
-          this.filters.rating.min=0
+          this.filters.price.value=1000;
         }
       }
     }
