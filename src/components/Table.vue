@@ -5,7 +5,7 @@
       <i class="fa fa-cart-plus"></i> Details
     </h2>
     <!-- Product image preview -->
-    <div class="w3-left w3-mobile">
+    <div class="w3-left w3-mobile" v-if="!productPreview">
       <div id="triangles-container" v-if="isOn">
         <div v-bind:class="{'triangle': comparing}">
           <img v-bind:src="focus.img_source" draggable="false">
@@ -19,19 +19,19 @@
     <!-- Product table details -->
     <div class="details-container">
       <div class="details">
-        <div class="w3-blue">Product A</div>
-        <p>
+        <div class="w3-blue" v-if="!productPreview">Product A</div>
+        <p v-bind:class="{'w3-container': productPreview}">
           <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
           <span class="w3-text-teal"><span class="w3-xlarge">{{ focus.priceNow }}€</span> (-{{ focus.priceTrend }}%)</span>
         </p>
-        <p>
+        <p v-bind:class="{'w3-container': productPreview}">
           <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
           Category: {{ focus.category }}<br>
           Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)
         </p>
       </div>
     </div>
-    <div v-bind:class="{ 'w3-hide': !comparing, 'details-container': true }">
+    <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true }">
       <div class="details">
         <div class="w3-red">Product B</div>
         <p>
@@ -47,7 +47,7 @@
     </div>
 
     <!-- Notification settings menu -->
-    <div id="notification-menu" class="details-container">
+    <div v-if="!productPreview" id="notification-menu" class="details-container">
       <div class="details">
         <h3 class="w3-teal w3-container">
           <i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings (A)
@@ -85,6 +85,12 @@
 
   export default {
     name: "vue-table",
+    props: {
+      productPreview: {
+        type: Boolean,
+        required: false
+      }
+    },
     data() {
       return {
         focus: {

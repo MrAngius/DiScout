@@ -3,11 +3,12 @@
     <h2 class="w3-blue banner">
       <i class="fa fa-line-chart"></i> Price Trend
     </h2>
-    <p id="graph_buttons">
+    <p id="graph_buttons" v-bind:class="{'w3-container': productPreview}">
       <button v-on:click="showRange('1')" class="w3-button w3-light-blue w3-hover-blue w3-round">1 Month</button>
       <button v-on:click="showRange('3')" class="w3-button w3-light-blue w3-hover-blue w3-round">3 Month</button>
       <button v-on:click="showRange('6')" class="w3-button w3-light-blue w3-hover-blue w3-round">6 Month</button>
     </p>
+    <!-- TODO: make the little bottom bar disappear on mobile devices (I am speaking about the clickable graph preview) -->
     <div ref="thegraph" id="graph"></div>
   </div>
 </template>
@@ -18,6 +19,12 @@
 
   export default {
     name: "graph",
+    props: {
+      productPreview: {
+        type: Boolean,
+        required: false
+      }
+    },
     mixins: [Functions],
     data() {
       return {

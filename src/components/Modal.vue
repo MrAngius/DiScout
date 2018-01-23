@@ -1,11 +1,12 @@
 <template>
-  <!-- TODO just copy and pasted. -->
   <div id="modal" class="w3-modal" v-bind:class="{'w3-hide': !show, 'w3-show': show}" >
     <div class="w3-modal-content">
       <span v-on:click="show=!show" class="w3-button w3-display-topright w3-teal w3-hover-red w3-large">&times;</span>
       <div id="zoomed-product">
-        <!--vue-table/--->
-        <vue-graph :page="'Tracking'"/>
+        <!-- More details -->
+        <vue-table :productPreview="true"/>
+        <!-- The graph --->
+        <vue-graph :productPreview="true" :page="'Tracking'"/>
       </div>
     </div>
   </div>

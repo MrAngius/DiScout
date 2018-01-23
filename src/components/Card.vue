@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: flex layout may be broken on Chrome... image and price are not vertically centered. Verify cross-browser -->
   <div>
     <div class="vue-card-product" v-bind:draggable="isDraggable" v-on:dragstart="dragStart">
       <div id="product-clickable" v-on:click='focusCard'>
