@@ -437,7 +437,7 @@ a {
   display: block;
   overflow-x: auto; }
 
-.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, #tracked-products p:after, #track-page:after, #track-page .banner:after, #track-page #similar-products-slider:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, #tracked-products p:before, #track-page:before, #track-page .banner:before, #track-page #similar-products-slider:before, .w3-panel:after, #tracked-products #tracked-products-list:after, .w3-panel:before, #tracked-products #tracked-products-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
+.w3-container:after, .title-box:after, .vue-card-product-info .vue-card-summary-box:after, #filtersSidebar:after, .banner:after, #tracked-products p:after, #track-page #similar-products-slider:after, .w3-container:before, .title-box:before, .vue-card-product-info .vue-card-summary-box:before, #filtersSidebar:before, .banner:before, #tracked-products p:before, #track-page #similar-products-slider:before, .w3-panel:after, #tracked-products #tracked-products-list:after, .w3-panel:before, #tracked-products #tracked-products-list:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
 .w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, #page:after, .vue-card-product-info:after, .filter:after, .w3-clear:before, #page:before, .vue-card-product-info:before, .filter:before, .w3-bar:before, #navigation:before, .w3-bar:after, #navigation:after {
   content: "";
   display: table;
@@ -731,7 +731,7 @@ a {
 .w3-round-small {
   border-radius: 2px; }
 
-.w3-round, #track-page .banner, .filter-buttons button, .w3-round-medium {
+.w3-round, .filter-buttons button, .w3-round-medium {
   border-radius: 4px; }
 
 .w3-round-large, .vue-card-product, #track-page #triangles-container {
@@ -746,7 +746,7 @@ a {
 .w3-row-padding, .w3-row-padding > .w3-half, .w3-row-padding > .w3-third, .w3-row-padding > .w3-twothird, .w3-row-padding > .w3-threequarter, .w3-row-padding > .w3-quarter, .w3-row-padding > .w3-col, .w3-row-padding > #tracked-products {
   padding: 0 8px; }
 
-.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, #filtersSidebar, #tracked-products p, #track-page, #track-page .banner, #track-page #similar-products-slider, .w3-panel, #tracked-products #tracked-products-list {
+.w3-container, .title-box, .vue-card-product-info .vue-card-summary-box, #filtersSidebar, .banner, #tracked-products p, #track-page #similar-products-slider, .w3-panel, #tracked-products #tracked-products-list {
   padding: 0.01em 16px; }
 
 .w3-panel, #tracked-products #tracked-products-list {
@@ -979,7 +979,7 @@ a {
 .w3-padding-small {
   padding: 4px 8px !important; }
 
-.w3-padding, footer, .vue-card-product-info .vue-card-image-box {
+.w3-padding, footer, .vue-card-product-info .vue-card-image-box, #track-page {
   padding: 8px 16px !important; }
 
 .w3-padding-large {
@@ -1464,6 +1464,9 @@ header {
     padding-left: 294px; } }
 
 /* TRACKING page specific elements */
+.banner {
+  margin: 0; }
+
 #tracked-products {
   width: 280px; }
   #tracked-products #tracked-products-list {
@@ -1471,6 +1474,9 @@ header {
     overflow: auto;
     width: 100%; }
 
+@media (max-width: 600px) {
+  #track-page {
+    padding: 0 !important; } }
 #track-page #triangles-container {
   float: left;
   overflow: hidden;

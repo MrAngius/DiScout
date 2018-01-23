@@ -1,5 +1,12 @@
 /* TRACKING page specific elements */
 
+// colored titles
+.banner {
+  @extend .w3-container;
+  //@extend .w3-round;
+  margin: 0;
+}
+
 // the left column of the page
 #tracked-products {
   @extend .w3-col;
@@ -23,13 +30,11 @@
 
 // details, graphs and suggested products
 #track-page {
-  @extend .w3-container;
+  @extend .w3-padding;
   @extend .w3-rest;
 
-  // colored titles
-  .banner {
-    @extend .w3-container;
-    @extend .w3-round;
+  @media (max-width: 600px) {
+    padding: 0 !important;
   }
 
   // triangles: products images compared in a box
