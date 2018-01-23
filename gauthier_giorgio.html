@@ -120,12 +120,11 @@
                         <h2 class="w3-blue w3-container">
                             <i class="fa fa-line-chart"></i> Price Trend
                         </h2>
-                        <div>
-                            <button @click="showRange(1, $event)">1Month</button>
-                            <button @click="showRange(3, $event)">3Month</button>
-                            <button @click="showRange(6, $event)">6Month</button>
-
-                        </div>
+                        <p id="graph_buttons">
+                            <button @click="showRange(1, $event)" class="w3-button w3-light-blue w3-hover-blue w3-round">1 Month</button>
+                            <button @click="showRange(3, $event)" class="w3-button w3-light-blue w3-hover-blue w3-round">3 Month</button>
+                            <button @click="showRange(6, $event)" class="w3-button w3-light-blue w3-hover-blue w3-round">6 Month</button>
+                        </p>
                         <div id="graph"></div>
                     </section>
 
