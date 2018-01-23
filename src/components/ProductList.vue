@@ -3,7 +3,7 @@
     <!-- TODO fix callbacks -->
     <card v-for="card in cards"
           v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested}"
-          v-if="showOrCat(card.category)" :ref='"ref_prod" + card.id'
+          v-if="showing(card)" :ref='"ref_prod" + card.id'
           :id="card.id" :name="card.name" :price_current="card.price_current" :img_source='"static/" + card.img_source'
           :low_price="card.low_price" :reduction="card.reduction" :rating="card.rating" :category="card.category"
           :off="card.off" :price="card.price" :vendor="card.vendor" :link="card.link" :type="type"></card>
@@ -32,6 +32,14 @@
       type:{
         required: true,
         type: String
+      },
+      rating: {
+        required: true,
+        type: Object
+      },
+      price: {
+        type: Object,
+        required: true
       }
     },
     computed:{
@@ -54,8 +62,8 @@
       }
     },
     methods: {
-      showOrCat: function (cat) {
-        return this.show && this.categories[cat.replace(/[^A-Za-z0-9]/gi, '')]
+      showing: function (card) {
+        return this.show && this.categories[card.category.replace(/[^A-Za-z0-9]/gi, '')] && card.rating >= this.rating.min && parseInt(card.price_current) <= this.price.value
       },
     },
     created() {

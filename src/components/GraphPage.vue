@@ -10,7 +10,7 @@
         Click on one of the tracked product, to see extra information
       </div>
       <!-- TODO: clicking on a tracked product, I want to close the list! -->
-      <product-list v-bind:categories="categories" type="tracked"/>
+      <product-list v-bind:categories="categories" :rating="rating" type="tracked" :price="price"/>
     </aside>
 
     <!-- Collapsed version (just the button) -->
@@ -39,7 +39,7 @@
             <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
         -->
         <!-- Here, we need to know the exact number of products that will be printed in the suggestion list -->
-        <product-list v-bind:categories="categories" type="suggested"/>
+        <product-list v-bind:categories="categories" :rating="rating" type="suggested" :price="price"/>
       </section>
     </div>
   </main>
@@ -78,7 +78,15 @@
         },
         cards: {},
         tracklistOpen: true,
-        isShowing: false
+        isShowing: false,
+        rating: {
+          min: 0
+        },
+        price: {
+          threshold_min: 0,
+          threshold_max: 1100,
+          value: 1000
+        }
       }
     },
     methods: {

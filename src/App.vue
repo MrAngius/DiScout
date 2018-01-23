@@ -15,6 +15,8 @@
   import Login from './components/Login'
   import MixIns from './mixin'
   import GraphPage from './components/GraphPage'
+  import Registration from './components/Registration'
+
   export default {
     name: 'App',
     mixins: [MixIns],
@@ -24,7 +26,8 @@
       'vue-footer': Footer,
       'vue-search-page': SearchPage,
       'vue-graph-page': GraphPage,
-      'vue-login-page': Login
+      'vue-login-page': Login,
+      'vue-registration-page': Registration
     },
     data() {
       return{
@@ -67,7 +70,7 @@
         else if(targetPage === "Login"){
           this.whichPage='vue-login-page'
         }
-        else if(targetPage === "Register"){
+        else if(targetPage === "Registration"){
           this.whichPage='vue-registration-page'
         }
       }

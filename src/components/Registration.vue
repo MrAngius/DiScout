@@ -2,11 +2,11 @@
   <main class="w3-container w3-light-grey">
 
     <form v-if="notFilled" action="" method="" class="w3-container w3-text-blue w3-mobile" style="width: 60%; margin: 16px auto;">
-      <section class="w3-row w3-section" style="text-align: center">
-        <span style="color: red" v-model="errReg"></span>
-      </section>
       <h2 class="w3-center">Registration form</h2>
       Fill this form to register an account
+      <section class="w3-row w3-section" style="text-align: center">
+        <span style="color: red"> {{ errReg }}</span>
+      </section>
 
       <section class="w3-row w3-section">
         <div class="w3-col" style="width:50px">
@@ -58,7 +58,7 @@
       </section>
       <section class="w3-section">
         <br>
-        <button type="submit" class="w3-button w3-blue w3-hover-teal w3-ripple w3-round-large">
+        <button type="submit" class="w3-button w3-blue w3-hover-teal w3-ripple w3-round-large" v-on:click="checkForm">
           <i class="fa fa-send"></i> Register
         </button>
         <button type="reset" class="w3-button w3-blue w3-hover-red w3-ripple w3-round-large">
@@ -92,18 +92,24 @@
       },
       methods: {
           checkForm: function () {
-            if(this.userInfo.email==="john@doe.fr"){
+            if(this.userInfo.email=="john@doe.fr"){
               this.errReg="An account already exists"
             }
-            else if(this.userInfo.password===this.userInfo.cpassword){
+            else if(this.userInfo.password!=this.userInfo.cpassword){
               this.errReg="Password do not match"
             }
             else {
               /* TODO eventually register user */
-              this.notFilled=false;
-              (new Promise((resolve) => setTimeout(resolve, 1000))).then(this.$emit('changepage', 'Home'))
+              console.log(this.notFilled)
+              this.notFilled = !this.notFilled
+              console.log(this.notFilled)
+              setTimeout(this.reload, 2000);
             }
+          },
+          reload: function(){
+            this.$emit('changepage', 'Home')
           }
+
       }
     }
 </script>
