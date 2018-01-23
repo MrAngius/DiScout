@@ -12,9 +12,12 @@
 
 <script>
   import Card from './Card'
+  import Functions from '../mixin.js';
+
 
   export default {
     name: "product-list",
+    mixins: [Functions],
     components: {
       'card': Card
     },

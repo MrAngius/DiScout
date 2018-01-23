@@ -7,9 +7,13 @@
 </template>
 
 <script>
-    export default {
-        name: "vue-header"
-    }
+  import Functions from '../mixin.js';
+
+
+  export default {
+    name: "vue-header",
+    mixins: [Functions]
+  }
 </script>
 
 <style scoped>

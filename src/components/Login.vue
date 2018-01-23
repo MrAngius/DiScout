@@ -33,8 +33,11 @@
 
 <script>
   import {bus} from '../main'
+  import Functions from '../mixin.js';
+
   export default {
     name: "vue-login-page",
+    mixins: [Functions],
     data(){
       return{
         errLogin: false,
@@ -47,8 +50,8 @@
         /* TODO eventually add some serious check */
         if(this.username === "john@doe.fr" && this.password==="webint"){
           /*TODO eventually retrieve data from DB*/
-          let firstName="John"
-          let lastName="Doe"
+          let firstName="John";
+          let lastName="Doe";
           this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName})
         }
         else{

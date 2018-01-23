@@ -103,7 +103,7 @@
             rating: 0,
             dispCat: true
           },
-          showSideBar: true
+          showSideBar: false
         }
       },
       props:{
@@ -131,7 +131,7 @@
         },
         checkAll: function(status){
           for(let category in this.categories){
-            let check=document.getElementById(category)
+            let check=document.getElementById(category);
             if(check.checked!==status){
               check.click()
             }

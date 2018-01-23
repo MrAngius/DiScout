@@ -7,13 +7,13 @@
       <a href="#" v-on:click="changePage('Home')">Home</a>
       <a href="#" v-on:click="changePage('MyTrack')">MyTrack</a>
       <a href="#">Menu item 3</a>
-      <div id="user-button" v-on:click="showUser=!showUser">
+      <div id="user-button" v-on:click="action($event.currentTarget)">
         <div class="w3-padding">
           <img src="../../static/img/user.png" alt="" id="user_icon" />
           Hello<span v-if="loggedIn">, {{ userInfo.name }}! </span> <i class="fa fa-caret-down"></i>
         </div>
 
-        <div id="userDropdown" v-bind:class="{'w3-show': showUser}" v-on:mouseout="showUser=false">
+        <div id="userDropdown" v-bind:class="{'w3-show': showUser}">
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Login')">Login</a>
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Registration')">Register</a>
           <a href="#" v-if="loggedIn">My Profile</a>
@@ -26,8 +26,11 @@
 </template>
 
 <script>
+  import Functions from '../mixin.js';
+
   export default {
-      name: "vue-nav-bar",
+    name: "vue-nav-bar",
+    mixins: [Functions],
     data(){
         return{
           showMobile: false,
@@ -44,8 +47,7 @@
         type: Boolean
       }
     },
-    created(){
-
+    mounted(){
     },
     methods:{
       logout: function () {
@@ -53,7 +55,12 @@
       },
       changePage: function(page){
         this.$emit('changepage', page)
+      },
+      action: function (elem) {
+        this.showUser=!this.showUser;
+        this.addRemoveClass(elem, "w3-teal");
       }
+
     }
   }
 </script>

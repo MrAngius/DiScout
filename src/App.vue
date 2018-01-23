@@ -13,9 +13,11 @@
   import Footer from './components/Footer'
   import SearchPage from './components/SearchPage'
   import Login from './components/Login'
+  import MixIns from './mixin'
   import GraphPage from './components/GraphPage'
   export default {
     name: 'App',
+    mixins: [MixIns],
     components: {
       'vue-header': Header,
       'vue-navbar': NavBar,
@@ -32,22 +34,22 @@
       }
     },
     created(){
-      let user=window.sessionStorage.getItem('user')
+      let user=window.sessionStorage.getItem('user');
       if(user!==null){
-        this.loggedIn=true
+        this.loggedIn=true;
         this.userInfo=JSON.parse(user)
       }
     },
     methods: {
       logout: function(){
-        this.loggedIn=false
-        window.sessionStorage.removeItem('user')
+        this.loggedIn=false;
+        window.sessionStorage.removeItem('user');
         this.changePage('Home')
       },
       logIn: function (data) {
-        this.loggedIn=true
-        this.userInfo=data
-        window.sessionStorage.setItem('user', JSON.stringify(data))
+        this.loggedIn=true;
+        this.userInfo=data;
+        window.sessionStorage.setItem('user', JSON.stringify(data));
         this.whichPage='vue-search-page'
       },
       changePage: function(targetPage){
@@ -71,6 +73,8 @@
       }
     }
   }
+
+
 </script>
 
 <style>

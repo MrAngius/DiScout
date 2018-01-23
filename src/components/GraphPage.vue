@@ -21,42 +21,43 @@
         <product-list v-bind:categories="categories" type="suggested"/>
       </section>
     </div>
-    </main>
+  </main>
 </template>
 
 <script>
   import ProductList from "./ProductList";
   import Graph from "./Graph";
   import Table from "./Table";
+  import Functions from '../mixin.js';
 
-    export default {
-      components: {
-        'product-list': ProductList,
-        'vue-graph': Graph,
-        'vue-table': Table
-      },
-      name: "vue-graph-page",
-      data() {
-        return{
-          categories: {
-            Accessories: true,
-            Bags: true,
-            BooksandMusic: true,
-            Hitech: true,
-            Home: true,
-            Shoes: true,
-            Sports: true,
-            Tools: true,
-            Toys: true,
-            Vetements: true
-          },
-          cards: {}
-        }
-      },
-      methods: {
 
+  export default {
+    components: {
+      'product-list': ProductList,
+      'vue-graph': Graph,
+      'vue-table': Table
+    },
+    name: "vue-graph-page",
+    mixins: [Functions],
+    data() {
+      return {
+        categories: {
+          Accessories: true,
+          Bags: true,
+          BooksandMusic: true,
+          Hitech: true,
+          Home: true,
+          Shoes: true,
+          Sports: true,
+          Tools: true,
+          Toys: true,
+          Vetements: true
+        },
+        cards: {}
       }
-    }
+    },
+    methods: {}
+  }
 </script>
 
 <style scoped>

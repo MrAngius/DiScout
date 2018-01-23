@@ -14,15 +14,17 @@
 
 <script>
   import {bus} from '../main'
+  import Functions from '../mixin.js';
 
   export default {
     name: "graph",
+    mixins: [Functions],
     data() {
       return {
         update: {
-          '1': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
-          '3': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
-          '6': {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']}
+          1: {'xaxis.range': ['2017-12-01 00:00:00', '2017-12-31 23:59:59']},
+          3: {'xaxis.range': ['2017-10-01 00:00:00', '2017-12-31 23:59:59']},
+          6: {'xaxis.range': ['2017-7-01 00:00:00', '2017-12-31 23:59:59']}
         },
         layout: {
           xaxis: {
@@ -59,25 +61,24 @@
       }
     },
     created() {
-
     },
     mounted() {
-      Plotly.newPlot(this.$refs.thegraph, [], this.layout, {displayModeBar: false});
-      window.addEventListener('onresize', function () {
-        Plotly.Plots.resize(this.$refs.thegraph)
+      Plotly.newPlot("graph", [], this.layout, {displayModeBar: false});
+      window.addEventListener('resize', function () {
+        Plotly.Plots.resize("graph")
       });
       bus.$on('updateGraph', this.updateGraph)
     },
     methods: {
       itemDropped: function (ev) {
         let data = JSON.parse(ev.dataTransfer.getData("card"));
-        bus.$emit('updateGraph', {id: data.id, isFocus: data.type==="tracked" || data.type==="general"});
+        bus.$emit('updateGraph', {id: data.id, isFocus: data.type === "tracked" || data.type === "general"});
         bus.$emit('updateTable', data, data.type === "tracked" || data.type === "general")
       },
 
-
       updateGraph: function (data) {
         let theGraph=this.$refs.thegraph;
+        Plotly.Plots.resize(theGraph);
 
         // NOTE: what does it do?
         if(theGraph==undefined)
@@ -88,7 +89,7 @@
 
         // delete the trace to update
         while(theGraph.data.length > i){
-          Plotly.deleteTraces(this.$refs.thegraph, -1)
+          Plotly.deleteTraces("graph", -1)
         }
 
         // add the trace
@@ -110,14 +111,13 @@
               line: {color: self.colors[self.traces]}
             };
             // plotting
-            Plotly.addTraces(theGraph, traceAdd);
+            Plotly.addTraces("graph", traceAdd);
           })
 
       },
       showRange: function (month) {
-        Plotly.relayout(this.$refs.thegraph, this.update[month]);
+        Plotly.relayout("graph", this.update[month]);
       }
-
     }
   }
 </script>
