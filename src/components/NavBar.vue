@@ -17,8 +17,8 @@
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Login'); showMobile = false">Login</a>
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Registration'); showMobile = false">Register</a>
           <a href="#" v-if="loggedIn" v-on:click="changePage('UserSettings'); showMobile = false">My Profile </a>
-          <a href="#" v-if="loggedIn" v-on:click="changePage('MyTracks'); showMobile = false">My Tracks</a>
-          <a href="#" v-if="loggedIn" v-on:click="logout; showMobile = false; changePage('Login')">Logout</a>
+          <a href="#" v-if="loggedIn" v-on:click="changePage('MyTrack'); showMobile = false">My Tracks</a>
+          <a href="#" v-if="loggedIn" v-on:click="logout(); showMobile = false; changePage('Login')">Logout</a>
         </div>
       </div>
     </nav>
@@ -49,7 +49,7 @@
     },
     methods:{
       logout: function () {
-        alert("logout")
+        alert("logout");
         this.$emit('logout')
       },
       changePage: function(page){
