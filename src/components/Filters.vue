@@ -25,7 +25,7 @@
         </section>
         <section class="filter">
           Minimum rating
-          <fieldset class="rating" v-on:click="()=>alert(this.rating.min)" >
+          <fieldset class="rating">
             <!--template v-for="star in stars">
               <input type="radio" :id="'star'+star+'_'+type" :name="'rating_'+type" :value="star" />
               <label class="full" :for="'star'+star+'_'+type" :title="star + 'stars'"></label>
@@ -37,7 +37,7 @@
             <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" v-on:click="()=>rating.min=4.5"/>
             <label class="half" :for="'star4half_'+type" title="4.5 stars"></label>
             <input type="radio" :id="'star4_'+type" :name="rating" value="4" v-on:click="()=>rating.min=4"/>
-            <label class="full" for="'star4_'+type" title="4 stars"></label>
+            <label class="full" :for="'star4_'+type" title="4 stars"></label>
             <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" v-on:click="()=>rating.min=3.5"/>
             <label class="half" :for="'star3half_'+type" title="3.5 stars"></label>
             <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" v-on:click="()=>rating.min=3"/>
