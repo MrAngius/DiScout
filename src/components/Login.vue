@@ -50,7 +50,9 @@
           /* TODO eventually retrieve data from DB */
           let firstName="John";
           let lastName="Doe";
-          this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName})
+          let userPic="static/img/user.png";
+          let userBirthday='24/01';
+          this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName, img: userPic, birthday: userBirthday})
         }
         else{
           this.errLogin=true

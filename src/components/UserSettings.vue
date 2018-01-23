@@ -4,12 +4,12 @@
 
     <section class="w3-clear">
       <div class="w3-left w3-round-large w3-card w3-margin">
-        <img src="static/img/user.png" class="w3-image" />
+        <img :src="userInfo.img" class="w3-image" />
       </div>
       <div class="w3-left w3-margin">
-        <h3> {{ 'cioa mamma'}} {{ ' ciao ciao' }} </h3>
-        <i class="fa fa-envelope-o"></i> {{ 'dio' }} <br>
-        <i class="fa fa-birthday-cake"></i> {{ 'marco' }}
+        <h3> {{ userInfo.name }} {{ userInfo.lastName }} </h3>
+        <i class="fa fa-envelope-o"></i> {{ userInfo.email }} <br>
+        <i class="fa fa-birthday-cake"></i> {{ userInfo.birthday }}
       </div>
     </section>
 
@@ -26,7 +26,9 @@
   export default {
     name: "vue-user-settings",
     data() {
-      return {}
+      return {
+        userInfo: JSON.parse(sessionStorage.getItem('user'))
+      }
     },
     props: {}
   }
