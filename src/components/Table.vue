@@ -62,7 +62,7 @@
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
               <span>Category: <span itemprop = "category">{{ focus.category }}</span></span><br>
-              <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ focus.vendor }}</span></span>(<a :href="focus.link" target="_blank">link</a>)</span>
+              <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ focus.vendor }} </span></span>(<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
           </div>
 
@@ -79,7 +79,24 @@
               <img itemprop = "image" v-bind:src="compare.img_source" draggable="false">
             </div>
           </div>
-
+          <!-- details -->
+          <div v-bind:class="{ 'w3-left' : !productPreview }">
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-red">Original Price</span><br class="w3-hide-medium w3-hide-large">
+              <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
+              <span class="w3-text-teal w3-xlarge">Current Price</span><br class="w3-hide-medium w3-hide-large">
+              <span class="w3-text-teal w3-xlarge"><span itemprop = "price">{{ compare.priceNow }}€</span></span><br>
+              <span class="w3-text-gray w3-large">Discount:</span><br class="w3-hide-medium w3-hide-large">
+              <span class="w3-text-gray w3-large"> {{ compare.priceTrend }}%</span>
+            </p>
+            <!-- additional details-->
+            <p v-bind:class="{'w3-container': productPreview}">
+              <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
+              <span>Category: <span itemprop = "category">{{ compare.category }}</span></span><br>
+              <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ compare.vendor }} </span></span>(<a :href="compare.link" target="_blank">link</a>)</span>
+            </p>
+          </div>
+<!--
           <div class="w3-left">
             <p>
               <span class="w3-text-red" style="text-decoration: line-through;">{{ compare.price }}€</span><br>
@@ -90,7 +107,7 @@
               <span>Category: <span itemprop = "category">{{ compare.category }}</span></span><br>
               <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ compare.vendor }}</span></span>(<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
