@@ -52,7 +52,13 @@
           let lastName="Doe";
           let userPic="static/img/user.png";
           let userBirthday='24/01';
-          this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName, img: userPic, birthday: userBirthday})
+          let arrivalPage = sessionStorage.getItem("arrivalPage");
+          if(arrivalPage){
+            sessionStorage.removeItem("arrivalPage");
+            this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName, img: userPic, birthday: userBirthday}, arrivalPage)
+          } else {
+            this.$emit('userLoggedIn', {email: this.username, name: firstName, lastName: lastName, img: userPic, birthday: userBirthday})
+          }
         }
         else{
           this.errLogin=true

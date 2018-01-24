@@ -17,6 +17,7 @@
   import Registration from './components/Registration'
   import UserSettings from './components/UserSettings'
   import News from './components/News'
+  import { bus } from './main'
 
   export default {
     name: 'App',
@@ -44,6 +45,14 @@
         this.loggedIn=true;
         this.userInfo=JSON.parse(user)
       }
+
+      // create the DB
+      Plotly.d3.json('static/database_production/product_db.json', function (e, data) {
+        window.sessionStorage.setItem('database', JSON.stringify(data.products))
+        bus.$emit("DBLOADED")
+      });
+
+
     },
     methods: {
       logout: function(){
@@ -51,11 +60,11 @@
         window.sessionStorage.removeItem('user');
         this.changePage('Home')
       },
-      logIn: function (data) {
+      logIn: function (data, arrivalPage='vue-search-page') {
         this.loggedIn=true;
         this.userInfo=data;
         window.sessionStorage.setItem('user', JSON.stringify(data));
-        this.whichPage='vue-search-page'
+        this.whichPage=arrivalPage
       },
       changePage: function(targetPage){
         if(targetPage === "Home"){
@@ -66,6 +75,7 @@
             this.whichPage ='vue-graph-page'
           }
           else{
+            sessionStorage.setItem("arrivalPage", "vue-graph-page");
             this.whichPage ='vue-login-page'
           }
         }

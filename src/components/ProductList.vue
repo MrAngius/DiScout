@@ -12,6 +12,7 @@
 
 <script>
   import Card from './Card'
+  import { bus } from '../main'
 
   export default {
     name: "product-list",
@@ -21,7 +22,8 @@
     data() {
       return {
         cards: {},
-        show: true
+        show: true,
+        cardLoaded: false
       }
     },
     props:{
@@ -73,11 +75,19 @@
           parseInt(card.price_current) <= this.price.value &&
           card.name.toLowerCase().includes(this.search.text.toLowerCase())
       },
+      loadCards: function () {
+        this.cards = JSON.parse(sessionStorage.getItem("database"));
+      }
     },
     created() {
       // TODO: include a which case for load the products based on the different location
       // TODO: this.type
-      this.cards=loadDB('static/database_production/product_db.json')
+
+      if (sessionStorage.getItem("database")){
+        this.loadCards()
+      } else {
+        bus.$on('DBLOADED', this.loadCards);
+      }
     }
   }
 </script>
