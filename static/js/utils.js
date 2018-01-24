@@ -1,4 +1,4 @@
-let trackedProducts = [];
+let trackedProducts = [2, 6];
 
 function showHideSlider(graphId, productPrev) {
   if (window.innerWidth < 601) {
