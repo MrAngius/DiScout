@@ -36,7 +36,8 @@
       return{
         whichPage: 'vue-search-page',
         loggedIn: false,
-        userInfo: {}
+        userInfo: {},
+        tracked_products: []
       }
     },
     created(){
@@ -48,7 +49,7 @@
 
       // create the DB
       Plotly.d3.json('static/database_production/product_db.json', function (e, data) {
-        window.sessionStorage.setItem('database', JSON.stringify(data.products))
+        window.sessionStorage.setItem('database', JSON.stringify(data.products));
         bus.$emit("DBLOADED")
       });
 

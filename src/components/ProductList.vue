@@ -2,8 +2,8 @@
   <div id="product-list" :style="style_resize" >
     <!-- TODO fix callbacks -->
     <card v-for="card in cards"
-          v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested}"
-          v-if="showing(card)" :ref='"ref_prod" + card.id'
+          v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested, 'w3-hide' : !showing(card)}"
+          :ref='"ref_prod" + card.id'
           :id="card.id" :name="card.name" :price_current="card.price_current" :img_source='"static/" + card.img_source'
           :low_price="card.low_price" :reduction="card.reduction" :rating="card.rating" :category="card.category"
           :off="card.off" :price="card.price" :vendor="card.vendor" :link="card.link" :type="type"></card>
@@ -75,8 +75,25 @@
           parseInt(card.price_current) <= this.price.value &&
           card.name.toLowerCase().includes(this.search.text.toLowerCase())
       },
+
+
       loadCards: function () {
         this.cards = JSON.parse(sessionStorage.getItem("database"));
+
+        // if tracked we modify the list of products to show
+        if (this.tracked) {
+          let card_list = Object.values(this.cards);
+
+          this.cards = card_list.filter(val => isTracked(val.id));
+        }
+
+        // discrimination in the case of suggested products
+        if (this.suggested) {
+          let card_list = Object.values(this.cards);
+
+          this.cards = card_list.filter(val => !isTracked(val.id));
+
+        }
       }
     },
     created() {
@@ -93,5 +110,5 @@
 </script>
 
 <style scoped>
-.sudgested {}
+</style>
 </style>

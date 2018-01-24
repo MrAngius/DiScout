@@ -7,30 +7,40 @@
         <div class="vue-card-product-info">
           <div class="vue-card-image-box">
             <img itemprop="image" v-if="img_source" class='vue-card-product-image' :src="img_source" draggable="false">
-            <img v-else class='vue-card-product-image' src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
+            <img v-else class='vue-card-product-image'
+                 src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
           </div>
           <div itemprop="price" class="vue-card-summary-box">
             <!-- Add here other product useful information... -->
             <p class="w3-container">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current + " " + id + " " + isTrackedValue}}€</span> (-{{ off }}%)</span><br>
               <br>
               <span class="w3-text-yellow w3-xlarge fa fa-star"> {{ rating }}</span>
             </p>
           </div>
         </div>
       </div>
-      <div class="vue-card-track" v-on:click='trackProduct'>
+      <div class="vue-card-track" v-on:click='trackProduct'  v-bind:class="{ 'w3-hide' : isTrackedValue }">
         <i class="fa fa-plus"></i> Track
+      </div>
+      <div class="vue-card-tracked" v-on:click='untrackProduct' v-bind:class="{ 'w3-hide' : !isTrackedValue }">
+        <i class="fa fa-close"></i> Untrack
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { bus } from '../main'
+  import {bus} from '../main'
+
   export default {
     name: "card",
+    data(){
+      return {
+        isTrackedValue: isTracked(this.$props.id)
+      }
+    },
     props: {
       id: {
         type: Number,
@@ -88,31 +98,42 @@
         type: String,
         required: false
       },
-      type:{
+      type: {
         type: String,
         required: true
       }
     },
-    computed:{
+    created(){
+    },
+    mounted(){
+
+    },
+    computed: {
       isFocus: function () {
-        return this.type==="tracked" || this.type==="general"
+        return this.type === "tracked" || this.type === "general"
       },
       isDraggable: function () {
-        return this.type==="tracked" || this.type==="suggested"
+        return this.type === "tracked" || this.type === "suggested"
       }
     },
     methods: {
-      focusCard: function(){
+      focusCard: function () {
         bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus});
         bus.$emit('updateTable', this.$props, this.isFocus);
         bus.$emit('showModalEvent')
       },
       dragStart: function (ev) {
-          ev.dataTransfer.setData('card', JSON.stringify(this.$props))
+        ev.dataTransfer.setData('card', JSON.stringify(this.$props))
       },
-      trackProduct: function (ev) {
-          // TODO: track the chosen product
-          alert('Track the product... TODO')
+      trackProduct: function () {
+        trackAProduct(this.$props.id);
+        this.isTrackedValue = true;
+        bus.$emit("trackProduct", this.$props.id)
+      },
+      untrackProduct: function () {
+        unTrackAProduct(this.$props.id);
+        this.isTrackedValue = false;
+        bus.$emit("untrackProduct", this.$props.id)
       }
     }
   }
