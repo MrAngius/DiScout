@@ -1,5 +1,5 @@
 <template>
-  <form action="" method="" class="w3-white w3-round-large w3-mobile" style="width: 60%; margin: 16px auto;">
+  <form class="w3-white w3-round-large w3-mobile" style="width: 60%; margin: 16px auto;">
     <h2 class="w3-center w3-teal" style="margin: 0">Your profile</h2>
 
     <section class="w3-clear">
@@ -33,7 +33,3 @@
     props: {}
   }
 </script>
-
-<style scoped>
-
-</style>

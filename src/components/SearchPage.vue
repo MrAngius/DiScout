@@ -41,6 +41,7 @@
     },
     data() {
       return {
+        // filters criteria
         categories: {
           Accessories: true,
           Bags: true,
@@ -64,6 +65,7 @@
         searchtext: {
           text: ""
         },
+        // used to understand if the user has already start a search
         alreadySubmit: false
       }
     },

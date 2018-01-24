@@ -32,7 +32,6 @@
 </template>
 
 <script>
-  import {bus} from '../main'
 
   export default {
     name: "vue-login-page",

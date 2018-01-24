@@ -19,6 +19,7 @@
           </section>
           <section>
             <span>Email notifications</span><br>
+
             <!-- <input id="track_email" type="checkbox" class="w3-check" /> -->
             <label class="switch">
               <input type="checkbox" id="mail_option" v-model="mail_notifications">
@@ -41,13 +42,14 @@
       <div class="details-container">
         <div class="details">
           <div class="w3-blue product-name" v-if="!productPreview">{{ focus.title }}</div>
+
           <!-- image -->
           <div class="product-image-preview" v-if="!productPreview">
             <div class="image-container" v-if="isOn">
               <img v-bind:src="focus.img_source" draggable="false">
             </div>
           </div>
-
+          <!-- details -->
           <div v-bind:class="{ 'w3-left' : !productPreview }">
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-red">Original Price</span><br class="w3-hide-medium w3-hide-large">
@@ -57,12 +59,14 @@
               <span class="w3-text-gray w3-large">Discount:</span><br class="w3-hide-medium w3-hide-large">
               <span class="w3-text-gray w3-large"> {{ focus.priceTrend }}%</span>
             </p>
+            <!-- additional details-->
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
               <span>Category: {{ focus.category }}</span><br>
               <span>Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
           </div>
+
         </div>
       </div>
 
@@ -70,6 +74,7 @@
       <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
         <div class="details">
           <div class="w3-red product-name">{{ compare.title }}</div>
+
           <!-- image -->
           <div class="product-image-preview">
             <div class="image-container" v-if="isOn">
@@ -90,10 +95,7 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
   </div>
 </template>
 
@@ -155,12 +157,13 @@
       bus.$on('updateTable', this.updateTable)
     },
     methods: {
+
       itemDropped: function (ev) {
         let data = JSON.parse(ev.dataTransfer.getData("card"));
         bus.$emit('updateGraph', {id: data.id, isFocus: data.type === "tracked" || data.type === "general"});
         bus.$emit('updateTable', data, data.type === "tracked" || data.type === "general");
       },
-
+      // update the table depending on the selected product
       updateTable: function (data, isFocus) {
         let tmp = {
           title: data.name,
@@ -177,6 +180,7 @@
           img_source: data.img_source,
           id: data.id
         };
+
         this.isOn = true;
         bus.$emit('showingProduct', true);
         this.settingsSaved = false;
@@ -192,6 +196,7 @@
           this.compare = tmp
         }
       },
+      // save the tracking and show a message
       saveTrackingSettings: function () {
         this.settingsSaved = true;
       }

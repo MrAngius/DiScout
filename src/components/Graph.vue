@@ -3,6 +3,7 @@
     <h2 class="w3-blue banner">
       <i class="fa fa-line-chart"></i> Price Trend
     </h2>
+    <!-- buttons to show different ranges -->
     <p id="graph_buttons" v-bind:class="{'w3-container': productPreview }">
       <button v-on:click="showRange('1')" class="w3-button w3-light-blue w3-hover-blue w3-round">1 Month</button>
       <button v-on:click="showRange('3')" class="w3-button w3-light-blue w3-hover-blue w3-round">3 Month</button>
@@ -65,6 +66,7 @@
     created() {
     },
     mounted() {
+      // need to prepare the graph before plotting the traces
       Plotly.newPlot("graph", [], this.layout, {displayModeBar: false});
 
       let legendFlag = !!this.productPreview;
@@ -86,11 +88,11 @@
         bus.$emit('updateTable', data, data.type === "tracked" || data.type === "general")
       },
 
+      // function to update the graph based on Plotly
       updateGraph: function (data) {
         let theGraph=this.$refs.thegraph;
         Plotly.Plots.resize(theGraph);
 
-        // NOTE: what does it do?
         if(theGraph===null)
           return;
 

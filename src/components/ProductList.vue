@@ -1,4 +1,5 @@
 <template>
+  <!-- used to generate the list of products dynamically -->
   <div id="product-list" :style="style_resize" >
     <card v-for="card in cards"
           v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested, 'w3-hide' : !showing(card)}"
@@ -56,6 +57,7 @@
           return ""
         }
       },
+      // functions to discriminate where we are generating the list
       tracked: function () {
         return this.type==="tracked"
       },
@@ -67,6 +69,7 @@
       }
     },
     methods: {
+      // APPLY FILTERS
       showing: function (card) {
         return this.show &&
           this.categories[card.category.replace(/[^A-Za-z0-9]/gi, '')] &&
@@ -75,7 +78,7 @@
           card.name.toLowerCase().includes(this.search.text.toLowerCase())
       },
 
-
+      // create products
       loadCards: function () {
         this.cards = JSON.parse(sessionStorage.getItem("database"));
 
@@ -95,6 +98,8 @@
         }
       }
     },
+    // loading from the json and saving in the SessionStorage: we have to listen to an event due to the
+    // Plotly.d3.json() function is asynchronous
     created() {
       if (sessionStorage.getItem("database")){
         this.loadCards()

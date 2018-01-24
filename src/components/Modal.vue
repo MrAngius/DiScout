@@ -45,9 +45,7 @@
         bus.$on('showModalEvent', this.showModal)
       },
       methods:{
-        showRange: function (value, event) {
-          setHistory(value)
-        },
+        // function passed to the event on the bus
         showModal: function () {
           this.show=true;
         }

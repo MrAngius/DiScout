@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: flex layout may be broken on Chrome... image and price are not vertically centered. Verify cross-browser -->
   <div>
     <div class="vue-card-product" v-bind:draggable="isDraggable" v-on:dragstart="dragStart">
       <div itemscope itemtype="http://schema.org/Offer" id="product-clickable" v-on:click='focusCard'>
@@ -11,12 +10,13 @@
                  src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
           </div>
           <div itemprop="price" class="vue-card-summary-box">
+
             <!-- Add here other product useful information... -->
             <p class="w3-container">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ price }}€</span><br>
               <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
               <br>
-              <span class="w3-text-yellow w3-xlarge fa fa-star"> {{ rating }}</span>
+              <span class="w3-text-yellow w3-xlarge fa fa-star">{{ rating }}</span>
             </p>
           </div>
         </div>
@@ -106,7 +106,6 @@
     created(){
     },
     mounted(){
-
     },
     computed: {
       isFocus: function () {
@@ -117,14 +116,18 @@
       }
     },
     methods: {
+      // function to trigger events in order to update all the components
       focusCard: function () {
         bus.$emit('updateGraph', {id: this.id, isFocus: this.isFocus});
         bus.$emit('updateTable', this.$props, this.isFocus);
         bus.$emit('showModalEvent')
       },
+      // DRAG AND DROP SUPPORT
       dragStart: function (ev) {
         ev.dataTransfer.setData('card', JSON.stringify(this.$props))
       },
+
+      // functions to handle the tracking
       trackProduct: function () {
         trackAProduct(this.$props.id);
         this.isTrackedValue = true;
@@ -136,7 +139,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

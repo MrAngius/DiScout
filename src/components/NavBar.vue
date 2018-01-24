@@ -12,7 +12,6 @@
           <img src="../../static/img/user.png" alt="" id="user_icon" />
           Hello<span v-if="loggedIn">, {{ userInfo.name }}! </span> <i class="fa fa-caret-down"></i>
         </div>
-        <!-- TODO: create the user foo pages (profile + myTracks -->
         <div id="userDropdown" v-bind:class="{'w3-show': showUser}">
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Login'); showMobile = false">Login</a>
           <a href="#" v-if="!loggedIn" v-on:click="changePage('Registration'); showMobile = false">Register</a>
@@ -54,6 +53,7 @@
       changePage: function(page){
         this.$emit('changepage', page)
       },
+      // used to add some style effects and open the user menu
       action: function (elem) {
         this.showUser=!this.showUser;
         addRemoveClass(elem, "w3-teal");

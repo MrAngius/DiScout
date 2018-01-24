@@ -9,7 +9,7 @@
       </header>
       <section class="w3-clear w3-justify">
         <div class="w3-left w3-round-large w3-card" style="margin-right: 24px;">
-          <img src="static/img/user.png" class="w3-image article-image"/>
+          <img src="static/img/black_friday.jpg" class="w3-image article-image"/>
         </div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -28,7 +28,7 @@
       </header>
       <section class="w3-clear w3-justify">
         <div class="w3-left w3-round-large w3-card" style="margin-right: 24px;">
-          <img src="static/img/user.png" class="w3-image article-image"/>
+          <img src="static/img/amazon.jpg" class="w3-image article-image"/>
         </div>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
         aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
@@ -50,7 +50,7 @@
       </header>
       <section class="w3-clear w3-justify">
         <div class="w3-left w3-round-large w3-card" style="margin-right: 24px;">
-          <img src="static/img/user.png" class="w3-image article-image"/>
+          <img src="static/img/subito.jpg" class="w3-image article-image"/>
         </div>
         At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
         corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
@@ -72,7 +72,7 @@
       </header>
       <section class="w3-clear w3-justify">
         <div class="w3-left w3-round-large w3-card" style="margin-right: 24px;">
-          <img src="static/img/user.png" class="w3-image article-image"/>
+          <img src="static/img/zalando.jpg" class="w3-image article-image"/>
         </div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -91,7 +91,7 @@
       </header>
       <section class="w3-clear w3-justify">
         <div class="w3-left w3-round-large w3-card" style="margin-right: 24px;">
-          <img src="static/img/user.png" class="w3-image article-image"/>
+          <img src="static/img/favicon.ico" class="w3-image article-image"/>
         </div>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
         aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
