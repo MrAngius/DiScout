@@ -10,7 +10,7 @@
         Click on one of the tracked product, to see extra information
       </div>
       <!-- TODO: clicking on a tracked product, I want to close the list! -->
-      <product-list v-bind:categories="categories" :rating="rating" type="tracked" :price="price" v-bind:search="searchtext"/>
+      <product-list v-bind:categories="categories" :rating="rating" type="tracked" :price="price" v-bind:search="searchtext" v-bind:database="trackedProds"/>
     </aside>
 
     <!-- Collapsed version (just the button) -->
@@ -39,7 +39,7 @@
             <button class="w3-button w3-circle w3-grey w3-hover-blue w3-xlarge w3-right" style="position: relative; top: 188px">></button>
         -->
         <!-- Here, we need to know the exact number of products that will be printed in the suggestion list -->
-        <product-list v-bind:categories="categories" :rating="rating" type="suggested" :price="price" v-bind:search="searchtext"/>
+        <product-list v-bind:categories="categories" :rating="rating" type="suggested" :price="price" v-bind:search="searchtext" v-bind:database="'product_db'"/>
       </section>
     </div>
   </main>
@@ -90,6 +90,11 @@
         searchtext: {
           text: ""
         }
+      }
+    },
+    computed: {
+      trackedProds: function () {
+        return JSON.parse(window.sessionStorage.getItem('user')).email.replace('@','at')
       }
     },
     methods: {

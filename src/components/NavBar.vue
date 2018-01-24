@@ -26,7 +26,7 @@
 </template>
 
 <script>
-
+  import { bus } from '../main'
   export default {
     name: "vue-nav-bar",
     data(){
@@ -52,7 +52,7 @@
         this.$emit('logout')
       },
       changePage: function(page){
-        this.$emit('changepage', page)
+        bus.$emit('changepage', page)
       },
       action: function (elem) {
         this.showUser=!this.showUser;

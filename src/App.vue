@@ -1,8 +1,8 @@
 <template>
   <main>
     <vue-header/>
-    <vue-navbar :loggedIn="loggedIn" :userInfo="userInfo" v-on:changepage="changePage" v-on:logout="logout"/>
-    <component v-bind:is="whichPage" v-on:userLoggedIn="logIn" v-on:changepage="changePage"/>
+    <vue-navbar :loggedIn="loggedIn" :userInfo="userInfo" v-on:logout="logout"/>
+    <component v-bind:is="whichPage" v-on:userLoggedIn="logIn" />
     <vue-footer/>
   </main>
 </template>
@@ -45,6 +45,7 @@
         this.loggedIn=true;
         this.userInfo=JSON.parse(user)
       }
+      bus.$on('changepage', this.changePage)
 
       // create the DB
       Plotly.d3.json('static/database_production/product_db.json', function (e, data) {
@@ -57,6 +58,8 @@
     methods: {
       logout: function(){
         this.loggedIn=false;
+        // TODO: what does it do?
+        window.sessionStorage.removeItem(this.userInfo.email.replace('@','at'));
         window.sessionStorage.removeItem('user');
         this.changePage('Home')
       },

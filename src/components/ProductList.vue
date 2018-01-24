@@ -46,6 +46,11 @@
       search: {
         type: Object,
         required: true
+      },
+      // TODO: What is is ?
+      database: {
+        required: true,
+        type: String
       }
     },
     computed:{

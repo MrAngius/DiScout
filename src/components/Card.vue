@@ -110,9 +110,89 @@
       dragStart: function (ev) {
           ev.dataTransfer.setData('card', JSON.stringify(this.$props))
       },
-      trackProduct: function (ev) {
-          // TODO: track the chosen product
-          alert('Track the product... TODO')
+      trackProduct: function () {
+        let user=window.sessionStorage.getItem('user')
+        if(user==null){
+          bus.$emit('changepage', 'Login')
+        }
+        else{
+          alert('new product')
+          let email=JSON.parse(user).email.replace('@','at')
+          let tracked=window.sessionStorage.getItem(email)
+          let db;
+          console.log(email)
+          if(tracked==null){
+            alert("Not found")
+            db=loadDB(email)
+          }
+          // TODO db hardcoded, getting undefined at loading
+          db={
+            "0": {
+              "low_price": "45",
+              "name": "Veste de costume",
+              "reduction": "7",
+              "id": 0,
+              "rating": "4.8",
+              "category": "Vetements",
+              "off": "12",
+              "price_current": "48",
+              "img_source": "img/products/product0.jpg",
+              "price": "55",
+              "vendor": "Zalando",
+              "link": "https://www.zalando.fr/pier-one-blazer-dark-blue-pi922ba19-k11.html\n"
+            },
+            "1": {
+              "low_price": "75",
+              "name": "Tronconneuse a essence",
+              "reduction": "21",
+              "id": 1,
+              "rating": "4.3",
+              "category": "Tools",
+              "off": "21",
+              "price_current": "79",
+              "img_source": "img/products/product1.jpg",
+              "price": "100",
+              "vendor": "ebay",
+              "link": "https://www.ebay.fr/itm/Tronconneuse-a-essence-scie-20-puissance-62cc-Greencut/361876941810?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1\n"
+            },
+            "2": {
+              "low_price": "210",
+              "name": "Proscenic 790T Aspirateur Robot Puissant",
+              "reduction": "60",
+              "id": 2,
+              "rating": "4.9",
+              "category": "Home",
+              "off": "21",
+              "price_current": "219",
+              "img_source": "img/products/product2.jpg",
+              "price": "279",
+              "vendor": "ebay",
+              "link": "https://www.ebay.fr/itm/Proscenic-790T-Aspirateur-Robot-Puissant-Telecommande-Classe-energetique-A/142593633214?_trkparms=pageci%253Ac4f738f5-fc57-11e7-b13d-74dbd1806d37%257Cparentrq%253A099109111610ab6b36d63221ffec5552%257Ciid%253A1\n"
+            },
+            "3": {
+              "low_price": "120",
+              "name": "Liseuse Kindle Paperwhite",
+              "reduction": "20",
+              "id": 3,
+              "rating": "4.3",
+              "category": "Books and Music",
+              "off": "13",
+              "price_current": "129",
+              "img_source": "img/products/product3.jpg",
+              "price": "149",
+              "vendor": "Amazon",
+              "link": "https://www.amazon.fr/dp/B00QJDO0QC/ref=gw_Eink_Muscat_PMP17?pf_rd_p=a5e26dbb-2f1a-4271-9f78-085e52badb2f&pf_rd_r=PJS3GPPMWX4V1T55WAJK\n"
+            }
+          }
+          console.log(db)
+
+          // TODO this require the db properties and the card to be the same, which is not the case
+          db[this.id]=this.$props
+          console.log(db)
+          window.sessionStorage.removeItem(email)
+          window.sessionStorage.setItem(email,JSON.stringify(db))
+
+        }
       }
     }
   }
