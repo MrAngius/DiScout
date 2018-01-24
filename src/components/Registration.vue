@@ -99,10 +99,7 @@
               this.errReg="Password do not match"
             }
             else {
-              /* TODO eventually register user */
-              console.log(this.notFilled)
               this.notFilled = !this.notFilled
-              console.log(this.notFilled)
               setTimeout(this.reload, 2000);
             }
           },

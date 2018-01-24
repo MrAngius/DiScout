@@ -1644,6 +1644,9 @@ header {
 
 /* FORM ELEMENTS */
 /* Insert here new stuff... */
+input:focus {
+  outline: none; }
+
 #news-page h3 {
   cursor: pointer; }
 #news-page h3:hover, #news-page #more-button:hover, #news-page .read-more:hover {

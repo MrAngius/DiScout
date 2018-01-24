@@ -1,6 +1,11 @@
 /* FORM ELEMENTS */
 
 /* Insert here new stuff... */
+input:focus {
+  outline: none;
+}
+
+
 // User settings
 #news-page {
   h3 {

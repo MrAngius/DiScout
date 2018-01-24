@@ -9,14 +9,13 @@
       <div class="details">
         <h3 class="w3-amber w3-container" v-on:click="isNotification = !isNotification"
             style="margin: 0; cursor: pointer">
-          <i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings (A)
+          <i class="fa fa-bell-o w3-right" style="position: relative; top: 7px;"></i>Notification settings
         </h3>
         <form class="w3-padding" v-if="isNotification">
           <section>
             <label style="display: block;">Threshold: {{ threshold_value }}€</label>
-            <!-- NOTE: backup... oninput="setContent('threshold_value', this.value);"  -->
             <input id="track_threshold" v-model="threshold_value" type="range" :min="threshold_min" :max="threshold_max"
-                   step="1" style="width: 50%;"/>
+                   step="1" style="width: 220px;"/>
           </section>
           <section>
             <span>Email notifications</span><br>
@@ -27,11 +26,9 @@
             </label>
           </section>
           <section>
+            <span v-if="settingsSaved" class="w3-text-teal">Settings saved!</span><br>
             <button type="button" class="w3-button w3-light-blue w3-hover-teal" v-on:click="saveTrackingSettings()">
               <i class="fa fa-check"></i> Save settings
-            </button>
-            <button type="button" class="w3-button w3-light-blue w3-hover-red" v-on:click="untrackProduct()">
-              <i class="fa fa-close"></i> Stop tracking
             </button>
           </section>
         </form>
@@ -148,10 +145,10 @@
         // to hide and show the notification
         isNotification: false,
         threshold_value: 80,
-        // TODO: same here, if we decide to use user-personalized values from localStorage
         mail_notifications: false,
         threshold_min: 0,
-        threshold_max: 100
+        threshold_max: 100,
+        settingsSaved: false
       }
     },
     created() {
@@ -177,11 +174,12 @@
           category: data.category,
           vendor: data.vendor,
           link: data.link,
-          img_source: data.img_source
+          img_source: data.img_source,
+          id: data.id
         };
         this.isOn = true;
         bus.$emit('showingProduct', true);
-
+        this.settingsSaved = false;
 
         if (isFocus) {
           this.focus = tmp;
@@ -195,12 +193,7 @@
         }
       },
       saveTrackingSettings: function () {
-        // TODO: save tracking setting for the user (at least, fake it)
-        alert('Settings saved...  TODO')
-      },
-      untrackProduct: function () {
-        // TODO: the product must not be tracked anymore. This function is useful also for the cards' buttons, so it is better to move somewhere else and make it more global
-        alert('Untrack the product...  TODO')
+        this.settingsSaved = true;
       }
     }
   }

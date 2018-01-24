@@ -1,6 +1,5 @@
 <template>
   <div id="product-list" :style="style_resize" >
-    <!-- TODO fix callbacks -->
     <card v-for="card in cards"
           v-bind:class="{'vue-card-container': general, 'vue-card-tracked-product': tracked, 'vue-card-suggested-product': suggested, 'w3-hide' : !showing(card)}"
           :ref='"ref_prod" + card.id'
@@ -97,9 +96,6 @@
       }
     },
     created() {
-      // TODO: include a which case for load the products based on the different location
-      // TODO: this.type
-
       if (sessionStorage.getItem("database")){
         this.loadCards()
       } else {

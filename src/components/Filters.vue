@@ -1,6 +1,4 @@
 <template>
-  <!-- OVERLAY -->
-  <!-- TODO not showing button i mobile mode -->
   <div>
     <div class="overlay" v-bind:style="{'display: block !important; visibility: visible !important;': showSideBar && !isMobile}" v-on:click="showSideBar=!showSideBar"></div>
     <div v-bind:data-open="showSideBar" v-bind:class="{'filtersSidebar': !isMobile, 'shifted-sidebar': !showSideBar&&!isMobile, 'w3-hide-large': isMobile, 'w3-hide-medium': isMobile, 'w3-pale-green': isMobile}">
@@ -62,7 +60,7 @@
         </section>
         <section class="filter-buttons">
           <button class="w3-button w3-light-blue w3-hover-red" v-on:click="checkAll(false)">Delete</button>
-          <button class="w3-button w3-light-blue w3-hover-teal" v-on:click="checkAll(true)">View all</button>
+          <button class="w3-button w3-light-blue w3-hover-teal" v-on:click="checkAll(true)">All categories</button>
         </section>
       </div>
     </div>

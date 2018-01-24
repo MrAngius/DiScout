@@ -9,7 +9,6 @@
       <div class="w3-panel w3-justify">
         Click on one of the tracked product, to see extra information
       </div>
-      <!-- TODO: clicking on a tracked product, I want to close the list! -->
       <product-list v-bind:categories="categories" :rating="rating" type="tracked" :price="price" v-bind:search="searchtext"/>
     </aside>
 
@@ -23,7 +22,6 @@
       <!-- DETAILS -->
       <vue-table/>
       <!-- GRAPH -->
-      <!-- TODO: the graph is working, but it raises an exception in the console. 6 times per click... -->
       <vue-graph/>
       <!-- SIMILAR PRODUCTS -->
       <h2 class="w3-red banner">
