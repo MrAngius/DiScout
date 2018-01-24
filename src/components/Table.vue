@@ -41,13 +41,13 @@
     <!-- Product image preview -->
     <div>
       <!-- Product table details -->
-      <div class="details-container">
+      <div itemscope itemtype = "http://schema.org/Offer" class="details-container">
         <div class="details">
-          <div class="w3-blue product-name" v-if="!productPreview">{{ focus.title }}</div>
+          <div class="w3-blue product-name" v-if="!productPreview" itemprop = 'name'>{{ focus.title }}</div>
           <!-- image -->
           <div class="product-image-preview" v-if="!productPreview">
             <div class="image-container" v-if="isOn">
-              <img v-bind:src="focus.img_source" draggable="false">
+              <img itemprop="image" v-bind:src="focus.img_source" draggable="false">
             </div>
           </div>
 
@@ -56,27 +56,27 @@
               <span class="w3-text-red">Original Price</span><br class="w3-hide-medium w3-hide-large">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ focus.price }}€</span><br>
               <span class="w3-text-teal w3-xlarge">Current Price</span><br class="w3-hide-medium w3-hide-large">
-              <span class="w3-text-teal w3-xlarge">{{ focus.priceNow }}€</span><br>
+              <span class="w3-text-teal w3-xlarge"><span itemprop = "price">{{ focus.priceNow }}€</span></span><br>
               <span class="w3-text-gray w3-large">Discount:</span><br class="w3-hide-medium w3-hide-large">
               <span class="w3-text-gray w3-large"> {{ focus.priceTrend }}%</span>
             </p>
             <p v-bind:class="{'w3-container': productPreview}">
               <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ focus.rating }}</span></span><br>
-              <span>Category: {{ focus.category }}</span><br>
-              <span>Sold by: {{ focus.vendor }} (<a :href="focus.link" target="_blank">link</a>)</span>
+              <span>Category: <span itemprop = "category">{{ focus.category }}</span></span><br>
+              <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ focus.vendor }}</span></span>(<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
           </div>
         </div>
       </div>
 
       <!-- This is the compared product -->
-      <div v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
+      <div itemscope itemtype = "http://schema.org/Offer" v-if="!productPreview" v-bind:class="{ 'w3-hide': !comparing, 'details-container': true}">
         <div class="details">
-          <div class="w3-red product-name">{{ compare.title }}</div>
+          <div class="w3-red product-name" itemprop = "name">{{ compare.title }}</div>
           <!-- image -->
           <div class="product-image-preview">
             <div class="image-container" v-if="isOn">
-              <img v-bind:src="compare.img_source" draggable="false">
+              <img itemprop = "image" v-bind:src="compare.img_source" draggable="false">
             </div>
           </div>
 
@@ -87,8 +87,8 @@
             </p>
             <p>
               <span class="w3-text-yellow w3-xlarge"><span class="fa fa-star"> {{ compare.rating }}</span></span><br>
-              Category: {{ compare.category }}<br>
-              Sold by: {{ compare.vendor }} (<a :href="compare.link" target="_blank">link</a>)
+              <span>Category: <span itemprop = "category">{{ compare.category }}</span></span><br>
+              <span>Sold by: <span itemprop = "seller" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ compare.vendor }}</span></span>(<a :href="focus.link" target="_blank">link</a>)</span>
             </p>
           </div>
         </div>

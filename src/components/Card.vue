@@ -10,11 +10,11 @@
             <img v-else class='vue-card-product-image'
                  src="https://image.freepik.com/free-photo/dollar-sign-symbol_2227-466.jpg" draggable="false">
           </div>
-          <div itemprop="price" class="vue-card-summary-box">
+          <div  class="vue-card-summary-box">
             <!-- Add here other product useful information... -->
             <p class="w3-container">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
+              <span class="w3-text-teal"><span itemprop="price" class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
               <br>
               <span class="w3-text-yellow w3-xlarge fa fa-star"> {{ rating }}</span>
             </p>
