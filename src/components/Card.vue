@@ -14,7 +14,7 @@
             <!-- Add here other product useful information... -->
             <p class="w3-container">
               <span class="w3-text-red" style="text-decoration: line-through;">{{ price }}€</span><br>
-              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current + " " + id + " " + isTrackedValue}}€</span> (-{{ off }}%)</span><br>
+              <span class="w3-text-teal"><span class="w3-xlarge">{{ price_current }}€</span> (-{{ off }}%)</span><br>
               <br>
               <span class="w3-text-yellow w3-xlarge fa fa-star"> {{ rating }}</span>
             </p>
@@ -128,12 +128,10 @@
       trackProduct: function () {
         trackAProduct(this.$props.id);
         this.isTrackedValue = true;
-        bus.$emit("trackProduct", this.$props.id)
       },
       untrackProduct: function () {
         unTrackAProduct(this.$props.id);
         this.isTrackedValue = false;
-        bus.$emit("untrackProduct", this.$props.id)
       }
     }
   }

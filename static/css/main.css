@@ -864,7 +864,7 @@ a {
 .w3-opacity, .w3-hover-opacity:hover {
   opacity: 0.60; }
 
-.w3-opacity-off, .vue-card-product:hover img, .w3-hover-opacity-off:hover {
+.w3-opacity-off, .w3-hover-opacity-off:hover {
   opacity: 1; }
 
 .w3-opacity-max {
@@ -1106,7 +1106,7 @@ a {
   color: #000 !important;
   background-color: #ffeb3b !important; }
 
-.w3-white, #user_icon, .vue-card-product, .vue-card-product-info, .vue-card-track, .vue-card-tracked, #track-page .details-container .details, .w3-hover-white:hover {
+.w3-white, #user_icon, .vue-card-product-info, #track-page .details-container .details, .w3-hover-white:hover {
   color: #000 !important;
   background-color: #fff !important; }
 
@@ -1383,11 +1383,18 @@ header {
     height: 341px !important; }
 
 .vue-card-product {
+  background-color: #009688;
+  color: white;
   overflow: hidden;
   cursor: pointer; }
   @media (min-width: 601px) {
     .vue-card-product {
+      background-color: white;
+      color: black;
       height: 380px; } }
+
+.vue-card-product:hover img {
+  opacity: 1 !important; }
 
 #product-clickable {
   display: -webkit-box;
@@ -1430,7 +1437,18 @@ header {
     height: 100%; }
 
 .vue-card-track, .vue-card-tracked {
+  background-color: white;
+  color: black;
   height: 39px; }
+  @media (max-width: 600px) {
+    .vue-card-track, .vue-card-tracked {
+      background-color: #2196F3;
+      color: white; } }
+
+@media (max-width: 600px) {
+  .vue-card-tracked {
+    background-color: #f44336;
+    color: white; } }
 
 /* FILTERS sidebar */
 .shifted-sidebar {

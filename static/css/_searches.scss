@@ -62,19 +62,22 @@ $tracking-button-height: 39px;
   @extend .w3-card;
   @extend .w3-hover-teal;
   @extend .w3-margin;
-  @extend .w3-white;
+  background-color: #009688;
+  color: white;
   overflow: hidden;
   cursor: pointer;
   //max-height: $product-card-height;
 
   @media (min-width: 601px) {
+    background-color: white;
+    color: black;
     height: $product-card-height;
   }
 }
 
 .vue-card-product:hover img {
   // we want images to become fully visible when the mouse i over the container
-  @extend .w3-opacity-off;
+  opacity: 1 !important;
 }
 
 #product-clickable {
@@ -150,17 +153,28 @@ $tracking-button-height: 39px;
 }
 
 .vue-card-track {
-  @extend .w3-white;
+  background-color: white;
+  color: black;
   @extend .w3-hover-blue;
   @extend .w3-button;
   @extend .w3-ripple;
   @extend .w3-block;
   height: $tracking-button-height;
+
+  @media (max-width: 600px) {
+    background-color: #2196F3;  // w3-blue
+    color: white;
+  }
 }
 
 .vue-card-tracked {
   @extend .vue-card-track;
   @extend .w3-hover-red;
+
+  @media (max-width: 600px) {
+    background-color: #f44336;  // w3-red
+    color: white;
+  }
 }
 
 /* FILTERS sidebar */

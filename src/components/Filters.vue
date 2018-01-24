@@ -24,8 +24,7 @@
           </div>
         </section>
           <section>
-            <label for="track_threshold" style="display: block;">Threshold: {{ price.value }}€</label>
-            <!-- NOTE: backup... oninput="setContent('threshold_value', this.value);"  -->
+            <label for="track_threshold" style="display: block;">Max price: {{ price.value }}€</label>
             <input id="track_threshold" v-model="price.value" type="range" :min="price.threshold_min" :max="price.threshold_max"
                    step="1" style="width: 50%;"/>
           </section>
@@ -123,9 +122,7 @@
               min: 0,
               max: 9999
             },
-            // TODO: create the filter search based on the names of the products (in order to insert the moving search bar)
             dispCat: true
-            // NOTE: the "overlay" is not appearing anymore on medium-size screens...
           },
           showSideBar: false,
           stars:{

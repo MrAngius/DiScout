@@ -8,10 +8,8 @@
 
     <!-- PAGE content -->
     <main id="page" class="has-sidebar w3-light-grey">
-      <div v-bind:class="{ 'w3-hide' : !alreadySubmit }">
-        <filters v-bind:categories="categories" v-bind:rating="rating" type="tablet" v-bind:price="price"
-                 v-bind:search="searchtext"/>
-      </div>
+      <filters v-bind:categories="categories" v-bind:rating="rating" type="tablet" v-bind:price="price"
+               v-bind:search="searchtext"/>
       <div id="parent">
         <form ref="searchBar" id="search" v-on:submit="doASearch($event)">
           <input type="text" class="w3-input w3-border w3-round-xlarge w3-center w3-cell" placeholder="Search a product"
