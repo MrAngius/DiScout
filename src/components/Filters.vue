@@ -38,25 +38,25 @@
               <input type="radio" :id="'star'+(star-0.5)+'_'+type" :name="'rating_'+type" :value="(star-0.5)" />
               <label class="half" :for="'star'+(star-0.5)+'_'+type" :title="(star-0.5) + 'stars'"></label>
             </template-->
-            <input type="radio" :id="'star5_'+type" :name="'rating_'+type" value="5" v-on:click="()=>rating.min=5"/>
+            <input type="radio" :id="'star5_'+type" :name="'rating_'+type" value="5" v-on:click="()=>rating.min=5" :checked="rating.min==5"/>
             <label class="full" :for="'star5_'+type" title="5 stars"></label>
-            <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" v-on:click="()=>rating.min=4.5"/>
+            <input type="radio" :id="'star4half_'+type" :name="'rating_'+type" value="4.5" v-on:click="()=>rating.min=4.5" :checked="rating.min==4.5"/>
             <label class="half" :for="'star4half_'+type" title="4.5 stars"></label>
-            <input type="radio" :id="'star4_'+type" :name="rating" value="4" v-on:click="()=>rating.min=4"/>
+            <input type="radio" :id="'star4_'+type" :name="rating" value="4" v-on:click="()=>rating.min=4" :checked="rating.min==4"/>
             <label class="full" :for="'star4_'+type" title="4 stars"></label>
-            <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" v-on:click="()=>rating.min=3.5"/>
+            <input type="radio" :id="'star3half_'+type" :name="'rating_'+type" value="3.5" v-on:click="()=>rating.min=3.5" :checked="rating.min==3.5"/>
             <label class="half" :for="'star3half_'+type" title="3.5 stars"></label>
-            <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" v-on:click="()=>rating.min=3"/>
+            <input type="radio" :id="'star3_'+type" :name="'rating_'+type" value="3" v-on:click="()=>rating.min=3" :checked="rating.min==3"/>
             <label class="full" :for="'star3_'+type" title="3 stars"></label>
-            <input type="radio" :id="'star2half_'+type" :name="'rating_'+type" value="2.5" v-on:click="()=>rating.min=2.5"/>
+            <input type="radio" :id="'star2half_'+type" :name="'rating_'+type" value="2.5" v-on:click="()=>rating.min=2.5" :checked="rating.min==2.5"/>
             <label class="half" :for="'star2half_'+type" title="2.5 stars"></label>
-            <input type="radio" :id="'star2_'+type" :name="'rating_'+type" value="2" v-on:click="()=>rating.min=2"/>
+            <input type="radio" :id="'star2_'+type" :name="'rating_'+type" value="2" v-on:click="()=>rating.min=2" :checked="rating.min==2"/>
             <label class="full" :for="'star2_'+type" title="2 stars"></label>
-            <input type="radio" :id="'star1half_'+type" :name="'rating_'+type" value="1.5" v-on:click="()=>rating.min=1.5"/>
+            <input type="radio" :id="'star1half_'+type" :name="'rating_'+type" value="1.5" v-on:click="()=>rating.min=1.5" :checked="rating.min==1.5"/>
             <label class="half" :for="'star1half_'+type" title="1.5 stars"></label>
-            <input type="radio" :id="'star1_'+type" :name="'rating_'+type" value="1" v-on:click="()=>rating.min=1"/>
+            <input type="radio" :id="'star1_'+type" :name="'rating_'+type" value="1" v-on:click="()=>rating.min=1" :checked="rating.min==1"/>
             <label class="full" :for="'star1_'+type" title="1 star"></label>
-            <input type="radio" :id="'starhalf_'+type" :name="'rating_'+type" value="0.5" v-on:click="()=>rating.min=0.5"/>
+            <input type="radio" :id="'starhalf_'+type" :name="'rating_'+type" value="0.5" v-on:click="()=>rating.min=0.5" :checked="rating.min==0.5"/>
             <label class="half" :for="'starhalf_'+type" title="0.5 stars"></label>
           </fieldset>
         </section>
