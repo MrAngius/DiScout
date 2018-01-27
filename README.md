@@ -1,6 +1,6 @@
-![Logo](static/img/icon.png)
+![Logo](static/img/logo.png)
 
-> A product tracker
+> Browse the web for the most convenient prices!
 
 ## Build Setup
 
