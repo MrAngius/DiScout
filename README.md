@@ -1,5 +1,4 @@
-![Logo](icon.png)
-# discout
+![Logo](static/img/icon.png)
 
 > A product tracker
 
