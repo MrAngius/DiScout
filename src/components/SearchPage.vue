@@ -17,7 +17,7 @@
         </form>
       </div>
       <h2 id="page-title">
-        Search a Product
+        Search page
       </h2>
       <div v-bind:class="{ 'w3-hide' : !alreadySubmit }">
         <product-list type="general" v-bind:categories="categories" v-bind:rating="rating" v-bind:price="price"
