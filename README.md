@@ -1,3 +1,4 @@
+![Logo](screenshot.png)
 # discout
 
 > A product tracker
